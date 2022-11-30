@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Developer',
-            'last_name' => 'Notsoweb',
+            'paternal' => 'Notsoweb',
             'email' => $developerEmail,
             'phone' => '5631809090',
             'password' => $developerPass,
@@ -47,7 +47,7 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Administrador',
-            'last_name' => 'Notsoweb',
+            'paternal' => 'Notsoweb',
             'email' => $adminEmail,
             'password' => $adminPass
         ])->assignRole('admin');
@@ -55,7 +55,7 @@ class UserSeeder extends Seeder
         // Usuario de prueba
         User::create([
             'name' => 'Demo',
-            'last_name' => 'Notsoweb',
+            'paternal' => 'Notsoweb',
             'email' => 'demo@notsoweb.com',
             'password' => Hash::make('Demo')
         ]);

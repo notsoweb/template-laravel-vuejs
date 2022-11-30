@@ -3,6 +3,27 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    |
+    | This value is the version of your application. This value is used when the
+    | frontend to display the version of your application.
+    |
+    */
+    'version' => '0.0.1',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Copyright
+    |--------------------------------------------------------------------------
+    |
+    | This value is the copyright of your application. This value is used when the
+    | frontend to display the copyright of your application.
+    |
+    */
+    'copyright' => env('APP_COPYRIGHT', 'Notsoweb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +90,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Mexico_City',
 
     /*
     |--------------------------------------------------------------------------
@@ -82,7 +103,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +116,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +129,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    'faker_locale' => 'es_MX',
 
     /*
     |--------------------------------------------------------------------------

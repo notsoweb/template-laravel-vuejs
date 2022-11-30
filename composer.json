@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.1.0",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.3",
         "laravel/framework": "^9.19",
@@ -58,6 +58,13 @@
             "npm run build"
         ],
         "env:prod": [
+            "composer install --no-dev",
+            "composer run post-root-package-install",
+            "composer run post-create-project-cmd",
+            "npm install",
+            "npm run build"
+        ],
+        "env:prod-lite": [
             "composer install --no-dev",
             "composer run post-root-package-install",
             "composer run post-create-project-cmd"

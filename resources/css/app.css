@@ -1,4 +1,8 @@
+/* Importación desde librerias */
 @import "toastr";
+
+/* Importacion de recursos externos */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
 
 @font-face {
     font-family: 'Material Symbols Outlined';
@@ -6,7 +10,6 @@
     font-weight: 400;
     src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v60/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1n-q_4MrImHCIJIZrDCvHOej.woff2) format('woff2');
 }
-
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
@@ -47,3 +50,35 @@ background: #d4d4d4;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn-icon-primary {
+  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-primary hover:text-primary hover:bg-gray-300 hover:border-gray-800 transition cursor-pointer;
+}
+
+.btn-icon-secondary {
+  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-secondary hover:text-secondary hover:bg-gray-300 hover:border-secondary transition cursor-pointer;
+}
+
+.header-icon-primary {
+  @apply hover:text-primary-focus focus:text-primary-focus hover:scale-105 hover:transition hover:duration-100;
+}
+
+.header-icon-primary {
+  @apply hover:text-secondary-focus focus:text-secondary-focus hover:scale-105 hover:transition hover:duration-100;
+}
+
+.input-primary {
+  @apply block w-full p-2 rounded-lg border-b-2 border-gray-200 bg-gray-50 text-sm text-primary outline-gray-400
+}
+
+.input-secondary {
+  @apply block w-full p-2 rounded-lg border-b-2 border-gray-200 bg-gray-50 text-sm text-secondary outline-gray-400
+}
+
+.table-head {
+  @apply text-base font-semibold tracking-wide text-left text-gray-100 bg-primary uppercase border-b border-gray-600;
+}
+
+.table-item {
+  @apply px-4 py-3;
+}

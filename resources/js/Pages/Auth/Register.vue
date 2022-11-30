@@ -1,16 +1,17 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import AppLogo from '@/Components/Logo.vue';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import Checkbox from '@/Components/Checkbox.vue';
+import Checkbox from '@/Components/Form/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import PrimaryButton from '@/Components/Button/Primary.vue';
+import Input from '@/Components/Form/Input.vue';
 
 const form = useForm({
     name: '',
-    last_name: '',
+    paternal: '',
+    maternal: '',
     email: '',
     phone: '',
     password: '',
@@ -30,84 +31,55 @@ const submit = () => {
 
     <AuthenticationCard>
         <template #logo>
-            <AuthenticationCardLogo />
+            <AppLogo class="text-2xl"/>
         </template>
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
-                <TextInput
-                    id="name"
-                    v-model="form.name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                />
-                <InputError class="mt-2" :message="form.errors.name" />
-            </div>
-            <div>
-                <InputLabel for="name" value="Last name" />
-                <TextInput
-                    id="name"
-                    v-model="form.last_name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                />
-                <InputError class="mt-2" :message="form.errors.name" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-                <TextInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                />
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="email" value="Phone" />
-                <TextInput
-                    id="email"
-                    v-model="form.phone"
-                    type="number"
-                    class="mt-1 block w-full"
-                    required
-                />
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-                <TextInput
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="new-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-                <TextInput
-                    id="password_confirmation"
-                    v-model="form.password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="new-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
+        <form @submit.prevent="submit" class="space-y-4">
+            <Input
+                id="name"
+                v-model="form.name"
+                :onError="form.errors.name"
+                required
+                autofocus
+            />
+            <Input
+                id="paternal"
+                v-model="form.paternal"
+                :onError="form.errors.paternal"
+                required
+            />
+            <Input
+                id="maternal"
+                v-model="form.maternal"
+                :onError="form.errors.maternal"
+            />
+            <Input
+                id="phone"
+                type="number"
+                v-model="form.phone"
+                :onError="form.errors.phone"
+            />
+            <Input
+                id="email"
+                type="email"
+                v-model="form.email"
+                :onError="form.errors.email"
+                required
+            />
+            <Input
+                id="password"
+                type="password"
+                v-model="form.password"
+                :onError="form.errors.password"
+                required
+            />
+            <Input
+                id="passwordConfirmation"
+                type="password"
+                v-model="form.password_confirmation"
+                :onError="form.errors.password_confirmation"
+                required
+            />
 
             <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="mt-4">
                 <InputLabel for="terms">
@@ -115,21 +87,21 @@ const submit = () => {
                         <Checkbox id="terms" v-model:checked="form.terms" name="terms" required />
 
                         <div class="ml-2">
-                            I agree to the <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Terms of Service</a> and <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>
+                            {{$t('I agree to the')}} <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900">{{$t('Terms of Service')}}</a> {{$t('and')}} <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900">{{$t('Privacy Policy')}}</a>
                         </div>
                     </div>
                     <InputError class="mt-2" :message="form.errors.terms" />
                 </InputLabel>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Already registered?
-                </Link>
-
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
+            <div class="flex flex-col items-center justify-end space-y-4 mt-4">
+                <PrimaryButton class="ml-4 w-full" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    {{$t('Register')}}
                 </PrimaryButton>
+
+                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                    {{$t('auth.register.already')}}
+                </Link>
             </div>
         </form>
     </AuthenticationCard>

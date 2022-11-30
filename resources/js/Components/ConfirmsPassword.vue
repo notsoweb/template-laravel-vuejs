@@ -2,24 +2,24 @@
 import { ref, reactive, nextTick } from 'vue';
 import DialogModal from './DialogModal.vue';
 import InputError from './InputError.vue';
-import PrimaryButton from './PrimaryButton.vue';
+import PrimaryButton from '@/Components/Button/Primary.vue';
 import SecondaryButton from './SecondaryButton.vue';
-import TextInput from './TextInput.vue';
+import TextInput from './Form/Input.vue';
 
 const emit = defineEmits(['confirmed']);
 
 defineProps({
     title: {
         type: String,
-        default: 'Confirm Password',
+        default: 'passwordConfirmation',
     },
     content: {
         type: String,
-        default: 'For your security, please confirm your password to continue.',
+        default: 'account.password.verify',
     },
     button: {
         type: String,
-        default: 'Confirm',
+        default: 'confirm',
     },
 });
 
@@ -69,47 +69,40 @@ const closeModal = () => {
     form.error = '';
 };
 </script>
-
 <template>
     <span>
         <span @click="startConfirmingPassword">
             <slot />
         </span>
-
         <DialogModal :show="confirmingPassword" @close="closeModal">
             <template #title>
-                {{ title }}
+                {{ $t(title) }}
             </template>
-
             <template #content>
-                {{ content }}
-
+                {{ $t(content) }}
                 <div class="mt-4">
                     <TextInput
+                        id="password"
                         ref="passwordInput"
                         v-model="form.password"
+                        :onError="form.error"
                         type="password"
                         class="mt-1 block w-3/4"
-                        placeholder="Password"
                         @keyup.enter="confirmPassword"
                     />
-
-                    <InputError :message="form.error" class="mt-2" />
                 </div>
             </template>
-
             <template #footer>
                 <SecondaryButton @click="closeModal">
-                    Cancel
+                     {{$t('cancel')}}
                 </SecondaryButton>
-
                 <PrimaryButton
                     class="ml-3"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                     @click="confirmPassword"
                 >
-                    {{ button }}
+                    {{ $t(button) }}
                 </PrimaryButton>
             </template>
         </DialogModal>

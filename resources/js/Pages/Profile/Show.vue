@@ -1,11 +1,11 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import DeleteUserForm from '@/Pages/Profile/Partials/DeleteUserForm.vue';
-import LogoutOtherBrowserSessionsForm from '@/Pages/Profile/Partials/LogoutOtherBrowserSessionsForm.vue';
+import DeleteUserForm from './Partials/DeleteUserForm.vue';
+import LogoutOtherBrowserSessionsForm from './Partials/LogoutOtherBrowserSessionsForm.vue';
 import SectionBorder from '@/Components/SectionBorder.vue';
-import TwoFactorAuthenticationForm from '@/Pages/Profile/Partials/TwoFactorAuthenticationForm.vue';
-import UpdatePasswordForm from '@/Pages/Profile/Partials/UpdatePasswordForm.vue';
-import UpdateProfileInformationForm from '@/Pages/Profile/Partials/UpdateProfileInformationForm.vue';
+import TwoFactorAuthenticationForm from './Partials/TwoFactorAuthenticationForm.vue';
+import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
+import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 
 defineProps({
     confirmsTwoFactorAuthentication: Boolean,
@@ -14,11 +14,12 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout title="Profile">
+    <AppLayout :title="$t('profile')">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Profile
-            </h2>
+            <h2
+                class="font-semibold text-xl text-gray-800 leading-tight"
+                v-text="$t('Profile')"
+            />
         </template>
 
         <div>

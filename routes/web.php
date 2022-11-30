@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HistoryLogController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -32,4 +33,22 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+    
+    # Historial de cambios en el software
+    Route::get('/changelogs', function() { 
+        return inertia('Changelogs'); 
+    })->name('changelogs.index');
+    
+    # Ayuda para el usuario
+    Route::get('/help', function() { 
+        return inertia('Help'); 
+    })->name('help.index');
+
+    # Log de Acciones
+    Route::resource('histories', HistoryLogController::class)
+    ->only([
+        'index',
+        'store'
+    ]);
 });
+

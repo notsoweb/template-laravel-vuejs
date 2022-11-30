@@ -1,12 +1,10 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import AppLogo from '@/Components/Logo.vue';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import Checkbox from '@/Components/Checkbox.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import Checkbox from '@/Components/Form/Checkbox.vue';
+import Input from '@/Components/Form/Input.vue';
+import PrimaryButton from '@/Components/Button/Primary.vue';
 
 defineProps({
     canResetPassword: Boolean,
@@ -28,61 +26,58 @@ const submit = () => {
     });
 };
 </script>
-
 <template>
-    <Head title="Log in" />
+    <Head :title="$t('auth.login')" />
 
     <AuthenticationCard>
         <template #logo>
-            <AuthenticationCardLogo />
+            <AppLogo class="text-2xl"/>
         </template>
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
+        <div v-if="status"
+            class="mb-4 font-medium text-sm text-green-600"
+        >
+            {{status}}
         </div>
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
-                <TextInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                />
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-                <TextInput
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="current-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
+        <form @submit.prevent="submit" class="space-y-4">
+            <Input
+                id="email"
+                type="email"
+                v-model="form.email"
+                :onError="form.errors.email"
+                autofocus
+                required
+            />
+            <Input
+                id="password"
+                type="password"
+                v-model="form.password"
+                :onError="form.errors.password"
+                required
+            />
             <div class="block mt-4">
                 <label class="flex items-center">
                     <Checkbox v-model:checked="form.remember" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                    <span
+                        class="ml-2 text-sm text-gray-600"
+                        v-text="$t('auth.remember')"
+                    />
                 </label>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
+            <div class="flex flex-col items-center justify-end space-y-4 mt-4">
+                <PrimaryButton
+                    class="ml-4 w-full"
+                    :class="{ 'opacity-25': form.processing }" 
+                    :disabled="form.processing"
+                    v-text="$t('auth.login')"
+                />
+                <Link v-if="canResetPassword"
+                    class="underline text-sm text-gray-600 hover:text-gray-900" 
+                    :href="route('password.request')" 
+                >
+                    {{ $t('auth.forgotPassword.ask') }}
                 </Link>
-
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
             </div>
         </form>
     </AuthenticationCard>

@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'no_match' => 'The provided password does not match your current password.',
     'reset' => 'Your password has been reset!',
     'sent' => 'We have emailed your password reset link!',
     'throttled' => 'Please wait before retrying.',

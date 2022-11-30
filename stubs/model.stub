@@ -16,4 +16,11 @@ use Illuminate\Database\Eloquent\Model;
 class {{ class }} extends Model
 {
     use HasFactory;
+
+    /**
+     * Atributos llenables masivamente
+     */
+    protected $fillable = [
+        
+    ];
 }

@@ -3,12 +3,15 @@ import { Inertia } from '@inertiajs/inertia';
 /**
  * Permite consultar si un usuario tiene un role
  */
-const hasRole = (role) => {
-    let roles = Inertia.page.props.roles;
+const hasRole = (roles) => {
+    let userRoles = Inertia.page.props.roles;
+    let verifyRoles = roles.split('|'); 
 
-    if(roles.length != 0) {
-        if(roles.indexOf(role) != -1) {
-            return true;
+    for (let role in verifyRoles) {
+        if(userRoles.length != 0) {
+            if(userRoles.indexOf(verifyRoles[role]) != -1) {
+                return true;
+            }
         }
     }
 
@@ -16,14 +19,17 @@ const hasRole = (role) => {
 }
 
 /**
- * Permite consultar si un usuario tiene un role
+ * Permite consultar si un usuario tiene un permiso especifico
  */
- const hasPermission = (permision) => {
-    let roles = Inertia.page.props.permissions;
+const hasPermission = (permisions) => {
+    let userPermissions = Inertia.page.props.permissions;
+    let verifyPermissions = permisions.split('|');
 
-    if(roles.length != 0) {
-        if(roles.indexOf(permision) != -1) {
-            return true;
+    for (let permision in verifyPermissions) {
+        if(userPermissions.length != 0) {
+            if(userPermissions.indexOf(permision) != -1) {
+                return true;
+            }
         }
     }
 

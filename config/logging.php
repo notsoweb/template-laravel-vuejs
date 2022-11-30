@@ -118,6 +118,11 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        'report' => [
+            'driver' => 'custom',
+            'via' => \App\Services\Logs\LogMonolog::class
+        ],
+
         'notsoweb' => [
             'driver' => 'single',
             'path' => storage_path('logs/notsoweb.log'),

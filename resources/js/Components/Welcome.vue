@@ -1,12 +1,14 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import ApplicationLogo from '@/Components/Logo.vue';
+import GoogleIcon from '@/Components/GoogleIcon.vue';
+import AwsIcon from './AwsIcon.vue';
 </script>
 
 <template>
-    <div>
-        <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+    <div class="w-full">
+        <div class="p-6 sm:px-20 w-full bg-white border-b border-gray-200">
             <div>
-                <ApplicationLogo class="block h-12 w-auto" />
+                <ApplicationLogo class="text-3xl" />
             </div>
 
             <div class="mt-8 text-2xl">
@@ -44,10 +46,10 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue';
                     </div>
 
                     <a href="https://laravel.com/docs">
-                        <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
+                        <div class="mt-3 flex items-center text-sm font-semibold text-primary">
                             <div>Explore the documentation</div>
 
-                            <div class="ml-1 text-indigo-500">
+                            <div class="ml-1 text-primary">
                                 <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </div>
                         </div>
@@ -77,10 +79,10 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue';
                     </div>
 
                     <a href="https://laracasts.com">
-                        <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
+                        <div class="mt-3 flex items-center text-sm font-semibold text-primary">
                             <div>Start watching Laracasts</div>
 
-                            <div class="ml-1 text-indigo-500">
+                            <div class="ml-1 text-primary">
                                 <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
                             </div>
                         </div>
@@ -130,6 +132,68 @@ import ApplicationLogo from '@/Components/ApplicationLogo.vue';
                 <div class="ml-12">
                     <div class="mt-2 text-sm text-gray-500">
                         Authentication and registration views are included with Laravel Jetstream, as well as support for user email verification and resetting forgotten passwords. So, you're free to get started what matters most: building your application.
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 border-t border-gray-200 md:border-l">
+                <div class="flex items-center">
+                    <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        class="w-8 h-8 text-gray-400"
+                    ><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                    <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">
+                        Aws Icons (Awesome)
+                    </div>
+                </div>
+
+                <div class="ml-12">
+                    <div class="w-full grid gap-4 grid-cols-5 text-gray-500">
+                        <AwsIcon name="facebook" />
+                        <AwsIcon name="twitter" />
+                        <AwsIcon name="whatsapp" />
+                        <AwsIcon name="instagram" />
+                        <AwsIcon name="youtube" />
+                        <AwsIcon name="check" type="fa" />
+                        <AwsIcon name="image" type="fa" />
+                        <AwsIcon name="poo" type="fa" />
+                        <AwsIcon name="cloud" type="fa" />
+                        <AwsIcon name="code" type="fa" />
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 border-t border-gray-200 md:border-l">
+                <div class="flex items-center">
+                    <svg
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        class="w-8 h-8 text-gray-400"
+                    ><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                    <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">
+                        Google Icons
+                    </div>
+                </div>
+
+                <div class="ml-12">
+                    <div class="w-full grid gap-4 grid-cols-5 text-gray-500">
+                        <GoogleIcon name="people" />
+                        <GoogleIcon name="people" outline />
+                        <GoogleIcon name="home" />
+                        <GoogleIcon name="home" outline />
+                        <GoogleIcon name="settings" />
+                        <GoogleIcon name="settings" outline />
+                        <GoogleIcon name="toggle_on" />
+                        <GoogleIcon name="toggle_on" outline />
+                        <GoogleIcon name="toggle_off"/>
+                        <GoogleIcon name="toggle_off" outline />
                     </div>
                 </div>
             </div>

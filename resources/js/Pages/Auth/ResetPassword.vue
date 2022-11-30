@@ -1,11 +1,9 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/inertia-vue3';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import AppLogo from '@/Components/Logo.vue';
+import PrimaryButton from '@/Components/Button/Primary.vue';
+import Input from '@/Components/Form/Input.vue';
 
 const props = defineProps({
     email: String,
@@ -31,53 +29,44 @@ const submit = () => {
 
     <AuthenticationCard>
         <template #logo>
-            <AuthenticationCardLogo />
+            <AppLogo class="text-2xl" />
         </template>
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
-                <TextInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                />
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-                <TextInput
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="new-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-                <TextInput
-                    id="password_confirmation"
-                    v-model="form.password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="new-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
+        <form @submit.prevent="submit" class="space-y-4">
+            <Input
+                id="email"
+                type="email"
+                v-model="form.email"
+                :onError="form.errors.email"
+                class="mt-1 block w-full"
+                required
+                autofocus
+            />
+            <Input
+                id="password"
+                type="password"
+                v-model="form.password"
+                :onError="form.errors.password"
+                class="mt-1 block w-full"
+                required
+                autofocus
+            />
+            <Input
+                id="passwordConfirmation"
+                type="password"
+                v-model="form.password_confirmation"
+                :onError="form.errors.password_confirmation"
+                class="mt-1 block w-full"
+                required
+                autofocus
+            />
 
             <div class="flex items-center justify-end mt-4">
-                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Reset Password
-                </PrimaryButton>
+                <PrimaryButton
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                    v-text="$t('account.password.reset')"
+                />
             </div>
         </form>
     </AuthenticationCard>

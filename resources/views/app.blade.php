@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Language" content="{{ config('app.locale', 'en') }}"/>
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
@@ -14,7 +15,7 @@
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-gray-200">
         @inertia
     </body>
 </html>

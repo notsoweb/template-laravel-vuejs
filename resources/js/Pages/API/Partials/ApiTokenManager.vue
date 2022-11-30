@@ -3,17 +3,16 @@ import { ref } from 'vue';
 import { useForm } from '@inertiajs/inertia-vue3';
 import ActionMessage from '@/Components/ActionMessage.vue';
 import ActionSection from '@/Components/ActionSection.vue';
-import Checkbox from '@/Components/Checkbox.vue';
+import Checkbox from '@/Components/Form/Checkbox.vue';
 import ConfirmationModal from '@/Components/ConfirmationModal.vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import DialogModal from '@/Components/DialogModal.vue';
 import FormSection from '@/Components/FormSection.vue';
-import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import PrimaryButton from '@/Components/Button/Primary.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import SectionBorder from '@/Components/SectionBorder.vue';
-import TextInput from '@/Components/TextInput.vue';
+import Input from '@/Components/Form/Input.vue';
 
 const props = defineProps({
     tokens: Array,
@@ -87,15 +86,13 @@ const deleteApiToken = () => {
             <template #form>
                 <!-- Token Name -->
                 <div class="col-span-6 sm:col-span-4">
-                    <InputLabel for="name" value="Name" />
-                    <TextInput
+                    <Input 
                         id="name"
                         v-model="createApiTokenForm.name"
-                        type="text"
+                        :onError="createApiTokenForm.errors.name"
                         class="mt-1 block w-full"
                         autofocus
                     />
-                    <InputError :message="createApiTokenForm.errors.name" class="mt-2" />
                 </div>
 
                 <!-- Token Permissions -->
@@ -212,7 +209,7 @@ const deleteApiToken = () => {
 
             <template #footer>
                 <SecondaryButton @click="managingPermissionsFor = null">
-                    Cancel
+                     {{$t('Cancel')}}
                 </SecondaryButton>
 
                 <PrimaryButton
@@ -221,7 +218,7 @@ const deleteApiToken = () => {
                     :disabled="updateApiTokenForm.processing"
                     @click="updateApiToken"
                 >
-                    Save
+                    {{$t('Save')}}
                 </PrimaryButton>
             </template>
         </DialogModal>
@@ -238,7 +235,7 @@ const deleteApiToken = () => {
 
             <template #footer>
                 <SecondaryButton @click="apiTokenBeingDeleted = null">
-                    Cancel
+                     {{$t('Cancel')}}
                 </SecondaryButton>
 
                 <DangerButton

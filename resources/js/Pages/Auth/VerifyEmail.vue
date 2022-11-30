@@ -2,8 +2,8 @@
 import { computed } from 'vue';
 import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import AppLogoIcon from '@/Components/Logo/Icon.vue';
+import PrimaryButton from '@/Components/Button/Primary.vue';
 
 const props = defineProps({
     status: String,
@@ -23,7 +23,7 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 
     <AuthenticationCard>
         <template #logo>
-            <AuthenticationCardLogo />
+            <AppLogoIcon />
         </template>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -53,7 +53,7 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
                         as="button"
                         class="underline text-sm text-gray-600 hover:text-gray-900 ml-2"
                     >
-                        Log Out
+                         {{$t('auth.logout')}}
                     </Link>
                 </div>
             </div>

@@ -12,7 +12,7 @@ const props = defineProps({
     },
     contentClasses: {
         type: Array,
-        default: () => ['py-1', 'bg-white'],
+        default: () => ['pt-1', 'bg-white'],
     },
 });
 
@@ -30,6 +30,11 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
 const widthClass = computed(() => {
     return {
         '48': 'w-48',
+        '52': 'w-52',
+        '56': 'w-56',
+        '60': 'w-60',
+        '64': 'w-64',
+        '72': 'w-72',
     }[props.width.toString()];
 });
 
@@ -40,6 +45,19 @@ const alignmentClasses = computed(() => {
 
     if (props.align === 'right') {
         return 'origin-top-right right-0';
+    }
+
+    if (props.align === 'icon') {
+        let size = {
+            '48': '-right-20',
+            '52': '-right-22',
+            '56': '-right-24',
+            '60': '-right-26',
+            '64': '-right-28',
+            '72': '-right-36',
+        }[props.width.toString()];
+
+        return `origin-top-right ${size}`;
     }
 
     return 'origin-top';
@@ -53,7 +71,7 @@ const alignmentClasses = computed(() => {
         </div>
 
         <!-- Full Screen Dropdown Overlay -->
-        <div v-show="open" class="fixed inset-0 z-40" @click="open = false" />
+        <div v-show="open" class=" fixed inset-0 z-40" @click="open = false" />
 
         <transition
             enter-active-class="transition ease-out duration-200"
@@ -65,7 +83,7 @@ const alignmentClasses = computed(() => {
         >
             <div
                 v-show="open"
-                class="absolute z-50 mt-2 rounded-md shadow-lg"
+                class="absolute z-[1000] mt-2 rounded-t-md shadow-lg"
                 :class="[widthClass, alignmentClasses]"
                 style="display: none;"
                 @click="open = false"

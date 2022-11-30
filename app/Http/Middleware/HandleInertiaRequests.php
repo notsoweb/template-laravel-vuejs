@@ -24,7 +24,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function version(Request $request): ?string
     {
-        return parent::version($request);
+        return config('app.version');
     }
 
     /**
@@ -37,7 +37,9 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            //
+            'lang'=> config('app.locale'),
+            'roles' => auth()?->user()?->getRoleNames(),
+            'permissions' => auth()?->user()?->getPermissionNames(),
         ]);
     }
 }
