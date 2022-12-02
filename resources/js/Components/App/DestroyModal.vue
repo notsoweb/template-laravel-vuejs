@@ -1,6 +1,6 @@
 <script setup>
-import DialogModal from '@/Components/DialogModal.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
+import DialogModal from '@/Components/App/DialogModal.vue';
+import SecondaryButton from '@/Components/App/SecondaryButton.vue';
     
 const emit = defineEmits([
     'destroy', 

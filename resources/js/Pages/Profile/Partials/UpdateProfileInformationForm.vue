@@ -2,13 +2,13 @@
 import { ref } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import { Link, useForm } from '@inertiajs/inertia-vue3';
-import ActionMessage from '@/Components/ActionMessage.vue';
-import FormSection from '@/Components/FormSection.vue';
-import Label from '@/Components/Form/Elements/Label.vue';
-import Error from '@/Components/Form/Elements/Error.vue';
-import PrimaryButton from '@/Components/Button/Primary.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import Input from '@/Components/Form/Input.vue';
+import ActionMessage from '@/Components/App/ActionMessage.vue';
+import FormSection from '@/Components/App/FormSection.vue';
+import Label from '@/Components/App/Form/Elements/Label.vue';
+import Error from '@/Components/App/Form/Elements/Error.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
+import SecondaryButton from '@/Components/App/SecondaryButton.vue';
+import Input from '@/Components/App/Form/Input.vue';
 
 const props = defineProps({
     user: Object,

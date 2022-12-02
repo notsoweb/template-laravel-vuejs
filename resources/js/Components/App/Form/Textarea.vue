@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import Label from '@/Components/Form/Elements/Label.vue';
-import Error from '@/Components/Form/Elements/Error.vue';
+import Label from '@/Components/App/Form/Elements/Label.vue';
+import Error from '@/Components/App/Form/Elements/Error.vue';
 
 defineProps({
     title: String,

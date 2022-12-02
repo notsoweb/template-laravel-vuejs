@@ -3,13 +3,13 @@ import { ref } from 'vue';
 import { Inertia} from '@inertiajs/inertia'
 import { Link } from '@inertiajs/inertia-vue3';
 import { hasRole }  from '@/rolePermission.js';
-import Icon from '@/Components/GoogleIcon.vue';
+import Icon from '@/Components/App/GoogleIcon.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Table from '@/Components/Table.vue';
-import Item from '@/Components/Help/Item.vue';
-import Input from '@/Components/Form/Input.vue';
-import PageHeader from '@/Components/PageHeader.vue';
-import IconPrimary from '../Components/Button/Primary.vue';
+import Table from '@/Components/App/Table.vue';
+import Item from '@/Components/App/Help/Item.vue';
+import Input from '@/Components/App/Form/Input.vue';
+import PageHeader from '@/Components/App/PageHeader.vue';
+import IconPrimary from '@/Components/App/Button/Primary.vue';
 
 defineProps({
     users: String,

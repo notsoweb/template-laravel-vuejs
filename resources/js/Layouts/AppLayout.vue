@@ -1,8 +1,8 @@
 <script setup>
 import {Head} from '@inertiajs/inertia-vue3';
 import { Inertia } from '@inertiajs/inertia';
-import Header from '@/Components/Skeleton/Header.vue';
-import Sidebar from '@/Components/Skeleton/Sidebar.vue';
+import Header from '@/Components/App/Skeleton/Header.vue';
+import Sidebar from '@/Components/App/Skeleton/Sidebar.vue';
 
 defineProps({
     title: String,

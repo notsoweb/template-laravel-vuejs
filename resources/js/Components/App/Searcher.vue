@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import TextInput from '@/Components/TextInput.vue';
-import Icon from '@/Components/Icon.vue';
+import TextInput from '@/Components/App/TextInput.vue';
+import Icon from '@/Components/App/Icon.vue';
 
 const emit = defineEmits(['search']);
 

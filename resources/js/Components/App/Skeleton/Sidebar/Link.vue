@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { Link } from '@inertiajs/inertia-vue3';
-import Icon from '@/Components/GoogleIcon.vue';
+import Icon from '@/Components/App/GoogleIcon.vue';
 
 const props = defineProps({
     to: String,

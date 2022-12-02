@@ -1,16 +1,16 @@
 <script setup>
-import DialogModal from '@/Components/DialogModal.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
+import DialogModal from '@/Components/App/DialogModal.vue';
+import SecondaryButton from '@/Components/App/SecondaryButton.vue';
     
 const emit = defineEmits([
-    'edit', 
+    'update', 
     'close'
 ]);
 
 const props = defineProps({
     title: {
         type: String,
-        default: "Detalles"
+        default: "Editar"
     },
     show: Boolean,
 });
@@ -26,7 +26,7 @@ const props = defineProps({
         <template #footer>
             <div class="space-x-2">
                 <slot name="buttons" />
-                <SecondaryButton @click="$emit('edit')">
+                <SecondaryButton @click="$emit('update')">
                     Actualizar
                 </SecondaryButton>
                 <SecondaryButton @click="$emit('close')">

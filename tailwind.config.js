@@ -19,6 +19,7 @@ module.exports = {
             },
             colors: {
                 'primary':'#111827',
+                'primary-text':'#FFFFFF',
                 'primary-focus':'#EAB308',
                 'primary-hover':'#374151',
                 'secondary':'#73581C',

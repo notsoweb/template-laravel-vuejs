@@ -1,18 +1,18 @@
 <script setup>
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/inertia-vue3';
-import ActionMessage from '@/Components/ActionMessage.vue';
-import ActionSection from '@/Components/ActionSection.vue';
-import Checkbox from '@/Components/Form/Checkbox.vue';
-import ConfirmationModal from '@/Components/ConfirmationModal.vue';
-import DangerButton from '@/Components/DangerButton.vue';
-import DialogModal from '@/Components/DialogModal.vue';
-import FormSection from '@/Components/FormSection.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/Button/Primary.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import SectionBorder from '@/Components/SectionBorder.vue';
-import Input from '@/Components/Form/Input.vue';
+import ActionMessage from '@/Components/App/ActionMessage.vue';
+import ActionSection from '@/Components/App/ActionSection.vue';
+import Checkbox from '@/Components/App/Form/Checkbox.vue';
+import ConfirmationModal from '@/Components/App/ConfirmationModal.vue';
+import DangerButton from '@/Components/App/DangerButton.vue';
+import DialogModal from '@/Components/App/DialogModal.vue';
+import FormSection from '@/Components/App/FormSection.vue';
+import InputLabel from '@/Components/App/InputLabel.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
+import SecondaryButton from '@/Components/App/SecondaryButton.vue';
+import SectionBorder from '@/Components/App/SectionBorder.vue';
+import Input from '@/Components/App/Form/Input.vue';
 
 const props = defineProps({
     tokens: Array,

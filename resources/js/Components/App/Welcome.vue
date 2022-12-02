@@ -1,6 +1,6 @@
 <script setup>
-import ApplicationLogo from '@/Components/Logo.vue';
-import GoogleIcon from '@/Components/GoogleIcon.vue';
+import ApplicationLogo from '@/Components/App/Logo.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import AwsIcon from './AwsIcon.vue';
 </script>
 

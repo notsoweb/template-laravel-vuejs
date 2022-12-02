@@ -1,11 +1,11 @@
 <script setup>
 import { Inertia } from '@inertiajs/inertia';
-import NotificationLink from  '@/Components/Skeleton/Header/NotificationLink.vue';
-import GoogleIcon from '@/Components/GoogleIcon.vue';
-import LogoIcon from '@/Components/Logo/Icon.vue';
-import Logo from '@/Components/Logo.vue';
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
+import NotificationLink from  '@/Components/App/Skeleton/Header/NotificationLink.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
+import LogoIcon from '@/Components/App/Logo/Icon.vue';
+import Logo from '@/Components/App/Logo.vue';
+import Dropdown from '@/Components/App/Dropdown.vue';
+import DropdownLink from '@/Components/App/DropdownLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 
 const logout = () => {

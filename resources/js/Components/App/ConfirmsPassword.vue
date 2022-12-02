@@ -2,7 +2,7 @@
 import { ref, reactive, nextTick } from 'vue';
 import DialogModal from './DialogModal.vue';
 import InputError from './InputError.vue';
-import PrimaryButton from '@/Components/Button/Primary.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
 import SecondaryButton from './SecondaryButton.vue';
 import TextInput from './Form/Input.vue';
 

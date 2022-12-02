@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from 'vue';
 import { Head, useForm } from '@inertiajs/inertia-vue3';
-import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AppLogoIcon from '@/Components/Logo/Icon.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/Button/Primary.vue';
-import TextInput from '@/Components/TextInput.vue';
+import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
+import AppLogoIcon from '@/Components/App/Logo/Icon.vue';
+import InputError from '@/Components/App/InputError.vue';
+import InputLabel from '@/Components/App/InputLabel.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
+import TextInput from '@/Components/App/TextInput.vue';
 
 const form = useForm({
     password: '',

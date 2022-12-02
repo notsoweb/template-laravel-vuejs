@@ -1,7 +1,7 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3';
 import { computed } from 'vue';
-import GoogleIcon from '@/Components/GoogleIcon.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 
 defineProps({
     href: String,

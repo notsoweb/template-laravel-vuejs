@@ -3,10 +3,10 @@ import { ref } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import ApplicationMark from '@/ComponentslicationMark.vue';
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-import NavLink from '@/Components/NavLink.vue';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import Dropdown from '@/Components/App/Dropdown.vue';
+import DropdownLink from '@/Components/App/DropdownLink.vue';
+import NavLink from '@/Components/App/NavLink.vue';
+import ResponsiveNavLink from '@/Components/App/ResponsiveNavLink.vue';
 
 defineProps({
     title: String,

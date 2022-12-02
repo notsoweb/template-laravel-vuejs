@@ -1,7 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Table from '@/Components/Table.vue';
-import Item from '@/Components/Help/Item.vue';
+import Table from '@/Components/App/Table.vue';
+import Item from '@/Components/App/Help/Item.vue';
 
 defineProps({
     users: String

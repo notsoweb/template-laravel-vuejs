@@ -1,5 +1,5 @@
 <script setup>
-  import Icon from '@/Components/GoogleIcon.vue';
+  import Icon from '@/Components/App/GoogleIcon.vue';
   defineProps({
     icon: String,
     version: String

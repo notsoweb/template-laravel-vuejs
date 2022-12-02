@@ -1,6 +1,6 @@
 <script setup>
 import { Head } from '@inertiajs/inertia-vue3';
-import AppLogoIcon from '@/Components/Logo/Icon.vue';
+import AppLogoIcon from '@/Components/App/Logo/Icon.vue';
 
 defineProps({
     policy: String,

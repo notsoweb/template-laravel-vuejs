@@ -1,7 +1,7 @@
 <script setup>
-import Icon from '@/Components/Icon.vue';
-import Label from '@/Components/Form/Elements/Label.vue';
-import Error from '@/Components/Form/Elements/Error.vue';
+import Icon from '@/Components/App/Icon.vue';
+import Label from '@/Components/App/Form/Elements/Label.vue';
+import Error from '@/Components/App/Form/Elements/Error.vue';
 import { computed, ref } from 'vue';
 
 defineEmits([
