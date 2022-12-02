@@ -71,8 +71,8 @@ onMounted(()=>{
             </div>
         </template>
         <div class="flex w-full justify-center space-x-4">
-            <button class="w-fit px-4 py-2 bg-primary text-white" type="submit">Guardar</button>
-            <button @click="addForm" class="w-fit px-4 py-2 bg-primary text-white" type="button">Agregar otro</button>
+            <button class="w-fit px-4 py-2 bg-primary text-primary-text" type="submit">Guardar</button>
+            <button @click="addForm" class="w-fit px-4 py-2 bg-primary text-primary-text" type="button">Agregar otro</button>
         </div>
     </form>
 </template>

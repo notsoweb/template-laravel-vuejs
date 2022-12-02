@@ -68,7 +68,7 @@ background: #d4d4d4;
 }
 
 .input-primary {
-  @apply block w-full p-2 rounded-lg border-b-2 border-gray-200 bg-gray-50 text-sm text-primary outline-gray-400
+  @apply block w-full p-2 rounded-lg border-b-2 border-gray-200 bg-gray-50 text-sm text-black outline-gray-400
 }
 
 .input-secondary {
@@ -76,7 +76,7 @@ background: #d4d4d4;
 }
 
 .table-head {
-  @apply text-base font-semibold tracking-wide text-left text-gray-100 bg-primary uppercase border-b border-gray-600;
+  @apply text-base font-semibold tracking-wide text-left text-primary-text bg-primary uppercase border-b border-gray-600;
 }
 
 .table-item {

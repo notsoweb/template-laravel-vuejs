@@ -15,7 +15,7 @@ const logout = () => {
 </script>
 <template>
     <!-- Header -->
-    <header class="fixed w-full flex items-center justify-between h-14 bg-primary text-white z-10">
+    <header class="fixed w-full flex items-center justify-between h-14 bg-primary text-primary-text z-10">
       <div class="flex w-fit justify-start items-center h-14 header-right">
         <ul class="flex ml-4 space-x-4 items-center">
           <li>
@@ -56,7 +56,7 @@ const logout = () => {
 
                     </div>
                     <div class="border-t border-gray-100" />
-                    <Link :href="route('profile.show')" class="inline-flex w-full py-1 justify-center text-white bg-primary hover:bg-primary-hover transition">
+                    <Link :href="route('profile.show')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-primary-hover text-primary-text transition">
                         Ver todo
                     </Link>
                 </template>

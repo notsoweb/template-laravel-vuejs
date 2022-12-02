@@ -10,7 +10,7 @@ defineProps({
 </script>
 <template>
   <AppLayout :title="$t('changelogs.title')">
-    <div class="w-full px-6 bg-white border-gray-200">
+    <div class="w-full px-6">
       <div class="mt-8">
         <p v-text="$t('changelogs.description')" />
       </div>
