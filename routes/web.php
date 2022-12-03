@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\HistoryLogController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -36,6 +37,11 @@ Route::middleware([
         return inertia('Help'); 
     })->name('help.index');
 
+    # Recursos externos consultables
+    Route::prefix('resources')->name('resources.')->group(function(){
+       Route::get('/rolesByUser/{user}', [ResourceController::class, 'rolesByUser'])->name('rolesByUser');
+    });
+
     # Log de Acciones
     Route::resource('histories', HistoryLogController::class)
     ->only([
@@ -44,3 +50,16 @@ Route::middleware([
     ]);
 });
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'role:admin|developer'
+])->group(function () {
+    Route::resource('users', UserController::class);
+    Route::prefix('/users')->name('users.')->group(function()
+    {
+        Route::get('{user}/settings', [UserController::class, 'settings'])->name('settings');
+        Route::post('/password', [UserController::class, 'updatePassword'])->name('password');
+        Route::post('/syncRoles', [UserController::class, 'syncRoles'])->name('syncRoles');
+    });
+});

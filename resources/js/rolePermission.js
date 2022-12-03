@@ -4,7 +4,7 @@ import { Inertia } from '@inertiajs/inertia';
  * Permite consultar si un usuario tiene un role
  */
 const hasRole = (roles) => {
-    let userRoles = Inertia.page.props.roles;
+    let userRoles = Inertia.page.props.shareUserRoles;
     let verifyRoles = roles.split('|'); 
 
     for (let role in verifyRoles) {
@@ -22,7 +22,7 @@ const hasRole = (roles) => {
  * Permite consultar si un usuario tiene un permiso especifico
  */
 const hasPermission = (permisions) => {
-    let userPermissions = Inertia.page.props.permissions;
+    let userPermissions = Inertia.page.props.shareUserPermissions;
     let verifyPermissions = permisions.split('|');
 
     for (let permision in verifyPermissions) {

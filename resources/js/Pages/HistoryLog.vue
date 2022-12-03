@@ -12,14 +12,13 @@ import PageHeader from '@/Components/App/PageHeader.vue';
 import IconPrimary from '@/Components/App/Button/Primary.vue';
 
 defineProps({
-    users: String,
-    histories: Object
+  users: String,
+  histories: Object
 });
 
 let dateStart = ref('');
 let dateEnd = ref('');
 let historyEvent = ref('');
-let downloadModal = ref(false)
 
 const formatDate = (date) => {
   let x = new Date(date);
@@ -68,32 +67,32 @@ const searchWithPagination = (page) =>  {
     </div>
     <div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
       <div v-if="hasRole('admin|developer')">
-      <Input
-            id="search"
-            title="event"
-            v-model="historyEvent"
-            required
-            autocomplete="off"
-            @keyup.enter="search"
+        <Input
+          id="search"
+          title="event"
+          v-model="historyEvent"
+          required
+          autocomplete="off"
+          @keyup.enter="search"
         />
       </div>
       <div>
         <Input
-              id="startDate"
-              v-model="dateStart"
-              type="date"
-              autocomplete="off"
-              @keyup.enter="search"
-          />
+          id="startDate"
+          v-model="dateStart"
+          type="date"
+          autocomplete="off"
+          @keyup.enter="search"
+        />
       </div>
       <div>
         <Input
-              id="endDate"
-              v-model="dateEnd"
-              type="date"
-              autocomplete="off"
-              @keyup.enter="search"
-          />
+          id="endDate"
+          v-model="dateEnd"
+          type="date"
+          autocomplete="off"
+          @keyup.enter="search"
+        />
       </div>
       <div class="flex items-end">
         <IconPrimary @click="search" class="w-full">{{$t('search')}} </IconPrimary>
@@ -118,13 +117,33 @@ const searchWithPagination = (page) =>  {
                   <p class="font-semibold text-black">
                     <b>Hora:</b> {{ formatTime(history.created_at) }}
                   </p>
+                  <p class="font-semibold text-black">
+                    <b>User:</b> {{ history.name }} {{ history.paternal }} {{ history.maternal }}
+                  </p>
                 </div>
                 <p class="font-semibold text-black">
+                  <p><b>{{$t('description')}}:</b></p>
                   {{ history.message }}
                 </p>
               </div>
             </Item>
           </template>
+          <tr v-if="histories.total < 1" class="text-gray-700">
+            <td class="table-item border">
+              <div class="flex items-center text-sm">
+                <div>
+                  -
+                </div>
+              </div>
+            </td>
+            <td class="table-item border">
+              <div class="flex items-center text-sm">
+                <div>
+                  {{$t('noRecords')}}
+                </div>
+              </div>
+            </td>
+          </tr>
         </template>
       </Table>
     </div>

@@ -17,6 +17,7 @@
           <Link name="history.title"  icon="history_toggle_off" to="histories.index"/>
         </Section>
         <template v-if="hasRole('admin|developer')">
+          <Link name="users.title"  icon="people" to="users.index"/>
           <Link name="changelogs.title"  icon="history" to="changelogs.index"/>
         </template>
       </ul>

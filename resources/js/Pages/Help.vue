@@ -1,7 +1,10 @@
 <script setup>
+import { Link } from '@inertiajs/inertia-vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Table from '@/Components/App/Table.vue';
 import Item from '@/Components/App/Help/Item.vue';
+import PageHeader from '@/Components/App/PageHeader.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 
 defineProps({
     users: String
@@ -10,6 +13,11 @@ defineProps({
 </script>
 <template>
   <AppLayout :title="$t('help.title')">
+    <PageHeader>
+      <Link :href="route('dashboard')">
+          <GoogleIcon class="btn-icon-primary" name="home" outline />
+      </Link>
+    </PageHeader>
     <div class="w-full px-6 bg-white border-gray-200">
       <div class="mt-8">
         <p v-text="$t('help.description')"></p>

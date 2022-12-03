@@ -38,8 +38,8 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'lang'=> config('app.locale'),
-            'roles' => auth()?->user()?->getRoleNames(),
-            'permissions' => auth()?->user()?->getPermissionNames(),
+            'shareUserRoles' => auth()?->user()?->getRoleNames(),
+            'shareUserPermissions' => auth()?->user()?->getPermissionNames(),
         ]);
     }
 }

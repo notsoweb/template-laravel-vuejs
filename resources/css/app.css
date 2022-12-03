@@ -1,5 +1,6 @@
 /* Importación desde librerias */
 @import "toastr";
+@import "vue-multiselect/dist/vue-multiselect.css";
 
 /* Importacion de recursos externos */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');

@@ -29,5 +29,9 @@ class RoleSeeder extends Seeder
         $developer = Role::create([
             'name' => 'developer'
         ]);
+
+        $basic = Role::create([
+            'name' => 'basic'
+        ]);
     }
 }

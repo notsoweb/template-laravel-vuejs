@@ -63,6 +63,7 @@ export default {
             title:'Autenticación de dos factores',
         },
     },
+    actions:'Acciones',
     auth: {
         forgotPassword: {
             ask: '¿Olvidaste tu contraseña?',
@@ -102,12 +103,13 @@ export default {
     },
     history: {
         title:'Historial de acciones',
-        description:'History of actions performed by users in chronological order.'
+        description:'Historial de acciones realizadas por los usuarios en orden cronológico.'
     },
     home:'Inicio',
     icon:'Icono',
     maternal:'Apellido materno',
     name:'Nombre',
+    noRecords:'Sin registros',
     notifications: {
         title:'Notificaciones',
     },
@@ -132,5 +134,27 @@ export default {
         service:'Terminos de servicio',
     },
     unknown:'Desconocido',
+    update:'Actualizar',
+    updated:'Actualizado',
+    user:'Usuario',
+    users:{
+        deleted:'Usuario eliminado',
+        notFount:'Usuario no encontrado',
+        password: {
+            description:'Permite actualizar las contraseñas de los usuarios sobreescribiendola.',
+            title:'Actualizar contraseña',
+        },
+        roles: {
+            description:'Actualiza los roles de los usuarios, permitiendo o denegando los accesos a determinadas áreas.',
+            error:{
+                min:'Seleccionar minumo un role'
+            },
+            title:'Roles',
+        },
+        select:'Seleccionar usuario',
+        settings:'Ajustes del usuario',
+        system:'Usuarios del sistema',
+        title:'Usuarios',
+    },
     version:'Versión',
 }

@@ -63,6 +63,7 @@ export default {
             title:'Two Factor Authentication',
         },
     },
+    actions:'Actions',
     auth: {
         forgotPassword: {
             ask: 'Forgot your password?',
@@ -108,6 +109,7 @@ export default {
     icon:'Icon',
     maternal:'Mother\'s last name',
     name:'Name',
+    noRecords:'No records',
     notifications: {
         title:'Notifications',
     },
@@ -132,5 +134,27 @@ export default {
         service:'Terms of Service',
     },
     unknown:'Unknown',
+    update:'Update',
+    updates:'Updates',
+    user:'User',
+    users:{
+        deleted:'User deleted',
+        notFount:'User not found',
+        password: {
+            description:'Allows users\' passwords to be updated',
+            title:'Update password',
+        },
+        roles: {
+            description:'Updates user roles, allowing or denying access to certain areas.',
+            error:{
+                min:'Select at least one role'
+            },
+            title:'Roles',
+        },
+        select:'Select a user',
+        settings:'User setting',
+        system:'System users',
+        title:'Users',
+    },
     version:'Version',
 }

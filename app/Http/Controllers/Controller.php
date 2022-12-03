@@ -54,7 +54,7 @@ class Controller extends BaseController
      * @param array $json Array de datos
      * @param string $context Información adicional
      */
-    public function reportUpdated(string $module, array $json, string $context = null) : void
+    public function reportUpdate(string $module, array $json, string $context = null) : void
     {
         $this->reportQty("{$module}.updated", $json, 1, $context);
     }

@@ -58,6 +58,34 @@ class UserSeeder extends Seeder
             'paternal' => 'Notsoweb',
             'email' => 'demo@notsoweb.com',
             'password' => Hash::make('Demo')
-        ]);
+        ]) ->assignRole('basic');
+        // Usuario de prueba
+        User::create([
+            'name' => 'Demo2',
+            'paternal' => 'Notsoweb',
+            'email' => 'demo2@notsoweb.com',
+            'password' => Hash::make('Demo')
+        ]) ->assignRole('basic');
+        // Usuario de prueba
+        User::create([
+            'name' => 'Demo3',
+            'paternal' => 'Notsoweb',
+            'email' => 'demo3@notsoweb.com',
+            'password' => Hash::make('Demo')
+        ]) ->assignRole('basic');
+        // Usuario de prueba
+        User::create([
+            'name' => 'Demo4',
+            'paternal' => 'Notsoweb',
+            'email' => 'demo4@notsoweb.com',
+            'password' => Hash::make('Demo')
+        ]) ->assignRole('basic');
+        // Usuario de prueba
+        User::create([
+            'name' => 'Demo5',
+            'paternal' => 'Notsoweb',
+            'email' => 'demo5@notsoweb.com',
+            'password' => Hash::make('Demo')
+        ]) ->assignRole('basic');
     }
 }
