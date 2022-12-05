@@ -39,6 +39,7 @@ defineProps({
                 <li>Allows to assign roles to the user.</li>
                 <li>Report action to edit, delete, update roles and delete users.</li>
                 <li>Create new users.</li>
+                <li>Create and edit roles.</li>
               </ul>
             </p>
           </Item>
