@@ -124,6 +124,16 @@ export default {
         title:'Photo',
     },
     profile:'Profile',
+    roles:{
+        create: {
+            title: 'Create role',
+            description: 'These roles will be used to give permissions in the system.',
+            onSuccess: 'Role successfully created',
+            onError: 'Error when creating the role',
+        },
+        deleted:'Role deleted',
+        title: 'Roles',
+    },
     save:'Save',
     saved:'Saved!',
     search:'Search',

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HistoryLogController;
 use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -62,4 +63,12 @@ Route::middleware([
         Route::post('/password', [UserController::class, 'updatePassword'])->name('password');
         Route::post('/syncRoles', [UserController::class, 'syncRoles'])->name('syncRoles');
     });
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'role:developer'
+])->group(function () {
+    Route::resource('roles', RoleController::class);
 });

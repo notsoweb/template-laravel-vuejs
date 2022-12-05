@@ -23,15 +23,18 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $admin = Role::create([
-            'name' => 'admin'
+            'name' => 'admin',
+            'description' => 'Administrador del sistema'
         ]);
         
         $developer = Role::create([
-            'name' => 'developer'
+            'name' => 'developer',
+            'description' => 'Desarrollador del sistema, desbloquea opciones ocultas.'
         ]);
 
         $basic = Role::create([
-            'name' => 'basic'
+            'name' => 'basic',
+            'description' => 'Identifica un usuario sin privilegios'
         ]);
     }
 }

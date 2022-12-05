@@ -98,7 +98,7 @@ const submit = () => {
                 <PrimaryButton
                     :class="{ 'opacity-25': form.processing }" 
                     :disabled="form.processing"
-                    v-text="$t('auth.login')"
+                    v-text="$t('users.create.title')"
                 />
             </div>
         </form>
