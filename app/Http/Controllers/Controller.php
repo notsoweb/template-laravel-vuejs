@@ -42,7 +42,29 @@ class Controller extends BaseController
      */
     public function reportDuplicated(string $module, array $json, string $context = null) : void
     {
-        $this->reportQty("{$module}.duplicated", $json, 1, $context);
+        $this->reportQty(
+            action:"{$module}.duplicated",
+            json: $json,
+            attribute: $context
+        );
+    }
+
+    /**
+     * Reporta la creación de un registro
+     * 
+     * @version 1.0.0
+     * 
+     * @param string $module Modulo sobre el que se desencadena la acción
+     * @param array $json Array de datos
+     * @param string $context Información adicional
+     */
+    public function reportCreate(string $module, array $json, string $context = null) : void
+    {
+        $this->reportQty(
+            action:"{$module}.created",
+            json: $json,
+            attribute: $context
+        );
     }
 
     /**
@@ -56,7 +78,11 @@ class Controller extends BaseController
      */
     public function reportUpdate(string $module, array $json, string $context = null) : void
     {
-        $this->reportQty("{$module}.updated", $json, 1, $context);
+        $this->reportQty(
+            action:"{$module}.updated",
+            json: $json,
+            attribute: $context
+        );
     }
 
     /**
@@ -70,7 +96,11 @@ class Controller extends BaseController
      */
     public function reportDestroy(string $module, array $json, string $context = null) : void
     {
-        $this->reportQty("{$module}.destroy", $json, 1, $context);
+        $this->reportQty(
+            action:"{$module}.destroyed",
+            json: $json,
+            attribute: $context
+        );
     }
 
     /**

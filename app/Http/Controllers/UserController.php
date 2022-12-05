@@ -4,6 +4,7 @@
  */
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,6 +39,32 @@ class UserController extends Controller
                 'phone'
             ])->paginate(config('app.pagination')),
         ]);
+    }
+
+    /**
+     * Formulario para crear un usuario
+     */
+    public function create()
+    {
+        return Inertia::render('User/Create');
+    }
+
+    /**
+     * Almacena un nuevo usuario
+     */
+    public function store(StoreUser $request)
+    {
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
+
+        $user = User::create($data);
+        $user->assignRole('basic');
+
+        $this->reportCreate('users', $user->toArray(), __('users.updated', [
+            'user' => $user->fullName
+        ]));
+
+        return $this->settings($user);
     }
 
     /**

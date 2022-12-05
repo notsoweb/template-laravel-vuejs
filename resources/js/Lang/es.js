@@ -138,6 +138,12 @@ export default {
     updated:'Actualizado',
     user:'Usuario',
     users:{
+        create:{
+            title:'Crear usuario',
+            description:'Permite crear nuevos usuarios. No olvides otorgarle roles para que pueda acceder a las partes del sistema deseados.',
+            onSuccess:'Usuario creado',
+            onError:'Ocurrió un error al crear el usuario'
+        },
         deleted:'Usuario eliminado',
         notFount:'Usuario no encontrado',
         password: {

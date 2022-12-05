@@ -3,9 +3,7 @@ import { ref } from 'vue';
 import { hasRole } from '@/rolePermission.js';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Roles from './Roles.vue';
 import Table from '@/Components/App/Table.vue';
-import UpdatePassword from './UpdatePassword.vue';
 import PageHeader from '@/Components/App/PageHeader.vue';
 
 import ShowView from './Show.vue';
@@ -63,6 +61,9 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
         <PageHeader>
           <Link :href="route('dashboard')">
               <GoogleIcon class="btn-icon-primary" name="home" outline />
+          </Link>
+          <Link :href="route('users.create')">
+              <GoogleIcon class="btn-icon-primary" name="add" outline />
           </Link>
         </PageHeader>
         <div class="pt-2 w-full">

@@ -138,6 +138,12 @@ export default {
     updates:'Updates',
     user:'User',
     users:{
+        create:{
+            title:'Create user',
+            description:'Allows you to create new users. Don\'t forget to give them roles so that they can access the desired parts of the system.',
+            onSuccess:'User created',
+            onError:'An error occurred while creating the user',
+        },
         deleted:'User deleted',
         notFount:'User not found',
         password: {
