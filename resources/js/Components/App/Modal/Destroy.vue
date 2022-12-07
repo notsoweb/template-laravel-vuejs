@@ -1,6 +1,7 @@
 <script setup>
 import DialogModal from '@/Components/App/DialogModal.vue';
-import SecondaryButton from '@/Components/App/SecondaryButton.vue';
+import SecondaryButton from '@/Components/App/Button/Secondary.vue';
+import DangerButton from '@/Components/App/Button/Danger.vue';
     
 const emit = defineEmits([
     'destroy', 
@@ -10,7 +11,7 @@ const emit = defineEmits([
 const props = defineProps({
     title: {
         type: String,
-        default: "Eliminar registro"
+        default: lang('delete.title')
     },
     show: Boolean,
 });
@@ -22,17 +23,22 @@ const props = defineProps({
         </template>
         <template #content>
             <slot />
-            <p class="mt-4 text-justify text-red-500">Al presionar ELIMINAR el registro se eliminará permanentemente y no podrá recuperarse.</p>
+            <p 
+                class="mt-4 text-justify text-red-500"
+                v-text="$t('delete.confirm')"
+            />
         </template>
         <template #footer>
             <div class="space-x-2">
                 <slot name="buttons" />
-                <SecondaryButton @click="$emit('destroy')" class="bg-red-500 text-white hover:text-white hover:opacity-80">
-                    Eliminar
-                </SecondaryButton>
-                <SecondaryButton @click="$emit('close')">
-                    Cancelar
-                </SecondaryButton>
+                <DangerButton
+                    @click="$emit('destroy')"
+                    v-text="$t('delete.title')"
+                />
+                <SecondaryButton
+                    @click="$emit('close')"
+                    v-text="$t('cancel')"
+                />
             </div>
         </template>
     </DialogModal>

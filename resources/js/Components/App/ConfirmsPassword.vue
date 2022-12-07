@@ -1,10 +1,9 @@
 <script setup>
 import { ref, reactive, nextTick } from 'vue';
 import DialogModal from './DialogModal.vue';
-import InputError from './InputError.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
 import SecondaryButton from './SecondaryButton.vue';
-import TextInput from './Form/Input.vue';
+import Input from './Form/Input.vue';
 
 const emit = defineEmits(['confirmed']);
 
@@ -81,7 +80,7 @@ const closeModal = () => {
             <template #content>
                 {{ $t(content) }}
                 <div class="mt-4">
-                    <TextInput
+                    <Input
                         id="password"
                         ref="passwordInput"
                         v-model="form.password"

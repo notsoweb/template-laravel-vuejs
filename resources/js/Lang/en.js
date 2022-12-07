@@ -17,6 +17,7 @@ export default {
             description:'Ensure your account is using a long, random password to stay secure.',
             new:'New password',
             reset:'Reset password',
+            secure:'This is a secure area of the application. Please confirm your password before continuing.',
             update: 'Update Password',
             verify:'For your security, please confirm your password to continue.',
         },
@@ -86,12 +87,20 @@ export default {
         description: 'List of changes made to the system.',
     },
     confirm:'Confirm',
-    copyright:'Todos los derechos reservados.',
+    copyright:'All rights reserved.',
+    contact:'Contact',
     description:'Description',
-    date:'Fecha',
+    date:'Date',
+    delete: {
+        confirm:"By pressing DELETE the record will be permanently deleted and cannot be recovered.",
+        title:'Deleted',
+    },
+    deleted:'Deleted',
+    details:'Details',
     disable:'Disable',
     disabled:'Disable',
     done:'Done.',
+    edit:'Edit',
     email:'Email',
     enable:'Enable',
     endDate:'End date',
@@ -124,6 +133,7 @@ export default {
         title:'Photo',
     },
     profile:'Profile',
+    role:'Role',
     roles:{
         create: {
             title: 'Create role',
@@ -137,6 +147,10 @@ export default {
     save:'Save',
     saved:'Saved!',
     search:'Search',
+    show: {
+        all:'Show All',
+        title:'Show',
+    },
     startDate:'Start date',
     terms: {
         agree:'I agree to the',
@@ -145,7 +159,8 @@ export default {
     },
     unknown:'Unknown',
     update:'Update',
-    updates:'Updates',
+    updated:'Updated',
+    updateFail:'Error while updating',
     user:'User',
     users:{
         create:{

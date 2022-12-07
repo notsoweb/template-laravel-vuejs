@@ -27,7 +27,7 @@ const updateProfileInformation = () => {
     form.post(route('users.syncRoles'), {
         preserveScroll: true,
         onSuccess: () => {
-            Notify.flash(lang('updated'));
+            Notify.success(lang('updated'));
         },
         onError: () => {
             Notify.error(lang('updatedFail'));

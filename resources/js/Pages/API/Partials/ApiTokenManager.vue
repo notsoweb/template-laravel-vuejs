@@ -5,12 +5,12 @@ import ActionMessage from '@/Components/App/ActionMessage.vue';
 import ActionSection from '@/Components/App/ActionSection.vue';
 import Checkbox from '@/Components/App/Form/Checkbox.vue';
 import ConfirmationModal from '@/Components/App/ConfirmationModal.vue';
-import DangerButton from '@/Components/App/DangerButton.vue';
+import DangerButton from '@/Components/App/Button/Danger.vue';
 import DialogModal from '@/Components/App/DialogModal.vue';
 import FormSection from '@/Components/App/FormSection.vue';
 import InputLabel from '@/Components/App/InputLabel.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import SecondaryButton from '@/Components/App/SecondaryButton.vue';
+import SecondaryButton from '@/Components/App/Button/Secondary.vue';
 import SectionBorder from '@/Components/App/SectionBorder.vue';
 import Input from '@/Components/App/Form/Input.vue';
 

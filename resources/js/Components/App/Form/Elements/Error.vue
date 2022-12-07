@@ -4,7 +4,7 @@ defineProps({
 });
 </script>
 <template>
-    <p v-if="onError" class="text-sm text-error">
+    <p v-if="onError" class="text-sm text-danger">
         {{onError}}
     </p>
 </template>

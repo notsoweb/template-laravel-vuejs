@@ -2,9 +2,9 @@
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/inertia-vue3';
 import ActionSection from '@/Components/App/ActionSection.vue';
-import DangerButton from '@/Components/App/DangerButton.vue';
+import DangerButton from '@/Components/App/Button/Danger.vue';
 import DialogModal from '@/Components/App/DialogModal.vue';
-import SecondaryButton from '@/Components/App/SecondaryButton.vue';
+import SecondaryButton from '@/Components/App/Button/Secondary.vue';
 import Input from '@/Components/App/Form/Input.vue';
 
 const confirmingUserDeletion = ref(false);

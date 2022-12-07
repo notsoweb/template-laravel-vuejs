@@ -5,7 +5,7 @@ import ActionMessage from '@/Components/App/ActionMessage.vue';
 import ActionSection from '@/Components/App/ActionSection.vue';
 import DialogModal from '@/Components/App/DialogModal.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import SecondaryButton from '@/Components/App/SecondaryButton.vue';
+import SecondaryButton from '@/Components/App/Button/Secondary.vue';
 import Input from '@/Components/App/Form/Input.vue';
 
 defineProps({

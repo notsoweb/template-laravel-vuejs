@@ -12,7 +12,7 @@ return [
     | frontend to display the version of your application.
     |
     */
-    'version' => '0.0.2',
+    'version' => '0.0.3',
 
     /*
     |--------------------------------------------------------------------------

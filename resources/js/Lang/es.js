@@ -17,6 +17,7 @@ export default {
             description:'Asegúrese de que su cuenta utiliza una contraseña larga y aleatoria para estar seguro.',
             new:'Nueva contraseña',
             reset:'Restaurar contraseña',
+            secure:'Esta es una zona segura de la aplicación. Confirme su contraseña antes de continuar.',
             update: 'Actualizar contraseña',
             verify:'Por su seguridad, confirme su contraseña para continuar.',
         },
@@ -86,12 +87,20 @@ export default {
         description: 'Lista de los cambios realizados al sistema.',
     },
     confirm:'Confirmar',
-    copyright:'All rights reserved.',
-    date: 'date',
+    copyright:'Todos los derechos reservados.',
+    contact:'Contacto',
+    date: 'Fecha',
+    delete:{
+        confirm: 'Al presionar ELIMINAR el registro se eliminará permanentemente y no podrá recuperarse.',
+        title: 'Eliminar',
+    },
+    deleted:'Eliminado',
     description:'Descripción',
+    details:'Detalles',
     disable:'Deshabilitar',
     disabled:'Deshabilitado',
     done:'Hecho.',
+    edit:'Editar',
     email:'Correo',
     enable:'Habilitar',
     endDate:'Fecha Fin',
@@ -124,6 +133,7 @@ export default {
         title:'Foto',
     },
     profile:'Perfil',
+    role:'Rol',
     roles:{
         create: {
             title: 'Crear rol',
@@ -137,6 +147,10 @@ export default {
     save:'Guardar',
     saved:'¡Guardado!',
     search:'Buscar',
+    show: {
+        all:'Mostrar todo',
+        title:'Mostrar',
+    },
     startDate:'Fecha de inicio',
     terms: {
         agree:'Estoy deacuerdo con los',
@@ -146,6 +160,7 @@ export default {
     unknown:'Desconocido',
     update:'Actualizar',
     updated:'Actualizado',
+    updateFail:'Error al actualizar',
     user:'Usuario',
     users:{
         create:{
@@ -167,7 +182,7 @@ export default {
             },
             title:'Roles',
         },
-        select:'Seleccionar usuario',
+        select:'Seleccionar un usuario',
         settings:'Ajustes del usuario',
         system:'Usuarios del sistema',
         title:'Usuarios',

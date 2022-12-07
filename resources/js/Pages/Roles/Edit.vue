@@ -20,7 +20,7 @@ const update = (id) => {
     })).put(route('roles.update', {id}),{
         preserveScroll: true,
         onSuccess: () => {
-            Notify.flash('Actualizado');
+            Notify.success(lang('updated'));
             emit('close');
         },
     });

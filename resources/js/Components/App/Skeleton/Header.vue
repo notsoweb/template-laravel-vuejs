@@ -57,7 +57,7 @@ const logout = () => {
                     </div>
                     <div class="border-t border-gray-100" />
                     <Link :href="route('profile.show')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-primary-hover text-primary-text transition">
-                        Ver todo
+                        {{$t('show.all')}}
                     </Link>
                 </template>
               </Dropdown>

@@ -13,7 +13,12 @@ let props = defineProps({
 });
 </script>
 <template>
-    <ShowModal :show="show" @close="$emit('close')" @edit="$emit('switchModal')">
+    <ShowModal
+        :show="show"
+        @close="$emit('close')"
+        @edit="$emit('switchModal')"
+        editable
+    >
         <div class="w-full right-0 mt-2">
             <div class="bg-white rounded overflow-hidden shadow-lg">
                 <div class="text-center p-6 bg-gray-800 border-b">
@@ -25,13 +30,13 @@ let props = defineProps({
                         <a class="px-4 py-2 hover:bg-gray-100 flex">
                             <GoogleIcon class="text-xl text-green-600" name="contact_mail" />
                             <div class="pl-3">
-                                <p class="font-bold  text-lg text-gray-900 leading-none pb-2">Contacto</p>
+                                <p class="font-bold  text-lg text-gray-900 leading-none pb-2">{{$t('contact')}}</p>
                                 <p class="text-gray-800">
-                                    <b>Teléfono: </b>
+                                    <b>{{$t('phone')}}: </b>
                                     <a :href="`tel:${user.phone}`" target="_blank" class="hover:text-red-500"> {{user.phone}}</a>
                                 </p>
                                 <p class="text-gray-800">
-                                    <b>Correo: </b>
+                                    <b>{{$t('email')}}: </b>
                                     <a :href="`mailto:${user.email}`" target="_blank" class="hover:text-red-500"> {{user.email}}</a>
                                 </p>
                             </div>

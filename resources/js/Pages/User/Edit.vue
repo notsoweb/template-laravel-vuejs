@@ -21,7 +21,7 @@ const update = (id) => {
     })).put(route('users.update', {id}),{
         preserveScroll: true,
         onSuccess: () => {
-            Notify.flash('Actualizado')
+            Notify.success(lang('updated'))
             emit('switchModal')
         },
     });

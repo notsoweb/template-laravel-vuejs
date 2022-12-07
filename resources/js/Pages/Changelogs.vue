@@ -32,6 +32,15 @@ defineProps({
           </tr>
         </template>
         <template #body>
+          <Item version="0.0.3">
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
+                <li>Translations on missing components.</li>
+                <li>Separate logic from notifications in a service.</li>
+                <li>Separate UseFetch logic in a trait.</li>
+              </ul>
+            </p>
+          </Item>
           <Item version="0.0.2">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">

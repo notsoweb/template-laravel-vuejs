@@ -4,9 +4,9 @@ import { Inertia } from '@inertiajs/inertia';
 import { useForm, usePage } from '@inertiajs/inertia-vue3';
 import ActionSection from '@/Components/App/ActionSection.vue';
 import ConfirmsPassword from '@/Components/App/ConfirmsPassword.vue';
-import DangerButton from '@/Components/App/DangerButton.vue';
+import DangerButton from '@/Components/App/Button/Danger.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import SecondaryButton from '@/Components/App/SecondaryButton.vue';
+import SecondaryButton from '@/Components/App/Button/Secondary.vue';
 import Input from '@/components/App/Form/Input.vue';
 
 const props = defineProps({

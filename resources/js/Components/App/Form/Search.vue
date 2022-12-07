@@ -1,5 +1,5 @@
 <script setup>
-import Icon from '@/Components/App/Icon.vue';
+import Icon from '@/Components/App/GoogleIcon.vue';
 import Label from '@/Components/App/Form/Elements/Label.vue';
 import Error from '@/Components/App/Form/Elements/Error.vue';
 import { computed, ref } from 'vue';

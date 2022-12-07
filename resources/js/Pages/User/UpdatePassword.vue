@@ -2,14 +2,11 @@
 import {useForm} from '@inertiajs/inertia-vue3';
 import JetButton from '@/Components/App/Button/Primary.vue';
 import JetFormSection from '@/Components/App/FormSection.vue';
-import Select from '@/Components/App/Form/Select.vue';
 import Input from '@/Components/App/Form/Input.vue';
 
 const props = defineProps({
     user: Object
 });
-
-console.log(props.user);
 
 let form = useForm({
     _method: 'POST',
@@ -18,19 +15,15 @@ let form = useForm({
 });
 
 const updateProfileInformation = () => {
-    if (form.user_id == 0) {
-        return Notify.error('Seleccione un usuario');
-    }
-
     form.post(route('users.password'), {
         errorBag: 'updateProfileInformation',
         preserveScroll: true,
         onSuccess: () => {
-            Notify.flash('Contraseña actualizada');
+            Notify.success('updated');
             form.reset();
         },
         onError: () => {
-            Notify.flash('Error al importar', 'error');
+            Notify.error(lang('updateFail'));
         }
     });
 };

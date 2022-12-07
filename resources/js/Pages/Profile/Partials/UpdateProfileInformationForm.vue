@@ -7,7 +7,7 @@ import FormSection from '@/Components/App/FormSection.vue';
 import Label from '@/Components/App/Form/Elements/Label.vue';
 import Error from '@/Components/App/Form/Elements/Error.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import SecondaryButton from '@/Components/App/SecondaryButton.vue';
+import SecondaryButton from '@/Components/App/Button/Secondary.vue';
 import Input from '@/Components/App/Form/Input.vue';
 
 const props = defineProps({

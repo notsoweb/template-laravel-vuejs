@@ -2,6 +2,8 @@
   import {hasRole} from "@/rolePermission.js"
   import Link from  './Sidebar/Link.vue';
   import Section from  './Sidebar/Section.vue';
+
+  const year = (new Date).getFullYear();
 </script>
 <template>
   <!-- Sidebar -->
@@ -23,7 +25,7 @@
         </template>
       </ul>
       <div class="mb-16 px-5 space-y-2">
-        <p class="hidden md:block text-center text-xs">@2022 Golsystems <a class="text-yellow-500 cursor-pointer">V{{$page.version}}</a></p>
+        <p class="hidden md:block text-center text-xs">@{{year}} {{$page.props.copyright}} <a class="text-yellow-500 cursor-pointer">V{{$page.version}}</a></p>
         <p class="hidden md:block text-center text-xs" v-text="$t('copyright')" />
       </div>
     </div>

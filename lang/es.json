@@ -3,8 +3,10 @@
     "Go to home":"Ir al inicio",
     "Not Found":"No encontrado",
     "Page Expired":"Página expirada",
+    "Resource not found":"Recurso no encontrado",
     "Server Error":"A ocurrido un error en el servidor",
     "Service Unavailable":"Servicio no disponible",
     "Too Many Requests":"Demasiadas peticiones",
+    "The user does not exist":"El usuario no existe",
     "Unauthorized":"No autorizado"
 }

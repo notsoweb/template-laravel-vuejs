@@ -10,7 +10,7 @@ defineProps({
 </script>
 <template>
     <Base
-        class="bg-primary"
+        class="bg-warning"
         color="danger"
         :type="type"
     >

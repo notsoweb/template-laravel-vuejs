@@ -32,7 +32,7 @@ module.exports = {
                 'secondary-text-hover':'#FFFFFF',
                 'success':'#22C55E',
                 'warning':'#EAB308',
-                'error':'#EF4444',
+                'danger':'#EF4444',
                 'info':'#3B82F6',
             },
             spacing: {

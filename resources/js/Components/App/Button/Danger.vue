@@ -5,12 +5,12 @@ defineProps({
     type: {
         type: String,
         default: 'submit',
-    }
+    },
 });
 </script>
 <template>
     <Base
-        class="bg-primary"
+        class="bg-danger"
         color="danger"
         :type="type"
     >
