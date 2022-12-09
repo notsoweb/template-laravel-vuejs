@@ -1,6 +1,5 @@
 import '../css/app.css';
 import './bootstrap';
-import './broadcastGlobalEvents';
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
@@ -10,13 +9,15 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
 import Notify from '@/notify';
 import Swal from 'sweetalert2'
-import {i18n, t} from '@/Lang/i18n';
+import { SessionFresh } from './sessionFresh';
+import { i18n, t } from '@/Lang/i18n';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 window.appName = appName;
 window.lang = t;
 window.Notify = new Notify();
+window.sessionFresh = new SessionFresh();
 window.Swal = Swal;
 
 createInertiaApp({

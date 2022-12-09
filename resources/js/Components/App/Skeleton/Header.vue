@@ -6,12 +6,17 @@ import LogoIcon from '@/Components/App/Logo/Icon.vue';
 import Logo from '@/Components/App/Logo.vue';
 import Dropdown from '@/Components/App/Dropdown.vue';
 import DropdownLink from '@/Components/App/DropdownLink.vue';
+import { LeaveAuthNotify } from '@/broadcasts.js';
 import { Link } from '@inertiajs/inertia-vue3';
 
 const logout = () => {
-    Inertia.post(route('logout'));
+    Inertia.post(route('logout'), {}, {
+      onBefore: () => {
+        sessionFresh.stop();
+        LeaveAuthNotify()
+      }
+    });
 };
-
 </script>
 <template>
     <!-- Header -->

@@ -14,11 +14,10 @@ use Illuminate\Support\Facades\Log;
 |
 */
 
-// Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-//     return (int) $user->id === (int) $id;
-// });
+Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
+    return (int) $user->id === (int) $id;
+});
 
-Broadcast::channel('notifications', function () {
-    Log::channel('notsoweb')->info('Validando Canal notificaciones');
-    return true;
+Broadcast::channel('notifications', function ($user) {
+    return $user != null;
 });
