@@ -2,7 +2,7 @@
 import { Head } from '@inertiajs/inertia-vue3';
 import { Inertia } from '@inertiajs/inertia';
 import { onMounted } from 'vue';
-import { AuthNotify } from '@/broadcasts.js';
+import { SuscribeUserAuth } from '@/broadcasts.js';
 import Header from '@/Components/App/Skeleton/Header.vue';
 import Sidebar from '@/Components/App/Skeleton/Sidebar.vue';
 
@@ -29,7 +29,7 @@ if (Inertia.page.props.jetstream.flash.length != 0) {
 
 onMounted(()=> {
     if (!sessionFresh.isInitialized()) {
-        AuthNotify();
+        SuscribeUserAuth();
         sessionFresh.start();
     }
 });

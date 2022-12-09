@@ -1,27 +1,17 @@
 // Notifica los Inicios de session de los demás usuarios
-const AuthNotify = () => {
-    console.log('Suscribiendose al canal notificaciones');
+const SuscribeUserAuth = () => {
     Echo.private('notifications')
       .listen('UserSessionChanged', (e) => {
-        console.log(e.message);
         Notify.info(e.message);
     });
 }
 
-const LeaveAuthNotify = () => {
-    console.log('Dejando canal Notificaciones');
+// Detiene las notificaciones de inicio de session de los demás usuario
+const UnsuscribeUserAuth = () => {
     Echo.leave('notifications');
 }
 
-const AuthNotifyUser = (userId) => {
-    Echo.private('App.Models.User.' + userId)
-    .notification((notification) => {
-        console.log(notification);
-    });
-}
-
 export {
-    AuthNotifyUser,
-    AuthNotify,
-    LeaveAuthNotify
+    SuscribeUserAuth,
+    UnsuscribeUserAuth,
 };
