@@ -53,7 +53,6 @@ const logout = () => {
                       <NotificationLink :href="route('profile.show')">
                         <span class="truncate">Example notification</span>
                       </NotificationLink>
-
                     </div>
                     <div class="border-t border-gray-100" />
                     <Link :href="route('profile.show')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-primary-hover text-primary-text transition">
