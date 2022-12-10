@@ -1,5 +1,5 @@
 import toastr from 'toastr';
-import { Inertia } from '@inertiajs/inertia';
+import { router } from '@inertiajs/vue3';
 
 class Notify {
   constructor() {}
@@ -42,14 +42,14 @@ class Notify {
   }
 
   verifyLaravelNotifyFlash() {
-    if(Inertia.page.props.flash) {
-        Inertia.page.props.flash.forEach(element => {
+    if(router.page.props.flash) {
+        router.page.props.flash.forEach(element => {
             Notify.flash(element.message, element.type);
         });
     }
   
-    if (Inertia.page.props.jetstream.flash.length != 0) {
-        Inertia.page.props.jetstream.flash.forEach(element => {
+    if (router.page.props.jetstream.flash.length != 0) {
+        router.page.props.jetstream.flash.forEach(element => {
             Notify.flash(element.message, element.type);
         });
     }

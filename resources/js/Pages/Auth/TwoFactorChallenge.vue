@@ -1,6 +1,6 @@
 <script setup>
 import { nextTick, onMounted, ref } from 'vue';
-import { Head, useForm } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import AppLogo from '@/Components/App/Logo.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';

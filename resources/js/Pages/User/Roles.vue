@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/vue3';
 import VueMultiselect from 'vue-multiselect'
 import JetButton from '@/Components/App/Button/Primary.vue';
 import JetFormSection from '@/Components/App/FormSection.vue';

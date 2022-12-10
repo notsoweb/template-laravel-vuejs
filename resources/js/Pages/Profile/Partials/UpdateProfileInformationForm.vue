@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import { Inertia } from '@inertiajs/inertia';
-import { Link, useForm } from '@inertiajs/inertia-vue3';
+import { router } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 import ActionMessage from '@/Components/App/ActionMessage.vue';
 import FormSection from '@/Components/App/FormSection.vue';
 import Label from '@/Components/App/Form/Elements/Label.vue';
@@ -63,7 +63,7 @@ const updatePhotoPreview = () => {
 };
 
 const deletePhoto = () => {
-    Inertia.delete(route('current-user-photo.destroy'), {
+    router.delete(route('current-user-photo.destroy'), {
         preserveScroll: true,
         onSuccess: () => {
             photoPreview.value = null;

@@ -1,5 +1,5 @@
 <script setup>
-import {useForm} from '@inertiajs/inertia-vue3';
+import {useForm} from '@inertiajs/vue3';
 import JetButton from '@/Components/App/Button/Primary.vue';
 import JetFormSection from '@/Components/App/FormSection.vue';
 import Input from '@/Components/App/Form/Input.vue';

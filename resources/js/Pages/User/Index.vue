@@ -9,7 +9,7 @@ import PageHeader from '@/Components/App/PageHeader.vue';
 import ShowView from './Show.vue';
 import EditView from './Edit.vue';
 import DestroyView from './Destroy.vue';
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/vue3';
 
 const props = defineProps({
     users: Object,
@@ -24,12 +24,12 @@ let user = ref({});
 
 const search = (q = '') => {
     query.value = q;
-    Inertia.get(route('users.index', {q}), {}, {preserveState: true});
+    router.get(route('users.index', {q}), {}, {preserveState: true});
 };
 
 const searchWithPagination = (page) =>  {
     let q = query.value;
-    Inertia.get(route('users.index', {q, page}), {}, {preserveState: true});
+    router.get(route('users.index', {q, page}), {}, {preserveState: true});
 }
 
 const show = (detail) => {

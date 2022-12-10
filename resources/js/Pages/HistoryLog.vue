@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import { Inertia} from '@inertiajs/inertia'
-import { Link } from '@inertiajs/inertia-vue3';
+import { router} from '@inertiajs/vue3'
+import { Link } from '@inertiajs/vue3';
 import { hasRole }  from '@/rolePermission.js';
 import Icon from '@/Components/App/GoogleIcon.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
@@ -33,7 +33,7 @@ const formatTime = (date) => {
 }
 
 const search = () => {
-  Inertia.get(route('histories.index', {
+  router.get(route('histories.index', {
     historyEvent:historyEvent.value,
     dateStart:dateStart.value,
     dateEnd:dateEnd.value
@@ -43,7 +43,7 @@ const search = () => {
 }
 
 const searchWithPagination = (page) =>  {
-  Inertia.get(route('histories.index', {
+  router.get(route('histories.index', {
     historyEvent:historyEvent.value,
     dateStart:dateStart.value,
     dateEnd:dateEnd.value,

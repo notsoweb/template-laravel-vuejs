@@ -1,6 +1,6 @@
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3';
-import { Inertia } from '@inertiajs/inertia';
+import { Head } from '@inertiajs/vue3';
+import { router } from '@inertiajs/vue3'
 import { onMounted } from 'vue';
 import { SuscribeUserAuth } from '@/broadcasts.js';
 import Header from '@/Components/App/Skeleton/Header.vue';
@@ -15,14 +15,14 @@ defineProps({
 });
 
 // Comprueba los mensajes flash
-if(Inertia.page.props.flash) {
-    Inertia.page.props.flash.forEach(element => {
+if(router.page.props.flash) {
+    router.page.props.flash.forEach(element => {
         Notify.flash(element.message, element.type);
     });
 }
 
-if (Inertia.page.props.jetstream.flash.length != 0) {
-    Inertia.page.props.jetstream.flash.forEach(element => {
+if (router.page.props.jetstream.flash.length != 0) {
+    router.page.props.jetstream.flash.forEach(element => {
         Notify.flash(element.message, element.type);
     });
 }

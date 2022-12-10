@@ -1,11 +1,11 @@
 <script setup>
-import { Link, useForm } from '@inertiajs/inertia-vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import PageHeader from '@/Components/App/PageHeader.vue';
 import Input from '@/Components/App/Form/Input.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import { Inertia } from '@inertiajs/inertia';
+import { router } from '@inertiajs/vue3';
 
 defineProps({
     users: String,

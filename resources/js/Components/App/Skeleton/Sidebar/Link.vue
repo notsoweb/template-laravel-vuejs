@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/vue3';
 import Icon from '@/Components/App/GoogleIcon.vue';
 
 const props = defineProps({

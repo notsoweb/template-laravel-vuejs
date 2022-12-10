@@ -1,6 +1,6 @@
 <script setup>
-import { Inertia } from '@inertiajs/inertia';
-import { Link } from '@inertiajs/inertia-vue3';
+import { router } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 import { UnsuscribeUserAuth } from '@/broadcasts.js';
 import NotificationLink from  '@/Components/App/Skeleton/Header/NotificationLink.vue';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
@@ -10,7 +10,7 @@ import Dropdown from '@/Components/App/Dropdown.vue';
 import DropdownLink from '@/Components/App/DropdownLink.vue';
 
 const logout = () => {
-    Inertia.post(route('logout'), {}, {
+    router.post(route('logout'), {}, {
       onBefore: () => {
         sessionFresh.stop();
         UnsuscribeUserAuth()

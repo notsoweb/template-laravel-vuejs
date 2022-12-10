@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useForm } from '@inertiajs/inertia-vue3';
+import { useForm } from '@inertiajs/vue3';
 import ActionSection from '@/Components/App/ActionSection.vue';
 import DangerButton from '@/Components/App/Button/Danger.vue';
 import DialogModal from '@/Components/App/DialogModal.vue';

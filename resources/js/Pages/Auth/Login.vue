@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import { Head, Link, useForm } from '@inertiajs/vue3';
 import AppLogo from '@/Components/App/Logo.vue';
 import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import Checkbox from '@/Components/App/Form/Checkbox.vue';
