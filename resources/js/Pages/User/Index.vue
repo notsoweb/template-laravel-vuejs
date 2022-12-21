@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { Link, router } from '@inertiajs/vue3';
 import { hasRole } from '@/rolePermission.js';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
@@ -9,7 +10,7 @@ import PageHeader from '@/Components/App/PageHeader.vue';
 import ShowView from './Show.vue';
 import EditView from './Edit.vue';
 import DestroyView from './Destroy.vue';
-import { Link } from '@inertiajs/vue3';
+import Searcher from '@/Components/App/Searcher.vue';
 
 const props = defineProps({
     users: Object,
@@ -58,14 +59,14 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
 </script>  
 <template>
     <AppLayout :title="$t('users.system')">
-        <PageHeader>
-          <Link :href="route('dashboard')">
+        <Searcher @search="search">
+            <Link :href="route('dashboard')">
               <GoogleIcon class="btn-icon-primary" name="home" outline />
           </Link>
           <Link :href="route('users.create')">
               <GoogleIcon class="btn-icon-primary" name="add" outline />
           </Link>
-        </PageHeader>
+        </Searcher>
         <div class="pt-2 w-full">
             <Table :links="users.links" @send-pagination="searchWithPagination">
                 <template #head>

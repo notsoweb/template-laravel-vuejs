@@ -33,8 +33,11 @@ class UserController extends Controller
      */
     public function index()
     {
+        $q = request()->get('q');
         return Inertia::render('User/Index', [
-            'users' => User::whereNotIn('id', [1,2])->select([
+            'users' => User::whereNotIn('id', [1,2])
+                ->where('name', 'LIKE', "%{$q}%")
+                ->select([
                 'id',
                 'name',
                 'paternal',
