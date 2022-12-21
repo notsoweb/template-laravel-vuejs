@@ -6,6 +6,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
+use App\Http\Traits\UseFetch;
 use App\Models\User;
 use App\Services\Notify;
 use Illuminate\Http\Request;
@@ -23,6 +24,8 @@ use Spatie\Permission\Models\Role;
  */
 class UserController extends Controller
 {
+    use UseFetch;
+
     /**
      * Display a listing of the resource.
      *
@@ -147,6 +150,28 @@ class UserController extends Controller
     }
 
     /**
+     * Retorna las ultimas notificaciones del usuario
+     */
+    public function getNotifications()
+    {
+        try {
+            $notifications = auth()
+                ->user()
+                ->notifications()
+                ->limit(7)
+                ->latest()
+                ->get();
+
+            return $this->successFetch([
+                'notifications' => $notifications
+            ]);
+        } catch (\Throwable $th) {
+            $this->reportError($th, __METHOD__);
+            return $this->errorFetch(__('The user does not have notifications'));
+        }
+    }
+
+    /**
      * Elimina un usuario del sistema con todos sus registros vinculados
      */
     public function destroy($user)
@@ -162,5 +187,18 @@ class UserController extends Controller
             Log::channel('users')
                 ->error($th->getMessage());
         }
+    }
+
+    /**
+     * Crea log de los errores ocurridos en este controlador
+     * 
+     * @param object $th Contiene todos los detalles del error
+     * @param string $method Función del controlador sobre la que ocurrio el error
+     * @return void
+     */
+    private function reportError($th, $method) : void
+    {
+        Log::channel('users')->error("Method: $method");
+        Log::channel('users')->error($th->getMessage());
     }
 }

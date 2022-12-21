@@ -4,10 +4,13 @@
  * Es necesario enviar la información con las funciones successFetch o errorFetch
  * provistas en el controlador padre en laravel.
  */
-export async function useFetch(url) {
+export default async function useFetch(url, method = 'GET') {
     let response = null;
   
-    await fetch(url)
+    await fetch(url, {
+            method: method,
+            cache: 'no-cache'
+        })
         .then((res) => res.json())
         .then((res) => {
             if(res.status != 200) {

@@ -1,7 +1,9 @@
 <script setup>
 import { router } from '@inertiajs/vue3';
+import { onMounted, ref, onUpdated } from 'vue';
 import { Link } from '@inertiajs/vue3';
-import { UnsuscribeUserAuth } from '@/broadcasts.js';
+import { SuscribeUserNotification, UnsuscribeUserAuth, UnsuscribeUserNotification } from '@/broadcasts.js';
+import useFetch from '@/useFetch.js';
 import NotificationLink from  '@/Components/App/Skeleton/Header/NotificationLink.vue';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import LogoIcon from '@/Components/App/Logo/Icon.vue';
@@ -9,14 +11,40 @@ import Logo from '@/Components/App/Logo.vue';
 import Dropdown from '@/Components/App/Dropdown.vue';
 import DropdownLink from '@/Components/App/DropdownLink.vue';
 
+const userId = router.page.props.user.id;
+const notifications = ref([]);
+
+const getNotifications = () => {
+  useFetch(route('users.notifications'))
+    .then((res) => {
+        notifications.value = res.notifications;
+    }).catch((err) => {
+        Notify.error(err.message);
+    });
+}
+
+const notification = (notification) => {
+  getNotifications();
+  Notify.flash(notification.message, notification.icon);
+};
+
 const logout = () => {
     router.post(route('logout'), {}, {
       onBefore: () => {
         sessionFresh.stop();
-        UnsuscribeUserAuth()
+        UnsuscribeUserAuth();
+        UnsuscribeUserNotification(userId);
       }
     });
 };
+
+onMounted(() => {
+  if (!sessionFresh.isHeaderInitialized()) {
+    SuscribeUserNotification(userId, notification);
+    sessionFresh.startHeader();
+    sessionFresh.startUser(userId);
+  }
+});
 </script>
 <template>
     <!-- Header -->
@@ -40,7 +68,7 @@ const logout = () => {
             <div class="relative">
               <Dropdown align="icon" width="72">
                 <template #trigger>
-                  <button type="button" class="flex items-center header-icon-primary">
+                  <button @click="getNotifications" type="button" class="flex items-center header-icon-primary">
                     <GoogleIcon name="notifications" class="text-xl" />
                   </button>
                 </template>
@@ -49,15 +77,11 @@ const logout = () => {
                         <p class="text-center font-bold text-black">{{$t('notifications.title')}}</p>
                     </div>
                     <div class="w-full">
-                      <NotificationLink :href="route('profile.show')" icon="add">
-                          <span class="truncate">Example notification Example notification </span>
-                      </NotificationLink>
-                      <NotificationLink :href="route('profile.show')">
-                        <span class="truncate">Example notification</span>
-                      </NotificationLink>
-                      <NotificationLink :href="route('profile.show')">
-                        <span class="truncate">Example notification</span>
-                      </NotificationLink>
+                      <template v-for="notification in notifications">
+                        <NotificationLink :href="route('profile.show')" :icon="notification.data.icon">
+                          <span class="truncate">{{notification.data.message}}</span>
+                        </NotificationLink>
+                      </template>
                     </div>
                     <div class="border-t border-gray-100" />
                     <Link :href="route('profile.show')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-primary-hover text-primary-text transition">

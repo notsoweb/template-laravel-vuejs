@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Descripción
@@ -29,6 +30,7 @@ class UserHeaderNotification extends Notification
     public function __construct(
         public $message,
         public $icon = 'notifications_active',
+        public $type = 'info',
     ) {}
 
     /**
@@ -39,7 +41,7 @@ class UserHeaderNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['broadcast', 'database'];
     }
 
     /**
@@ -53,6 +55,20 @@ class UserHeaderNotification extends Notification
         return [
             'message' => $this->message,
             'icon' => $this->icon,
+            'type' => $this->type,
         ];
+    }
+
+    /**
+     * Manda un mensaje por medio de un broadcast privado
+     */
+    public function toBroadcast($notifiable)
+    {
+        Log::channel('notsoweb')->info('toBroadcast function');
+
+        return new BroadcastMessage([
+            'message' => $this->message,
+            'icon' => $this->type,
+        ]);
     }
 }

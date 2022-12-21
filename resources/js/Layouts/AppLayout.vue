@@ -2,7 +2,7 @@
 import { Head } from '@inertiajs/vue3';
 import { router } from '@inertiajs/vue3'
 import { onMounted } from 'vue';
-import { SuscribeUserAuth } from '@/broadcasts.js';
+import { SuscribeUserAuth, SuscribeUserNotification } from '@/broadcasts.js';
 import Header from '@/Components/App/Skeleton/Header.vue';
 import Sidebar from '@/Components/App/Skeleton/Sidebar.vue';
 
@@ -28,12 +28,12 @@ if (router.page.props.jetstream.flash.length != 0) {
 }
 
 onMounted(()=> {
-    if (!sessionFresh.isInitialized()) {
+    if (!sessionFresh.isLayoutInitialized()) {
+        console.log('AppLayout');
         SuscribeUserAuth();
-        sessionFresh.start();
+        sessionFresh.startLayout();
     }
 });
-
 </script>
 <template>
     <Head :title="title" />
@@ -45,6 +45,8 @@ onMounted(()=> {
                 <h2 class="font-bold text-xl uppercase" v-text="title"></h2>
             </div>
             <slot />
+            <pre type="json">
+            </pre>
         </div>
     </main>
 </template>

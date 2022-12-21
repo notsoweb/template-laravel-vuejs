@@ -49,6 +49,12 @@ Route::middleware([
         'index',
         'store'
     ]);
+
+    # Notificaciones
+    Route::prefix('/users')->name('users.')->group(function()
+    {
+        Route::get('/notifications', [UserController::class, 'getNotifications'])->name('notifications');
+    });
 });
 
 Route::middleware([

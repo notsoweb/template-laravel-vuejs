@@ -1,19 +1,35 @@
 // Guarda los datos de la sessión mientras no se recarge la pagina
 class SessionFresh {
-    init = false;
+    layout = false;
+    header = false;
+    userId = null;
 
     constructor() {}
 
-    isInitialized() {
+    isLayoutInitialized() {
         return this.init;
     }
 
-    start() {
+    isHeaderInitialized() {
+        return this.header;
+    }
+
+    startLayout() {
         this.init = true;
     }
 
+    startHeader() {
+        this.header = true;
+    }
+
+    startUser(user) {
+        this.userId = user;
+    }
+
     stop() {
-        this.init = false;
+        this.layout = false;
+        this.header = false;
+        this.userId = null;
     }
 }
 
