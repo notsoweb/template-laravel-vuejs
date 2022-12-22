@@ -44,7 +44,6 @@ class SessionFresh {
 
     // Actualiza las notificaciones del usuario
     updateNotifications() {
-        console.log('Consultando servidor de notificaciones');
         useFetch(route('users.notifications'))
         .then((res) => {
           let unread = 0;

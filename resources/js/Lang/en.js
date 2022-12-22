@@ -155,6 +155,7 @@ export default {
         title:'Show',
     },
     startDate:'Start date',
+    status:'Status',
     terms: {
         agree:'I agree to the',
         privacy:'Privacy Policy',
