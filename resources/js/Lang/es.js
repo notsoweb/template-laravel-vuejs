@@ -115,11 +115,13 @@ export default {
         description:'Historial de acciones realizadas por los usuarios en orden cronológico.'
     },
     home:'Inicio',
+    hour:'Hora',
     icon:'Icono',
     maternal:'Apellido materno',
     name:'Nombre',
     noRecords:'Sin registros',
     notifications: {
+        description:'Notificaciones del usuario',
         title:'Notificaciones',
     },
     password:'Contraseña',
@@ -133,6 +135,7 @@ export default {
         title:'Foto',
     },
     profile:'Perfil',
+    readed:'Leído',
     role:'Rol',
     roles:{
         create: {
@@ -161,6 +164,7 @@ export default {
     update:'Actualizar',
     updated:'Actualizado',
     updateFail:'Error al actualizar',
+    unreaded:'No leído',
     user:'Usuario',
     users:{
         create:{

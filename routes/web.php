@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HistoryLogController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -51,6 +52,7 @@ Route::middleware([
     ]);
 
     # Notificaciones
+    Route::resource('notifications', NotificationController::class);
     Route::prefix('/users')->name('users.')->group(function()
     {
         Route::get('/notifications', [UserController::class, 'getNotifications'])->name('notifications');

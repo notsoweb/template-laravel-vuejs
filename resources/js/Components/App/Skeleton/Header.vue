@@ -1,9 +1,8 @@
 <script setup>
 import { router } from '@inertiajs/vue3';
-import { onMounted, ref, onUpdated } from 'vue';
+import { onMounted, ref, reactive } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { SuscribeUserNotification, UnsuscribeUserAuth, UnsuscribeUserNotification } from '@/broadcasts.js';
-import useFetch from '@/useFetch.js';
 import NotificationLink from  '@/Components/App/Skeleton/Header/NotificationLink.vue';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import LogoIcon from '@/Components/App/Logo/Icon.vue';
@@ -12,20 +11,24 @@ import Dropdown from '@/Components/App/Dropdown.vue';
 import DropdownLink from '@/Components/App/DropdownLink.vue';
 
 const userId = router.page.props.user.id;
-const notifications = ref([]);
+const notifications = reactive(sessionFresh.getNotifications());
+const notificationCounter = reactive(sessionFresh.getNotificationCounter());
 
 const getNotifications = () => {
-  useFetch(route('users.notifications'))
-    .then((res) => {
-        notifications.value = res.notifications;
-    }).catch((err) => {
-        Notify.error(err.message);
-    });
+  sessionFresh.updateNotifications();
 }
 
 const notification = (notification) => {
   getNotifications();
   Notify.flash(notification.message, notification.icon);
+};
+
+const showNotification = (id) => {
+    router.post(route('notifications.store'), {
+      id:id
+    }, {
+      
+    });
 };
 
 const logout = () => {
@@ -38,11 +41,12 @@ const logout = () => {
     });
 };
 
-onMounted(() => {
+onMounted(()=>{
   if (!sessionFresh.isHeaderInitialized()) {
     SuscribeUserNotification(userId, notification);
     sessionFresh.startHeader();
     sessionFresh.startUser(userId);
+    sessionFresh.updateNotifications();
   }
 });
 </script>
@@ -64,13 +68,14 @@ onMounted(() => {
               <GoogleIcon name="group" class="text-xl" />
             </button>
           </li>
-          <li class="">
+          <li>
             <div class="relative">
               <Dropdown align="icon" width="72">
                 <template #trigger>
                   <button @click="getNotifications" type="button" class="flex items-center header-icon-primary">
                     <GoogleIcon name="notifications" class="text-xl" />
                   </button>
+                  <span class="absolute top-0 -right-2 text-xs">{{notificationCounter}}</span>
                 </template>
                 <template #content>
                     <div class="block px-4 py-2 text-xs">
@@ -78,13 +83,17 @@ onMounted(() => {
                     </div>
                     <div class="w-full">
                       <template v-for="notification in notifications">
-                        <NotificationLink :href="route('profile.show')" :icon="notification.data.icon">
+                        <NotificationLink 
+                          as="button"
+                          :icon="notification.data.icon"
+                          @click="showNotification(notification.id)"
+                        >
                           <span class="truncate">{{notification.data.message}}</span>
                         </NotificationLink>
                       </template>
                     </div>
                     <div class="border-t border-gray-100" />
-                    <Link :href="route('profile.show')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-primary-hover text-primary-text transition">
+                    <Link :href="route('notifications.index')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-primary-hover text-primary-text transition">
                         {{$t('show.all')}}
                     </Link>
                 </template>

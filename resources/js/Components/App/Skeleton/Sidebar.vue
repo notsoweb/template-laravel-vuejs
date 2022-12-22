@@ -20,9 +20,13 @@
         </Section>
         <template v-if="hasRole('admin|developer')">
           <Link name="users.title"  icon="people" to="users.index"/>
-          <Link name="roles.title"  icon="people" to="roles.index"/>
           <Link name="changelogs.title"  icon="history" to="changelogs.index"/>
         </template>
+        <template v-if="hasRole('developer')">
+          <Section name="Sistema">
+              <Link name="roles.title"  icon="people" to="roles.index"/>
+          </Section>
+          </template>
       </ul>
       <div class="mb-16 px-5 space-y-2">
         <p class="hidden md:block text-center text-xs">@{{year}} {{$page.props.copyright}} <a class="text-yellow-500 cursor-pointer">V{{$page.version}}</a></p>

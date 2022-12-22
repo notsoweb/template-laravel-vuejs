@@ -32,6 +32,14 @@ defineProps({
           </tr>
         </template>
         <template #body>
+          <Item version="0.0.4">
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
+                <li>Real-time notifications.</li>
+                <li>Notification manager with search engine.</li>
+              </ul>
+            </p>
+          </Item>
           <Item version="0.0.3">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">

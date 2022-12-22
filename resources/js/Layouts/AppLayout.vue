@@ -29,7 +29,6 @@ if (router.page.props.jetstream.flash.length != 0) {
 
 onMounted(()=> {
     if (!sessionFresh.isLayoutInitialized()) {
-        console.log('AppLayout');
         SuscribeUserAuth();
         sessionFresh.startLayout();
     }

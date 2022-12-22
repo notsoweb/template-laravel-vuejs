@@ -18,10 +18,16 @@ let classes = computed(()=>{
 </script>
 <template>
     <div>
-        <a v-if="as =='a'" :href="href" :class="classes">
+        <button v-if="as == 'button'" type="button" :class="classes">
+            <GoogleIcon :name="icon" />
+            <slot />
+        </button>
+
+        <a v-else-if="as =='a'" :href="href" :class="classes">
             <GoogleIcon :name="icon" />
             <slot />
         </a>
+
         <Link v-else :href="href" :class="classes">
             <GoogleIcon :name="icon" class="text-primary hover:text-primary-hover" />
             <slot />

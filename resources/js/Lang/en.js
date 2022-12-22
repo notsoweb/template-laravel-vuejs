@@ -115,11 +115,13 @@ export default {
         description:'History of actions performed by users in chronological order.',
     },
     home:'Home',
+    hour:'Hour',
     icon:'Icon',
     maternal:'Mother\'s last name',
     name:'Name',
     noRecords:'No records',
     notifications: {
+        description:'User notifications',
         title:'Notifications',
     },
     password:'Password',
@@ -133,6 +135,7 @@ export default {
         title:'Photo',
     },
     profile:'Profile',
+    readed:'Readed',
     role:'Role',
     roles:{
         create: {
@@ -161,6 +164,7 @@ export default {
     update:'Update',
     updated:'Updated',
     updateFail:'Error while updating',
+    unreaded:'Unreaded',
     user:'User',
     users:{
         create:{
