@@ -2,6 +2,7 @@
   import {hasRole} from "@/rolePermission.js"
   import Link from  './Sidebar/Link.vue';
   import Section from  './Sidebar/Section.vue';
+  import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 
   const year = (new Date).getFullYear();
 </script>
@@ -10,6 +11,9 @@
   <div class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-primary h-full text-primary-text transition-all duration-300 border-none">
     <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
       <ul class="flex flex-col py-4 space-y-1">
+        <li class="px-5 md:hidden">
+          <GoogleIcon class="text-xl" name="menu" outline />
+        </li>
         <Section name="Principal">
           <Link name="home"  icon="home" to="dashboard" />
           <Link name="help.title" icon="live_help" to="help.index"/>
