@@ -33,7 +33,6 @@ const update = (id) => {
                 <div class="text-center p-6 bg-gray-800 border-b">
                     <p class="pt-2 text-lg font-bold text-gray-50">{{role.name}}</p>
                 </div>
-                {{form}}
                 <div class="py-2 border-b">
                     <div class="p-4">
                         <form>
