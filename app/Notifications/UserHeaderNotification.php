@@ -64,8 +64,6 @@ class UserHeaderNotification extends Notification
      */
     public function toBroadcast($notifiable)
     {
-        Log::channel('notsoweb')->info('toBroadcast function');
-
         return new BroadcastMessage([
             'message' => $this->message,
             'icon' => $this->type,
