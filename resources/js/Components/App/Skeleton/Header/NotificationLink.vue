@@ -3,17 +3,24 @@ import { computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 
-defineProps({
+const props = defineProps({
     as: String,
     href: String,
     icon: {
         default: 'notifications_active',
         type: String
-    }
+    },
+    readAt: String
 });
 
 let classes = computed(()=> {
     return 'inline-flex space-x-2 w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition';
+});
+
+let readed = computed(()=> {
+    return (props.readAt)
+        ? 'text-primary'
+        : 'text-warning';
 });
 </script>
 <template>
@@ -24,6 +31,7 @@ let classes = computed(()=> {
             type="button"
         >
             <GoogleIcon 
+                :class="readed"
                 :name="icon"
             />
             <slot />
@@ -35,6 +43,7 @@ let classes = computed(()=> {
             :href="href"
         >
             <GoogleIcon
+                :class="readed"
                 :name="icon"
             />
             <slot />
@@ -47,6 +56,7 @@ let classes = computed(()=> {
         >
             <GoogleIcon
                 class="text-primary hover:text-primary-hover"
+                :class="readed"
                 :name="icon"
             />
             <slot />

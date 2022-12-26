@@ -23,9 +23,7 @@ const notification = (notification) => {
 };
 
 const showNotification = (id) => {
-  router.post(route('notifications.store'), {
-    id:id
-  });
+  sessionFresh.showNotification(id);
 };
 
 const logout = () => {
@@ -99,6 +97,7 @@ onMounted(()=>{
                         <NotificationLink
                           as="button"
                           :icon="notification.data.icon"
+                          :readAt="notification.read_at"
                           @click="showNotification(notification.id)"
                         >
                           <span class="truncate">

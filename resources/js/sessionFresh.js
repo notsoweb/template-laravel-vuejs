@@ -1,4 +1,5 @@
 import { ref } from "vue";
+import { router } from '@inertiajs/vue3';
 import useFetch from '@/useFetch.js';
 
 /**
@@ -57,6 +58,16 @@ class SessionFresh {
             this.notifications.value = res.notifications;
         }).catch((err) => {
             Notify.error(err.message);
+        });
+    }
+
+    showNotification(id) {
+        if(this.notificationCounter.value > 0) {
+            this.notificationCounter.value--;
+        }
+        
+        router.post(route('notifications.store'), {
+            id:id
         });
     }
 
