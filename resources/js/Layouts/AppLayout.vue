@@ -1,4 +1,4 @@
-<script setup>
+s<script setup>
 import { onMounted } from 'vue';
 import { SuscribeUserAuth } from '@/broadcasts.js';
 import { Head, router } from '@inertiajs/vue3';

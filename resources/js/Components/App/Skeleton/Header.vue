@@ -10,8 +10,8 @@ import Logo from '@/Components/App/Logo.vue';
 import LogoIcon from '@/Components/App/Logo/Icon.vue';
 
 const userId = router.page.props.user.id;
-const notifications = reactive(sessionFresh.getNotifications());
 const notificationCounter = reactive(sessionFresh.getNotificationCounter());
+let notifications = reactive(sessionFresh.getNotifications());
 
 const getNotifications = () => {
   sessionFresh.updateNotifications();
@@ -96,7 +96,7 @@ onMounted(()=>{
                     </div>
                     <div class="w-full">
                       <template v-for="notification in notifications">
-                        <NotificationLink 
+                        <NotificationLink
                           as="button"
                           :icon="notification.data.icon"
                           @click="showNotification(notification.id)"

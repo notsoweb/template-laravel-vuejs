@@ -56,11 +56,11 @@ const year = (new Date).getFullYear();
         </template>
         <template v-if="hasRole('developer')">
           <Section name="Sistema">
-              <Link
-                icon="people"
-                name="roles.title"
-                to="roles.index"
-              />
+            <Link
+              icon="people"
+              name="roles.title"
+              to="roles.index"
+            />
           </Section>
           </template>
       </ul>
