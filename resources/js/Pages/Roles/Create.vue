@@ -2,8 +2,8 @@
 import { Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
 import Input from '@/Components/App/Form/Input.vue';
+import PageHeader from '@/Components/App/PageHeader.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
 const form = useForm({
@@ -25,7 +25,11 @@ const submit = () => {
   <AppLayout :title="$t('roles.create.title')">
     <PageHeader>
       <Link :href="route('dashboard')">
-          <GoogleIcon class="btn-icon-primary" name="home" outline />
+          <GoogleIcon
+            class="btn-icon-primary"
+            name="home"
+            outline
+        />
       </Link>
     </PageHeader>
     <div class="w-full pb-8">

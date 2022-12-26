@@ -3,8 +3,8 @@ import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 import ActionMessage from '@/Components/App/ActionMessage.vue';
 import FormSection from '@/Components/App/FormSection.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
 import Input from '@/Components/App/Form/Input.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
 const passwordInput = ref(null);
 const currentPasswordInput = ref(null);
@@ -42,11 +42,9 @@ const updatePassword = () => {
         <template #title>
              {{$t('account.password.update')}}
         </template>
-
         <template #description>
              {{$t('account.password.description')}}
         </template>
-
         <template #form>
             <Input
                 id="passwordCurrent"
@@ -78,11 +76,17 @@ const updatePassword = () => {
         </template>
 
         <template #actions>
-            <ActionMessage :on="form.recentlySuccessful" class="mr-3">
+            <ActionMessage
+                class="mr-3"
+                :on="form.recentlySuccessful"
+            >
                 {{$t('saved')}}
             </ActionMessage>
 
-            <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <PrimaryButton
+                :class="{ 'opacity-25': form.processing }"
+                :disabled="form.processing"
+            >
                 {{$t('save')}}
             </PrimaryButton>
         </template>

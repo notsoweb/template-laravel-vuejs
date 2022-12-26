@@ -12,13 +12,12 @@ use Inertia\Inertia;
  * Controlador muy simple de las notificaciones del usuario
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
- * 
  * @version 1.0.0
  */
 class NotificationController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Lista las notificaciones del usuario
      *
      * @return \Illuminate\Http\Response
      */
@@ -50,8 +49,9 @@ class NotificationController extends Controller
     }
 
     /**
-     * Permite el ver una notificación
+     * Permite el ver una notificación especifica
      * 
+     * Al entrar a ver los detalles de la notificación esta s emarca como leida automaticamente.
      * Aprovechando el metodo post para no mostrar el ID.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -70,10 +70,10 @@ class NotificationController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Marca una actualización como leida
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param Notification $notification Modelo de la notificación
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Notification $notification)
@@ -82,9 +82,9 @@ class NotificationController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina una notificación
      *
-     * @param  int  $id
+     * @param Notification $notification Modelo de la notificación
      * @return \Illuminate\Http\Response
      */
     public function destroy(Notification $notification)

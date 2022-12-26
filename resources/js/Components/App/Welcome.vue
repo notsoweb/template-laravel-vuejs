@@ -1,6 +1,6 @@
 <script setup>
-import ApplicationLogo from '@/Components/App/Logo.vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
+import ApplicationLogo from './Logo.vue';
+import GoogleIcon from './GoogleIcon.vue';
 import AwsIcon from './AwsIcon.vue';
 </script>
 
@@ -153,16 +153,41 @@ import AwsIcon from './AwsIcon.vue';
 
                 <div class="ml-12">
                     <div class="w-full grid gap-4 grid-cols-5 text-gray-500">
-                        <AwsIcon name="facebook" />
-                        <AwsIcon name="twitter" />
-                        <AwsIcon name="whatsapp" />
-                        <AwsIcon name="instagram" />
-                        <AwsIcon name="youtube" />
-                        <AwsIcon name="check" type="fa" />
-                        <AwsIcon name="image" type="fa" />
-                        <AwsIcon name="poo" type="fa" />
-                        <AwsIcon name="cloud" type="fa" />
-                        <AwsIcon name="code" type="fa" />
+                        <AwsIcon 
+                            name="facebook" 
+                        />
+                        <AwsIcon 
+                            name="twitter" 
+                        />
+                        <AwsIcon 
+                            name="whatsapp" 
+                        />
+                        <AwsIcon 
+                            name="instagram" 
+                        />
+                        <AwsIcon 
+                            name="youtube" 
+                        />
+                        <AwsIcon 
+                            name="check"
+                            type="fa"
+                        />
+                        <AwsIcon 
+                            name="image"
+                            type="fa"
+                        />
+                        <AwsIcon 
+                            name="poo"
+                            type="fa"
+                        />
+                        <AwsIcon 
+                            name="cloud"
+                            type="fa"
+                        />
+                        <AwsIcon 
+                            name="code"
+                            type="fa"
+                        />
                     </div>
                 </div>
             </div>
@@ -184,16 +209,46 @@ import AwsIcon from './AwsIcon.vue';
 
                 <div class="ml-12">
                     <div class="w-full grid gap-4 grid-cols-5 text-gray-500">
-                        <GoogleIcon name="people" />
-                        <GoogleIcon name="people" outline />
-                        <GoogleIcon name="home" />
-                        <GoogleIcon name="home" outline />
-                        <GoogleIcon name="settings" />
-                        <GoogleIcon name="settings" outline />
-                        <GoogleIcon name="toggle_on" />
-                        <GoogleIcon name="toggle_on" outline />
-                        <GoogleIcon name="toggle_off"/>
-                        <GoogleIcon name="toggle_off" outline />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="people" 
+                        />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="people" outline 
+                        />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="home" 
+                        />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="home" outline 
+                        />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="settings" 
+                        />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="settings" outline 
+                        />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="toggle_on" 
+                        />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="toggle_on" outline 
+                        />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="toggle_off"
+                        />
+                        <GoogleIcon 
+                            class="text-lg"
+                            name="toggle_off" outline 
+                        />
                     </div>
                 </div>
             </div>

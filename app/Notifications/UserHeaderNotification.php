@@ -3,19 +3,16 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Events\UserSessionChanged;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\BroadcastMessage;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\Log;
 
 /**
- * Descripción
+ * Dispara una notificación a un usuario especifico
+ * 
+ * Estas notificaciones son las que se encuentrar en el menu superior, en el header.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
- * 
  * @version 1.0.0
  */
 class UserHeaderNotification extends Notification
@@ -23,7 +20,7 @@ class UserHeaderNotification extends Notification
     use Queueable;
 
     /**
-     * Create a new notification instance.
+     * Parametros para detonar la notificación
      *
      * @return void
      */
@@ -34,7 +31,7 @@ class UserHeaderNotification extends Notification
     ) {}
 
     /**
-     * Get the notification's delivery channels.
+     * Canales de envio de la notificación
      *
      * @param  mixed  $notifiable
      * @return array
@@ -45,7 +42,7 @@ class UserHeaderNotification extends Notification
     }
 
     /**
-     * Get the array representation of the notification.
+     * Obtiene la representación del array de la notificación.
      *
      * @param  mixed  $notifiable
      * @return array

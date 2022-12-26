@@ -65,6 +65,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * Un usuario a realizado muchas acciones
+     */
+    public function logs()
+    {
+        return $this->hasMany(HistoryLog::class);
+    }
+
+    /**
      * Retorna el nombre completo del usuario
      */
     public function getFullNameAttribute()

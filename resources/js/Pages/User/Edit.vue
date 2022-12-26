@@ -1,7 +1,7 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
-import Input from '@/Components/App/Form/Input.vue';
 import EditModal from '@/Components/App/Modal/Edit.vue';
+import Input from '@/Components/App/Form/Input.vue';
 
 const emit = defineEmits([
     'close', 
@@ -23,18 +23,25 @@ const update = (id) => {
         onSuccess: () => {
             Notify.success(lang('updated'))
             emit('switchModal')
-        },
+        }
     });
 }
 </script>
 <template>
-    <EditModal :show="show" @update="update(user.id)" @close="$emit('close')">
-
+    <EditModal
+        :show="show"
+        @close="$emit('close')"
+        @update="update(user.id)"
+    >
         <div class="w-full right-0 mt-2">
             <div class="rounded overflow-hidden">
                 <div class="text-center p-6 bg-gray-800 border-b">
-                    <p class="pt-2 text-lg font-bold text-gray-50">{{user.name}}</p>
-                    <p class="text-sm text-gray-100">{{user.paternal}}  {{user.maternal}}</p>
+                    <p class="pt-2 text-lg font-bold text-gray-50">
+                        {{user.name}}
+                    </p>
+                    <p class="text-sm text-gray-100">
+                        {{user.paternal}}  {{user.maternal}}
+                    </p>
                 </div>
                 <div class="py-2 border-b">
                     <div class="p-4">

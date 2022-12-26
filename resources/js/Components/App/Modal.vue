@@ -1,22 +1,24 @@
 <script setup>
 import { computed, onMounted, onUnmounted, watch } from 'vue';
 
+const emit = defineEmits([
+    'close'
+]);
+
 const props = defineProps({
-    show: {
-        type: Boolean,
-        default: false,
+    closeable: {
+        default: true,
+        type: Boolean
     },
     maxWidth: {
-        type: String,
         default: '2xl',
+        type: String
     },
-    closeable: {
-        type: Boolean,
-        default: true,
+    show: {
+        default: false,
+        type: Boolean
     },
 });
-
-const emit = defineEmits(['close']);
 
 watch(() => props.show, () => {
     if (props.show) {
@@ -38,13 +40,6 @@ const closeOnEscape = (e) => {
     }
 };
 
-onMounted(() => document.addEventListener('keydown', closeOnEscape));
-
-onUnmounted(() => {
-    document.removeEventListener('keydown', closeOnEscape);
-    document.body.style.overflow = null;
-});
-
 const maxWidthClass = computed(() => {
     return {
         'sm': 'sm:max-w-sm',
@@ -53,6 +48,13 @@ const maxWidthClass = computed(() => {
         'xl': 'sm:max-w-xl',
         '2xl': 'sm:max-w-2xl',
     }[props.maxWidth];
+});
+
+onMounted(() => document.addEventListener('keydown', closeOnEscape));
+
+onUnmounted(() => {
+    document.removeEventListener('keydown', closeOnEscape);
+    document.body.style.overflow = null;
 });
 </script>
 

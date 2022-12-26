@@ -1,12 +1,23 @@
 <?php namespace App\Http\Controllers;
+/**
+ * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
+ */
 
 use App\Models\HistoryLog;
 use Inertia\Inertia;
 
+/**
+ * Controla el historial de acciones de los usuarios
+ * 
+ * Permite ver los registros de las acciones de los usuarios.
+ * 
+ * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * @version 1.0.0
+ */
 class HistoryLogController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra el historial de acciones global
      *
      * @return \Illuminate\Http\Response
      */

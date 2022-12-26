@@ -6,7 +6,7 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
-import Notify from '@/notify';
+import Notify from './notify';
 import Swal from 'sweetalert2'
 import { SessionFresh } from './sessionFresh';
 import { i18n, t } from '@/Lang/i18n';
@@ -20,7 +20,9 @@ window.sessionFresh = new SessionFresh();
 window.Swal = Swal;
 
 createInertiaApp({
-    progress: { color: '#4B5563' },
+    progress: {
+        color: '#4B5563'
+    },
     title: (title) => `${title} - ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     setup({ el, App, props, plugin }) {
@@ -31,5 +33,5 @@ createInertiaApp({
             .use(ZiggyVue, Ziggy)
             .use(i18n)
             .mount(el);
-    },
+    }
 });

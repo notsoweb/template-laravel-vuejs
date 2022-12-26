@@ -1,30 +1,34 @@
 <script setup>
 import DialogModal from '@/Components/App/DialogModal.vue';
-import SecondaryButton from '@/Components/App/Button/Secondary.vue';
 import DangerButton from '@/Components/App/Button/Danger.vue';
+import SecondaryButton from '@/Components/App/Button/Secondary.vue';
     
 const emit = defineEmits([
-    'destroy', 
-    'close'
+    'close',
+    'destroy',
 ]);
 
 const props = defineProps({
-    title: {
-        type: String,
-        default: lang('delete.title')
-    },
     show: Boolean,
+    title: {
+        default: lang('delete.title'),
+        type: String
+    }
 });
 </script>
+
 <template>
     <DialogModal :show="show">
         <template #title>
-            <p class="font-bold text-xl" v-text="title"></p>
+            <p
+                class="font-bold text-xl"
+                v-text="title"
+            />
         </template>
         <template #content>
             <slot />
             <p 
-                class="mt-4 text-justify text-red-500"
+                class="mt-4 text-justify text-danger"
                 v-text="$t('delete.confirm')"
             />
         </template>

@@ -1,13 +1,17 @@
-<?php
-
-namespace App\Listeners;
+<?php namespace App\Listeners;
+/**
+ * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
+ */
 
 use App\Events\UserSessionChanged;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
+/**
+ * Escucha el cierre de Session de un usuario
+ * 
+ * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * @version 1.0.0
+ */
 class BrodcastUserLogoutNotification
 {
     /**
@@ -21,13 +25,21 @@ class BrodcastUserLogoutNotification
     }
 
     /**
-     * Handle the event.
+     * Disparador
+     * 
+     * Transmite mediante el evento cambio de sesión un menensaje de cierre de sessión
      *
      * @param  object  $event
      * @return void
      */
     public function handle(Logout $event)
     {
-        broadcast(new UserSessionChanged($event->user, "{$event->user->name} is Offline", 'danger'));
+        broadcast(new UserSessionChanged(
+            $event->user,
+            __('notifications.user.logout', [
+                'user' => $event->user->name
+            ]),
+            'danger'
+        ));
     }
 }

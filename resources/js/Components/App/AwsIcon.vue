@@ -4,8 +4,8 @@ import { computed } from 'vue';
 const props = defineProps({
     name:  String,
     type: {
-        type: String,
-        default: 'fab'
+        default: 'fab',
+        type: String
     }
 })
 

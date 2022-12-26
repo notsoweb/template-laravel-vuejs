@@ -1,37 +1,58 @@
 <script setup>
-import {ref} from 'vue';
-import Label from '@/Components/App/Form/Elements/Label.vue';
+import { ref, computed} from 'vue';
 import Error from '@/Components/App/Form/Elements/Error.vue';
+import Label from '@/Components/App/Form/Elements/Label.vue';
 
-defineProps({
-    title: String,
-    options: Array,
+defineEmits([
+    'update:modelValue'
+]);
+
+const props = defineProps({
     id: String,
-    onError: String,
     modelValue: String | Number,
-    required: Boolean
+    onError: String,
+    options: Array,
+    required: Boolean,
+    title: String,
 });
 
-defineEmits(['update:modelValue']);
+const autoTitle = computed(() => {
+    if(props.title) {
+        return props.title;
+    }
+
+    return props.id;
+});
 
 const input = ref(null);
 
-defineExpose({ focus: () => input.value.focus() });
+defineExpose({
+    focus: () => input.value.focus()
+});
 </script>
 
 <template>
     <div class="w-full">
-        <Label :id="id" :title="title" :required="required" />
-        <select  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        <Label
             :id="id"
-            :value="modelValue"
-            @change="$emit('update:modelValue', $event.target.value)"
             :required="required"
+            :title="autoTitle"
+        />
+        <select
+            :id="id"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+            :required="required"
+            :value="modelValue"
             v-bind="$attrs"
+            @change="$emit('update:modelValue', $event.target.value)"
         >
-            <option disabled value="">Elige una opción</option>
+            <option disabled value="">
+                {{ $t('option') }}
+            </option>
             <slot />
         </select>
-        <Error :onError="onError" />
+        <Error
+            :onError="onError"
+        />
     </div>
 </template>

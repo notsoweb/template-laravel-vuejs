@@ -1,10 +1,10 @@
 <script setup>
 import { nextTick, onMounted, ref } from 'vue';
 import { Head, useForm } from '@inertiajs/vue3';
-import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import AppLogo from '@/Components/App/Logo.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
+import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import Input from '@/Components/App/Form/Input.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
 const codeInput = ref(null);
 const recovery = ref(false);
@@ -12,7 +12,7 @@ const recoveryCodeInput = ref(null);
 
 const form = useForm({
     code: '',
-    recovery_code: '',
+    recovery_code: ''
 });
 
 const toggleRecovery = async () => {
@@ -39,11 +39,15 @@ onMounted(()=>{
 </script>
 
 <template>
-    <Head :title="$t('account.twoFactor.title')" />
+    <Head
+        :title="$t('account.twoFactor.title')"
+    />
 
     <AuthenticationCard>
         <template #logo>
-            <AppLogo class="text-2xl"/>
+            <AppLogo
+                class="text-2xl"
+            />
         </template>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -60,9 +64,8 @@ onMounted(()=>{
             <div v-if="! recovery">
                 <Input 
                     id="code"
-                    ref="codeInput"
-                    title="code"
                     type="number"
+                    ref="codeInput"
                     v-model="form.code"
                     :onError="form.errors.code"
                 />
@@ -70,9 +73,9 @@ onMounted(()=>{
             <div v-else>
                 <Input 
                     id="recovery_code"
-                    ref="recoveryCodeInput"
-                    title="account.twoFactor.recovery.code"
                     type="number"
+                    title="account.twoFactor.recovery.code"
+                    ref="recoveryCodeInput"
                     v-model="form.recovery_code"
                     :onError="form.errors.recovery_code"
                 />
@@ -89,7 +92,11 @@ onMounted(()=>{
                     </template>
                 </button>
 
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton
+                    class="ml-4"
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                >
                     {{$t('auth.login')}}
                 </PrimaryButton>
             </div>

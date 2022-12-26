@@ -1,16 +1,15 @@
 <script setup>
 import { ref } from 'vue';
-import { router} from '@inertiajs/vue3'
-import { Link } from '@inertiajs/vue3';
+import { Link, router} from '@inertiajs/vue3'
 import { hasRole }  from '@/rolePermission.js';
-import Icon from '@/Components/App/GoogleIcon.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Table from '@/Components/App/Table.vue';
-import Input from '@/Components/App/Form/Input.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
-import IconPrimary from '@/Components/App/Button/Primary.vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import Destroy from './Destroy.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
+import Icon from '@/Components/App/GoogleIcon.vue';
+import Input from '@/Components/App/Form/Input.vue';
+import IconPrimary from '@/Components/App/Button/Primary.vue';
+import PageHeader from '@/Components/App/PageHeader.vue';
+import Table from '@/Components/App/Table.vue';
 
 defineProps({
   notifications: Object
@@ -53,18 +52,18 @@ const searchWithPagination = (page) =>  {
 }
 
 const edit = (detail) => {
-    router.put(route('notifications.update', detail.id), {}, {
-      preserveState: true,
-      preserveScroll: true,
-      onSuccess: () => {
-        Notify.success(lang('readed'));
-      }
-    });
+  router.put(route('notifications.update', detail.id), {}, {
+    preserveState: true,
+    preserveScroll: true,
+    onSuccess: () => {
+      Notify.success(lang('readed'));
+    }
+  });
 }
 
 const destroy = (detail) => {
-    notification.value = detail;
-    switchDestroyModal();
+  notification.value = detail;
+  switchDestroyModal();
 }
 
 const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
@@ -73,7 +72,11 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
   <AppLayout :title="$t('notifications.title')">
     <PageHeader>
       <Link :href="route('dashboard')">
-          <Icon class="btn-icon-primary" name="home" outline />
+          <Icon
+            class="btn-icon-primary"
+            name="home"
+            outline
+          />
       </Link>
     </PageHeader>
     <div class="w-full  bg-white border-gray-200">
@@ -85,33 +88,50 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
       <div>
         <Input
           id="startDate"
-          v-model="dateStart"
           type="date"
-          autocomplete="off"
+          v-model="dateStart"
           @keyup.enter="search"
+          autocomplete="off"
         />
       </div>
       <div>
         <Input
           id="endDate"
-          v-model="dateEnd"
           type="date"
-          autocomplete="off"
+          v-model="dateEnd"
           @keyup.enter="search"
+          autocomplete="off"
         />
       </div>
       <div class="flex items-end">
-        <IconPrimary @click="search" class="w-full">{{$t('search')}} </IconPrimary>
+        <IconPrimary
+          @click="search"
+          class="w-full"
+        >
+          {{$t('search')}}
+        </IconPrimary>
       </div>
     </div>
     <div class="w-full">
       <Table :links="notifications.links"  @send-pagination="searchWithPagination">
         <template #head>
           <tr class="table-head">
-            <th class="table-item" v-text="$t('description')" />
-            <th class="table-item" v-text="$t('date')" />
-            <th class="table-item" v-text="$t('status')" />
-            <th class="table-item" v-text="$t('actions')" />
+            <th
+              class="table-item"
+              v-text="$t('description')" 
+            />
+            <th
+              class="table-item"
+              v-text="$t('date')" 
+            />
+            <th
+              class="table-item"
+              v-text="$t('status')" 
+            />
+            <th
+              class="table-item"
+              v-text="$t('actions')" 
+            />
           </tr>
         </template>
         <template #body>
@@ -130,10 +150,10 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                 <div class="flex items-center text-sm">
                   <div>
                     <p class="font-semibold text-black">
-                      <b>Fecha:</b> {{ formatDate(notification.created_at) }}
+                      <b>{{ $t('date') }}:</b> {{ formatDate(notification.created_at) }}
                     </p>
                     <p class="font-semibold text-black">
-                      <b>Hora:</b> {{ formatTime(notification.created_at) }}
+                      <b>{{ $t('hour') }}:</b> {{ formatTime(notification.created_at) }}
                     </p>
                   </div>
                 </div>
@@ -160,12 +180,12 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                         @click="edit(notification)"
                     />
                     <template v-if="hasRole('developer')">
-                        <GoogleIcon
-                            class="btn-icon-primary"
-                            name="delete"
-                            outline
-                            @click="destroy(notification)"
-                        />
+                      <GoogleIcon
+                        class="btn-icon-primary"
+                        name="delete"
+                        outline
+                        @click="destroy(notification)"
+                      />
                     </template>
                   </div>
                 </td>
@@ -182,7 +202,7 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
             <td class="table-item border">
               <div class="flex items-center text-sm">
                 <div>
-                  {{$t('noRecords')}}
+                  {{ $t('noRecords') }}
                 </div>
               </div>
             </td>
@@ -191,9 +211,9 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
       </Table>
     </div>
     <Destroy
-        :show="destroyModal"
-        :notification="notification"
-        @close="switchDestroyModal"
+      :show="destroyModal"
+      :notification="notification"
+      @close="switchDestroyModal"
     />
   </AppLayout>
 </template>

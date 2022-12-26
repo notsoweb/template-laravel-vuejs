@@ -1,20 +1,20 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/vue3';
-import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import AppLogo from '@/Components/App/Logo.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
+import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import Input from '@/Components/App/Form/Input.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
 const props = defineProps({
     email: String,
-    token: String,
+    token: String
 });
 
 const form = useForm({
     token: props.token,
     email: props.email,
     password: '',
-    password_confirmation: '',
+    password_confirmation: ''
 });
 
 const submit = () => {
@@ -25,42 +25,43 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Reset Password" />
-
+    <Head
+        title="Reset Password"
+    />
     <AuthenticationCard>
         <template #logo>
-            <AppLogo class="text-2xl" />
+            <AppLogo
+                class="text-2xl"
+            />
         </template>
-
         <form @submit.prevent="submit" class="space-y-4">
             <Input
                 id="email"
                 type="email"
+                class="mt-1 block w-full"
                 v-model="form.email"
                 :onError="form.errors.email"
-                class="mt-1 block w-full"
                 required
                 autofocus
             />
             <Input
                 id="password"
                 type="password"
+                class="mt-1 block w-full"
                 v-model="form.password"
                 :onError="form.errors.password"
-                class="mt-1 block w-full"
                 required
                 autofocus
             />
             <Input
                 id="passwordConfirmation"
                 type="password"
+                class="mt-1 block w-full"
                 v-model="form.password_confirmation"
                 :onError="form.errors.password_confirmation"
-                class="mt-1 block w-full"
                 required
                 autofocus
             />
-
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton
                     :class="{ 'opacity-25': form.processing }"

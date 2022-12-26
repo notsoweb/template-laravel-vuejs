@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Log;
  * Retorna la información necesaria para los select, listas o recursos determinados
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
- * 
  * @version 1.0.0
  */
 class ResourceController extends Controller

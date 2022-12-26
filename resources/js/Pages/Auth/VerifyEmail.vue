@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from 'vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import AppLogoIcon from '@/Components/App/Logo/Icon.vue';
+import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
 const props = defineProps({
@@ -36,7 +36,10 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 
         <form @submit.prevent="submit">
             <div class="mt-4 flex items-center justify-between">
-                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                >
                     Resend Verification Email
                 </PrimaryButton>
 
@@ -49,11 +52,10 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 
                     <Link
                         :href="route('logout')"
-                        method="post"
-                        as="button"
                         class="underline text-sm text-gray-600 hover:text-gray-900 ml-2"
+                        method="post"
                     >
-                         {{$t('auth.logout')}}
+                        {{ $t('auth.logout') }}
                     </Link>
                 </div>
             </div>

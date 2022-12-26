@@ -54,7 +54,6 @@ class Notify {
         });
     }
   }
-
 }
 
 export default Notify;

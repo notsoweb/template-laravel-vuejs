@@ -2,19 +2,17 @@
 import { ref } from 'vue';
 import { Link, router } from '@inertiajs/vue3';
 import { hasRole } from '@/rolePermission.js';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Table from '@/Components/App/Table.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
-
-import ShowView from './Show.vue';
 import EditView from './Edit.vue';
 import DestroyView from './Destroy.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import Searcher from '@/Components/App/Searcher.vue';
+import ShowView from './Show.vue';
+import Table from '@/Components/App/Table.vue';
 
 const props = defineProps({
-    users: Object,
-    roles: Object
+    roles: Object,
+    users: Object
 });
 
 let query = ref('');
@@ -61,18 +59,32 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
     <AppLayout :title="$t('users.system')">
         <Searcher @search="search">
             <Link :href="route('dashboard')">
-              <GoogleIcon class="btn-icon-primary" name="home" outline />
-          </Link>
-          <Link :href="route('users.create')">
-              <GoogleIcon class="btn-icon-primary" name="add" outline />
-          </Link>
+                <GoogleIcon
+                    class="btn-icon-primary"
+                    name="home"
+                    outline
+                />
+            </Link>
+            <Link :href="route('users.create')">
+                <GoogleIcon
+                    class="btn-icon-primary"
+                    name="add"
+                    outline
+                />
+            </Link>
         </Searcher>
         <div class="pt-2 w-full">
             <Table :links="users.links" @send-pagination="searchWithPagination">
                 <template #head>
                     <tr class="table-head">
-                      <th class="table-item" v-text="$t('user')" />
-                      <th class="table-item" v-text="$t('actions')" />
+                        <th
+                            class="table-item"
+                            v-text="$t('user')"
+                        />
+                        <th
+                            class="table-item"
+                            v-text="$t('actions')"
+                        />
                     </tr>
                 </template>
                 <template #body>
@@ -80,7 +92,9 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>
-                              <p class="font-semibold text-black">{{user.name}} {{user.paternal}}  {{user.maternal}}</p>
+                              <p class="font-semibold text-black">
+                                {{user.name}} {{user.paternal}}  {{user.maternal}}
+                              </p>
                             </div>
                           </div>
                         </td>

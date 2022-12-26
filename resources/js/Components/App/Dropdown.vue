@@ -3,17 +3,20 @@ import { computed, onMounted, onUnmounted, ref } from 'vue';
 
 const props = defineProps({
     align: {
-        type: String,
         default: 'right',
-    },
-    width: {
-        type: String,
-        default: '48',
+        type: String
     },
     contentClasses: {
-        type: Array,
-        default: () => ['pt-1', 'bg-white'],
+        default: () => [
+            'pt-1',
+            'bg-white'
+        ],
+        type: Array
     },
+    width: {
+        default: '48',
+        type: String
+    }
 });
 
 let open = ref(false);
@@ -71,7 +74,11 @@ const alignmentClasses = computed(() => {
         </div>
 
         <!-- Full Screen Dropdown Overlay -->
-        <div v-show="open" class=" fixed inset-0 z-40" @click="open = false" />
+        <div
+            v-show="open"
+            class=" fixed inset-0 z-40"
+            @click="open = false"
+        />
 
         <transition
             enter-active-class="transition ease-out duration-200"

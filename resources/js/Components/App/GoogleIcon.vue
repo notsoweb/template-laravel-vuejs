@@ -13,5 +13,9 @@ const classes = computed(() => {
 });
 </script>
 <template>
-    <span :class="classes" v-text="name" translate="no"></span>
+    <span
+        :class="classes"
+        translate="no"
+        v-text="name"
+    />
 </template>

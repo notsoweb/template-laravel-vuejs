@@ -1,47 +1,67 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import Label from '@/Components/App/Form/Elements/Label.vue';
 import Error from '@/Components/App/Form/Elements/Error.vue';
+import Label from '@/Components/App/Form/Elements/Label.vue';
 
-defineProps({
-    title: String,
+defineEmits([
+    'update:modelValue'
+]);
+
+props = defineProps({
     id: String,
-    onError: String,
     modelValue: String | Number,
-    type: {
-        type: String,
-        default: 'text',
-    },
+    onError: String,
     placeholder: String,
-    required: Boolean
+    required: Boolean,
+    rows: {
+        default: 5,
+        type: Number
+    },
+    title: String
 });
 
-defineEmits(['update:modelValue']);
+const autoTitle = computed(() => {
+    if(props.title) {
+        return props.title;
+    }
+
+    return props.id;
+});
 
 const input = ref(null);
+
+defineExpose({
+    focus: () => input.value.focus()
+});
 
 onMounted(() => {
     if (input.value.hasAttribute('autofocus')) {
         input.value.focus();
     }
 });
-
-defineExpose({ focus: () => input.value.focus() });
 </script>
 
 <template>
     <div class="w-full">
-        <Label :id="id" :title="title" :required="required" />
-        <textarea v-bind="$attrs" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            ref="input"
+        <Label
             :id="id"
+            :title="autoTitle"
+            :required="required"
+        />
+        <textarea
+            :id="id"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary/90 block w-full p-2.5"
+            :placeholder="placeholder"
+            ref="input"
+            :required="required"
+            :rows="rows"
             :type="type"
             :value="modelValue"
-            :placeholder="placeholder"
-            :required="required"
-            rows="5"
+            v-bind="$attrs"
             @input="$emit('update:modelValue', $event.target.value)"
         ></textarea>
-        <Error :onError="onError" />
+        <Error
+            :onError="onError"
+        />
     </div>
 </template>

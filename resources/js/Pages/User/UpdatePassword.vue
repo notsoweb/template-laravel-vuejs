@@ -1,8 +1,8 @@
 <script setup>
 import {useForm} from '@inertiajs/vue3';
-import JetButton from '@/Components/App/Button/Primary.vue';
-import JetFormSection from '@/Components/App/FormSection.vue';
 import Input from '@/Components/App/Form/Input.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
+import FormSection from '@/Components/App/FormSection.vue';
 
 const props = defineProps({
     user: Object
@@ -30,7 +30,7 @@ const updateProfileInformation = () => {
 </script>
 
 <template>
-    <JetFormSection @submitted="updateProfileInformation">
+    <FormSection @submitted="updateProfileInformation">
         <template #title>
             {{$t('users.password.title')}}
         </template>
@@ -51,9 +51,12 @@ const updateProfileInformation = () => {
             </div>
         </template>
         <template #actions>
-            <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <PrimaryButton
+                :class="{ 'opacity-25': form.processing }"
+                :disabled="form.processing"
+            >
                 {{$t('update')}}
-            </JetButton>
+            </PrimaryButton>
         </template>
-    </JetFormSection>
+    </FormSection>
 </template>

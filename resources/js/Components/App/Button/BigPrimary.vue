@@ -2,20 +2,27 @@
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 
 defineProps({
+    href: String,
     icon: {
-        type: String,
-        default: 'people'
+        default: 'people',
+        type: String
     },
     type: {
-        type: String,
         default: 'submit',
-    },
-    href: String
+        type: String
+    }
 });
 </script>
+
 <template>
-    <button :type="type" class="flex flex-col items-center justify-center w-full h-48 space-y-2 bg-primary text-primary-text hover:bg-primary-hover rounded-xl disabled:opacity-25 transition">
-        <GoogleIcon :name="icon" class="text-7xl" />
+    <button 
+        class="flex flex-col items-center justify-center w-full h-48 space-y-2 bg-primary text-primary-text hover:bg-primary-hover rounded-xl disabled:opacity-25 transition"
+        :type="type" 
+    >
+        <GoogleIcon
+            class="text-7xl"
+            :name="icon"
+        />
         <span>
             <slot />
         </span>

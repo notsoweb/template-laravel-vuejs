@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * Permite guardar el log de acciones de los usuarios
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
- * 
  * @version 1.0.0
  */
 class HistoryLog extends Model

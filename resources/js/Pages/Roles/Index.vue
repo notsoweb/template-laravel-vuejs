@@ -2,12 +2,12 @@
 import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { hasRole } from '@/rolePermission.js';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Table from '@/Components/App/Table.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
 import DestroyView from './Destroy.vue';
 import EditView from './Edit.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
+import PageHeader from '@/Components/App/PageHeader.vue';
+import Table from '@/Components/App/Table.vue';
 
 const props = defineProps({
     roles: Object
@@ -33,20 +33,37 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
 <template>
     <AppLayout :title="$t('roles.title')">
         <PageHeader>
-          <Link :href="route('dashboard')">
-              <GoogleIcon class="btn-icon-primary" name="home" outline />
-          </Link>
-          <Link :href="route('roles.create')">
-              <GoogleIcon class="btn-icon-primary" name="add" outline />
-          </Link>
+            <Link :href="route('dashboard')">
+                <GoogleIcon
+                    class="btn-icon-primary"
+                    name="home"
+                    outline
+                />
+            </Link>
+            <Link :href="route('roles.create')">
+                <GoogleIcon
+                    class="btn-icon-primary"
+                    name="add"
+                    outline
+                />
+            </Link>
         </PageHeader>
         <div class="pt-2 w-full">
             <Table :links="roles.links">
                 <template #head>
                     <tr class="table-head">
-                      <th class="table-item" v-text="$t('role')" />
-                      <th class="table-item" v-text="$t('description')" />
-                      <th class="table-item" v-text="$t('actions')" />
+                        <th
+                            class="table-item"
+                            v-text="$t('role')"
+                        />
+                        <th
+                            class="table-item"
+                            v-text="$t('description')"
+                        />
+                        <th
+                            class="table-item"
+                            v-text="$t('actions')"
+                        />
                     </tr>
                 </template>
                 <template #body>
@@ -54,14 +71,18 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>
-                              <p class="font-semibold text-black">{{role.name}}</p>
+                                <p class="font-semibold text-black">
+                                    {{role.name}}
+                                </p>
                             </div>
                           </div>
                         </td>
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>
-                              <p class="font-semibold text-black">{{role.description}}</p>
+                                <p class="font-semibold text-black">
+                                    {{role.description}}
+                                </p>
                             </div>
                           </div>
                         </td>
@@ -89,13 +110,13 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
         </div>
         <template v-if="hasRole('developer')">
         <EditView
-            :show="editModal"
             :role="role"
+            :show="editModal"
             @close="switchEditModal"
         />
         <DestroyView
-            :show="destroyModal"
             :role="role"
+            :show="destroyModal"
             @close="switchDestroyModal"
         />
         </template>

@@ -2,6 +2,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Welcome from '@/Components/App/Welcome.vue';
 </script>
+
 <template>
     <AppLayout title="Dashboard">
         <div class="py-12">

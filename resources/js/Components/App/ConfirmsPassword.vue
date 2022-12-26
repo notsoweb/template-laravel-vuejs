@@ -1,25 +1,27 @@
 <script setup>
 import { ref, reactive, nextTick } from 'vue';
 import DialogModal from './DialogModal.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import SecondaryButton from './SecondaryButton.vue';
 import Input from './Form/Input.vue';
+import SecondaryButton from '@/Components/App/Button/Secondary.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
-const emit = defineEmits(['confirmed']);
+const emit = defineEmits([
+    'confirmed'
+]);
 
 defineProps({
-    title: {
-        type: String,
-        default: 'passwordConfirmation',
+    button: {
+        default: 'confirm',
+        type: String
     },
     content: {
-        type: String,
         default: 'account.password.verify',
+        type: String
     },
-    button: {
-        type: String,
-        default: 'confirm',
-    },
+    title: {
+        default: 'passwordConfirmation',
+        type: String
+    }
 });
 
 const confirmingPassword = ref(false);
@@ -82,11 +84,11 @@ const closeModal = () => {
                 <div class="mt-4">
                     <Input
                         id="password"
+                        class="mt-1 block w-3/4"
                         ref="passwordInput"
+                        type="password"
                         v-model="form.password"
                         :onError="form.error"
-                        type="password"
-                        class="mt-1 block w-3/4"
                         @keyup.enter="confirmPassword"
                     />
                 </div>

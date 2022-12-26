@@ -2,8 +2,11 @@
 import { Link } from '@inertiajs/vue3';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 </script>
+
 <template>
     <Link :href="'/'" class="flex">
-        <GoogleIcon name="dashboard" />
+        <GoogleIcon
+            name="dashboard"
+        />
     </Link>
 </template>

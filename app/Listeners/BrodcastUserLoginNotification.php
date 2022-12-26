@@ -1,12 +1,17 @@
-<?php
-
-namespace App\Listeners;
+<?php namespace App\Listeners;
+/**
+ * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
+ */
 
 use App\Events\UserSessionChanged;
 use Illuminate\Auth\Events\Login;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
+/**
+ * Escucha el inicio de sessión de los usuarios
+ * 
+ * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * @version 1.0.0
+ */
 class BrodcastUserLoginNotification
 {
     /**
@@ -20,13 +25,20 @@ class BrodcastUserLoginNotification
     }
 
     /**
-     * Handle the event.
+     * Disparador
+     * 
+     * Transmite mediante el evento cambio de sesión un menensaje de inicio de sesión
      *
      * @param  object  $event
      * @return void
      */
     public function handle(Login $event)
     {
-        broadcast(new UserSessionChanged($event->user, "{$event->user->name} is Online"));
+        broadcast(new UserSessionChanged(
+            $event->user,
+            __('notifications.user.login', [
+                'user' => $event->user->name
+            ])
+        ));
     }
 }

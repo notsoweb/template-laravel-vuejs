@@ -4,9 +4,9 @@ import { useForm } from '@inertiajs/vue3';
 import ActionMessage from '@/Components/App/ActionMessage.vue';
 import ActionSection from '@/Components/App/ActionSection.vue';
 import DialogModal from '@/Components/App/DialogModal.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import SecondaryButton from '@/Components/App/Button/Secondary.vue';
 import Input from '@/Components/App/Form/Input.vue';
+import SecondaryButton from '@/Components/App/Button/Secondary.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
 defineProps({
     sessions: Array,
@@ -16,7 +16,7 @@ const confirmingLogout = ref(false);
 const passwordInput = ref(null);
 
 const form = useForm({
-    password: '',
+    password: ''
 });
 
 const confirmLogout = () => {
@@ -30,7 +30,7 @@ const logoutOtherBrowserSessions = () => {
             closeModal();
         },
         onError: () => passwordInput.value.focus(),
-        onFinish: () => form.reset(),
+        onFinish: () => form.reset()
     });
 };
 
@@ -103,8 +103,12 @@ const closeModal = () => {
                             <div class="text-xs text-gray-500">
                                 {{ session.ip_address }},
 
-                                <span v-if="session.is_current_device" class="text-green-500 font-semibold">{{$t('account.sessions.this')}}</span>
-                                <span v-else>{{$t('account.sessions.last')}} {{ session.last_active }}</span>
+                                <span v-if="session.is_current_device" class="text-green-500 font-semibold">
+                                    {{$t('account.sessions.this')}}
+                                </span>
+                                <span v-else>
+                                    {{$t('account.sessions.last')}} {{ session.last_active }}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -142,7 +146,7 @@ const closeModal = () => {
 
                 <template #footer>
                     <SecondaryButton @click="closeModal">
-                         {{$t('cancel')}}
+                        {{ $t('cancel') }}
                     </SecondaryButton>
 
                     <PrimaryButton
@@ -151,7 +155,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="logoutOtherBrowserSessions"
                     >
-                         {{$t('account.sessions.logout')}}
+                        {{$t('account.sessions.logout')}}
                     </PrimaryButton>
                 </template>
             </DialogModal>

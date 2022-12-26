@@ -5,8 +5,8 @@ import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import PageHeader from '@/Components/App/PageHeader.vue';
 
 defineProps({
-    notification: Object,
-    users: String
+  notification: Object,
+  users: String
 });
 
 const formatDate = (date) => {
@@ -26,31 +26,44 @@ const formatTime = (date) => {
   <AppLayout :title="$t('notifications.title')">
     <PageHeader>
       <Link :href="route('dashboard')">
-          <GoogleIcon class="btn-icon-primary" name="home" outline />
+          <GoogleIcon
+            class="btn-icon-primary"
+            name="home"
+            outline
+          />
       </Link>
     </PageHeader>
     <div class="w-full grid sm:grid-cols-2 lg:grid-cols-4 mt-8">
       <div class="bg-primary text-white text-center">
-          <p class="p-2">{{$t('date')}}</p>
+          <p class="p-2">
+            {{$t('date')}}
+          </p>
       </div>
       <div class="text-center border border-primary">
-          <p class="p-2">{{ formatDate(notification.created_at) }}</p>
+          <p class="p-2">
+            {{ formatDate(notification.created_at) }}
+          </p>
       </div>
       <div class="bg-primary text-white text-center">
-          <p class="p-2">{{$t('hour')}}</p>
+          <p class="p-2">
+            {{$t('hour')}}
+          </p>
       </div>
       <div class="text-center border border-primary">
-          <p class="p-2">{{ formatTime(notification.created_at) }}</p>
+          <p class="p-2">
+            {{ formatTime(notification.created_at) }}
+          </p>
       </div>
     </div>
     <div class="flex flex-col w-full justify-center items-center space-y-6">
       <div class="mt-8">
         <GoogleIcon
-            class="btn-icon-primary text-7xl"
-            :name="notification.data.icon" outline
+          class="btn-icon-primary text-7xl"
+          :name="notification.data.icon"
+          outline
         />
       </div>
-      <div class="">
+      <div>
         {{notification.data.message}}
       </div>
     </div>

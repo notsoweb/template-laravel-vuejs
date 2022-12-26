@@ -8,8 +8,8 @@ const emit = defineEmits([
 ]);
 
 const props = defineProps({
-    show: Boolean,
-    role: Object
+    role: Object,
+    show: Boolean
 });
 
 let form = useForm(props.role);
@@ -34,7 +34,9 @@ const destroy = (id) => {
         <div class="w-full right-0 mt-2">
             <div class="bg-white rounded overflow-hidden shadow-lg">
                 <div class="text-center p-6 bg-gray-800 border-b">
-                    <p class="pt-2 text-lg font-bold text-gray-50">{{role.name}}</p>
+                    <p class="pt-2 text-lg font-bold text-gray-50">
+                        {{role.name}}
+                    </p>
                 </div>
             </div>
         </div>

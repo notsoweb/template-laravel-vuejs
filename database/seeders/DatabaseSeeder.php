@@ -1,10 +1,17 @@
-<?php
-
-namespace Database\Seeders;
+<?php namespace Database\Seeders;
+/**
+ * @copyright Copyright (c) 2022 Notsoweb (https://notsoweb.com) - All rights reserved.
+ */
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+/**
+ * Base de datos de producción
+ * 
+ * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * @version 1.0.0
+ */
 class DatabaseSeeder extends Seeder
 {
     /**

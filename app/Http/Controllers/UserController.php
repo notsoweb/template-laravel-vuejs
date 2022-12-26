@@ -8,7 +8,7 @@ use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use App\Http\Traits\UseFetch;
 use App\Models\User;
-use App\Services\Notify;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -19,7 +19,6 @@ use Spatie\Permission\Models\Role;
  * Controla los usuarios del sistema
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
- * 
  * @version 1.0.0
  */
 class UserController extends Controller
@@ -27,25 +26,27 @@ class UserController extends Controller
     use UseFetch;
 
     /**
-     * Display a listing of the resource.
+     * Muestra los usuarios del sistema
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $q = request()->get('q');
+
         return Inertia::render('User/Index', [
             'users' => User::whereNotIn('id', [1,2])
                 ->where('name', 'LIKE', "%{$q}%")
                 ->select([
-                'id',
-                'name',
-                'paternal',
-                'maternal',
-                'email',
-                'phone'
-            ])->paginate(config('app.pagination')),
-        ]);
+                    'id',
+                    'name',
+                    'paternal',
+                    'maternal',
+                    'email',
+                    'phone'
+                ])
+                ->paginate(config('app.pagination')),
+            ]);
     }
 
     /**
@@ -62,6 +63,7 @@ class UserController extends Controller
     public function store(StoreUser $request)
     {
         $data = $request->all();
+        // Cifro la contraseña recibida
         $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
@@ -76,6 +78,8 @@ class UserController extends Controller
 
     /**
      * Configuraciones del usuario
+     * 
+     * @param User $user Modelo del usuario
      */
     public function settings(User $user)
     {
@@ -89,8 +93,11 @@ class UserController extends Controller
 
     /**
      * Actualiza la información de un usuario
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param User $user Modelo del usuario
      */
-    public function update(UpdateUser $request, $user)
+    public function update(UpdateUser $request, $user) : void
     {
         $data = $request->all();
 
@@ -108,7 +115,7 @@ class UserController extends Controller
      * @param Request $request
      * @return void
      */
-    public function updatePassword(Request $request)
+    public function updatePassword(Request $request) : void
     {
         $data = $this->validate($request, [
             'password' => ['required', 'string', 'min:8'],
@@ -131,7 +138,7 @@ class UserController extends Controller
      * @param Request $request
      * @return void
      */
-    public function syncRoles(Request $request)
+    public function syncRoles(Request $request) : void
     {
         $data = $this->validate($request, [
             'roles' => ['required'],
@@ -154,8 +161,10 @@ class UserController extends Controller
 
     /**
      * Retorna las ultimas notificaciones del usuario
+     * 
+     * @return JsonResponse
      */
-    public function getNotifications()
+    public function getNotifications() : JsonResponse
     {
         try {
             $notifications = auth()
@@ -176,8 +185,10 @@ class UserController extends Controller
 
     /**
      * Elimina un usuario del sistema con todos sus registros vinculados
+     * 
+     * @param integer $user ID del usuario
      */
-    public function destroy($user)
+    public function destroy($user) : void
     {
         try {
             $user = User::find($user);

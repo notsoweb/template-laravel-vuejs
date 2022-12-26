@@ -1,15 +1,14 @@
 <script setup>
 import { ref } from 'vue';
-import { router} from '@inertiajs/vue3'
-import { Link } from '@inertiajs/vue3';
+import { Link, router} from '@inertiajs/vue3'
 import { hasRole }  from '@/rolePermission.js';
-import Icon from '@/Components/App/GoogleIcon.vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Table from '@/Components/App/Table.vue';
-import Item from '@/Components/App/Help/Item.vue';
-import Input from '@/Components/App/Form/Input.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
+import Icon from '@/Components/App/GoogleIcon.vue';
 import IconPrimary from '@/Components/App/Button/Primary.vue';
+import Input from '@/Components/App/Form/Input.vue';
+import Item from '@/Components/App/Help/Item.vue';
+import PageHeader from '@/Components/App/PageHeader.vue';
+import Table from '@/Components/App/Table.vue';
 
 defineProps({
   users: String,
@@ -57,7 +56,11 @@ const searchWithPagination = (page) =>  {
   <AppLayout :title="$t('history.title')">
     <PageHeader>
       <Link :href="route('dashboard')">
-          <Icon class="btn-icon-primary" name="home" outline />
+        <Icon
+          class="btn-icon-primary"
+          name="home"
+          outline
+        />
       </Link>
     </PageHeader>
     <div class="w-full  bg-white border-gray-200">
@@ -71,9 +74,9 @@ const searchWithPagination = (page) =>  {
           id="search"
           title="event"
           v-model="historyEvent"
+          @keyup.enter="search"
           required
           autocomplete="off"
-          @keyup.enter="search"
         />
       </div>
       <div>
@@ -81,8 +84,8 @@ const searchWithPagination = (page) =>  {
           id="startDate"
           v-model="dateStart"
           type="date"
-          autocomplete="off"
           @keyup.enter="search"
+          autocomplete="off"
         />
       </div>
       <div>
@@ -90,20 +93,31 @@ const searchWithPagination = (page) =>  {
           id="endDate"
           v-model="dateEnd"
           type="date"
-          autocomplete="off"
           @keyup.enter="search"
+          autocomplete="off"
         />
       </div>
       <div class="flex items-end">
-        <IconPrimary @click="search" class="w-full">{{$t('search')}} </IconPrimary>
+        <IconPrimary
+          class="w-full"
+          @click="search"
+        >
+          {{$t('search')}}
+        </IconPrimary>
       </div>
     </div>
     <div class="w-full">
       <Table :links="histories.links"  @send-pagination="searchWithPagination">
         <template #head>
           <tr class="table-head">
-            <th class="table-item" v-text="$t('event')" />
-            <th class="table-item" v-text="$t('description')" />
+            <th
+              class="table-item"
+              v-text="$t('event')"
+            />
+            <th
+              class="table-item"
+              v-text="$t('description')"
+            />
           </tr>
         </template>
         <template #body>
@@ -112,13 +126,13 @@ const searchWithPagination = (page) =>  {
               <div class="flex flex-col space-y-2">
                 <div>
                   <p class="font-semibold text-black">
-                    <b>Fecha:</b> {{ formatDate(history.created_at) }}
+                    <b>{{$t('date')}}:</b> {{ formatDate(history.created_at) }}
                   </p>
                   <p class="font-semibold text-black">
-                    <b>Hora:</b> {{ formatTime(history.created_at) }}
+                    <b>{{$t('hour')}}:</b> {{ formatTime(history.created_at) }}
                   </p>
                   <p class="font-semibold text-black">
-                    <b>User:</b> {{ history.name }} {{ history.paternal }} {{ history.maternal }}
+                    <b>{{$t('user')}}:</b> {{ history.name }} {{ history.paternal }} {{ history.maternal }}
                   </p>
                 </div>
                 <p class="font-semibold text-black">

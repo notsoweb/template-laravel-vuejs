@@ -8,13 +8,13 @@ import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
 defineProps({
     canResetPassword: Boolean,
-    status: String,
+    status: String
 });
 
 const form = useForm({
     email: '',
     password: '',
-    remember: false,
+    remember: false
 });
 
 const submit = () => {
@@ -26,6 +26,7 @@ const submit = () => {
     });
 };
 </script>
+
 <template>
     <Head :title="$t('auth.login')" />
 
@@ -58,7 +59,10 @@ const submit = () => {
             />
             <div class="block mt-4">
                 <label class="flex items-center">
-                    <Checkbox v-model:checked="form.remember" name="remember" />
+                    <Checkbox 
+                        name="remember"
+                        v-model:checked="form.remember"
+                    />
                     <span
                         class="ml-2 text-sm text-gray-600"
                         v-text="$t('auth.remember')"

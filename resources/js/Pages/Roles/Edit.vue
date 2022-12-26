@@ -1,15 +1,15 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
-import Input from '@/Components/App/Form/Input.vue';
 import EditModal from '@/Components/App/Modal/Edit.vue';
+import Input from '@/Components/App/Form/Input.vue';
 
 const emit = defineEmits([
-    'close', 
+    'close'
 ]);
 
 const props = defineProps({
     role: Object,
-    show: Boolean,
+    show: Boolean
 });
 
 const form = useForm(props.role);
@@ -22,16 +22,22 @@ const update = (id) => {
         onSuccess: () => {
             Notify.success(lang('updated'));
             emit('close');
-        },
+        }
     });
 }
 </script>
 <template>
-    <EditModal :show="show" @update="update(role.id)" @close="$emit('close')">
+    <EditModal
+        :show="show"
+        @update="update(role.id)"
+        @close="$emit('close')"
+    >
         <div class="w-full right-0 mt-2">
             <div class="rounded overflow-hidden">
                 <div class="text-center p-6 bg-gray-800 border-b">
-                    <p class="pt-2 text-lg font-bold text-gray-50">{{role.name}}</p>
+                    <p class="pt-2 text-lg font-bold text-gray-50">
+                        {{role.name}}
+                    </p>
                 </div>
                 <div class="py-2 border-b">
                     <div class="p-4">

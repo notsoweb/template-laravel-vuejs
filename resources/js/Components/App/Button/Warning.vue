@@ -3,15 +3,15 @@ import Base from './Base.vue';
 
 defineProps({
     type: {
-        type: String,
         default: 'submit',
+        type: String
     }
 });
 </script>
+
 <template>
     <Base
         class="bg-warning"
-        color="danger"
         :type="type"
     >
         <slot />

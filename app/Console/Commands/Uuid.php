@@ -7,10 +7,11 @@ use Illuminate\Console\Command;
 use Ramsey\Uuid\Uuid as UuidUuid;
 
 /**
- * Descripción
+ * Genera un UUID en consola
+ * 
+ * Diseñado para generar un ID unico que necesitan ser generados en caliente
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
- * 
  * @version 1.0.0
  */
 class Uuid extends Command

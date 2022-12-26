@@ -1,23 +1,23 @@
 <script setup>
-import Icon from '@/Components/App/GoogleIcon.vue';
-import Label from '@/Components/App/Form/Elements/Label.vue';
-import Error from '@/Components/App/Form/Elements/Error.vue';
 import { computed, ref } from 'vue';
+import Error from '@/Components/App/Form/Elements/Error.vue';
+import Label from '@/Components/App/Form/Elements/Label.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 
 defineEmits([
     'search'
 ]);
 
-defineProps({
-    title: String,
-    id: String,
+const props = defineProps({
     class: String,
+    id: String,
     onError: String,
     placeholder: {
         type: String,
-        default: 'Nombre, Correo, Telefono',
+        default: lang('search')
     },
     required: Boolean,
+    title: String
 });
 
 let input = ref('');
@@ -36,25 +36,38 @@ onMounted(() => {
     }
 });
 </script>
+
 <template>
     <div :class="classes">
-        <Label :id="id" :title="title" :required="required" />
+        <Label
+            :id="id"
+            :required="required"
+            :title="title"
+        />
         <div class="relative mt-1">
-            <div @click="$emit('search', input)" class="absolute inset-y-0 right-2 flex items-center pl-3 cursor-pointer text-gray-700 hover:scale-110 hover:text-red-500">
-                <Icon class="text-xl" name="search" />
+            <div 
+                class="absolute inset-y-0 right-2 flex items-center pl-3 cursor-pointer text-gray-700 hover:scale-110 hover:text-danger"
+                @click="$emit('search', input)"
+            >
+                <GoogleIcon
+                    class="text-xl"
+                    name="search"
+                />
             </div>
             <input
                 id="search"
-                name="search"
-                v-model="input"
-                type="text"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 p-2.5"
-                required
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary/90 block w-full pr-10 p-2.5"
                 autocomplete="off"
+                name="search"
                 :placeholder="placeholder"
+                required
+                type="text"
+                v-model="input"
                 @keyup.enter="$emit('search', input)"
             >
-            <Error :onError="onError" />
+            <Error
+                :onError="onError"
+            />
         </div>
     </div>
 </template>

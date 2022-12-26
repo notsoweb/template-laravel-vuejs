@@ -3,26 +3,29 @@ export default {
   inheritAttrs: false
 }
 </script>
+
 <script setup>
 import { computed, onMounted, ref } from 'vue';
-import Label from '@/Components/App/Form/Elements/Label.vue';
 import Error from '@/Components/App/Form/Elements/Error.vue';
+import Label from '@/Components/App/Form/Elements/Label.vue';
+
+defineEmits([
+    'update:modelValue'
+]);
 
 const props = defineProps({
-    title: String,
-    id: String,
-    onError: String,
     class: String,
-    modelValue: String | Number,
-    type: {
-        type: String,
-        default: 'text',
-    },
+    id: String,
+    modelValue: Number | String,
+    onError: String,
     placeholder: String,
-    required: Boolean
+    required: Boolean,
+    title: String,
+    type: {
+        default: 'text',
+        type: String
+    }
 });
-
-defineEmits(['update:modelValue']);
 
 const input = ref(null);
 
@@ -38,27 +41,37 @@ const classes = computed(() => {
     return `w-full ${props.class}`
 });
 
+defineExpose({
+    focus: () => input.value.focus()
+});
+
 onMounted(() => {
     if (input.value.hasAttribute('autofocus')) {
         input.value.focus();
     }
 });
-
-defineExpose({ focus: () => input.value.focus() });
 </script>
+
 <template>
     <div :class="classes">
-        <Label :id="id" :title="autoTitle" :required="required" />
-        <input class="input-primary"
-            ref="input"
+        <Label
             :id="id"
+            :required="required"
+            :title="autoTitle"
+        />
+        <input
+            :id="id"
+            class="input-primary"
+            :placeholder="placeholder"
+            ref="input"
+            :required="required"
             :type="type"
             :value="modelValue"
-            :placeholder="placeholder"
-            :required="required"
-            @input="$emit('update:modelValue', $event.target.value)"
             v-bind="$attrs"
+            @input="$emit('update:modelValue', $event.target.value)"
         >
-        <Error :onError="onError" />
+        <Error
+            :onError="onError"
+        />
     </div>
 </template>

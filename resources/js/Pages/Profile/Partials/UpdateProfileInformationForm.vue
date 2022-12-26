@@ -1,14 +1,13 @@
 <script setup>
 import { ref } from 'vue';
-import { router } from '@inertiajs/vue3';
-import { Link, useForm } from '@inertiajs/vue3';
+import { router, Link, useForm } from '@inertiajs/vue3';
 import ActionMessage from '@/Components/App/ActionMessage.vue';
-import FormSection from '@/Components/App/FormSection.vue';
-import Label from '@/Components/App/Form/Elements/Label.vue';
 import Error from '@/Components/App/Form/Elements/Error.vue';
+import FormSection from '@/Components/App/FormSection.vue';
+import Input from '@/Components/App/Form/Input.vue';
+import Label from '@/Components/App/Form/Elements/Label.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
 import SecondaryButton from '@/Components/App/Button/Secondary.vue';
-import Input from '@/Components/App/Form/Input.vue';
 
 const props = defineProps({
     user: Object,
@@ -36,7 +35,7 @@ const updateProfileInformation = () => {
     form.post(route('user-profile-information.update'), {
         errorBag: 'updateProfileInformation',
         preserveScroll: true,
-        onSuccess: () => clearPhotoFileInput(),
+        onSuccess: () => clearPhotoFileInput()
     });
 };
 
@@ -68,7 +67,7 @@ const deletePhoto = () => {
         onSuccess: () => {
             photoPreview.value = null;
             clearPhotoFileInput();
-        },
+        }
     });
 };
 

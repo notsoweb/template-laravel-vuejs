@@ -8,8 +8,8 @@ const emit = defineEmits([
 ]);
 
 const props = defineProps({
-    show: Boolean,
-    notification: Object
+    notification: Object,
+    show: Boolean
 });
 
 let form = useForm(props.notification);
@@ -30,11 +30,17 @@ const destroy = (id) => {
 }
 </script>
 <template>
-    <DestroyModal :show="show" @destroy="destroy(notification.id)" @close="$emit('close')">
+    <DestroyModal
+        :show="show"
+        @close="$emit('close')"
+        @destroy="destroy(notification.id)"
+    >
         <div class="w-full right-0 mt-2">
             <div class="bg-white rounded overflow-hidden shadow-lg">
                 <div class="text-center p-6 bg-gray-800 border-b">
-                    <p class="pt-2 text-lg font-bold text-gray-50">{{notification.data.message}}</p>
+                    <p class="pt-2 text-lg font-bold text-gray-50">
+                        {{notification.data.message}}
+                    </p>
                 </div>
             </div>
         </div>

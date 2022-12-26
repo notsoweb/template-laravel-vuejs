@@ -1,13 +1,12 @@
 <script setup>
 import { ref, computed, watch } from 'vue';
-import { router } from '@inertiajs/vue3';
-import { useForm, usePage } from '@inertiajs/vue3';
+import { router, useForm, usePage } from '@inertiajs/vue3';
 import ActionSection from '@/Components/App/ActionSection.vue';
 import ConfirmsPassword from '@/Components/App/ConfirmsPassword.vue';
 import DangerButton from '@/Components/App/Button/Danger.vue';
+import Input from '@/components/App/Form/Input.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
 import SecondaryButton from '@/Components/App/Button/Secondary.vue';
-import Input from '@/components/App/Form/Input.vue';
 
 const props = defineProps({
     requiresConfirmation: Boolean,
@@ -48,7 +47,7 @@ const enableTwoFactorAuthentication = () => {
         onFinish: () => {
             enabling.value = false;
             confirming.value = props.requiresConfirmation;
-        },
+        }
     });
 };
 
@@ -97,7 +96,7 @@ const disableTwoFactorAuthentication = () => {
         onSuccess: () => {
             disabling.value = false;
             confirming.value = false;
-        },
+        }
     });
 };
 </script>
@@ -168,7 +167,11 @@ const disableTwoFactorAuthentication = () => {
             <div class="mt-5">
                 <div v-if="! twoFactorEnabled">
                     <ConfirmsPassword @confirmed="enableTwoFactorAuthentication">
-                        <PrimaryButton type="button" :class="{ 'opacity-25': enabling }" :disabled="enabling">
+                        <PrimaryButton
+                            :class="{ 'opacity-25': enabling }"
+                            :disabled="enabling"
+                            type="button"
+                        >
                             {{$t('enable')}}
                         </PrimaryButton>
                     </ConfirmsPassword>

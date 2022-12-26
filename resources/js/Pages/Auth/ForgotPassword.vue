@@ -1,16 +1,16 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/vue3';
-import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import AppLogo from '@/Components/App/Logo.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
+import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import Input from '@/Components/App/Form/Input.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
 defineProps({
     status: String,
 });
 
 const form = useForm({
-    email: '',
+    email: ''
 });
 
 const submit = () => {
@@ -41,14 +41,17 @@ const submit = () => {
                 <Input
                     id="email"
                     type="email"
-                    autofocus
-                    required
                     v-model="form.email"
                     :onError="form.errors.email"
+                    autofocus
+                    required
                 />
             </div>
             <div class="flex items-center justify-end">
-                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                >
                     {{$t('auth.forgotPassword.sendLink')}}
                 </PrimaryButton>
             </div>

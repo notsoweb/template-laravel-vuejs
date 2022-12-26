@@ -3,22 +3,26 @@ import DialogModal from '@/Components/App/DialogModal.vue';
 import SecondaryButton from '@/Components/App/Button/Secondary.vue';
     
 const emit = defineEmits([
-    'update', 
-    'close'
+    'close',
+    'update' 
 ]);
 
 const props = defineProps({
-    title: {
-        type: String,
-        default: lang('edit')
-    },
     show: Boolean,
+    title: {
+        default: lang('edit'),
+        type: String
+    }
 });
 </script>
+
 <template>
     <DialogModal :show="show">
         <template #title>
-            <p class="font-bold text-xl" v-text="title"></p>
+            <p
+                class="font-bold text-xl"
+                v-text="title"
+            />
         </template>
         <template #content>
             <slot />

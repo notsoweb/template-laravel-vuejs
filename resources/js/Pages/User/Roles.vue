@@ -1,14 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
+import FormSection from '@/Components/App/FormSection.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
 import VueMultiselect from 'vue-multiselect'
-import JetButton from '@/Components/App/Button/Primary.vue';
-import JetFormSection from '@/Components/App/FormSection.vue';
 
 const props = defineProps({
-    user: Object,
-    userRoles: Object,
     roles: Object,
+    user: Object,
+    userRoles: Object
 });
 
 let value =  ref(props.userRoles);
@@ -16,7 +16,7 @@ let value =  ref(props.userRoles);
 let form = useForm({
     _method: 'POST',
     roles: value,
-    user_id: props.user.id,
+    user_id: props.user.id
 });
 
 const updateProfileInformation = () => {
@@ -37,7 +37,7 @@ const updateProfileInformation = () => {
 </script>
 
 <template>
-    <JetFormSection @submitted="updateProfileInformation">
+    <FormSection @submitted="updateProfileInformation">
         <template #title>
             {{$t('users.roles.title')}}
         </template>
@@ -74,9 +74,12 @@ const updateProfileInformation = () => {
             </div>
         </template>
         <template #actions>
-            <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <PrimaryButton
+                :class="{ 'opacity-25': form.processing }"
+                :disabled="form.processing"
+            >
                 {{$t('update')}}
-            </JetButton>
+            </PrimaryButton>
         </template>
-    </JetFormSection>
+    </FormSection>
 </template>

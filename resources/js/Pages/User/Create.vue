@@ -2,10 +2,9 @@
 import { Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
 import Input from '@/Components/App/Form/Input.vue';
+import PageHeader from '@/Components/App/PageHeader.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import { router } from '@inertiajs/vue3';
 
 defineProps({
     users: String,
@@ -18,7 +17,7 @@ const form = useForm({
     maternal: '',
     email: '',
     phone: '',
-    password: '',
+    password: ''
 });
 
 const submit = () => {
@@ -27,7 +26,7 @@ const submit = () => {
             Notify.success(lang('users.create.onSuccess'));
         },
         onError: () => Notify.success(lang('users.create.onError')),
-        onFinish: (res) => form.reset('password'),
+        onFinish: (res) => form.reset('password')
     });
 };
 
@@ -36,12 +35,18 @@ const submit = () => {
   <AppLayout :title="$t('users.create.title')">
     <PageHeader>
       <Link :href="route('dashboard')">
-          <GoogleIcon class="btn-icon-primary" name="home" outline />
+          <GoogleIcon
+            class="btn-icon-primary"
+            name="home"
+            outline
+          />
       </Link>
     </PageHeader>
     <div class="w-full pb-8">
       <div class="mt-8">
-        <p v-text="$t('users.create.description')" />
+        <p
+          v-text="$t('users.create.description')"
+        />
       </div>
     </div>
     <div class="w-full">

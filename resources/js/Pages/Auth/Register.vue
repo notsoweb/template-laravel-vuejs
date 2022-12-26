@@ -3,10 +3,10 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 import AppLogo from '@/Components/App/Logo.vue';
 import AuthenticationCard from '@/Components/App/AuthenticationCard.vue';
 import Checkbox from '@/Components/App/Form/Checkbox.vue';
-import OnError from '@/Components/App/Form/Elements/Error.vue';
 import InputLabel from '@/Components/App/InputLabel.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
 import Input from '@/Components/App/Form/Input.vue';
+import OnError from '@/Components/App/Form/Elements/Error.vue';
+import PrimaryButton from '@/Components/App/Button/Primary.vue';
 
 const form = useForm({
     name: '',
@@ -16,7 +16,7 @@ const form = useForm({
     phone: '',
     password: '',
     password_confirmation: '',
-    terms: false,
+    terms: false
 });
 
 const submit = () => {
@@ -31,7 +31,9 @@ const submit = () => {
 
     <AuthenticationCard>
         <template #logo>
-            <AppLogo class="text-2xl"/>
+            <AppLogo
+                class="text-2xl"
+            />
         </template>
 
         <form @submit.prevent="submit" class="space-y-4">
@@ -84,10 +86,28 @@ const submit = () => {
             <div v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature" class="mt-4">
                 <InputLabel for="terms">
                     <div class="flex items-center">
-                        <Checkbox id="terms" v-model:checked="form.terms" name="terms" />
-
+                        <Checkbox
+                            id="terms"
+                            name="terms"
+                            v-model:checked="form.terms"
+                        />
                         <div class="ml-2">
-                            {{$t('I agree to the')}} <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900">{{$t('Terms of Service')}}</a> {{$t('and')}} <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900">{{$t('Privacy Policy')}}</a>
+                            {{$t('I agree to the')}}
+                            <a 
+                                target="_blank"
+                                :href="route('terms.show')"
+                                class="underline text-sm text-gray-600 hover:text-gray-900"
+                            >
+                                    {{$t('Terms of Service')}}
+                            </a>
+                            {{$t('and')}}
+                            <a
+                                target="_blank"
+                                :href="route('policy.show')"
+                                class="underline text-sm text-gray-600 hover:text-gray-900"
+                            >
+                                {{$t('Privacy Policy')}}
+                            </a>
                         </div>
                     </div>
                     <OnError
@@ -97,7 +117,11 @@ const submit = () => {
             </div>
 
             <div class="flex flex-col items-center justify-end space-y-4 mt-4">
-                <PrimaryButton class="ml-4 w-full" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton
+                    class="ml-4 w-full"
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                >
                     {{$t('Register')}}
                 </PrimaryButton>
 

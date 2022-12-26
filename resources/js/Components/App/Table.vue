@@ -24,7 +24,7 @@ const props = defineProps({
     </section>
 
     <template v-if="links">
-        <div class="flex w-full justify-end" v-if="links.length > 3">
+        <div v-if="links.length > 3" class="flex w-full justify-end">
             <div class="flex w-full flex-wrap -mb-1">
               <template v-for="(link, k) in links" :key="k">
                 <div v-if="link.url === null"
@@ -34,8 +34,8 @@ const props = defineProps({
     
                 <button v-else class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded" 
                     :class="{ 'bg-primary text-primary-text': link.active }"
-                    @click="$emit('send-pagination', link.label)"
                     v-html="link.label"
+                    @click="$emit('send-pagination', link.label)"
                 ></button>
               </template>
             </div>

@@ -1,14 +1,14 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
 import { computed } from 'vue';
+import { Link } from '@inertiajs/vue3';
 import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 
 defineProps({
-    href: String,
     as: String,
+    href: String,
     icon: {
-        type: String,
-        default: 'notifications_active'
+        default: 'notifications_active',
+        type: String
     }
 });
 
@@ -18,18 +18,37 @@ let classes = computed(()=>{
 </script>
 <template>
     <div>
-        <button v-if="as == 'button'" type="button" :class="classes">
-            <GoogleIcon :name="icon" />
+        <button
+            v-if="as == 'button'"
+            :class="classes"
+            type="button"
+        >
+            <GoogleIcon 
+                :name="icon"
+            />
             <slot />
         </button>
 
-        <a v-else-if="as =='a'" :href="href" :class="classes">
-            <GoogleIcon :name="icon" />
+        <a
+            v-else-if="as =='a'" 
+            :class="classes"
+            :href="href"
+        >
+            <GoogleIcon
+                :name="icon"
+            />
             <slot />
         </a>
-
-        <Link v-else :href="href" :class="classes">
-            <GoogleIcon :name="icon" class="text-primary hover:text-primary-hover" />
+        
+        <Link
+            v-else
+            :class="classes"
+            :href="href"
+        >
+            <GoogleIcon
+                class="text-primary hover:text-primary-hover"
+                :name="icon"
+            />
             <slot />
         </Link>
     </div>

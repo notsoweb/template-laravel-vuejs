@@ -1,21 +1,23 @@
 <script setup>
 import Modal from './Modal.vue';
 
-const emit = defineEmits(['close']);
+const emit = defineEmits([
+    'close'
+]);
 
 defineProps({
-    show: {
-        type: Boolean,
-        default: false,
+    closeable: {
+        default: true,
+        type: Boolean
     },
     maxWidth: {
-        type: String,
         default: '2xl',
+        type: String
     },
-    closeable: {
+    show: {
         type: Boolean,
-        default: true,
-    },
+        default: false
+    }
 });
 
 const close = () => {
@@ -25,9 +27,9 @@ const close = () => {
 
 <template>
     <Modal
-        :show="show"
-        :max-width="maxWidth"
         :closeable="closeable"
+        :max-width="maxWidth"
+        :show="show"
         @close="close"
     >
         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
@@ -47,19 +49,16 @@ const close = () => {
                         />
                     </svg>
                 </div>
-
                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <h3 class="text-lg">
                         <slot name="title" />
                     </h3>
-
                     <div class="mt-2">
                         <slot name="content" />
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="flex flex-row justify-end px-6 py-4 bg-gray-100 text-right">
             <slot name="footer" />
         </div>

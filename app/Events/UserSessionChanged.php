@@ -3,21 +3,18 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Models\User;
-use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
 
 /**
- * Descripción
+ * Evento de cambio de sesión
+ * 
+ * Dispara el evento cuando un usuario cierra o inicia la sesión
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
- * 
  * @version 1.0.0
  */
 class UserSessionChanged implements ShouldBroadcast
@@ -38,7 +35,7 @@ class UserSessionChanged implements ShouldBroadcast
     ) {}
 
     /**
-     * Get the channels the event should broadcast on.
+     * Transmite por el catal privado de notificaciones el evento
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */

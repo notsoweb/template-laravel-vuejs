@@ -1,14 +1,13 @@
 <script setup>
-import { router } from '@inertiajs/vue3';
-import { onMounted, ref, reactive } from 'vue';
-import { Link } from '@inertiajs/vue3';
+import { onMounted, reactive } from 'vue';
+import { router, Link} from '@inertiajs/vue3';
 import { SuscribeUserNotification, UnsuscribeUserAuth, UnsuscribeUserNotification } from '@/broadcasts.js';
 import NotificationLink from  '@/Components/App/Skeleton/Header/NotificationLink.vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
-import LogoIcon from '@/Components/App/Logo/Icon.vue';
-import Logo from '@/Components/App/Logo.vue';
 import Dropdown from '@/Components/App/Dropdown.vue';
 import DropdownLink from '@/Components/App/DropdownLink.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
+import Logo from '@/Components/App/Logo.vue';
+import LogoIcon from '@/Components/App/Logo/Icon.vue';
 
 const userId = router.page.props.user.id;
 const notifications = reactive(sessionFresh.getNotifications());
@@ -24,21 +23,19 @@ const notification = (notification) => {
 };
 
 const showNotification = (id) => {
-    router.post(route('notifications.store'), {
-      id:id
-    }, {
-      
-    });
+  router.post(route('notifications.store'), {
+    id:id
+  });
 };
 
 const logout = () => {
-    router.post(route('logout'), {}, {
-      onBefore: () => {
-        sessionFresh.stop();
-        UnsuscribeUserAuth();
-        UnsuscribeUserNotification(userId);
-      }
-    });
+  router.post(route('logout'), {}, {
+    onBefore: () => {
+      sessionFresh.stop();
+      UnsuscribeUserAuth();
+      UnsuscribeUserNotification(userId);
+    }
+  });
 };
 
 onMounted(()=>{
@@ -50,14 +47,18 @@ onMounted(()=>{
   }
 });
 </script>
+
 <template>
-    <!-- Header -->
     <header class="fixed w-full flex items-center justify-between h-14 bg-primary text-primary-text z-10">
       <div class="flex w-fit justify-start items-center h-14 header-right">
         <ul class="flex ml-4 space-x-4 items-center">
           <li>
-            <LogoIcon class="text-lg md:hidden" />
-            <Logo class="text-lg hidden md:inline-flex" />
+            <LogoIcon
+              class="text-lg md:hidden"
+            />
+            <Logo
+              class="hidden text-lg md:inline-flex"
+            />
           </li>
         </ul>
       </div>
@@ -65,17 +66,29 @@ onMounted(()=>{
         <ul class="flex items-center space-x-4 mr-4">
           <li>
             <button type="button" class="flex items-center header-icon-primary">
-              <GoogleIcon name="group" class="text-xl" />
+              <GoogleIcon
+                class="text-xl"
+                name="group"
+              />
             </button>
           </li>
           <li>
             <div class="relative">
               <Dropdown align="icon" width="72">
                 <template #trigger>
-                  <button @click="getNotifications" type="button" class="flex items-center header-icon-primary">
-                    <GoogleIcon name="notifications" class="text-xl" />
+                  <button 
+                    class="flex items-center header-icon-primary"
+                    type="button"
+                    @click="getNotifications"
+                  >
+                    <GoogleIcon
+                      class="text-xl"
+                      name="notifications"
+                    />
                   </button>
-                  <span class="absolute top-0 -right-2 text-xs">{{notificationCounter}}</span>
+                  <span class="absolute top-0 -right-2 text-xs">
+                    {{notificationCounter}}
+                  </span>
                 </template>
                 <template #content>
                     <div class="block px-4 py-2 text-xs">
@@ -88,7 +101,9 @@ onMounted(()=>{
                           :icon="notification.data.icon"
                           @click="showNotification(notification.id)"
                         >
-                          <span class="truncate">{{notification.data.message}}</span>
+                          <span class="truncate">
+                            {{notification.data.message}}
+                          </span>
                         </NotificationLink>
                       </template>
                     </div>
@@ -106,15 +121,23 @@ onMounted(()=>{
                 <template #trigger>
                   <div class="flex space-x-4">
                     <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex items-center space-x-4 text-sm border-2 border-transparent rounded-full focus:outline-none transition">
-                        <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name">
+                        <img 
+                          class="h-8 w-8 rounded-full object-cover"
+                          :alt="$page.props.user.name"
+                          :src="$page.props.user.profile_photo_url"
+                        >
                         <span class="flex">{{ $page.props.user.name }}
                           <svg
-                              class="ml-2 -mr-0.5 h-4 w-4"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
+                            class="ml-2 -mr-0.5 h-4 w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
                           >
-                              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            <path 
+                              fill-rule="evenodd"
+                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                              clip-rule="evenodd"
+                            />
                           </svg>
                         </span>
                     </button>
@@ -143,5 +166,4 @@ onMounted(()=>{
         </ul>
       </div>
     </header>
-    <!-- ./Header -->
 </template>

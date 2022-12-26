@@ -9,16 +9,15 @@ use Inertia\Inertia;
 use Spatie\Permission\Models\Role;
 
 /**
- * Descripción
+ * Administra los roles del usuario
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
- * 
  * @version 1.0.0
  */
 class RoleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Lista los roles del sistema
      *
      * @return \Illuminate\Http\Response
      */
@@ -36,7 +35,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Permite crear un nuevo role
      *
      * @return \Illuminate\Http\Response
      */
@@ -46,7 +45,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena un nuevo role
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -68,9 +67,12 @@ class RoleController extends Controller
     }
 
     /**
-     * Actualiz aun role
+     * Actualiz un role
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param Role $role Modelo del Role
      */
-    public function update(Request $request, $role)
+    public function update(Request $request, $role) : void
     {
         $data = $request->validate([
             'name' => ['required', 'string'],
@@ -86,12 +88,16 @@ class RoleController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un role
+     * 
+     * Se debe de tener mucho cuidado en la eliminación de los roles ya que algunos de ellos
+     * estan ligados a nivel codigo en el sistema, lo que podria limitar a los usuarios o
+     * bloquear el sistema.
      *
-     * @param  int  $id
+     * @param Role $role Modelo del Role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy(Role $role) : void
     {
         $role->delete();
         $this->reportDestroy('roles', $role->toArray(), __('roles.deleted', [

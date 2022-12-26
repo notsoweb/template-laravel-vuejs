@@ -23,7 +23,7 @@ trait UseFetch
      * 
      * @return \Illuminate\Http\JSONResponse
      */
-    public function errorFetch($message = null)
+    public function errorFetch($message = null) : JsonResponse
     {
         if (!$message) {
             $message = __("Resource not found");

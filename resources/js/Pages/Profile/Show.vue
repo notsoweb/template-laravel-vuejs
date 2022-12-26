@@ -2,17 +2,17 @@
 import { Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
+import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 import LogoutOtherBrowserSessionsForm from './Partials/LogoutOtherBrowserSessionsForm.vue';
+import PageHeader from '@/Components/App/PageHeader.vue';
 import SectionBorder from '@/Components/App/SectionBorder.vue';
 import TwoFactorAuthenticationForm from './Partials/TwoFactorAuthenticationForm.vue';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
 
 defineProps({
     confirmsTwoFactorAuthentication: Boolean,
-    sessions: Array,
+    sessions: Array
 });
 </script>
 
@@ -20,17 +20,25 @@ defineProps({
     <AppLayout :title="$t('profile')">
         <PageHeader>
           <Link :href="route('dashboard')">
-              <GoogleIcon class="btn-icon-primary" name="home" outline />
+              <GoogleIcon
+                class="btn-icon-primary"
+                name="home"
+                outline
+            />
           </Link>
         </PageHeader>
 
         <div class="w-full mt-8">
             <div v-if="$page.props.jetstream.canUpdateProfileInformation">
-                <UpdateProfileInformationForm :user="$page.props.user" />
+                <UpdateProfileInformationForm
+                    :user="$page.props.user"
+                />
                 <SectionBorder />
             </div>
             <div v-if="$page.props.jetstream.canUpdatePassword">
-                <UpdatePasswordForm class="mt-10 sm:mt-0" />
+                <UpdatePasswordForm
+                    class="mt-10 sm:mt-0"
+                />
                 <SectionBorder />
             </div>
             <div v-if="$page.props.jetstream.canManageTwoFactorAuthentication">
@@ -40,10 +48,15 @@ defineProps({
                 />
                 <SectionBorder />
             </div>
-            <LogoutOtherBrowserSessionsForm :sessions="sessions" class="mt-10 sm:mt-0" />
+            <LogoutOtherBrowserSessionsForm
+                class="mt-10 sm:mt-0"
+                :sessions="sessions"
+            />
             <template v-if="$page.props.jetstream.hasAccountDeletionFeatures">
                 <SectionBorder />
-                <DeleteUserForm class="mt-10 sm:mt-0" />
+                <DeleteUserForm
+                    class="mt-10 sm:mt-0"
+                />
             </template>
         </div>
     </AppLayout>
