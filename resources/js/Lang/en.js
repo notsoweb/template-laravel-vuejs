@@ -121,7 +121,9 @@ export default {
     name:'Name',
     noRecords:'No records',
     notifications: {
+        deleted:'Notification deleted',
         description:'User notifications',
+        notFound:'Notification not found',
         title:'Notifications',
     },
     password:'Password',

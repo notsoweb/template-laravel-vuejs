@@ -206,6 +206,20 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                 </div>
               </div>
             </td>
+            <td class="table-item border">
+              <div class="flex items-center text-sm">
+                <div>
+                  -
+                </div>
+              </div>
+            </td>
+            <td class="table-item border">
+              <div class="flex items-center text-sm">
+                <div>
+                  -
+                </div>
+              </div>
+            </td>
           </tr>
         </template>
       </Table>
