@@ -17,7 +17,7 @@ use Illuminate\Queue\SerializesModels;
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
  */
-class UserSessionChanged implements ShouldBroadcast
+class GlobalNotification implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -35,7 +35,7 @@ class UserSessionChanged implements ShouldBroadcast
     ) {}
 
     /**
-     * Transmite por el catal privado de notificaciones el evento
+     * Transmite por el canal privado de notificaciones el evento
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */

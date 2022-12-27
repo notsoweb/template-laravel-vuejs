@@ -1,7 +1,7 @@
 // Notifica los Inicios de session de los demás usuarios
 const SuscribeUserAuth = () => {
     Echo.private('notifications')
-      .listen('UserSessionChanged', (e) => {
+      .listen('GlobalNotification', (e) => {
         Notify.info(e.message);
     });
 }

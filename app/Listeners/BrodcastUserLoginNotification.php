@@ -3,7 +3,7 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Events\UserSessionChanged;
+use App\Events\GlobalNotification;
 use Illuminate\Auth\Events\Login;
 
 /**
@@ -34,7 +34,7 @@ class BrodcastUserLoginNotification
      */
     public function handle(Login $event)
     {
-        broadcast(new UserSessionChanged(
+        broadcast(new GlobalNotification(
             $event->user,
             __('notifications.user.login', [
                 'user' => $event->user->name
