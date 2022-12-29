@@ -22,12 +22,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        Login::class => [
-            BrodcastUserLoginNotification::class,
-        ],
-        Logout::class => [
-            BrodcastUserLogoutNotification::class,
-        ],
+        // Login::class => [
+        //     BrodcastUserLoginNotification::class,
+        // ],
+        // Logout::class => [
+        //     BrodcastUserLogoutNotification::class,
+        // ],
     ];
 
     /**
