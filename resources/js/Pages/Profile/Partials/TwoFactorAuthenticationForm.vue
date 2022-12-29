@@ -4,7 +4,7 @@ import { router, useForm, usePage } from '@inertiajs/vue3';
 import ActionSection from '@/Components/App/ActionSection.vue';
 import ConfirmsPassword from '@/Components/App/ConfirmsPassword.vue';
 import DangerButton from '@/Components/App/Button/Danger.vue';
-import Input from '@/components/App/Form/Input.vue';
+import Input from '@/Components/App/Form/Input.vue';
 import PrimaryButton from '@/Components/App/Button/Primary.vue';
 import SecondaryButton from '@/Components/App/Button/Secondary.vue';
 
