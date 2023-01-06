@@ -1,8 +1,8 @@
 <script setup>
 import {useForm} from '@inertiajs/vue3';
-import Input from '@/Components/App/Form/Input.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import FormSection from '@/Components/App/FormSection.vue';
+import Input from '@/Components/Dashboard/Form/Input.vue';
+import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import FormSection from '@/Components/Dashboard/FormSection.vue';
 
 const props = defineProps({
     user: Object

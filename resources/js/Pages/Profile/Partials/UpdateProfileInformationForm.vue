@@ -1,13 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import { router, Link, useForm } from '@inertiajs/vue3';
-import ActionMessage from '@/Components/App/ActionMessage.vue';
-import Error from '@/Components/App/Form/Elements/Error.vue';
-import FormSection from '@/Components/App/FormSection.vue';
-import Input from '@/Components/App/Form/Input.vue';
-import Label from '@/Components/App/Form/Elements/Label.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import SecondaryButton from '@/Components/App/Button/Secondary.vue';
+import ActionMessage from '@/Components/Dashboard/ActionMessage.vue';
+import Error from '@/Components/Dashboard/Form/Elements/Error.vue';
+import FormSection from '@/Components/Dashboard/FormSection.vue';
+import Input from '@/Components/Dashboard/Form/Input.vue';
+import Label from '@/Components/Dashboard/Form/Elements/Label.vue';
+import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
 
 const props = defineProps({
     user: Object,

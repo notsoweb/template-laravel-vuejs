@@ -2,7 +2,7 @@
 import { hasRole } from "@/rolePermission.js"
 import Link from  './Sidebar/Link.vue';
 import Section from  './Sidebar/Section.vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
 
 const year = (new Date).getFullYear();
 </script>

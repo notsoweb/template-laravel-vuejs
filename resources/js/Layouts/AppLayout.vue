@@ -2,8 +2,8 @@ s<script setup>
 import { onMounted } from 'vue';
 import { SuscribeUserAuth } from '@/broadcasts.js';
 import { Head, router } from '@inertiajs/vue3';
-import Header from '@/Components/App/Skeleton/Header.vue';
-import Sidebar from '@/Components/App/Skeleton/Sidebar.vue';
+import Header from '@/Components/Dashboard/Skeleton/Header.vue';
+import Sidebar from '@/Components/Dashboard/Skeleton/Sidebar.vue';
 
 defineProps({
     title: String,

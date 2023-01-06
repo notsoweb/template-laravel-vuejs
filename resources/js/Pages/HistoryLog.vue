@@ -3,12 +3,12 @@ import { ref } from 'vue';
 import { Link, router} from '@inertiajs/vue3'
 import { hasRole }  from '@/rolePermission.js';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Icon from '@/Components/App/GoogleIcon.vue';
-import IconPrimary from '@/Components/App/Button/Primary.vue';
-import Input from '@/Components/App/Form/Input.vue';
-import Item from '@/Components/App/Help/Item.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
-import Table from '@/Components/App/Table.vue';
+import Icon from '@/Components/Dashboard/GoogleIcon.vue';
+import IconPrimary from '@/Components/Dashboard/Button/Primary.vue';
+import Input from '@/Components/Dashboard/Form/Input.vue';
+import Item from '@/Components/Dashboard/Help/Item.vue';
+import PageHeader from '@/Components/Dashboard/PageHeader.vue';
+import Table from '@/Components/Dashboard/Table.vue';
 
 defineProps({
   users: String,

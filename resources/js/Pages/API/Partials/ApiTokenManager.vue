@@ -1,18 +1,18 @@
 <script setup>
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
-import ActionMessage from '@/Components/App/ActionMessage.vue';
-import ActionSection from '@/Components/App/ActionSection.vue';
-import Checkbox from '@/Components/App/Form/Checkbox.vue';
-import ConfirmationModal from '@/Components/App/ConfirmationModal.vue';
-import DangerButton from '@/Components/App/Button/Danger.vue';
-import DialogModal from '@/Components/App/DialogModal.vue';
-import FormSection from '@/Components/App/FormSection.vue';
-import InputLabel from '@/Components/App/InputLabel.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
-import SecondaryButton from '@/Components/App/Button/Secondary.vue';
-import SectionBorder from '@/Components/App/SectionBorder.vue';
-import Input from '@/Components/App/Form/Input.vue';
+import ActionMessage from '@/Components/Dashboard/ActionMessage.vue';
+import ActionSection from '@/Components/Dashboard/ActionSection.vue';
+import Checkbox from '@/Components/Dashboard/Form/Checkbox.vue';
+import ConfirmationModal from '@/Components/Dashboard/ConfirmationModal.vue';
+import DangerButton from '@/Components/Dashboard/Button/Danger.vue';
+import DialogModal from '@/Components/Dashboard/DialogModal.vue';
+import FormSection from '@/Components/Dashboard/FormSection.vue';
+import InputLabel from '@/Components/Dashboard/InputLabel.vue';
+import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
+import SectionBorder from '@/Components/Dashboard/SectionBorder.vue';
+import Input from '@/Components/Dashboard/Form/Input.vue';
 
 const props = defineProps({
     tokens: Array,

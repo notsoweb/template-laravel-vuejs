@@ -1,6 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
-import DestroyModal from '@/Components/App/Modal/Destroy.vue';
+import DestroyModal from '@/Components/Dashboard/Modal/Destroy.vue';
 
 const emit = defineEmits([
     'close', 

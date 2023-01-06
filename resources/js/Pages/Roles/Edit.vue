@@ -1,7 +1,7 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
-import EditModal from '@/Components/App/Modal/Edit.vue';
-import Input from '@/Components/App/Form/Input.vue';
+import EditModal from '@/Components/Dashboard/Modal/Edit.vue';
+import Input from '@/Components/Dashboard/Form/Input.vue';
 
 const emit = defineEmits([
     'close'

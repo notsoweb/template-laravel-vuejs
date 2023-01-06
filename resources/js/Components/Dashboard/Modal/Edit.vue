@@ -1,21 +1,21 @@
 <script setup>
-import DialogModal from '@/Components/App/DialogModal.vue';
-import SecondaryButton from '@/Components/App/Button/Secondary.vue';
+import DialogModal from '@/Components/Dashboard/DialogModal.vue';
+import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
     
 const emit = defineEmits([
     'close',
-    'edit'
+    'update' 
 ]);
 
 const props = defineProps({
-    editable: Boolean,
     show: Boolean,
     title: {
-        default: lang('details'),
+        default: lang('edit'),
         type: String
     }
 });
 </script>
+
 <template>
     <DialogModal :show="show">
         <template #title>
@@ -31,8 +31,7 @@ const props = defineProps({
             <div class="space-x-2">
                 <slot name="buttons" />
                 <SecondaryButton 
-                    v-if="editable"
-                    @click="$emit('edit')"
+                    @click="$emit('update')"
                     v-text="$t('update')"
                 />
                 <SecondaryButton

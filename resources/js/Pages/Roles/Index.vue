@@ -5,9 +5,9 @@ import { hasRole } from '@/rolePermission.js';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import DestroyView from './Destroy.vue';
 import EditView from './Edit.vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
-import Table from '@/Components/App/Table.vue';
+import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import PageHeader from '@/Components/Dashboard/PageHeader.vue';
+import Table from '@/Components/Dashboard/Table.vue';
 
 const props = defineProps({
     roles: Object

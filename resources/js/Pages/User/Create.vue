@@ -1,10 +1,10 @@
 <script setup>
 import { Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
-import Input from '@/Components/App/Form/Input.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
+import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import Input from '@/Components/Dashboard/Form/Input.vue';
+import PageHeader from '@/Components/Dashboard/PageHeader.vue';
+import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
 
 defineProps({
     users: String,

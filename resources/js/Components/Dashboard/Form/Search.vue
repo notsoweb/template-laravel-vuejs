@@ -1,8 +1,8 @@
 <script setup>
 import { computed, ref } from 'vue';
-import Error from '@/Components/App/Form/Elements/Error.vue';
-import Label from '@/Components/App/Form/Elements/Label.vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
+import Error from '@/Components/Dashboard/Form/Elements/Error.vue';
+import Label from '@/Components/Dashboard/Form/Elements/Label.vue';
+import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
 
 defineEmits([
     'search'

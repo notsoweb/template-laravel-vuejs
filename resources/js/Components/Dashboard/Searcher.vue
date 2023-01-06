@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
 
 const emit = defineEmits([
     'search'

@@ -6,8 +6,8 @@ export default {
 
 <script setup>
 import { computed, onMounted, ref } from 'vue';
-import Error from '@/Components/App/Form/Elements/Error.vue';
-import Label from '@/Components/App/Form/Elements/Label.vue';
+import Error from '@/Components/Dashboard/Form/Elements/Error.vue';
+import Label from '@/Components/Dashboard/Form/Elements/Label.vue';
 
 defineEmits([
     'update:modelValue'

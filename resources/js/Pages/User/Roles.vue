@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
-import FormSection from '@/Components/App/FormSection.vue';
-import PrimaryButton from '@/Components/App/Button/Primary.vue';
+import FormSection from '@/Components/Dashboard/FormSection.vue';
+import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
 import VueMultiselect from 'vue-multiselect'
 
 const props = defineProps({

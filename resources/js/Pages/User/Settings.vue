@@ -1,9 +1,9 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import GoogleIcon from '@/Components/App/GoogleIcon.vue';
-import PageHeader from '@/Components/App/PageHeader.vue';
-import SectionBorder from '@/Components/App/SectionBorder.vue';
+import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import PageHeader from '@/Components/Dashboard/PageHeader.vue';
+import SectionBorder from '@/Components/Dashboard/SectionBorder.vue';
 import Roles from './Roles.vue';
 import UpdatePassword from './UpdatePassword.vue';
 
