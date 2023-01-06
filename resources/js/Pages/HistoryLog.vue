@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { Link, router} from '@inertiajs/vue3'
 import { hasRole }  from '@/rolePermission.js';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Icon from '@/Components/Dashboard/GoogleIcon.vue';
+import Icon from '@/Components/Shared/GoogleIcon.vue';
 import IconPrimary from '@/Components/Dashboard/Button/Primary.vue';
 import Input from '@/Components/Dashboard/Form/Input.vue';
 import Item from '@/Components/Dashboard/Help/Item.vue';

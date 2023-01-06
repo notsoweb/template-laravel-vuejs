@@ -4,8 +4,8 @@ import { Link, router} from '@inertiajs/vue3'
 import { hasRole }  from '@/rolePermission.js';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import Destroy from './Destroy.vue';
-import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
-import Icon from '@/Components/Dashboard/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
+import Icon from '@/Components/Shared/GoogleIcon.vue';
 import Input from '@/Components/Dashboard/Form/Input.vue';
 import IconPrimary from '@/Components/Dashboard/Button/Primary.vue';
 import PageHeader from '@/Components/Dashboard/PageHeader.vue';

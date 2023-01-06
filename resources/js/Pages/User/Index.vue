@@ -5,7 +5,7 @@ import { hasRole } from '@/rolePermission.js';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import EditView from './Edit.vue';
 import DestroyView from './Destroy.vue';
-import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import Searcher from '@/Components/Dashboard/Searcher.vue';
 import ShowView from './Show.vue';
 import Table from '@/Components/Dashboard/Table.vue';

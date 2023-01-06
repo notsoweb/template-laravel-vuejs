@@ -1,6 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 </script>
 
 <template>

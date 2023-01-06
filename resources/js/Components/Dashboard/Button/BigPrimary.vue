@@ -1,5 +1,5 @@
 <script setup>
-import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 
 defineProps({
     href: String,

@@ -5,9 +5,9 @@ import { SuscribeUserNotification, UnsuscribeUserAuth, UnsuscribeUserNotificatio
 import NotificationLink from  '@/Components/Dashboard/Skeleton/Header/NotificationLink.vue';
 import Dropdown from '@/Components/Dashboard/Dropdown.vue';
 import DropdownLink from '@/Components/Dashboard/DropdownLink.vue';
-import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import Logo from '@/Components/Dashboard/Logo.vue';
-import LogoIcon from '@/Components/Dashboard/Logo/Icon.vue';
+import LogoIcon from '@/Components/Shared/Logo/Icon.vue';
 
 const userId = router.page.props.user.id;
 const notificationCounter = reactive(sessionFresh.getNotificationCounter());

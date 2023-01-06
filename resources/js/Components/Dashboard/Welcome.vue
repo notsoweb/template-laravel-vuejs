@@ -1,7 +1,7 @@
 <script setup>
-import ApplicationLogo from './Logo.vue';
-import GoogleIcon from './GoogleIcon.vue';
-import AwsIcon from './AwsIcon.vue';
+import ApplicationLogo from '@/Components/Shared/Logo/Icon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
+import AwsIcon from '@/Components/Shared/AwsIcon.vue';
 </script>
 
 <template>

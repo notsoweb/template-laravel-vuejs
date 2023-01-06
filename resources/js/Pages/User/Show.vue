@@ -1,5 +1,5 @@
 <script setup>
-import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import ShowModal from '@/Components/Dashboard/Modal/Show.vue';
 
 const emit = defineEmits([

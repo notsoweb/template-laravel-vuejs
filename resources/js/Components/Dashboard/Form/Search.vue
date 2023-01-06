@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue';
 import Error from '@/Components/Dashboard/Form/Elements/Error.vue';
 import Label from '@/Components/Dashboard/Form/Elements/Label.vue';
-import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 
 defineEmits([
     'search'

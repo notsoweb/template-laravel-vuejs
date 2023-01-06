@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import AppLogoIcon from '@/Components/Dashboard/Logo/Icon.vue';
+import AppLogoIcon from '@/Components/Shared/Logo/Icon.vue';
 import AuthenticationCard from '@/Components/Dashboard/AuthenticationCard.vue';
 import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
 

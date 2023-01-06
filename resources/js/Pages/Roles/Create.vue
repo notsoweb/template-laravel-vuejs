@@ -1,7 +1,7 @@
 <script setup>
 import { Link, useForm } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import Input from '@/Components/Dashboard/Form/Input.vue';
 import PageHeader from '@/Components/Dashboard/PageHeader.vue';
 import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';

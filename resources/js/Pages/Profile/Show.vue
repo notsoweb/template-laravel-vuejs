@@ -2,7 +2,7 @@
 import { Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
-import GoogleIcon from '@/Components/Dashboard/GoogleIcon.vue';
+import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import LogoutOtherBrowserSessionsForm from './Partials/LogoutOtherBrowserSessionsForm.vue';
 import PageHeader from '@/Components/Dashboard/PageHeader.vue';
 import SectionBorder from '@/Components/Dashboard/SectionBorder.vue';
