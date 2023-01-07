@@ -10,9 +10,9 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Evento de cambio de sesión
+ * Notificación global
  * 
- * Dispara el evento cuando un usuario cierra o inicia la sesión
+ * Manda una notificación a todos los usuarios logueados
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
@@ -29,7 +29,6 @@ class GlobalNotification implements ShouldBroadcast
      * @return void
      */
     public function __construct(
-        public $user,
         public $message,
         public $type = 'success'
     ) {}
