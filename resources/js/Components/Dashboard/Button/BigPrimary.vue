@@ -16,7 +16,7 @@ defineProps({
 
 <template>
     <button 
-        class="flex flex-col items-center justify-center w-full h-48 space-y-2 bg-primary text-primary-text hover:bg-primary-hover rounded-xl disabled:opacity-25 transition"
+        class="flex flex-col items-center justify-center w-full h-48 space-y-2 bg-primary text-white hover:bg-secondary rounded-xl disabled:opacity-25 transition"
         :type="type" 
     >
         <GoogleIcon

@@ -55,7 +55,7 @@ let readed = computed(()=> {
             :href="href"
         >
             <GoogleIcon
-                class="text-primary hover:text-primary-hover"
+                class="text-primary hover:text-secondary"
                 :class="readed"
                 :name="icon"
             />

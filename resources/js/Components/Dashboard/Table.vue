@@ -33,7 +33,7 @@ const props = defineProps({
                 ></div>
     
                 <button v-else class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded" 
-                    :class="{ 'bg-primary text-primary-text': link.active }"
+                    :class="{ 'bg-primary text-white': link.active }"
                     v-html="link.label"
                     @click="$emit('send-pagination', link.label)"
                 ></button>

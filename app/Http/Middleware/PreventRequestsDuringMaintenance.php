@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\MaintenanceModeBypassCookie;
 use Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance as Middleware;
 
 class PreventRequestsDuringMaintenance extends Middleware
@@ -14,4 +15,15 @@ class PreventRequestsDuringMaintenance extends Middleware
     protected $except = [
         //
     ];
+
+    /**
+     * Configura el secreto de forma personalizada con una duracion de tiempo
+     * personalizada en las variables de entorno.
+     */
+    protected function bypassResponse(string $secret)
+    {
+        return redirect('/')->withCookie(
+            MaintenanceModeBypassCookie::create($secret)
+        );
+    }
 }

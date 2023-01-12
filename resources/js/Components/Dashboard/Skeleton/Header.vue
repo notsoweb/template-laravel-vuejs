@@ -47,7 +47,7 @@ onMounted(()=>{
 </script>
 
 <template>
-    <header class="fixed w-full flex items-center justify-between h-14 bg-primary text-primary-text z-10">
+    <header class="fixed w-full flex items-center justify-between h-14 bg-primary text-white z-10">
       <div class="flex w-fit justify-start items-center h-14 header-right">
         <ul class="flex ml-4 space-x-4 items-center">
           <li>
@@ -63,7 +63,7 @@ onMounted(()=>{
       <div class="flex w-fit justify-end items-center h-14 header-right">
         <ul class="flex items-center space-x-4 mr-4">
           <li>
-            <button type="button" class="flex items-center header-icon-primary">
+            <button type="button" class="flex items-center header-icon">
               <GoogleIcon
                 class="text-xl"
                 name="group"
@@ -75,7 +75,7 @@ onMounted(()=>{
               <Dropdown align="icon" width="72">
                 <template #trigger>
                   <button 
-                    class="flex items-center header-icon-primary"
+                    class="flex items-center header-icon"
                     type="button"
                     @click="getNotifications"
                   >
@@ -107,7 +107,7 @@ onMounted(()=>{
                       </template>
                     </div>
                     <div class="border-t border-gray-100" />
-                    <Link :href="route('notifications.index')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-primary-hover text-primary-text transition">
+                    <Link :href="route('notifications.index')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-secondary text-white transition">
                         {{$t('show.all')}}
                     </Link>
                 </template>

@@ -68,7 +68,7 @@ const formatTime = (date) => {
       </div>
     </div>
     <div class="flex justify-center mt-8">
-        <Link :href="route('notifications.index')" class="inline-flex w-fit py-1 px-4 justify-center bg-primary hover:bg-primary-hover text-primary-text rounded-lg transition">
+        <Link :href="route('notifications.index')" class="inline-flex w-fit py-1 px-4 justify-center bg-primary hover:bg-secondary text-white rounded-lg transition">
             {{$t('show.all')}}
         </Link>
     </div>

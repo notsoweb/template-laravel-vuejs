@@ -162,6 +162,7 @@ return [
     'maintenance' => [
         'driver' => 'file',
         // 'store'  => 'redis',
+        'lifetime' => env('APP_MAINTENANCE_LIFETIME', 48), // in hours
     ],
 
     /*

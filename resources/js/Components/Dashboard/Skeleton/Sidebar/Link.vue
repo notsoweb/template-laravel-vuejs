@@ -11,10 +11,10 @@ const props = defineProps({
 
 const classes = computed(() => {
     let status = route().current(props.to)
-        ? 'bg-primary-hover border-secondary'
+        ? 'bg-secondary/30 border-secondary'
         : 'border-transparent';
 
-    return `flex items-center h-11 focus:outline-none hover:bg-primary-hover border-l-4 hover:border-secondary pr-6 ${status} transition`
+    return `flex items-center h-11 focus:outline-none hover:bg-secondary/30 border-l-4 hover:border-secondary pr-6 ${status} transition`
 });
 </script>
 
