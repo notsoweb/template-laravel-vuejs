@@ -15,7 +15,7 @@ const props = defineProps({
 let form = useForm(props.notification);
 
 const destroy = (id) => {
-    form.delete(route('notifications.destroy', {id}),{
+    form.delete(route('dashboard.notifications.destroy', {id}),{
         preserveScroll: true,
         onSuccess: () => {
             props.notification.pop;

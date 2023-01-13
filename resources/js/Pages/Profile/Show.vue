@@ -19,7 +19,7 @@ defineProps({
 <template>
     <AppLayout :title="$t('profile')">
         <PageHeader>
-          <Link :href="route('dashboard')">
+          <Link :href="route('dashboard.index')">
               <GoogleIcon
                 class="btn-icon-primary"
                 name="home"

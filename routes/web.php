@@ -1,51 +1,39 @@
 <?php
 
-use App\Http\Controllers\HistoryLogController;
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\ResourceController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Dashboard\HistoryLogController;
+use App\Http\Controllers\Dashboard\IndexController;
+use App\Http\Controllers\Dashboard\NotificationController;
+use App\Http\Controllers\Developer\RoleController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /**
- * Rutas
+ * Rutas generales/publicas
+ * 
+ * Rutas accesibles por todos los usuarios y no usuarios
  */
-
 Route::redirect('/', '/login');
 
-Route::middleware([
+/**
+ * Rutas del Dashboard
+ * 
+ * El dashboard es el panel de los usuarios de forma general
+ */
+Route::prefix('dashboard')->name('dashboard.')->middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),
     'verified',
+    config('jetstream.auth_session')
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-    
-    # Historial de cambios en el software
-    Route::get('/changelogs', function() { 
-        return inertia('Changelogs'); 
-    })->name('changelogs.index');
-    
-    # Ayuda para el usuario
-    Route::get('/help', function() { 
-        return inertia('Help'); 
-    })->name('help.index');
-
-    # Recursos externos consultables
-    Route::prefix('resources')->name('resources.')->group(function(){
-       Route::get('/rolesByUser/{user}', [ResourceController::class, 'rolesByUser'])->name('rolesByUser');
-    });
+    Route::get('/', [IndexController::class, 'index'])->name('index');
+    Route::inertia('/changelogs', 'Dashboard/Changelogs')->name('changelogs');
+    Route::inertia('/help', 'Dashboard/Help')->name('help');
 
     # Log de Acciones
-    Route::resource('histories', HistoryLogController::class)
-    ->only([
+    Route::resource('histories', HistoryLogController::class)->only([
         'index',
         'store'
     ]);
 
-    # Notificaciones
     Route::resource('notifications', NotificationController::class);
     Route::prefix('/users')->name('users.')->group(function()
     {
@@ -53,12 +41,19 @@ Route::middleware([
     });
 });
 
-Route::middleware([
+/**
+ * Rutas de administrador
+ * 
+ * Estas ubicaciones son del administrador, sin embargo el desarrollador
+ * puede acceder a ellas.
+ */
+Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),
-    'role:admin|developer'
+    'role:admin|developer',
+    config('jetstream.auth_session')
 ])->group(function () {
     Route::resource('users', UserController::class);
+
     Route::prefix('/users')->name('users.')->group(function()
     {
         Route::get('{user}/settings', [UserController::class, 'settings'])->name('settings');
@@ -67,10 +62,16 @@ Route::middleware([
     });
 });
 
-Route::middleware([
+/**
+ * Rutas solo del desarrollador
+ * 
+ * Son ubicaciones o funciones que pueden llegar a ser muy sensibles en el sistema, por lo que
+ * solo el desarrollador debe de ser capaz de modificarlas o actualizarlas.
+ */
+Route::prefix('developer')->name('developer.')->middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),
-    'role:developer'
+    'role:developer',
+    config('jetstream.auth_session')
 ])->group(function () {
     Route::resource('roles', RoleController::class);
 });

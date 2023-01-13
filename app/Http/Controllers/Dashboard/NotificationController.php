@@ -1,12 +1,12 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Dashboard;
 /**
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\VueView;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\DatabaseNotification as Notification;
-use Inertia\Inertia;
 
 /**
  * Controlador muy simple de las notificaciones del usuario
@@ -16,6 +16,13 @@ use Inertia\Inertia;
  */
 class NotificationController extends Controller
 {
+    use VueView;
+
+    /**
+     * Ruta Vista Padre
+     */
+    protected $vueView = 'dashboard.notifications';
+
     /**
      * Lista las notificaciones del usuario
      *
@@ -43,7 +50,7 @@ class NotificationController extends Controller
             $searcher = $searcher->where('notifications.created_at', '<=', $dateEnd);
         }
 
-        return Inertia::render('Notifications/Index', [
+        return $this->vuew('index', [
             'notifications' => $searcher->paginate(config('app.pagination'))
         ]);
     }
@@ -64,7 +71,7 @@ class NotificationController extends Controller
         $notification = Notification::find($data['id']);
         $notification->markAsRead();
 
-        return Inertia::render('Notifications/Show', [
+        return $this->vuew('show', [
             'notification' => $notification
         ]);
     }

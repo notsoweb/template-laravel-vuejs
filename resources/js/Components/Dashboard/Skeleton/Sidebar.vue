@@ -22,12 +22,12 @@ const year = (new Date).getFullYear();
           <Link 
             icon="home"
             name="home" 
-            to="dashboard"
+            to="dashboard.index"
           />
           <Link
             icon="live_help"
             name="help.title"
-            to="help.index"
+            to="dashboard.help"
           />
         </Section>
         <Section name="Configuraciones">
@@ -39,19 +39,19 @@ const year = (new Date).getFullYear();
           <Link
             icon="history_toggle_off"
             name="history.title"
-            to="histories.index"
+            to="dashboard.histories.index"
           />
         </Section>
         <template v-if="hasRole('admin|developer')">
           <Link 
             icon="people"
             name="users.title"
-            to="users.index"
+            to="admin.users.index"
           />
           <Link
             icon="history"
             name="changelogs.title"
-            to="changelogs.index"
+            to="dashboard.changelogs"
           />
         </template>
         <template v-if="hasRole('developer')">
@@ -59,7 +59,7 @@ const year = (new Date).getFullYear();
             <Link
               icon="people"
               name="roles.title"
-              to="roles.index"
+              to="developer.roles.index"
             />
           </Section>
           </template>

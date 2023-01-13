@@ -24,7 +24,7 @@ const updateProfileInformation = () => {
         return Notify.error(lang('users.roles.error.min'));
     }
 
-    form.post(route('users.syncRoles'), {
+    form.post(route('admin.users.syncRoles'), {
         preserveScroll: true,
         onSuccess: () => {
             Notify.success(lang('updated'));

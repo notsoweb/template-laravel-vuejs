@@ -45,7 +45,7 @@ class SessionFresh {
 
     // Actualiza las notificaciones del usuario
     updateNotifications() {
-        useFetch(route('users.notifications'))
+        useFetch(route('dashboard.users.notifications'))
         .then((res) => {
           let unread = 0;
             res.notifications.forEach(element => {
@@ -66,7 +66,7 @@ class SessionFresh {
             this.notificationCounter.value--;
         }
         
-        router.post(route('notifications.store'), {
+        router.post(route('dashboard.notifications.store'), {
             id:id
         });
     }

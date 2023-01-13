@@ -12,7 +12,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('roles.store'), {
+    form.post(route('developer.roles.store'), {
         onSuccess: (res) => {
             Notify.success(lang('roles.create.onSuccess'));
         },
@@ -24,11 +24,18 @@ const submit = () => {
 <template>
   <AppLayout :title="$t('roles.create.title')">
     <PageHeader>
-      <Link :href="route('dashboard')">
-          <GoogleIcon
-            class="btn-icon-primary"
-            name="home"
-            outline
+      <Link :href="route('dashboard.index')">
+        <GoogleIcon
+          class="btn-icon-primary"
+          name="home"
+          outline
+        />
+      </Link>
+      <Link :href="route('developer.roles.index')">
+        <GoogleIcon
+          class="btn-icon-primary"
+          name="arrow_back"
+          outline
         />
       </Link>
     </PageHeader>

@@ -107,7 +107,7 @@ onMounted(()=>{
                       </template>
                     </div>
                     <div class="border-t border-gray-100" />
-                    <Link :href="route('notifications.index')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-secondary text-white transition">
+                    <Link :href="route('dashboard.notifications.index')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-secondary text-white transition">
                         {{$t('show.all')}}
                     </Link>
                 </template>

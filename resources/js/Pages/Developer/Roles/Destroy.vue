@@ -8,41 +8,34 @@ const emit = defineEmits([
 ]);
 
 const props = defineProps({
-    show: Boolean,
-    user: Object
+    role: Object,
+    show: Boolean
 });
 
-let form = useForm(props.user);
+let form = useForm(props.role);
 
 const destroy = (id) => {
-    form.delete(route('users.destroy', {id}),{
+    form.delete(route('developer.roles.destroy', {id}),{
         preserveScroll: true,
         onSuccess: () => {
-            props.user.pop;
+            props.role.pop;
             emit('close');
-            Notify.success(lang('users.deleted'));
+            Notify.success(lang('roles.deleted'));
         },
         onError: () => {
-            Notify.info(lang('users.notFound'));
+            Notify.info(lang('roles.notFound'));
             emit('close');
         }
     });
 }
 </script>
 <template>
-    <DestroyModal
-        :show="show"
-        @close="$emit('close')"
-        @destroy="destroy(user.id)"
-    >
+    <DestroyModal :show="show" @destroy="destroy(role.id)" @close="$emit('close')">
         <div class="w-full right-0 mt-2">
             <div class="bg-white rounded overflow-hidden shadow-lg">
                 <div class="text-center p-6 bg-gray-800 border-b">
                     <p class="pt-2 text-lg font-bold text-gray-50">
-                        {{user.name}}
-                    </p>
-                    <p class="text-sm text-gray-100">
-                        {{user.paternal}}  {{user.maternal}}
+                        {{role.name}}
                     </p>
                 </div>
             </div>

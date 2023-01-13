@@ -33,7 +33,7 @@ const formatTime = (date) => {
 }
 
 const search = () => {
-  router.get(route('notifications.index', {
+  router.get(route('dashboard.notifications.index', {
     dateStart:dateStart.value,
     dateEnd:dateEnd.value
   }), {}, {
@@ -42,7 +42,7 @@ const search = () => {
 }
 
 const searchWithPagination = (page) =>  {
-  router.get(route('notifications.index', {
+  router.get(route('dashboard.notifications.index', {
     dateStart:dateStart.value,
     dateEnd:dateEnd.value,
     page:page
@@ -52,7 +52,7 @@ const searchWithPagination = (page) =>  {
 }
 
 const edit = (detail) => {
-  router.put(route('notifications.update', detail.id), {}, {
+  router.put(route('dashboard.notifications.update', detail.id), {}, {
     preserveState: true,
     preserveScroll: true,
     onSuccess: () => {
@@ -72,7 +72,7 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
 <template>
   <AppLayout :title="$t('notifications.title')">
     <PageHeader>
-      <Link :href="route('dashboard')">
+      <Link :href="route('dashboard.index')">
           <Icon
             class="btn-icon-primary"
             name="home"

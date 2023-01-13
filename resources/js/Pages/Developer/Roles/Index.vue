@@ -1,85 +1,64 @@
 <script setup>
 import { ref } from 'vue';
-import { Link, router } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 import { hasRole } from '@/rolePermission.js';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import EditView from './Edit.vue';
 import DestroyView from './Destroy.vue';
+import EditView from './Edit.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import Searcher from '@/Components/Dashboard/Searcher.vue';
-import ShowView from './Show.vue';
+import PageHeader from '@/Components/Dashboard/PageHeader.vue';
 import Table from '@/Components/Dashboard/Table.vue';
 
 const props = defineProps({
-    roles: Object,
-    users: Object
+    roles: Object
 });
 
-let query = ref('');
-let showModal = ref(false);
 let editModal = ref(false);
 let destroyModal = ref(false);
-let user = ref({});
-
-const search = (q = '') => {
-    query.value = q;
-    router.get(route('users.index', {q}), {}, {preserveState: true});
-};
-
-const searchWithPagination = (page) =>  {
-    let q = query.value;
-    router.get(route('users.index', {q, page}), {}, {preserveState: true});
-}
-
-const show = (detail) => {
-    user.value = detail;
-    switchShowModal();
-}
+let role = ref(null);
 
 const edit = (detail) => {
-    user.value = detail;
+    role.value = detail;
     switchEditModal();
 }
 
 const destroy = (detail) => {
-    user.value = detail;
+    role.value = detail;
     switchDestroyModal();
 }
 
-const switchModal = () => {
-    switchEditModal();
-    switchShowModal();
-}
-
-const switchShowModal = () => showModal.value = !showModal.value;
 const switchEditModal = () => editModal.value = !editModal.value;
 const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
 </script>  
 <template>
-    <AppLayout :title="$t('users.system')">
-        <Searcher @search="search">
-            <Link :href="route('dashboard')">
+    <AppLayout :title="$t('roles.title')">
+        <PageHeader>
+            <Link :href="route('dashboard.index')">
                 <GoogleIcon
                     class="btn-icon-primary"
                     name="home"
                     outline
                 />
             </Link>
-            <Link :href="route('users.create')">
+            <Link :href="route('developer.roles.create')">
                 <GoogleIcon
                     class="btn-icon-primary"
                     name="add"
                     outline
                 />
             </Link>
-        </Searcher>
+        </PageHeader>
         <div class="pt-2 w-full">
-            <Table :links="users.links" @send-pagination="searchWithPagination">
+            <Table :links="roles.links">
                 <template #head>
                     <tr class="table-head">
                         <th
                             class="table-item"
-                            v-text="$t('user')"
+                            v-text="$t('role')"
+                        />
+                        <th
+                            class="table-item"
+                            v-text="$t('description')"
                         />
                         <th
                             class="table-item"
@@ -88,13 +67,22 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                     </tr>
                 </template>
                 <template #body>
-                    <tr v-for="user in users.data" class="text-gray-700">
+                    <tr v-for="role in roles.data" class="text-gray-700">
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>
-                              <p class="font-semibold text-black">
-                                {{user.name}} {{user.paternal}}  {{user.maternal}}
-                              </p>
+                                <p class="font-semibold text-black">
+                                    {{role.name}}
+                                </p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="table-item border">
+                          <div class="flex items-center text-sm">
+                            <div>
+                                <p class="font-semibold text-black">
+                                    {{role.description}}
+                                </p>
                             </div>
                           </div>
                         </td>
@@ -102,29 +90,17 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                             <div class="flex justify-center space-x-2">
                                 <GoogleIcon
                                     class="btn-icon-primary"
-                                    name="visibility"
+                                    name="edit"
                                     outline
-                                    @click="show(user)"
+                                    @click="edit(role)"
                                 />
-                                <template v-if="hasRole('admin|developer')">
-                                    <GoogleIcon
-                                        class="btn-icon-primary"
-                                        name="edit"
-                                        outline
-                                        @click="edit(user)"
-                                    />
+                                <template v-if="hasRole('developer')">
                                     <GoogleIcon
                                         class="btn-icon-primary"
                                         name="delete"
                                         outline
-                                        @click="destroy(user)"
+                                        @click="destroy(role)"
                                     />
-                                    <Link :href="route('users.settings', user.id)">
-                                        <GoogleIcon
-                                            class="btn-icon-primary"
-                                            name="settings"
-                                        />
-                                    </Link>
                                 </template>
                             </div>
                         </td>
@@ -132,23 +108,15 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                 </template>
             </Table>
         </div>
-        <ShowView 
-            :show="showModal" 
-            :user="user" 
-            @switchModal="switchModal"
-            @close="switchShowModal"
-        />
-
-        <template v-if="hasRole('admin|developer')">
+        <template v-if="hasRole('developer')">
         <EditView
+            :role="role"
             :show="editModal"
-            :user="user"
-            @switchModal="switchModal"
             @close="switchEditModal"
         />
         <DestroyView
+            :role="role"
             :show="destroyModal"
-            :user="user"
             @close="switchDestroyModal"
         />
         </template>

@@ -16,7 +16,7 @@ const props = defineProps({
 <template>
     <AppLayout :title="$t('users.settings')">
         <PageHeader>
-          <Link :href="route('users.index')">
+          <Link :href="route('admin.users.index')">
               <GoogleIcon
                 class="btn-icon-primary"
                 name="arrow_back"

@@ -18,7 +18,7 @@ let form = useForm(props.user);
 const update = (id) => {
     form.transform(data => ({
         ...props.user
-    })).put(route('users.update', {id}),{
+    })).put(route('admin.users.update', {id}),{
         preserveScroll: true,
         onSuccess: () => {
             Notify.success(lang('updated'))

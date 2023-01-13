@@ -1,21 +1,31 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Developer;
 /**
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\VueView;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Spatie\Permission\Models\Role;
 
 /**
- * Administra los roles del usuario
+ * Administra los roles del sistema
+ * 
+ * CRUD de los roles. Algunos roles estan implicitos en el código para dar permisos. Por lo que
+ * es un controlador sensible.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
  */
 class RoleController extends Controller
 {
+    use VueView;
+
+    /**
+     * Ruta Vista Padre
+     */
+    protected $vueView = 'developer.roles';
+
     /**
      * Lista los roles del sistema
      *
@@ -23,7 +33,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Roles/Index', [
+        return $this->vuew('index', [
             'roles' => Role::orderBy('name', 'ASC')
                 ->select([
                     'id', 
@@ -41,7 +51,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Roles/Create');
+        return $this->vuew('create');
     }
 
     /**
@@ -100,6 +110,7 @@ class RoleController extends Controller
     public function destroy(Role $role) : void
     {
         $role->delete();
+
         $this->reportDestroy('roles', $role->toArray(), __('roles.deleted', [
             'role' => $role->name
         ]));

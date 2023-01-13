@@ -21,7 +21,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('users.store'), {
+    form.post(route('admin.users.store'), {
         onSuccess: (res) => {
             Notify.success(lang('users.create.onSuccess'));
         },
@@ -34,7 +34,7 @@ const submit = () => {
 <template>
   <AppLayout :title="$t('users.create.title')">
     <PageHeader>
-      <Link :href="route('dashboard')">
+      <Link :href="route('dashboard.index')">
           <GoogleIcon
             class="btn-icon-primary"
             name="home"

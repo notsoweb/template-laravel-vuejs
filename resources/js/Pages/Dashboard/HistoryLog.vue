@@ -32,7 +32,7 @@ const formatTime = (date) => {
 }
 
 const search = () => {
-  router.get(route('histories.index', {
+  router.get(route('dashboard.histories.index', {
     historyEvent:historyEvent.value,
     dateStart:dateStart.value,
     dateEnd:dateEnd.value
@@ -42,7 +42,7 @@ const search = () => {
 }
 
 const searchWithPagination = (page) =>  {
-  router.get(route('histories.index', {
+  router.get(route('dashboard.histories.index', {
     historyEvent:historyEvent.value,
     dateStart:dateStart.value,
     dateEnd:dateEnd.value,
@@ -55,7 +55,7 @@ const searchWithPagination = (page) =>  {
 <template>
   <AppLayout :title="$t('history.title')">
     <PageHeader>
-      <Link :href="route('dashboard')">
+      <Link :href="route('dashboard.index')">
         <Icon
           class="btn-icon-primary"
           name="home"

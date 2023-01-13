@@ -1,10 +1,11 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Dashboard;
 /**
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
+use App\Http\Controllers\Controller;
+use App\Http\Traits\VueView;
 use App\Models\HistoryLog;
-use Inertia\Inertia;
 
 /**
  * Controla el historial de acciones de los usuarios
@@ -16,6 +17,13 @@ use Inertia\Inertia;
  */
 class HistoryLogController extends Controller
 {
+    use VueView;
+
+    /**
+     * Ruta Vista Padre
+     */
+    protected $vueView = 'dashboard';
+
     /**
      * Muestra el historial de acciones global
      *
@@ -42,7 +50,7 @@ class HistoryLogController extends Controller
             $searcher = $searcher->where('history_logs.created_at', '<=', $dateEnd);
         }
 
-        return Inertia::render('HistoryLog' , [
+        return $this->vuew('history-log' , [
             'histories' => $searcher ->select([
                     'history_logs.*',
                     'users.name',

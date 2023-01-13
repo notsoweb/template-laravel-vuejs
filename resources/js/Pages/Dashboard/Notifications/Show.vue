@@ -25,7 +25,7 @@ const formatTime = (date) => {
 <template>
   <AppLayout :title="$t('notifications.title')">
     <PageHeader>
-      <Link :href="route('dashboard')">
+      <Link :href="route('dashboard.index')">
           <GoogleIcon
             class="btn-icon-primary"
             name="home"
@@ -68,7 +68,7 @@ const formatTime = (date) => {
       </div>
     </div>
     <div class="flex justify-center mt-8">
-        <Link :href="route('notifications.index')" class="inline-flex w-fit py-1 px-4 justify-center bg-primary hover:bg-secondary text-white rounded-lg transition">
+        <Link :href="route('dashboard.notifications.index')" class="inline-flex w-fit py-1 px-4 justify-center bg-primary hover:bg-secondary text-white rounded-lg transition">
             {{$t('show.all')}}
         </Link>
     </div>

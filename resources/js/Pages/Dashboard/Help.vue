@@ -14,7 +14,7 @@ defineProps({
 <template>
   <AppLayout :title="$t('help.title')">
     <PageHeader>
-      <Link :href="route('dashboard')">
+      <Link :href="route('dashboard.index')">
         <GoogleIcon
           class="btn-icon-primary"
           name="home"

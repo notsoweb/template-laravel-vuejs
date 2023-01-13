@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Admin;
 /**
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
@@ -7,12 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use App\Http\Traits\UseFetch;
+use App\Http\Traits\VueView;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
-use Inertia\Inertia;
 use Spatie\Permission\Models\Role;
 
 /**
@@ -23,7 +23,12 @@ use Spatie\Permission\Models\Role;
  */
 class UserController extends Controller
 {
-    use UseFetch;
+    use UseFetch, VueView;
+
+    /**
+     * Ruta Vista Padre
+     */
+    protected $vueView = 'admin.user';
 
     /**
      * Muestra los usuarios del sistema
@@ -34,7 +39,7 @@ class UserController extends Controller
     {
         $q = request()->get('q');
 
-        return Inertia::render('User/Index', [
+        return $this->vuew('index', [
             'users' => User::whereNotIn('id', [1,2])
                 ->where('name', 'LIKE', "%{$q}%")
                 ->select([
@@ -54,7 +59,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return Inertia::render('User/Create');
+        return $this->vuew('create');
     }
 
     /**
@@ -83,7 +88,7 @@ class UserController extends Controller
      */
     public function settings(User $user)
     {
-        return Inertia::render('User/Settings', [
+        return $this->vuew('settings', [
             'user' => $user,
             'userRoles' => $user->roles,
             'roles'=> Role::orderBy('name', 'ASC')

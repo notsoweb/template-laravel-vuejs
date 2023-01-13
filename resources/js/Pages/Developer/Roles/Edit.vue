@@ -17,7 +17,7 @@ const form = useForm(props.role);
 const update = (id) => {
     form.transform(data => ({
         ...props.role
-    })).put(route('roles.update', {id}),{
+    })).put(route('developer.roles.update', {id}),{
         preserveScroll: true,
         onSuccess: () => {
             Notify.success(lang('updated'));
