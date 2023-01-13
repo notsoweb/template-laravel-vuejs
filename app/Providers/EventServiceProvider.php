@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use App\Listeners\BrodcastUserLoginNotification;
 use App\Listeners\BrodcastUserLogoutNotification;
+use App\Models\Role;
+use App\Models\User;
+use App\Observers\RoleObserver;
+use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Auth\Events\Registered;
@@ -28,6 +32,11 @@ class EventServiceProvider extends ServiceProvider
         // Logout::class => [
         //     BrodcastUserLogoutNotification::class,
         // ],
+    ];
+
+    protected $observers = [
+        User::class => [UserObserver::class],
+        Role::class => [RoleObserver::class],
     ];
 
     /**

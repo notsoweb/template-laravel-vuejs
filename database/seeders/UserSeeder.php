@@ -29,35 +29,35 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // Usuario desarrollador
-        [$developerEmail, $developerPass] = NotLog::NewUser('developer@notsoweb.com');
-
-        $user = User::create([
-            'name' => 'Developer',
-            'paternal' => 'Notsoweb',
-            'email' => $developerEmail,
-            'phone' => '5631809090',
-            'password' => $developerPass,
-        ]);
-
-        $user->assignRole(['developer']);
-        
-        // Usuario administrador
-        [$adminEmail, $adminPass] = NotLog::NewUser('admin@notsoweb.com');
-
-        User::create([
-            'name' => 'Administrador',
-            'paternal' => 'Notsoweb',
-            'email' => $adminEmail,
-            'password' => $adminPass
-        ])->assignRole('admin');
-
-        // Usuario de prueba
-        User::create([
-            'name' => 'Demo',
-            'paternal' => 'Notsoweb',
-            'email' => 'demo@notsoweb.com',
-            'password' => Hash::make('Demo')
-        ]) ->assignRole('basic');
+        User::withoutEvents(function () {
+            // Usuario desarrollador
+            [$developerEmail, $developerPass] = NotLog::NewUser('developer@notsoweb.com');
+    
+            User::create([
+                'name' => 'Developer',
+                'paternal' => 'Notsoweb',
+                'email' => $developerEmail,
+                'phone' => '5631809090',
+                'password' => $developerPass,
+            ])->assignRole(['developer']);
+            
+            // Usuario administrador
+            [$adminEmail, $adminPass] = NotLog::NewUser('admin@notsoweb.com');
+    
+            User::create([
+                'name' => 'Administrador',
+                'paternal' => 'Notsoweb',
+                'email' => $adminEmail,
+                'password' => $adminPass
+            ])->assignRole('admin');
+    
+            // Usuario de prueba
+            User::create([
+                'name' => 'Demo',
+                'paternal' => 'Notsoweb',
+                'email' => 'demo@notsoweb.com',
+                'password' => Hash::make('Demo')
+            ]) ->assignRole('basic');
+        });
     }
 }

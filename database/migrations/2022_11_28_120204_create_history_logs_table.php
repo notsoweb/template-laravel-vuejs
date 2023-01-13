@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('action');
             $table->integer('qty')->nullable();
             $table->longText('message')->nullable();
-            $table->json('data');
+            $table->json('data')->nullable();
 
-            $table->foreignId('user_id') // Capturista
+            $table->foreignId('user_id') // Usuario que realizo la acción
                 ->nullable()
                 ->constrained()
                 ->cascadeOnUpdate()

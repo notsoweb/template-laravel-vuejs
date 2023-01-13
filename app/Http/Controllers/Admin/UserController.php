@@ -74,11 +74,7 @@ class UserController extends Controller
         $user = User::create($data);
         $user->assignRole('basic');
 
-        $this->reportCreate('users', $user->toArray(), __('users.updated', [
-            'user' => $user->fullName
-        ]));
-
-        return $this->settings($user);
+        return $this->index();
     }
 
     /**
@@ -108,10 +104,6 @@ class UserController extends Controller
 
         $model = User::find($user);
         $model->update($data);
-
-        $this->reportUpdate('users', $model->toArray(), __('users.updated', [
-            'user' => $model->fullName
-        ]));
     }
 
     /**
@@ -131,10 +123,6 @@ class UserController extends Controller
         $user->update([
             'password' => Hash::make($data['password'])
         ]);
-
-        $this->reportUpdate('users', $user->toArray(), __('users.password.updated', [
-            'user' => $user->fullName
-        ]));
     }
 
     /**
@@ -158,10 +146,6 @@ class UserController extends Controller
 
         $user = User::find($data['user_id']);
         $user->syncRoles($roles);
-
-        $this->reportUpdate('users', $user->toArray(), __('users.roles.updated', [
-            'user' => $user->fullName
-        ]));
     }
 
     /**
@@ -199,9 +183,7 @@ class UserController extends Controller
             $user = User::find($user);
             $user->delete();
 
-            $this->reportDestroy('users', $user->toArray(),  __('users.deleted', [
-                'user' => $user->fullName
-            ]));
+            
         } catch (\Throwable $th) {
             Log::channel('users')
                 ->error($th->getMessage());

@@ -5,8 +5,8 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\VueView;
+use App\Models\Role;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 
 /**
  * Administra los roles del sistema
@@ -69,10 +69,6 @@ class RoleController extends Controller
 
         $role = Role::create($data);
 
-        $this->reportCreate('roles', $role->toArray(), __('roles.updated', [
-            'role' => $role->name
-        ]));
-
         return $this->index();
     }
 
@@ -91,10 +87,6 @@ class RoleController extends Controller
 
         $model = Role::find($role);
         $model->update($data);
-
-        $this->reportUpdate('roles', $model->toArray(), __('roles.updated', [
-            'role' => $model->name
-        ]));
     }
 
     /**
@@ -110,9 +102,5 @@ class RoleController extends Controller
     public function destroy(Role $role) : void
     {
         $role->delete();
-
-        $this->reportDestroy('roles', $role->toArray(), __('roles.deleted', [
-            'role' => $role->name
-        ]));
     }
 }

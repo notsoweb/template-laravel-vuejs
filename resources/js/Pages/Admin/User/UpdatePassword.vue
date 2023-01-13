@@ -15,7 +15,7 @@ let form = useForm({
 });
 
 const updateProfileInformation = () => {
-    form.post(route('users.password'), {
+    form.post(route('admin.users.password'), {
         errorBag: 'updateProfileInformation',
         preserveScroll: true,
         onSuccess: () => {

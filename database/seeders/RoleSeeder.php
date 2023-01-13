@@ -22,19 +22,21 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $admin = Role::create([
-            'name' => 'admin',
-            'description' => 'Administrador del sistema'
-        ]);
+        Role::withoutEvents(function () {
+            $admin = Role::create([
+                'name' => 'admin',
+                'description' => 'Administrador del sistema'
+            ]);
+            
+            $developer = Role::create([
+                'name' => 'developer',
+                'description' => 'Desarrollador del sistema, desbloquea opciones ocultas.'
+            ]);
         
-        $developer = Role::create([
-            'name' => 'developer',
-            'description' => 'Desarrollador del sistema, desbloquea opciones ocultas.'
-        ]);
-
-        $basic = Role::create([
-            'name' => 'basic',
-            'description' => 'Identifica un usuario sin privilegios'
-        ]);
+            $basic = Role::create([
+                'name' => 'basic',
+                'description' => 'Identifica un usuario sin privilegios'
+            ]);
+        });
     }
 }
