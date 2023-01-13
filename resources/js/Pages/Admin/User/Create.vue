@@ -79,6 +79,7 @@ const submit = () => {
                 class="col-span-2"
                 v-model="form.phone"
                 :onError="form.errors.phone"
+                type="number"
                 autofocus
                 required
             />

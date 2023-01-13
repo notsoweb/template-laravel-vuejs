@@ -19,8 +19,10 @@ trait ModelExtend
         if(count($this->fillable) > 0) {
             $data = [];
     
-            foreach($this->fillable as $fillable ) {
-                $data[$fillable] = $this->$fillable;
+            foreach($this->fillable as $fillable) {
+                if(!in_array($fillable, $this->hidden)){
+                    $data[$fillable] = $this->$fillable;
+                }
             }
     
             return $data;
