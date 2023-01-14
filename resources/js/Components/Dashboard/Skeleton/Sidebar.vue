@@ -3,18 +3,39 @@ import { hasRole } from "@/rolePermission.js"
 import Link from  './Sidebar/Link.vue';
 import Section from  './Sidebar/Section.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
+import Logo from '@/Components/Dashboard/Logo.vue';
+import LogoIcon from '@/Components/Shared/Logo/Icon.vue';
+
+const emit = defineEmits(['open']);
+
+const props = defineProps({
+  sideber: Boolean
+});
 
 const year = (new Date).getFullYear();
 </script>
 
 <template>
-  <div class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-primary h-full text-white transition-all duration-300 border-none">
+  <div class="flex flex-col w-14 hover:w-64 md:w-64 bg-primary h-full text-white transition-all duration-300 border-none">
+    <div class="flex w-fit justify-start items-center h-14 header-right">
+        <ul class="flex ml-4 space-x-4 items-center">
+          <li>
+            <LogoIcon
+              class="text-lg md:hidden"
+            />
+            <Logo
+              class="hidden text-lg md:inline-flex"
+            />
+          </li>
+        </ul>
+      </div>
     <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
       <ul class="flex flex-col py-4 space-y-1">
         <li class="px-5 md:hidden">
           <GoogleIcon
             class="text-xl"
             name="menu"
+            @click="emit('open')"
             outline
           />
         </li>

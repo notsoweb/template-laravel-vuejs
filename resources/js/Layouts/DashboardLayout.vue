@@ -1,5 +1,5 @@
 s<script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { SuscribeUserAuth } from '@/broadcasts.js';
 import { Head, router } from '@inertiajs/vue3';
 import Header from '@/Components/Dashboard/Skeleton/Header.vue';
@@ -12,6 +12,12 @@ defineProps({
         type: Boolean
     }
 });
+
+const sidebar = ref(true)
+
+const openSidebar = () => {
+    console.log('open sidebar');
+}
 
 // Comprueba los mensajes flash
 if(router.page.props.flash) {
@@ -37,17 +43,23 @@ onMounted(()=> {
     <Head
         :title="title"
     />
-    <Header />
-    <Sidebar />
-    <main id="page" class="flex justify-center pt-6 pl-14 md:pl-64">
-        <div  class="w-full px-8 mt-4 pb-4 sm:px-6 lg:mb-8 lg:mx-8 lg:mt-14 lg:px-8 rounded-lg bg-white lg:p-8">
-            <div v-if="titlePage" class="flex w-full justify-center pt-6 lg:pt-0">
-                <h2
-                    class="font-bold text-xl uppercase"
-                    v-text="title"
-                />
-            </div>
-            <slot />
+    <div class="flex w-full min-h-screen ">
+        <div class="w-fit">
+            <Sidebar :sidebar="sidebar" @open="openSidebar" />
         </div>
-    </main>
+        <div class="flex flex-col w-full">
+            <Header />
+            <main id="page" class="flex justify-center">
+                <div  class="w-full px-8 pb-4 sm:px-6 lg:mb-8 lg:mx-8 lg:mt-8 lg:px-8 md:rounded-lg bg-white lg:p-8">
+                    <div v-if="titlePage" class="flex w-full justify-center pt-6 lg:pt-0">
+                        <h2
+                            class="font-bold text-xl uppercase"
+                            v-text="title"
+                        />
+                    </div>
+                    <slot />
+                </div>
+            </main>
+        </div>
+    </div>
 </template>
