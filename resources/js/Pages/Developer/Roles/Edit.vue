@@ -12,7 +12,7 @@ const props = defineProps({
     show: Boolean
 });
 
-const form = useForm(props.role);
+const form = useForm({});
 
 const update = (id) => {
     form.transform(data => ({

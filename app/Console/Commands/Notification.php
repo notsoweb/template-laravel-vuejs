@@ -41,8 +41,8 @@ class Notification extends Command
         $message = $this->argument('message');
 
         broadcast(new GlobalNotification(
-            "Global",
-            $message
+            $message,
+            "info"
         ));
         
         return Command::SUCCESS;

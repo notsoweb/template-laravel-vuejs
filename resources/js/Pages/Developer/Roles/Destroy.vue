@@ -12,7 +12,7 @@ const props = defineProps({
     show: Boolean
 });
 
-let form = useForm(props.role);
+const form = useForm({});
 
 const destroy = (id) => {
     form.delete(route('developer.roles.destroy', {id}),{

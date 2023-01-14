@@ -12,7 +12,7 @@ const props = defineProps({
     show: Boolean
 });
 
-let form = useForm(props.notification);
+let form = useForm({});
 
 const destroy = (id) => {
     form.delete(route('dashboard.notifications.destroy', {id}),{
