@@ -1,6 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import PageHeader from '@/Components/Dashboard/PageHeader.vue';
 
@@ -23,7 +23,7 @@ const formatTime = (date) => {
 
 </script>
 <template>
-  <AppLayout :title="$t('notifications.title')">
+  <DashboardLayout :title="$t('notifications.title')">
     <PageHeader>
       <Link :href="route('dashboard.index')">
           <GoogleIcon
@@ -72,5 +72,5 @@ const formatTime = (date) => {
             {{$t('show.all')}}
         </Link>
     </div>
-  </AppLayout>
+  </DashboardLayout>
 </template>
