@@ -3,16 +3,14 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Events\GlobalNotification;
 use App\Models\User;
 use App\Notifications\UserHeaderNotification;
 use Illuminate\Console\Command;
-use Ramsey\Uuid\Uuid as UuidUuid;
 
 /**
- * Genera un UUID en consola
+ * Lanza una notificación a un usuario especifico
  * 
- * Diseñado para generar un ID unico que necesitan ser generados en caliente
+ * La notificación queda guardada en las notificaciones del usuario.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0

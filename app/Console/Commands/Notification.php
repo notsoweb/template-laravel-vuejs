@@ -5,12 +5,11 @@
 
 use App\Events\GlobalNotification;
 use Illuminate\Console\Command;
-use Ramsey\Uuid\Uuid as UuidUuid;
 
 /**
- * Genera un UUID en consola
+ * Lanza una notificación a todos los usuarios que esten al momentos.
  * 
- * Diseñado para generar un ID unico que necesitan ser generados en caliente
+ * La notificación es unica y no persistente.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
