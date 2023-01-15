@@ -16,7 +16,7 @@ const year = (new Date).getFullYear();
 </script>
 
 <template>
-  <div class="flex flex-col w-14 hover:w-64 md:w-64 bg-primary h-full text-white transition-all duration-300 border-none">
+  <div class="flex flex-col w-64 bg-primary h-full text-white transition-all duration-300 border-none">
     <div class="flex w-fit justify-start items-center h-14 header-right">
         <ul class="flex ml-4 space-x-4 items-center">
           <li>
@@ -29,16 +29,8 @@ const year = (new Date).getFullYear();
           </li>
         </ul>
       </div>
-    <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
+    <div class="flex flex-col justify-between flex-grow overflow-y-auto overflow-x-hidden">
       <ul class="flex flex-col py-4 space-y-1">
-        <li class="px-5 md:hidden">
-          <GoogleIcon
-            class="text-xl"
-            name="menu"
-            @click="emit('open')"
-            outline
-          />
-        </li>
         <Section name="Principal">
           <Link 
             icon="home"
@@ -85,7 +77,7 @@ const year = (new Date).getFullYear();
           </Section>
           </template>
       </ul>
-      <div class="mb-16 px-5 space-y-1">
+      <div class="mb-4 px-5 space-y-1">
         <p class="hidden md:block text-center text-xs">
           &copy {{year}} {{$page.props.copyright}}
         </p>

@@ -16,7 +16,8 @@ defineProps({
 const sidebar = ref(true)
 
 const openSidebar = () => {
-    console.log('open sidebar');
+    sidebar.value = !sidebar.value;
+    console.log(sidebar.value);
 }
 
 // Comprueba los mensajes flash
@@ -44,11 +45,25 @@ onMounted(()=> {
         :title="title"
     />
     <div class="flex w-full min-h-screen ">
-        <div class="w-fit">
-            <Sidebar :sidebar="sidebar" @open="openSidebar" />
+        <div 
+            class="fixed w-fit h-screen transition-all duration-300"
+            :class="{'-translate-x-0':sidebar, '-translate-x-64':!sidebar}"
+        >
+            <Sidebar
+                :sidebar="sidebar"
+                @open="openSidebar"
+            />
         </div>
-        <div class="flex flex-col w-full">
-            <Header />
+        <div 
+            class="flex flex-col w-full transition-all duration-300"
+            :class="{'w-[calc(100vw-16rem)] ml-64':sidebar, 'w-screen ml-0':!sidebar}"
+        >
+            <div class="w-full h-14 bg-primary">
+                <Header
+                    :sidebar="sidebar"
+                    @open="openSidebar"
+                />
+            </div>
             <main id="page" class="flex justify-center">
                 <div  class="w-full px-8 pb-4 sm:px-6 lg:mb-8 lg:mx-8 lg:mt-8 lg:px-8 md:rounded-lg bg-white lg:p-8">
                     <div v-if="titlePage" class="flex w-full justify-center pt-6 lg:pt-0">
