@@ -1,6 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import Item from '@/Components/Dashboard/Help/Item.vue';
 import PageHeader from '@/Components/Dashboard/PageHeader.vue';
@@ -12,9 +12,9 @@ defineProps({
 </script>
 
 <template>
-  <AppLayout :title="$t('help.title')">
+  <DashboardLayout :title="$t('help.title')">
     <PageHeader>
-      <Link :href="route('dashboard.index')">
+      <Link :href="route('dashboard.index')" preserve-state>
         <GoogleIcon
           class="btn-icon-primary"
           name="home"
@@ -48,6 +48,6 @@ defineProps({
         </template>
       </Table>
     </div>
-  </AppLayout>
+  </DashboardLayout>
 </template>
   

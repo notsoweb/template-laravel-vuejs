@@ -1,6 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import Item from '@/Components/Dashboard/Help/Item.vue';
 import PageHeader from '@/Components/Dashboard/PageHeader.vue';
@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <AppLayout :title="$t('changelogs.title')">
+  <DashboardLayout :title="$t('changelogs.title')">
     <PageHeader>
       <Link :href="route('dashboard.index')">
         <GoogleIcon
@@ -44,6 +44,19 @@ defineProps({
           </tr>
         </template>
         <template #body>
+          <Item version="0.1.0">
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
+                <li>Send notifications by console.</li>
+                <li>Intelligent menu design.</li>
+                <li>Optimization for mobile devices.</li>
+                <li>Screen size recognition.</li>
+                <li>Hide menu when desired.</li>
+                <li>Isolate template for the implementation of a second or more templates.</li>
+                <li>Safe maintenance mode.</li>
+              </ul>
+            </p>
+          </Item>
           <Item version="0.0.4">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">
@@ -83,5 +96,5 @@ defineProps({
         </template>
       </Table>
     </div>
-  </AppLayout>
+  </DashboardLayout>
 </template>

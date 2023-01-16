@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { Link, router} from '@inertiajs/vue3'
 import { hasRole }  from '@/rolePermission.js';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import Icon from '@/Components/Shared/GoogleIcon.vue';
 import IconPrimary from '@/Components/Dashboard/Button/Primary.vue';
 import Input from '@/Components/Dashboard/Form/Input.vue';
@@ -53,7 +53,7 @@ const searchWithPagination = (page) =>  {
 }
 </script>
 <template>
-  <AppLayout :title="$t('history.title')">
+  <DashboardLayout :title="$t('history.title')">
     <PageHeader>
       <Link :href="route('dashboard.index')">
         <Icon
@@ -161,5 +161,5 @@ const searchWithPagination = (page) =>  {
         </template>
       </Table>
     </div>
-  </AppLayout>
+  </DashboardLayout>
 </template>

@@ -1,6 +1,6 @@
 <script setup>
 import { Link, useForm } from '@inertiajs/vue3';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import Input from '@/Components/Dashboard/Form/Input.vue';
 import PageHeader from '@/Components/Dashboard/PageHeader.vue';
@@ -32,12 +32,19 @@ const submit = () => {
 
 </script>
 <template>
-  <AppLayout :title="$t('users.create.title')">
+  <DashboardLayout :title="$t('users.create.title')">
     <PageHeader>
       <Link :href="route('dashboard.index')">
           <GoogleIcon
             class="btn-icon-primary"
             name="home"
+            outline
+          />
+      </Link>
+      <Link :href="route('admin.users.index')">
+          <GoogleIcon
+            class="btn-icon-primary"
+            name="arrow_back"
             outline
           />
       </Link>
@@ -109,5 +116,5 @@ const submit = () => {
             </div>
         </form>
     </div>
-  </AppLayout>
+  </DashboardLayout>
 </template>

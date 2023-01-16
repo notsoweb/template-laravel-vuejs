@@ -1,6 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import LogoutOtherBrowserSessionsForm from './Partials/LogoutOtherBrowserSessionsForm.vue';
@@ -17,7 +17,7 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout :title="$t('profile')">
+    <DashboardLayout :title="$t('profile')">
         <PageHeader>
           <Link :href="route('dashboard.index')">
               <GoogleIcon
@@ -59,5 +59,5 @@ defineProps({
                 />
             </template>
         </div>
-    </AppLayout>
+    </DashboardLayout>
 </template>

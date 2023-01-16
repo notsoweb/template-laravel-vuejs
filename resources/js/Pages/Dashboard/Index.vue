@@ -1,12 +1,12 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import Welcome from '@/Components/Dashboard/Welcome.vue';
 </script>
 
 <template>
-    <AppLayout title="Dashboard">
+    <DashboardLayout title="Dashboard">
         <div class="py-12">
             <Welcome />
         </div>
-    </AppLayout>
+    </DashboardLayout>
 </template>
