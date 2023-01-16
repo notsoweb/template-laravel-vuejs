@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { hasRole } from '@/rolePermission.js';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import DestroyView from './Destroy.vue';
 import EditView from './Edit.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
@@ -31,7 +31,7 @@ const switchEditModal = () => editModal.value = !editModal.value;
 const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
 </script>  
 <template>
-    <AppLayout :title="$t('roles.title')">
+    <DashboardLayout :title="$t('roles.title')">
         <PageHeader>
             <Link :href="route('dashboard.index')">
                 <GoogleIcon
@@ -120,6 +120,6 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
             @close="switchDestroyModal"
         />
         </template>
-    </AppLayout>
+    </DashboardLayout>
 </template>
     

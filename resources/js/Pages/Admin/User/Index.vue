@@ -1,8 +1,8 @@
-<script setup>
+a<script setup>
 import { ref } from 'vue';
 import { Link, router } from '@inertiajs/vue3';
 import { hasRole } from '@/rolePermission.js';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import EditView from './Edit.vue';
 import DestroyView from './Destroy.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
@@ -56,7 +56,7 @@ const switchEditModal = () => editModal.value = !editModal.value;
 const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
 </script>  
 <template>
-    <AppLayout :title="$t('users.system')">
+    <DashboardLayout :title="$t('users.system')">
         <Searcher @search="search">
             <Link :href="route('dashboard.index')">
                 <GoogleIcon
@@ -152,6 +152,6 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
             @close="switchDestroyModal"
         />
         </template>
-    </AppLayout>
+    </DashboardLayout>
 </template>
     

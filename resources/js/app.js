@@ -9,6 +9,7 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import Notify from './notify';
 import Swal from 'sweetalert2'
 import { SessionFresh } from './sessionFresh';
+import { TailwindScreen } from './tailwindScreen';
 import { i18n, t } from '@/Lang/i18n';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
@@ -18,6 +19,7 @@ window.lang = t;
 window.Notify = new Notify();
 window.sessionFresh = new SessionFresh();
 window.Swal = Swal;
+window.TwScreen = new TailwindScreen();
 
 createInertiaApp({
     progress: {

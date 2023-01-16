@@ -22,7 +22,7 @@ const search = () => {
 <template>
    <div class="flex w-full justify-between items-center border-y-2 border-gray-800">
         <div>
-            <div class="relative py-1">
+            <div class="relative py-1 z-0">
                 <div  @click="search" class="absolute inset-y-0 right-2 flex items-center pl-3 cursor-pointer text-gray-700 hover:scale-110 hover:text-danger">
                     <GoogleIcon
                         class="text-xl"
