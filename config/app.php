@@ -214,6 +214,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Notsoweb\Author\AuthorServiceProvider::class,
 
         /*
          * Application Service Providers...
