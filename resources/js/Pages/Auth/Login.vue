@@ -69,13 +69,24 @@ const submit = () => {
                     />
                 </label>
             </div>
-            <div class="flex flex-col items-center justify-end space-y-4 mt-4">
+            <div class="flex flex-col items-center justify-end space-y-2 mt-4">
                 <PrimaryButton
-                    class="ml-4 w-full"
+                    class="w-full"
                     :class="{ 'opacity-25': form.processing }" 
                     :disabled="form.processing"
                     v-text="$t('auth.login')"
                 />
+                <Link
+                    class="w-full"
+                    :href="route('register')" 
+                >
+                    <PrimaryButton
+                        class="w-full"
+                        :class="{ 'opacity-25': form.processing }" 
+                        :disabled="form.processing"
+                        v-text="$t('register.signUp')"
+                    />
+                </Link>
                 <Link v-if="canResetPassword"
                     class="underline text-sm text-gray-600 hover:text-gray-900" 
                     :href="route('password.request')" 

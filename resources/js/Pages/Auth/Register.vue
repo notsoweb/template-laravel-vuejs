@@ -92,21 +92,21 @@ const submit = () => {
                             v-model:checked="form.terms"
                         />
                         <div class="ml-2">
-                            {{$t('I agree to the')}}
+                            {{$t('register.agree')}}
                             <a 
                                 target="_blank"
                                 :href="route('terms.show')"
                                 class="underline text-sm text-gray-600 hover:text-gray-900"
                             >
-                                    {{$t('Terms of Service')}}
+                                    {{$t('register.terms')}}
                             </a>
-                            {{$t('and')}}
+                            {{$t('&')}}
                             <a
                                 target="_blank"
                                 :href="route('policy.show')"
                                 class="underline text-sm text-gray-600 hover:text-gray-900"
                             >
-                                {{$t('Privacy Policy')}}
+                                {{$t('register.privacy')}}
                             </a>
                         </div>
                     </div>
@@ -122,7 +122,7 @@ const submit = () => {
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    {{$t('Register')}}
+                    {{$t('register.signUp')}}
                 </PrimaryButton>
 
                 <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">

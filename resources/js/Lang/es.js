@@ -138,6 +138,12 @@ export default {
     },
     profile:'Perfil',
     readed:'Leído',
+    register: {
+        agree:'Estoy deacuerdo con los',
+        privacy:'Política de Privacidad',
+        signUp:'Registrarme',
+        terms:'Términos de Servicio',
+    },
     role:'Rol',
     roles:{
         create: {
