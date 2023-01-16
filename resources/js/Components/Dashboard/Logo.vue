@@ -9,7 +9,7 @@ const appName = window.appName;
         <GoogleIcon
             name="dashboard"
         />
-        <span class="uppercase hidden md:block">
+        <span class="uppercase block">
             {{appName}}
         </span>
     </Link>

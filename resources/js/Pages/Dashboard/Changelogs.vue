@@ -44,6 +44,19 @@ defineProps({
           </tr>
         </template>
         <template #body>
+          <Item version="0.1.0">
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
+                <li>Send notifications by console.</li>
+                <li>Intelligent menu design.</li>
+                <li>Optimization for mobile devices.</li>
+                <li>Screen size recognition.</li>
+                <li>Hide menu when desired.</li>
+                <li>Isolate template for the implementation of a second or more templates.</li>
+                <li>Safe maintenance mode.</li>
+              </ul>
+            </p>
+          </Item>
           <Item version="0.0.4">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">

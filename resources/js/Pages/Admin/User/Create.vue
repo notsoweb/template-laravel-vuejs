@@ -41,6 +41,13 @@ const submit = () => {
             outline
           />
       </Link>
+      <Link :href="route('admin.users.index')">
+          <GoogleIcon
+            class="btn-icon-primary"
+            name="arrow_back"
+            outline
+          />
+      </Link>
     </PageHeader>
     <div class="w-full pb-8">
       <div class="mt-8">
