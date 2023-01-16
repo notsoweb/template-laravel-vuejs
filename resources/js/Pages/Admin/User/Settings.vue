@@ -1,6 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import AppLayout from '@/Layouts/AppLayout.vue';
+import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 import PageHeader from '@/Components/Dashboard/PageHeader.vue';
 import SectionBorder from '@/Components/Dashboard/SectionBorder.vue';
@@ -14,7 +14,7 @@ const props = defineProps({
 });
 </script>  
 <template>
-    <AppLayout :title="$t('users.settings')">
+    <DashboardLayout :title="$t('users.settings')">
         <PageHeader>
           <Link :href="route('admin.users.index')">
               <GoogleIcon
@@ -46,6 +46,6 @@ const props = defineProps({
             />
             <SectionBorder />
         </div>
-    </AppLayout>
+    </DashboardLayout>
 </template>
     

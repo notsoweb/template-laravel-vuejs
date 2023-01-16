@@ -6,8 +6,14 @@ import NotificationLink from  '@/Components/Dashboard/Skeleton/Header/Notificati
 import Dropdown from '@/Components/Dashboard/Dropdown.vue';
 import DropdownLink from '@/Components/Dashboard/DropdownLink.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import Logo from '@/Components/Dashboard/Logo.vue';
-import LogoIcon from '@/Components/Shared/Logo/Icon.vue';
+
+const emit = defineEmits([
+  'open'
+]);
+
+const props = defineProps({
+  sidebar: Boolean
+});
 
 const userId = router.page.props.user.id;
 const notificationCounter = reactive(sessionFresh.getNotificationCounter());
@@ -47,21 +53,20 @@ onMounted(()=>{
 </script>
 
 <template>
-    <header class="fixed w-full flex items-center justify-between h-14 bg-primary text-white z-10">
-      <div class="flex w-fit justify-start items-center h-14 header-right">
-        <ul class="flex ml-4 space-x-4 items-center">
-          <li>
-            <LogoIcon
-              class="text-lg md:hidden"
-            />
-            <Logo
-              class="hidden text-lg md:inline-flex"
-            />
-          </li>
-        </ul>
-      </div>
+    <header
+      class="fixed flex w-full px-5 items-center justify-between h-14 bg-primary text-white z-10 transition-all duration-300"
+      :class="{'md:w-[calc(100vw-16rem)]':sidebar, 'md:w-screen':!sidebar}"
+    >
+      <button type="button">
+        <GoogleIcon
+            class="text-xl"
+            name="menu"
+            @click="emit('open')"
+            outline
+          />
+      </button>
       <div class="flex w-fit justify-end items-center h-14 header-right">
-        <ul class="flex items-center space-x-4 mr-4">
+        <ul class="flex items-center space-x-4">
           <li>
             <button type="button" class="flex items-center header-icon">
               <GoogleIcon
