@@ -13,11 +13,12 @@ defineProps({
     }
 });
 
-const sidebar = ref(true)
+const sidebar = (TwScreen.isDevice('phone')) 
+    ? ref(true)
+    : sessionFresh.getSidebar();
 
 const openSidebar = () => {
     sidebar.value = !sidebar.value;
-    console.log(sidebar.value);
 }
 
 // Comprueba los mensajes flash
@@ -46,8 +47,9 @@ onMounted(()=> {
     />
     <div class="flex w-full min-h-screen ">
         <div 
-            class="fixed w-fit h-screen transition-all duration-300"
-            :class="{'-translate-x-0':sidebar, '-translate-x-64':!sidebar}"
+            id="sidebar"
+            class="fixed w-fit h-screen transition-all duration-300 z-10"
+            :class="{'-translate-x-64 md:-translate-x-0':sidebar, '-translate-x-0 md:-translate-x-64':!sidebar}"
         >
             <Sidebar
                 :sidebar="sidebar"
@@ -56,7 +58,7 @@ onMounted(()=> {
         </div>
         <div 
             class="flex flex-col w-full transition-all duration-300"
-            :class="{'w-[calc(100vw-16rem)] ml-64':sidebar, 'w-screen ml-0':!sidebar}"
+            :class="{'md:w-[calc(100vw-16rem)] md:ml-64':sidebar, 'md:w-screen md:ml-0':!sidebar}"
         >
             <div class="w-full h-14 bg-primary">
                 <Header
@@ -65,7 +67,7 @@ onMounted(()=> {
                 />
             </div>
             <main id="page" class="flex justify-center">
-                <div  class="w-full px-8 pb-4 sm:px-6 lg:mb-8 lg:mx-8 lg:mt-8 lg:px-8 md:rounded-lg bg-white lg:p-8">
+                <div  class="w-full px-8 pb-4 sm:px-6 lg:px-8 md:rounded-lg bg-white lg:p-8">
                     <div v-if="titlePage" class="flex w-full justify-center pt-6 lg:pt-0">
                         <h2
                             class="font-bold text-xl uppercase"

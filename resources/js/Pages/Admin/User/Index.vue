@@ -1,4 +1,4 @@
-<script setup>
+a<script setup>
 import { ref } from 'vue';
 import { Link, router } from '@inertiajs/vue3';
 import { hasRole } from '@/rolePermission.js';

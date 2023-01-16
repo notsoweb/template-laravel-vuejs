@@ -12,6 +12,7 @@ class SessionFresh {
     layout = false;
     header = false;
     userId = null;
+    sidebar = ref(true);
     notifications = ref([]);
     notificationCounter = ref(0);
 
@@ -69,6 +70,14 @@ class SessionFresh {
         router.post(route('dashboard.notifications.store'), {
             id:id
         });
+    }
+
+    switchSidebar() {
+        this.sidebar.value = !this.sidebar.value;
+    }
+
+    getSidebar() {
+        return this.sidebar;
     }
 
     getNotificationCounter() {

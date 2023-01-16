@@ -34,7 +34,7 @@ const submit = () => {
 <template>
   <DashboardLayout :title="$t('users.create.title')">
     <PageHeader>
-      <Link :href="route('dashboard.index')">
+      <Link :href="route('dashboard.index')" preserve-state>
           <GoogleIcon
             class="btn-icon-primary"
             name="home"
