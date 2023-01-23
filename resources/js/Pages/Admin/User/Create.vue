@@ -1,14 +1,15 @@
 <script setup>
 import { Link, useForm } from '@inertiajs/vue3';
+
+import PrimaryButton   from '@/Components/Dashboard/Button/Primary.vue';
+import Input           from '@/Components/Dashboard/Form/Input.vue';
+import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
+import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import PageHeader from '@/Components/Dashboard/PageHeader.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
 
 defineProps({
-    users: String,
-    password: String
+    password: String,
+    users: String
 });
 
 const form = useForm({
@@ -29,8 +30,8 @@ const submit = () => {
         onFinish: (res) => form.reset('password')
     });
 };
-
 </script>
+
 <template>
   <DashboardLayout :title="$t('users.create.title')">
     <PageHeader>

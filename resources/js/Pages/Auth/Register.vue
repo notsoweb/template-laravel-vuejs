@@ -1,12 +1,13 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import AppLogo from '@/Components/Dashboard/Logo.vue';
+
 import AuthenticationCard from '@/Components/Dashboard/AuthenticationCard.vue';
-import Checkbox from '@/Components/Dashboard/Form/Checkbox.vue';
-import InputLabel from '@/Components/Dashboard/InputLabel.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import OnError from '@/Components/Dashboard/Form/Elements/Error.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import PrimaryButton      from '@/Components/Dashboard/Button/Primary.vue';
+import Checkbox           from '@/Components/Dashboard/Form/Checkbox.vue';
+import OnError            from '@/Components/Dashboard/Form/Elements/Error.vue';
+import Input              from '@/Components/Dashboard/Form/Input.vue';
+import InputLabel         from '@/Components/Dashboard/InputLabel.vue';
+import AppLogo            from '@/Components/Dashboard/Logo.vue';
 
 const form = useForm({
     name: '',
@@ -27,8 +28,9 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Register" />
-
+    <Head
+        title="Register"
+    />
     <AuthenticationCard>
         <template #logo>
             <AppLogo

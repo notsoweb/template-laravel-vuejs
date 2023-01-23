@@ -1,9 +1,10 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/vue3';
-import AppLogo from '@/Components/Dashboard/Logo.vue';
+
 import AuthenticationCard from '@/Components/Dashboard/AuthenticationCard.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import PrimaryButton      from '@/Components/Dashboard/Button/Primary.vue';
+import Input              from '@/Components/Dashboard/Form/Input.vue';
+import AppLogo            from '@/Components/Dashboard/Logo.vue';
 
 const props = defineProps({
     email: String,

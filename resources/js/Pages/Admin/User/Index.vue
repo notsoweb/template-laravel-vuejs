@@ -2,13 +2,14 @@ a<script setup>
 import { ref } from 'vue';
 import { Link, router } from '@inertiajs/vue3';
 import { hasRole } from '@/rolePermission.js';
+
+import Searcher        from '@/Components/Dashboard/Searcher.vue';
+import Table           from '@/Components/Dashboard/Table.vue';
+import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import EditView from './Edit.vue';
-import DestroyView from './Destroy.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import Searcher from '@/Components/Dashboard/Searcher.vue';
-import ShowView from './Show.vue';
-import Table from '@/Components/Dashboard/Table.vue';
+import DestroyView     from './Destroy.vue';
+import EditView        from './Edit.vue';
+import ShowView        from './Show.vue';
 
 const props = defineProps({
     roles: Object,
@@ -55,6 +56,7 @@ const switchShowModal = () => showModal.value = !showModal.value;
 const switchEditModal = () => editModal.value = !editModal.value;
 const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
 </script>  
+
 <template>
     <DashboardLayout :title="$t('users.system')">
         <Searcher @search="search">

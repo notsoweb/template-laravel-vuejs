@@ -2,14 +2,14 @@
 import { ref } from 'vue';
 import { Link, router} from '@inertiajs/vue3'
 import { hasRole }  from '@/rolePermission.js';
+import IconPrimary     from '@/Components/Dashboard/Button/Primary.vue';
+import Input           from '@/Components/Dashboard/Form/Input.vue';
+import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
+import Table           from '@/Components/Dashboard/Table.vue';
+import Icon            from '@/Components/Shared/GoogleIcon.vue';
+import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import Destroy from './Destroy.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import Icon from '@/Components/Shared/GoogleIcon.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import IconPrimary from '@/Components/Dashboard/Button/Primary.vue';
-import PageHeader from '@/Components/Dashboard/PageHeader.vue';
-import Table from '@/Components/Dashboard/Table.vue';
+import Destroy         from './Destroy.vue';
 
 defineProps({
   notifications: Object

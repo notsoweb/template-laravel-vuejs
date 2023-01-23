@@ -1,18 +1,20 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+
+import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
+import SectionBorder   from '@/Components/Dashboard/SectionBorder.vue';
+import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import PageHeader from '@/Components/Dashboard/PageHeader.vue';
-import SectionBorder from '@/Components/Dashboard/SectionBorder.vue';
-import Roles from './Roles.vue';
-import UpdatePassword from './UpdatePassword.vue';
+import Roles           from './Roles.vue';
+import UpdatePassword  from './UpdatePassword.vue';
 
 const props = defineProps({
+    roles: Object,
     user: Object,
-    userRoles: Object,
-    roles: Object
+    userRoles: Object
 });
-</script>  
+</script>
+
 <template>
     <DashboardLayout :title="$t('users.settings')">
         <PageHeader>
