@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
+
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 
 const props = defineProps({
@@ -21,14 +22,20 @@ const classes = computed(() => {
 <template>
     <li>
         <Link :href="route(to)" :class="classes">
-            <span v-if="icon" class="inline-flex justify-center items-center ml-4 mr-2">
+            <span 
+                v-if="icon"
+                class="inline-flex justify-center items-center ml-4 mr-2"
+            >
                 <GoogleIcon 
                     class="text-xl"
                     :name="icon"
                     outline
                 />
             </span>
-            <span v-if="name" class="text-sm tracking-wide truncate">
+            <span 
+                v-if="name"
+                class="text-sm tracking-wide truncate"
+            >
                 {{$t(name)}}
             </span>
             <slot />

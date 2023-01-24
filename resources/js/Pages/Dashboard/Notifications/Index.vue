@@ -69,6 +69,7 @@ const destroy = (detail) => {
 
 const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
 </script>
+
 <template>
   <DashboardLayout :title="$t('notifications.title')">
     <PageHeader>

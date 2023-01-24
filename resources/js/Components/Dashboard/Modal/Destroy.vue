@@ -1,7 +1,7 @@
 <script setup>
-import DialogModal from '@/Components/Dashboard/DialogModal.vue';
-import DangerButton from '@/Components/Dashboard/Button/Danger.vue';
+import DangerButton    from '@/Components/Dashboard/Button/Danger.vue';
 import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
+import DialogModal     from '@/Components/Dashboard/DialogModal.vue';
     
 const emit = defineEmits([
     'close',

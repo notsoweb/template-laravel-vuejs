@@ -1,23 +1,24 @@
 <script setup>
 import { ref, computed, watch } from 'vue';
 import { router, useForm, usePage } from '@inertiajs/vue3';
-import ActionSection from '@/Components/Dashboard/ActionSection.vue';
+
+import ActionSection    from '@/Components/Dashboard/ActionSection.vue';
+import DangerButton     from '@/Components/Dashboard/Button/Danger.vue';
+import SecondaryButton  from '@/Components/Dashboard/Button/Secondary.vue';
+import PrimaryButton    from '@/Components/Dashboard/Button/Primary.vue';
 import ConfirmsPassword from '@/Components/Dashboard/ConfirmsPassword.vue';
-import DangerButton from '@/Components/Dashboard/Button/Danger.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
-import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
+import Input            from '@/Components/Dashboard/Form/Input.vue';
 
 const props = defineProps({
     requiresConfirmation: Boolean,
 });
 
-const enabling = ref(false);
 const confirming = ref(false);
+const enabling = ref(false);
 const disabling = ref(false);
 const qrCode = ref(null);
-const setupKey = ref(null);
 const recoveryCodes = ref([]);
+const setupKey = ref(null);
 
 const confirmationForm = useForm({
     code: '',
@@ -100,6 +101,7 @@ const disableTwoFactorAuthentication = () => {
     });
 };
 </script>
+
 <template>
     <ActionSection>
         <template #title>
@@ -204,7 +206,6 @@ const disableTwoFactorAuthentication = () => {
                             {{$t('account.twoFactor.codes.show')}}
                         </SecondaryButton>
                     </ConfirmsPassword>
-
                     <ConfirmsPassword @confirmed="disableTwoFactorAuthentication">
                         <SecondaryButton
                             v-if="confirming"

@@ -1,9 +1,10 @@
 <script setup>
 import { ref, reactive, nextTick } from 'vue';
-import DialogModal from './DialogModal.vue';
-import Input from './Form/Input.vue';
+
 import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import PrimaryButton   from '@/Components/Dashboard/Button/Primary.vue';
+import DialogModal     from './DialogModal.vue';
+import Input           from './Form/Input.vue';
 
 const emit = defineEmits([
     'confirmed'
@@ -70,12 +71,16 @@ const closeModal = () => {
     form.error = '';
 };
 </script>
+
 <template>
     <span>
         <span @click="startConfirmingPassword">
             <slot />
         </span>
-        <DialogModal :show="confirmingPassword" @close="closeModal">
+        <DialogModal
+            :show="confirmingPassword"
+            @close="closeModal"
+        >
             <template #title>
                 {{ $t(title) }}
             </template>

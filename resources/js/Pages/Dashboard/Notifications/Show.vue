@@ -1,8 +1,9 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+
+import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
+import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import PageHeader from '@/Components/Dashboard/PageHeader.vue';
 
 defineProps({
   notification: Object,
@@ -20,8 +21,8 @@ const formatTime = (date) => {
 
   return x.toLocaleTimeString('es-MX'); 
 }
-
 </script>
+
 <template>
   <DashboardLayout :title="$t('notifications.title')">
     <PageHeader>
@@ -69,7 +70,7 @@ const formatTime = (date) => {
     </div>
     <div class="flex justify-center mt-8">
         <Link :href="route('dashboard.notifications.index')" class="inline-flex w-fit py-1 px-4 justify-center bg-primary hover:bg-secondary text-white rounded-lg transition">
-            {{$t('show.all')}}
+          {{$t('show.all')}}
         </Link>
     </div>
   </DashboardLayout>
