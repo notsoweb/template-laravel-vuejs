@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { Link } from '@inertiajs/vue3';
+
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 
 const props = defineProps({
@@ -23,6 +24,7 @@ let readed = computed(()=> {
         : 'text-warning';
 });
 </script>
+
 <template>
     <div>
         <button

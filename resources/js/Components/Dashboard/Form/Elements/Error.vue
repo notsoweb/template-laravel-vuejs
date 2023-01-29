@@ -5,7 +5,10 @@
 </script>
 
 <template>
-    <p v-if="onError" class="text-sm text-danger">
+    <p
+        v-if="onError"
+        class="text-sm text-danger"
+    >
         {{onError}}
     </p>
 </template>

@@ -1,5 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 
 const appName = window.appName;

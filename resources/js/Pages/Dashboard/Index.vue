@@ -1,6 +1,6 @@
 <script setup>
+import Welcome         from '@/Components/Dashboard/Welcome.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import Welcome from '@/Components/Dashboard/Welcome.vue';
 </script>
 
 <template>

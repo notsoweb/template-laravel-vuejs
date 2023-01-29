@@ -1,10 +1,11 @@
 <script setup>
 import { nextTick, onMounted, ref } from 'vue';
 import { Head, useForm } from '@inertiajs/vue3';
-import AppLogo from '@/Components/Dashboard/Logo.vue';
+
 import AuthenticationCard from '@/Components/Dashboard/AuthenticationCard.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import PrimaryButton      from '@/Components/Dashboard/Button/Primary.vue';
+import Input              from '@/Components/Dashboard/Form/Input.vue';
+import AppLogo            from '@/Components/Dashboard/Logo.vue';
 
 const codeInput = ref(null);
 const recovery = ref(false);
@@ -42,7 +43,6 @@ onMounted(()=>{
     <Head
         :title="$t('account.twoFactor.title')"
     />
-
     <AuthenticationCard>
         <template #logo>
             <AppLogo

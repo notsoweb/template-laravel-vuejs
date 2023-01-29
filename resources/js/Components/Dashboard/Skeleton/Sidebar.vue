@@ -1,8 +1,9 @@
 <script setup>
 import { hasRole } from "@/rolePermission.js"
-import Link from  './Sidebar/Link.vue';
+
+import Logo    from '@/Components/Dashboard/Logo.vue';
+import Link    from  './Sidebar/Link.vue';
 import Section from  './Sidebar/Section.vue';
-import Logo from '@/Components/Dashboard/Logo.vue';
 
 const emit = defineEmits(['open']);
 

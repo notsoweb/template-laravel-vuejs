@@ -1,5 +1,6 @@
 <script setup>
 import { Head } from '@inertiajs/vue3';
+
 import AppLogoIcon from '@/Components/Shared/Logo/Icon.vue';
 
 defineProps({
@@ -19,7 +20,10 @@ defineProps({
                     <AppLogoIcon />
                 </div>
 
-                <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose" v-html="terms" />
+                <div
+                    class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose"
+                    v-html="terms"
+                />
             </div>
         </div>
     </div>

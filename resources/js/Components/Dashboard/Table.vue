@@ -7,6 +7,7 @@ const props = defineProps({
     'links': Array
 });
 </script>
+
 <template>
     <section class="container mx-auto py-6">
         <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">

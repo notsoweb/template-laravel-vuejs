@@ -1,10 +1,11 @@
 <script setup>
 import { Link, useForm } from '@inertiajs/vue3';
+
+import PrimaryButton   from '@/Components/Dashboard/Button/Primary.vue';
+import Input           from '@/Components/Dashboard/Form/Input.vue';
+import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
+import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import PageHeader from '@/Components/Dashboard/PageHeader.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
 
 const form = useForm({
     name: '',
@@ -19,8 +20,8 @@ const submit = () => {
         onError: () => Notify.success(lang('roles.create.onError'))
     });
 };
-
 </script>
+
 <template>
   <DashboardLayout :title="$t('roles.create.title')">
     <PageHeader>

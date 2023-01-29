@@ -1,14 +1,15 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import DeleteUserForm from './Partials/DeleteUserForm.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
+
+import PageHeader                     from '@/Components/Dashboard/PageHeader.vue';
+import SectionBorder                  from '@/Components/Dashboard/SectionBorder.vue';
+import GoogleIcon                     from '@/Components/Shared/GoogleIcon.vue';
+import DashboardLayout                from '@/Layouts/DashboardLayout.vue';
+import DeleteUserForm                 from './Partials/DeleteUserForm.vue';
 import LogoutOtherBrowserSessionsForm from './Partials/LogoutOtherBrowserSessionsForm.vue';
-import PageHeader from '@/Components/Dashboard/PageHeader.vue';
-import SectionBorder from '@/Components/Dashboard/SectionBorder.vue';
-import TwoFactorAuthenticationForm from './Partials/TwoFactorAuthenticationForm.vue';
-import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
-import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
+import TwoFactorAuthenticationForm    from './Partials/TwoFactorAuthenticationForm.vue';
+import UpdatePasswordForm             from './Partials/UpdatePasswordForm.vue';
+import UpdateProfileInformationForm   from './Partials/UpdateProfileInformationForm.vue';
 
 defineProps({
     confirmsTwoFactorAuthentication: Boolean,
@@ -20,10 +21,10 @@ defineProps({
     <DashboardLayout :title="$t('profile')">
         <PageHeader>
           <Link :href="route('dashboard.index')">
-              <GoogleIcon
-                class="btn-icon-primary"
-                name="home"
-                outline
+            <GoogleIcon
+              class="btn-icon-primary"
+              name="home"
+              outline
             />
           </Link>
         </PageHeader>
