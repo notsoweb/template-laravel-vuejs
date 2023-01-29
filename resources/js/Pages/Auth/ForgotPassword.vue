@@ -1,9 +1,10 @@
 <script setup>
 import { Head, useForm } from '@inertiajs/vue3';
-import AppLogo from '@/Components/Dashboard/Logo.vue';
+
 import AuthenticationCard from '@/Components/Dashboard/AuthenticationCard.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import PrimaryButton      from '@/Components/Dashboard/Button/Primary.vue';
+import Input              from '@/Components/Dashboard/Form/Input.vue';
+import AppLogo            from '@/Components/Dashboard/Logo.vue';
 
 defineProps({
     status: String,
@@ -22,16 +23,17 @@ const submit = () => {
     <Head
         :title="$t('auth.forgotPassword.title')" 
     />
-
     <AuthenticationCard>
         <template #logo>
-            <AppLogo class="text-2xl" />
+            <AppLogo
+                class="text-2xl"
+            />
         </template>
 
         <div class="mb-4 text-sm text-gray-600">
             {{$t('auth.forgotPassword.description')}}
         </div>
-
+        
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>

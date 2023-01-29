@@ -13,7 +13,10 @@
         :for="id"
     >
         {{ $t(title) }}
-        <span v-if="required" class="text-danger">
+        <span 
+            v-if="required"
+            class="text-danger"
+        >
             *
         </span>
     </label>

@@ -1,13 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
-import ActionMessage from '@/Components/Dashboard/ActionMessage.vue';
-import FormSection from '@/Components/Dashboard/FormSection.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
 
-const passwordInput = ref(null);
+import ActionMessage from '@/Components/Dashboard/ActionMessage.vue';
+import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import Input         from '@/Components/Dashboard/Form/Input.vue';
+import FormSection   from '@/Components/Dashboard/FormSection.vue';
+
 const currentPasswordInput = ref(null);
+const passwordInput = ref(null);
 
 const form = useForm({
     current_password: '',
@@ -82,7 +83,6 @@ const updatePassword = () => {
             >
                 {{$t('saved')}}
             </ActionMessage>
-
             <PrimaryButton
                 :class="{ 'opacity-25': form.processing }"
                 :disabled="form.processing"

@@ -1,6 +1,6 @@
 <script setup>
-import DialogModal from '@/Components/Dashboard/DialogModal.vue';
 import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
+import DialogModal     from '@/Components/Dashboard/DialogModal.vue';
     
 const emit = defineEmits([
     'close',
@@ -16,6 +16,7 @@ const props = defineProps({
     }
 });
 </script>
+
 <template>
     <DialogModal :show="show">
         <template #title>

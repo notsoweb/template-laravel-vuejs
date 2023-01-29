@@ -1,13 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 import { router, Link, useForm } from '@inertiajs/vue3';
-import ActionMessage from '@/Components/Dashboard/ActionMessage.vue';
-import Error from '@/Components/Dashboard/Form/Elements/Error.vue';
-import FormSection from '@/Components/Dashboard/FormSection.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import Label from '@/Components/Dashboard/Form/Elements/Label.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+
+import ActionMessage   from '@/Components/Dashboard/ActionMessage.vue';
 import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
+import PrimaryButton   from '@/Components/Dashboard/Button/Primary.vue';
+import Error           from '@/Components/Dashboard/Form/Elements/Error.vue';
+import Label           from '@/Components/Dashboard/Form/Elements/Label.vue';
+import Input           from '@/Components/Dashboard/Form/Input.vue';
+import FormSection     from '@/Components/Dashboard/FormSection.vue';
 
 const props = defineProps({
     user: Object,
@@ -23,9 +24,9 @@ const form = useForm({
     photo: null,
 });
 
-const verificationLinkSent = ref(null);
-const photoPreview = ref(null);
 const photoInput = ref(null);
+const photoPreview = ref(null);
+const verificationLinkSent = ref(null);
 
 const updateProfileInformation = () => {
     if (photoInput.value) {
@@ -99,7 +100,10 @@ const clearPhotoFileInput = () => {
                     @change="updatePhotoPreview"
                 >
 
-                <Label id="photo" title="photo.title" />
+                <Label
+                    id="photo"
+                    title="photo.title"
+                />
 
                 <!-- Current Profile Photo -->
                 <div v-show="! photoPreview" class="mt-2">
@@ -117,8 +121,8 @@ const clearPhotoFileInput = () => {
                 <SecondaryButton
                     class="mt-2 mr-2"
                     type="button"
-                    @click.prevent="selectNewPhoto" 
                     v-text="$t('photo.new')"
+                    @click.prevent="selectNewPhoto" 
                 />
 
                 <SecondaryButton v-if="user.profile_photo_path"
@@ -129,7 +133,9 @@ const clearPhotoFileInput = () => {
                     {{$t('photo.remove')}}
                 </SecondaryButton>
 
-                <Error :onError="form.errors.photo"/>
+                <Error
+                    :onError="form.errors.photo"
+                />
             </div>
 
             <Input

@@ -1,9 +1,10 @@
 <script setup>
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
-import FormSection from '@/Components/Dashboard/FormSection.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+
 import VueMultiselect from 'vue-multiselect'
+import PrimaryButton  from '@/Components/Dashboard/Button/Primary.vue';
+import FormSection    from '@/Components/Dashboard/FormSection.vue';
 
 const props = defineProps({
     roles: Object,

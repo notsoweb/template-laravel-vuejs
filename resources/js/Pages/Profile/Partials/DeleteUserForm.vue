@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
-import ActionSection from '@/Components/Dashboard/ActionSection.vue';
-import DangerButton from '@/Components/Dashboard/Button/Danger.vue';
-import DialogModal from '@/Components/Dashboard/DialogModal.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
+
+import ActionSection   from '@/Components/Dashboard/ActionSection.vue';
+import DangerButton    from '@/Components/Dashboard/Button/Danger.vue';
 import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
+import DialogModal     from '@/Components/Dashboard/DialogModal.vue';
+import Input           from '@/Components/Dashboard/Form/Input.vue';
 
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);
@@ -88,7 +89,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="deleteUser"
                     >
-                    {{$t('account.delete.title')}}
+                        {{$t('account.delete.title')}}
                     </DangerButton>
                 </template>
             </DialogModal>
