@@ -2,13 +2,14 @@
 import { ref } from 'vue';
 import { Link, router} from '@inertiajs/vue3'
 import { hasRole }  from '@/rolePermission.js';
+
+import IconPrimary     from '@/Components/Dashboard/Button/Primary.vue';
+import Input           from '@/Components/Dashboard/Form/Input.vue';
+import Item            from '@/Components/Dashboard/Help/Item.vue';
+import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
+import Table           from '@/Components/Dashboard/Table.vue';
+import Icon            from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import Icon from '@/Components/Shared/GoogleIcon.vue';
-import IconPrimary from '@/Components/Dashboard/Button/Primary.vue';
-import Input from '@/Components/Dashboard/Form/Input.vue';
-import Item from '@/Components/Dashboard/Help/Item.vue';
-import PageHeader from '@/Components/Dashboard/PageHeader.vue';
-import Table from '@/Components/Dashboard/Table.vue';
 
 defineProps({
   users: String,
@@ -52,6 +53,7 @@ const searchWithPagination = (page) =>  {
   });
 }
 </script>
+
 <template>
   <DashboardLayout :title="$t('history.title')">
     <PageHeader>

@@ -1,10 +1,11 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+
+import Item            from '@/Components/Dashboard/Help/Item.vue';
+import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
+import Table           from '@/Components/Dashboard/Table.vue';
+import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import Item from '@/Components/Dashboard/Help/Item.vue';
-import PageHeader from '@/Components/Dashboard/PageHeader.vue';
-import Table from '@/Components/Dashboard/Table.vue';
 
 defineProps({
     users: String

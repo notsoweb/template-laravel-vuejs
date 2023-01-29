@@ -2,12 +2,13 @@
 import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { hasRole } from '@/rolePermission.js';
+
+import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
+import Table           from '@/Components/Dashboard/Table.vue';
+import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import DestroyView from './Destroy.vue';
-import EditView from './Edit.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
-import PageHeader from '@/Components/Dashboard/PageHeader.vue';
-import Table from '@/Components/Dashboard/Table.vue';
+import DestroyView     from './Destroy.vue';
+import EditView        from './Edit.vue';
 
 const props = defineProps({
     roles: Object
@@ -29,7 +30,8 @@ const destroy = (detail) => {
 
 const switchEditModal = () => editModal.value = !editModal.value;
 const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
-</script>  
+</script>
+
 <template>
     <DashboardLayout :title="$t('roles.title')">
         <PageHeader>

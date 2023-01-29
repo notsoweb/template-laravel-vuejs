@@ -1,5 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
+
 import DestroyModal from '@/Components/Dashboard/Modal/Destroy.vue';
 
 const emit = defineEmits([
@@ -29,6 +30,7 @@ const destroy = (id) => {
     });
 }
 </script>
+
 <template>
     <DestroyModal :show="show" @destroy="destroy(role.id)" @close="$emit('close')">
         <div class="w-full right-0 mt-2">

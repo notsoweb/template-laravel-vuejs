@@ -2,10 +2,11 @@
 import { onMounted, reactive } from 'vue';
 import { router, Link} from '@inertiajs/vue3';
 import { SuscribeUserNotification, UnsuscribeUserAuth, UnsuscribeUserNotification } from '@/broadcasts.js';
-import NotificationLink from  '@/Components/Dashboard/Skeleton/Header/NotificationLink.vue';
-import Dropdown from '@/Components/Dashboard/Dropdown.vue';
-import DropdownLink from '@/Components/Dashboard/DropdownLink.vue';
-import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
+
+import Dropdown         from '@/Components/Dashboard/Dropdown.vue';
+import DropdownLink     from '@/Components/Dashboard/DropdownLink.vue';
+import NotificationLink from '@/Components/Dashboard/Skeleton/Header/NotificationLink.vue';
+import GoogleIcon       from '@/Components/Shared/GoogleIcon.vue';
 
 const emit = defineEmits([
   'open'

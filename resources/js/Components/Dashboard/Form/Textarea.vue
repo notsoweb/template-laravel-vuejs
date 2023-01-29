@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
+
 import Error from '@/Components/Dashboard/Form/Elements/Error.vue';
 import Label from '@/Components/Dashboard/Form/Elements/Label.vue';
 
@@ -7,7 +8,7 @@ defineEmits([
     'update:modelValue'
 ]);
 
-props = defineProps({
+const props = defineProps({
     id: String,
     modelValue: String | Number,
     onError: String,

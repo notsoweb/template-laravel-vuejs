@@ -1,5 +1,5 @@
 <script setup>
-import DialogModal from '@/Components/Dashboard/DialogModal.vue';
+import DialogModal     from '@/Components/Dashboard/DialogModal.vue';
 import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
     
 const emit = defineEmits([

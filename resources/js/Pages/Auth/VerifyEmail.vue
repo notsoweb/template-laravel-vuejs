@@ -1,9 +1,10 @@
 <script setup>
 import { computed } from 'vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import AppLogoIcon from '@/Components/Shared/Logo/Icon.vue';
+
 import AuthenticationCard from '@/Components/Dashboard/AuthenticationCard.vue';
-import PrimaryButton from '@/Components/Dashboard/Button/Primary.vue';
+import PrimaryButton      from '@/Components/Dashboard/Button/Primary.vue';
+import AppLogoIcon        from '@/Components/Shared/Logo/Icon.vue';
 
 const props = defineProps({
     status: String,
@@ -19,8 +20,9 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 </script>
 
 <template>
-    <Head title="Email Verification" />
-
+    <Head
+        title="Email Verification"
+    />
     <AuthenticationCard>
         <template #logo>
             <AppLogoIcon />
@@ -48,8 +50,8 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
                         :href="route('profile.show')"
                         class="underline text-sm text-gray-600 hover:text-gray-900"
                     >
-                        Edit Profile</Link>
-
+                        Edit Profile
+                    </Link>
                     <Link
                         :href="route('logout')"
                         class="underline text-sm text-gray-600 hover:text-gray-900 ml-2"
