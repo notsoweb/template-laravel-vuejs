@@ -1,56 +1,25 @@
-
+/**
+ * Calcula u obtiene el tamaño de pantalla del dispositivo actual
+ */
 class TailwindScreen {
     constructor(){}
 
-    isXs() {
-        if (screen.width < 640) {
-            return true;
-        }
+    isXs = () => (screen.width < 640) ? true : false;
 
-        return false;
-    }
+    isSm = () => (screen.width >= 640 && screen.width < 768) ? true : false;
 
-    isSm() {
-        if (screen.width >= 640 && screen.width < 768) {
-            return true;
-        }
+    isMd = () => (screen.width >= 768 && screen.width < 1024) ? true : false;
 
-        return false;
-    }
+    isLg = () => (screen.width >= 1024 && screen.width < 1280) ? true : false;
 
-    isMd() {
-        if (screen.width >= 768 && screen.width < 1024) {
-            return true;
-        }
+    isXl = () => (screen.width >= 1280 && screen.width < 1536) ? true : false;
+    
+    is2Xl = () => (screen.width >= 1536) ? true : false;
 
-        return false;
-    }
-
-    isLg() {
-        if (screen.width >= 1024 && screen.width < 1280) {
-            return true;
-        }
-
-        return false;
-    }
-
-    isXl() {
-        if (screen.width >= 1280 && screen.width < 1536) {
-            return true;
-        }
-
-        return false;
-    }
-
-    is2Xl() {
-        if (screen.width >= 1536) {
-            return true;
-        }
-
-        return false;
-    }
-
-    getScreen() {
+    /**
+     * Obtiene el tamaño de pantalla que usa taidlwind
+     */
+    getScreen = () => {
         if(this.isXs()) {
             return 'xs';
         }
@@ -76,6 +45,11 @@ class TailwindScreen {
         }
     }
 
+    /**
+     * Pregunta si es un tipo de dispositivo
+     * 
+     * @param {*} device Tipo de dispositivo 
+     */
     isDevice(device) {
         switch (device) {
             case 'phone':
@@ -101,6 +75,9 @@ class TailwindScreen {
         return false;
     }
 
+    /**
+     * Obtiene el tipo de dispositivo y la variante
+     */
     getDevice() {
         if(this.isXs() || this.isSm()) {
             return 'phone';
