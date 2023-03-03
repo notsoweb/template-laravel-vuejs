@@ -58,14 +58,16 @@
             "composer run post-root-package-install",
             "composer run post-create-project-cmd",
             "npm install",
-            "npm run build"
+            "npm run build",
+            "php artisan storage:link"
         ],
         "env:prod": [
             "composer install --no-dev",
             "composer run post-root-package-install",
             "composer run post-create-project-cmd",
             "npm install",
-            "npm run build"
+            "npm run build",
+            "php artisan storage:link"
         ],
         "env:prod-lite": [
             "composer install --no-dev",

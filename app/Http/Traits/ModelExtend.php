@@ -26,8 +26,8 @@ trait ModelExtend
             }
     
             return $data;
-        } else  {
-            return $this->toArray();
         }
+
+        return $this->toArray();
     }
 }
