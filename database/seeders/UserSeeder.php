@@ -57,7 +57,7 @@ class UserSeeder extends Seeder
                 'paternal' => 'Notsoweb',
                 'email' => 'demo@notsoweb.com',
                 'password' => Hash::make('Demo')
-            ]) ->assignRole('basic');
+            ]);
         });
     }
 }
