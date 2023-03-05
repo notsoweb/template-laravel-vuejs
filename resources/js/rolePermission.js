@@ -1,11 +1,23 @@
 import { router } from '@inertiajs/vue3';
 
+let startRoles = false;
+let startPermissions = false;
+let userRoles = [];
+let userPermissions = [];
+
 /**
  * Permite consultar si un usuario tiene un role
- */
+*/
 const hasRole = (roles) => {
-    let userRoles = router.page.props.shareUserRoles;
-    let verifyRoles = roles.split('|'); 
+    if(!startRoles) {
+        let userRolesModel = router.page.props.user.roles;
+
+        userRolesModel.forEach((model) => {
+            userRoles.push(model.name);
+        });
+    }
+    
+    let verifyRoles = roles.split('|');
 
     for (let role in verifyRoles) {
         if(userRoles.length != 0) {
@@ -22,12 +34,20 @@ const hasRole = (roles) => {
  * Permite consultar si un usuario tiene un permiso especifico
  */
 const hasPermission = (permisions) => {
-    let userPermissions = router.page.props.shareUserPermissions;
+    if(!startPermissions) {
+        let userPermissionsModel = router.page.props.shareUserPermissions;
+        
+        userPermissionsModel.forEach((model) => {
+            userPermissions.push(model.name);
+        });
+    }
+
     let verifyPermissions = permisions.split('|');
+
 
     for (let permision in verifyPermissions) {
         if(userPermissions.length != 0) {
-            if(userPermissions.indexOf(permision) != -1) {
+            if(userPermissions.indexOf(verifyPermissions[permision]) != -1) {
                 return true;
             }
         }
@@ -36,4 +56,4 @@ const hasPermission = (permisions) => {
     return false;
 }
 
-export {hasRole, hasPermission};
+export { hasRole, hasPermission };

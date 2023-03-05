@@ -1,4 +1,5 @@
 <script setup>
+import { hasPermission } from '@/rolePermission.js';
 import ShowModal  from '@/Components/Dashboard/Modal/Show.vue';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 
@@ -15,6 +16,7 @@ let props = defineProps({
 <template>
     <ShowModal
         :show="show"
+        :editable="hasPermission('users.edit')"
         @close="$emit('close')"
         @edit="$emit('switchModal')"
         editable

@@ -1,5 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+import { hasPermission } from '@/rolePermission.js';
 
 import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
 import SectionBorder   from '@/Components/Dashboard/SectionBorder.vue';
@@ -42,6 +43,7 @@ const props = defineProps({
             />
             <SectionBorder />
             <Roles
+                v-if="hasPermission('roles.edit')"
                 :roles="roles"
                 :user="user"
                 :userRoles="userRoles"

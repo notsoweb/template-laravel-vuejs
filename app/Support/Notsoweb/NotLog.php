@@ -30,11 +30,15 @@ class NotLog
     public static function NewUser($email) : Array
     {
         $password = Str::random(8);
-
+ 
         Log::channel('notsoweb')->info("Usuario {$email} sembrado");
         Log::channel('notsoweb')->info("Password: {$password}");
 
         $hash = Hash::make($password);
+
+        echo "\n  The mail: {$email}";
+        echo "\n  The password: {$password}";
+        echo "\n\n";
 
         return [$email, $hash];
     }

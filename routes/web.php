@@ -24,7 +24,7 @@ Route::prefix('dashboard')->name('dashboard.')->middleware([
     'verified',
     config('jetstream.auth_session')
 ])->group(function () {
-    Route::get('/', [IndexController::class, 'index'])->name('index');
+    Route::get('/welcome', [IndexController::class, 'index'])->name('index');
     Route::inertia('/changelogs', 'Dashboard/Changelogs')->name('changelogs');
     Route::inertia('/help', 'Dashboard/Help')->name('help');
 
@@ -49,7 +49,6 @@ Route::prefix('dashboard')->name('dashboard.')->middleware([
  */
 Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
-    'role:admin|developer',
     config('jetstream.auth_session')
 ])->group(function () {
     Route::resource('users', UserController::class);
@@ -70,7 +69,6 @@ Route::prefix('admin')->name('admin.')->middleware([
  */
 Route::prefix('developer')->name('developer.')->middleware([
     'auth:sanctum',
-    'role:developer',
     config('jetstream.auth_session')
 ])->group(function () {
     Route::resource('roles', RoleController::class);

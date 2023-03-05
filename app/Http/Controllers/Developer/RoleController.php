@@ -4,6 +4,7 @@
  */
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\Controller\WithPermission;
 use App\Http\Traits\VueView;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -19,12 +20,25 @@ use Illuminate\Http\Request;
  */
 class RoleController extends Controller
 {
-    use VueView;
+    use VueView, WithPermission;
+
+    /**
+     * Role base
+     */
+    public $rolePermission = 'roles';
 
     /**
      * Ruta Vista Padre
      */
     protected $vueView = 'developer.roles';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->WithCRUDPermission();
+    }
 
     /**
      * Lista los roles del sistema

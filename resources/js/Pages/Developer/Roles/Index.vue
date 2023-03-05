@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
-import { hasRole } from '@/rolePermission.js';
+import { hasRole, hasPermission } from '@/rolePermission.js';
 
 import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
 import Table           from '@/Components/Dashboard/Table.vue';
@@ -42,7 +42,10 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                     outline
                 />
             </Link>
-            <Link :href="route('developer.roles.create')">
+            <Link
+                v-if="hasPermission('roles.create')"
+                :href="route('developer.roles.create')"
+            >
                 <GoogleIcon
                     class="btn-icon-primary"
                     name="add"
@@ -91,37 +94,37 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                         <td class="table-item border">
                             <div class="flex justify-center space-x-2">
                                 <GoogleIcon
+                                    v-if="hasPermission('roles.create')"
                                     class="btn-icon-primary"
                                     name="edit"
                                     outline
                                     @click="edit(role)"
                                 />
-                                <template v-if="hasRole('developer')">
-                                    <GoogleIcon
-                                        class="btn-icon-primary"
-                                        name="delete"
-                                        outline
-                                        @click="destroy(role)"
-                                    />
-                                </template>
+                                <GoogleIcon
+                                    v-if="hasPermission('roles.destroy')"
+                                    class="btn-icon-primary"
+                                    name="delete"
+                                    outline
+                                    @click="destroy(role)"
+                                />
                             </div>
                         </td>
                     </tr>
                 </template>
             </Table>
         </div>
-        <template v-if="hasRole('developer')">
         <EditView
+            v-if="hasPermission('roles.edit')"
             :role="role"
             :show="editModal"
             @close="switchEditModal"
         />
         <DestroyView
+            v-if="hasPermission('roles.destroy')"
             :role="role"
             :show="destroyModal"
             @close="switchDestroyModal"
         />
-        </template>
     </DashboardLayout>
 </template>
     

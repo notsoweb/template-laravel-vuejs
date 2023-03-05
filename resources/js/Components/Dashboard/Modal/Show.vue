@@ -38,7 +38,7 @@ const props = defineProps({
                 />
                 <SecondaryButton
                     @click="$emit('close')" 
-                    v-text="$t('cancel')"
+                    v-text="$t('close')"
                 />
             </div>
         </template>

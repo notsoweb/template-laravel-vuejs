@@ -6,6 +6,7 @@
 use App\Models\HistoryLog;
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\LogRecord;
 
 /**
  * Dispara el LOG
@@ -30,7 +31,7 @@ class LogHandler extends AbstractProcessingHandler
      * 
      * @param array $record Array con la infomación a registrar
      */
-    protected function write(array $record) :void
+    protected function write(LogRecord $record) :void
     {
        // Simple store implementation
        $log = new HistoryLog();

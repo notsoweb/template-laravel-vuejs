@@ -86,6 +86,7 @@ export default {
         title:'Changelogs',
         description: 'List of changes made to the system.',
     },
+    close:"Close",
     confirm:'Confirm',
     copyright:'All rights reserved.',
     contact:'Contact',

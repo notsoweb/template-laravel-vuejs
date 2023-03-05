@@ -3,7 +3,6 @@
  * @copyright Copyright (c) 2022 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -26,11 +25,14 @@ class RoleSeeder extends Seeder
         Role::withoutEvents(function () {
             // Permisos para gestionar roles del sistema
             [
-                $roleIndex,
-                $roleCreate,
-                $roleEdit,
-                $roleDestroy
-            ] = $this->onCRUD('role', 'Roles');
+                $rolesIndex,
+                $rolesCreate,
+                $rolesEdit,
+                $rolesDestroy
+            ] = $this->onCRUD('roles', 'Roles');
+
+            // Permisos para acceder al historial del sistema
+            $historiesIndex = $this->onIndex('histories', 'Historal global');
 
             // Permisos para usuarios
             [
@@ -39,6 +41,8 @@ class RoleSeeder extends Seeder
                 $usersEdit,
                 $usersDestroy
             ] = $this->onCRUD('users', 'Usuarios:');
+
+            $usersConfig = $this->onPermission('users.config', 'Usuarios: Configuraciones adicionales');
 
             /**
              * Roles con asignación de permisos
@@ -55,6 +59,7 @@ class RoleSeeder extends Seeder
                 'name' => 'admin',
                 'description' => 'Administrador del sistema'
             ])->givePermissionTo(
+                $historiesIndex,
                 $usersIndex,
                 $usersCreate,
                 $usersEdit,
@@ -66,7 +71,8 @@ class RoleSeeder extends Seeder
                 'name' => 'supervisor',
                 'description' => 'Supervisor: Solo lectura'
             ])->givePermissionTo(
-                $roleIndex,
+                $historiesIndex,
+                $rolesIndex,
                 $usersIndex,
             );
         });

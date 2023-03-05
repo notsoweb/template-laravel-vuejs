@@ -6,6 +6,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
+use App\Http\Traits\Controller\WithPermission;
 use App\Http\Traits\UseFetch;
 use App\Http\Traits\VueView;
 use App\Models\User;
@@ -23,12 +24,26 @@ use Spatie\Permission\Models\Role;
  */
 class UserController extends Controller
 {
-    use UseFetch, VueView;
+    use UseFetch, VueView, WithPermission;
+
+    /**
+     * Role base
+     */
+    public $rolePermission = 'users';
+    
 
     /**
      * Ruta Vista Padre
      */
     protected $vueView = 'admin.user';
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->WithCRUDPermission();
+    }
 
     /**
      * Muestra los usuarios del sistema

@@ -1,5 +1,5 @@
 <script setup>
-import { hasRole } from "@/rolePermission.js"
+import { hasRole, hasPermission } from "@/rolePermission.js"
 
 import Logo    from '@/Components/Dashboard/Logo.vue';
 import Link    from  './Sidebar/Link.vue';
@@ -47,32 +47,34 @@ const year = (new Date).getFullYear();
               to="profile.show"
             />
             <Link
+              v-if="hasPermission('histories.index')"
               icon="history_toggle_off"
               name="history.title"
               to="dashboard.histories.index"
             />
           </Section>
-          <template v-if="hasRole('admin|developer')">
-            <Link 
-              icon="people"
-              name="users.title"
-              to="admin.users.index"
-            />
+          <Link 
+            v-if="hasPermission('users.index')"
+            icon="people"
+            name="users.title"
+            to="admin.users.index"
+          />
+          <Link
+            icon="history"
+            name="changelogs.title"
+            to="dashboard.changelogs"
+          />
+          <Section
+            v-if="hasPermission('roles.index')"
+            name="Sistema"
+          >
             <Link
-              icon="history"
-              name="changelogs.title"
-              to="dashboard.changelogs"
+              v-if="hasPermission('roles.index')"
+              icon="people"
+              name="roles.title"
+              to="developer.roles.index"
             />
-          </template>
-          <template v-if="hasRole('developer')">
-            <Section name="Sistema">
-              <Link
-                icon="people"
-                name="roles.title"
-                to="developer.roles.index"
-              />
-            </Section>
-            </template>
+          </Section>
         </ul>
         <div class="mb-4 px-5 space-y-1">
           <p class="block text-center text-xs">

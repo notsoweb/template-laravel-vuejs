@@ -86,6 +86,7 @@ export default {
         title:'Historial de cambios',
         description: 'Lista de los cambios realizados al sistema.',
     },
+    close:"Cerrar",
     confirm:'Confirmar',
     copyright:'Todos los derechos reservados.',
     contact:'Contacto',

@@ -63,6 +63,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $appends = [
+        'full_name',
         'profile_photo_url',
     ];
 

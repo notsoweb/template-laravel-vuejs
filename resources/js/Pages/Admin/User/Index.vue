@@ -1,7 +1,7 @@
 a<script setup>
 import { ref } from 'vue';
 import { Link, router } from '@inertiajs/vue3';
-import { hasRole } from '@/rolePermission.js';
+import { hasPermission } from '@/rolePermission.js';
 
 import Searcher        from '@/Components/Dashboard/Searcher.vue';
 import Table           from '@/Components/Dashboard/Table.vue';
@@ -67,7 +67,10 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                     outline
                 />
             </Link>
-            <Link :href="route('admin.users.create')">
+            <Link
+                v-if="hasPermission('users.create')"
+                :href="route('admin.users.create')"
+            >
                 <GoogleIcon
                     class="btn-icon-primary"
                     name="add"
@@ -85,6 +88,10 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                         />
                         <th
                             class="table-item"
+                            v-text="$t('contact')"
+                        />
+                        <th
+                            class="table-item"
                             v-text="$t('actions')"
                         />
                     </tr>
@@ -95,7 +102,32 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                           <div class="flex items-center text-sm">
                             <div>
                               <p class="font-semibold text-black">
-                                {{user.name}} {{user.paternal}}  {{user.maternal}}
+                                {{user.full_name}}
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="table-item border">
+                          <div class="flex items-center text-sm">
+                            <div>
+                              <p class="font-semibold text-black">
+                                <a 
+                                    :href="`mailto:${user.email}`"
+                                    class="hover:text-primary"
+                                    target="_blank"
+                                >
+                                    {{user.email}}
+                                </a>
+                              </p>
+                              <p v-if="user.phone" class="font-semibold text-xs text-gray-600">
+                                <b>Teléfono: </b>
+                                <a 
+                                    :href="`tel:${user.phone}`"
+                                    class="hover:text-primary"
+                                    target="_blank"
+                                >
+                                    {{user.phone}}
+                                </a>
                               </p>
                             </div>
                           </div>
@@ -108,26 +140,29 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                                     outline
                                     @click="show(user)"
                                 />
-                                <template v-if="hasRole('admin|developer')">
+                                <GoogleIcon
+                                    v-if="hasPermission('users.edit')"
+                                    class="btn-icon-primary"
+                                    name="edit"
+                                    outline
+                                    @click="edit(user)"
+                                />
+                                <GoogleIcon
+                                    v-if="hasPermission('users.destroy')"
+                                    class="btn-icon-primary"
+                                    name="delete"
+                                    outline
+                                    @click="destroy(user)"
+                                />
+                                <Link
+                                    v-if="hasPermission('users.config')"
+                                    :href="route('admin.users.settings', user.id)"
+                                >
                                     <GoogleIcon
                                         class="btn-icon-primary"
-                                        name="edit"
-                                        outline
-                                        @click="edit(user)"
+                                        name="settings"
                                     />
-                                    <GoogleIcon
-                                        class="btn-icon-primary"
-                                        name="delete"
-                                        outline
-                                        @click="destroy(user)"
-                                    />
-                                    <Link :href="route('admin.users.settings', user.id)">
-                                        <GoogleIcon
-                                            class="btn-icon-primary"
-                                            name="settings"
-                                        />
-                                    </Link>
-                                </template>
+                                </Link>
                             </div>
                         </td>
                     </tr>
@@ -135,25 +170,26 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
             </Table>
         </div>
         <ShowView 
+            v-if="hasPermission('users.index')"
             :show="showModal" 
             :user="user" 
             @switchModal="switchModal"
             @close="switchShowModal"
         />
 
-        <template v-if="hasRole('admin|developer')">
         <EditView
+            v-if="hasPermission('users.edit')"
             :show="editModal"
             :user="user"
             @switchModal="switchModal"
             @close="switchEditModal"
         />
         <DestroyView
+            v-if="hasPermission('users.destroy')"
             :show="destroyModal"
             :user="user"
             @close="switchDestroyModal"
         />
-        </template>
     </DashboardLayout>
 </template>
     
