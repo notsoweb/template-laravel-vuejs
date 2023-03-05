@@ -48,6 +48,13 @@ defineProps({
           <Item version="0.1.0">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">
+                <li>Roles & permissions.</li>
+                <li>Screen detector.</li>
+                <li>Updated laravel 9 to 10.</li>
+              </ul>
+            </p>
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
                 <li>Send notifications by console.</li>
                 <li>Intelligent menu design.</li>
                 <li>Optimization for mobile devices.</li>
