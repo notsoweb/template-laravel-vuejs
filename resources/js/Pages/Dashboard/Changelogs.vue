@@ -45,7 +45,7 @@ defineProps({
           </tr>
         </template>
         <template #body>
-          <Item version="0.1.0">
+          <Item version="0.2.2">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">
                 <li>Roles & permissions.</li>
