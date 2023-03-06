@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue';
+import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import { hasPermission } from '@/rolePermission.js';
 import ModalController from '@/Controllers/ModalController.js';
@@ -19,9 +19,9 @@ const props = defineProps({
 const Modal = new ModalController();
 
 // Variables de controladores
-const destroyModal = reactive(Modal.destroyModal);
-const editModal    = reactive(Modal.editModal);
-const modelModal   = reactive(Modal.modelModal);
+const destroyModal = ref(Modal.destroyModal);
+const editModal    = ref(Modal.editModal);
+const modelModal   = ref(Modal.modelModal);
 </script>
 
 <template>
@@ -48,7 +48,7 @@ const modelModal   = reactive(Modal.modelModal);
         <div class="pt-2 w-full">
             <Table :links="roles.links">
                 <template #head>
-                    <tr class="table-head">
+                    <tr class="table-head bg-[url(/storage/)]">
                         <th
                             class="table-item"
                             v-text="$t('role')"

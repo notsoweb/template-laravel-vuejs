@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 import { Link, router} from '@inertiajs/vue3'
 import { hasRole, hasPermission }  from '@/rolePermission.js';
 import InboxController from '@/Controllers/InboxController.js';
@@ -29,9 +29,9 @@ const Inbox = new InboxController();
 const Modal = new ModalController();
 
 // Variables de controladores
-const modelModal = reactive(Modal.modelModal);
-const showModal  = reactive(Modal.showModal);
-const selectAll  = reactive(Inbox.selectAll);
+const modelModal = ref(Modal.modelModal);
+const showModal  = ref(Modal.showModal);
+const selectAll  = ref(Inbox.selectAll);
 
 let dateStart = ref('');
 let dateEnd = ref('');

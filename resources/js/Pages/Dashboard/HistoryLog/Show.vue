@@ -68,7 +68,7 @@ const formatTime = (date) => {
                                 class="text-xl text-green-600"
                                 name="contact_mail"
                             />
-                            <div v-if="history.data.new && history.data.old" class="w-full pl-3">
+                            <div v-if="history.data?.new && history.data?.old" class="w-full pl-3">
                                 <p class="text-gray-800">
                                     <b>{{$t('changes')}}:</b> 
                                 </p>

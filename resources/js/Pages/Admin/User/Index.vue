@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue';
+import { ref } from 'vue';
 import { Link  } from '@inertiajs/vue3';
 import { hasPermission } from '@/rolePermission.js';
 import ModalController from '@/Controllers/ModalController.js';
@@ -22,11 +22,11 @@ const Modal    = new ModalController();
 const Searcher = new SearcherController('admin.users.index');
 
 // Variables de controladores
-const destroyModal = reactive(Modal.destroyModal);
-const editModal    = reactive(Modal.editModal);
-const showModal    = reactive(Modal.showModal);
-const modelModal   = reactive(Modal.modelModal);
-const query        = reactive(Searcher.query);
+const destroyModal = ref(Modal.destroyModal);
+const editModal    = ref(Modal.editModal);
+const showModal    = ref(Modal.showModal);
+const modelModal   = ref(Modal.modelModal);
+const query        = ref(Searcher.query);
 </script>  
 
 <template>
