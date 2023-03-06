@@ -44,7 +44,7 @@ class {{ class }}
      */
     public function updated({{ model }} ${{ modelVariable }})
     {
-        $this->reportUpdate($this->event, ${{ modelVariable }}->getChanges(), __("{$this->event}.updated", [
+        $this->reportUpdate($this->event, ${{ modelVariable }}->getContrastChanges(), __("{$this->event}.updated", [
             '{{ modelVariable }}' => ${{ modelVariable }}->name
         ]));
     }

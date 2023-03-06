@@ -87,7 +87,6 @@ class UserController extends Controller
         $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
-        $user->assignRole('basic');
 
         return $this->index();
     }

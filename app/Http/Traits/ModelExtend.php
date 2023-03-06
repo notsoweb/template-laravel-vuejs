@@ -13,6 +13,8 @@ trait ModelExtend
 {
     /**
      * Retorna en un array los atributos rellenados que son rellenables.
+     * 
+     * @return array
      */
     public function fillableToArray() : array
     {
@@ -29,5 +31,28 @@ trait ModelExtend
         }
 
         return $this->toArray();
+    }
+
+    /**
+     * Retorna los cambios de una actualización separandolos como antes y despues
+     * 
+     * @return array
+     */
+    public function getContrastChanges() : array
+    {
+        $new = $old = [];
+        $changes = $this->getChanges();
+
+        foreach (array_keys($changes) as $key) {
+            if(!in_array($key, ['updated_at'])) {
+                $new[$key] = $changes[$key];
+                $old[$key] = $this->getOriginal($key);
+            }
+        }
+
+        return [
+            'new' => $new,
+            'old' => $old,
+        ];
     }
 }

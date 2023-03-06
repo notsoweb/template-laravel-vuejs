@@ -4,6 +4,7 @@
  */
 
 use Inertia\Inertia;
+use Inertia\Response;
 
  /**
  * Conjunto de funciones para automatizar el manejo de rutas de vistas de vue en los 
@@ -15,9 +16,15 @@ use Inertia\Inertia;
 trait VueView
 {
     /**
+     * Datos que son agregados por otros operadores que seran enviados
+     * a la vista de vue.
+     */
+    protected $otherData = [];
+
+    /**
      * Retorna la vista con el formato requerido por vue.
      */
-    public function vuew($view, $data = [])
+    public function vuew($view, $data = []) : Response
     {
         $route = (isset($this->vueView))
             ? $this->withRootRoute($view)
@@ -25,7 +32,7 @@ trait VueView
 
         return Inertia::render(
             $route,
-            $data
+            array_merge($data, $this->getAllData())
         );
     }
 
@@ -73,10 +80,36 @@ trait VueView
      * @param string $view Vista a transformar
      * @return string
      */
-    private function withRootRoute($view)
+    private function withRootRoute($view) : string
     {
         $root = $this->stringToViewFormat($this->vueView);
 
         return $root.'/'.$this->toBladeFormat($view);
+    }
+
+    /**
+     * Agrega otros datos
+     * 
+     * Es usado cuando en multiples funciones envian recurrente un mismo dato
+     * en el mismo controlador.
+     * 
+     * @param array $data Datos a enviar
+     */
+    protected function addOtherData(array $data)
+    {
+        $this->otherData += $data;
+    }
+
+    /**
+     * Obtiene todos las datos independientemente desde donde se allan registrado
+     */
+    protected function getAllData()
+    {
+        if (method_exists($this, 'withOtherData'))
+        {
+            $this->otherData += $this->withOtherData();
+        }
+
+        return $this->otherData;
     }
 }

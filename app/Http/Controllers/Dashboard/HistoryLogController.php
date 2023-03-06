@@ -40,7 +40,10 @@ class HistoryLogController extends Controller
         }
         
         $searcher = HistoryLog::join('users', 'users.id', '=', 'history_logs.user_id')
-            ->where('history_logs.action', 'LIKE', "%{$historyEvent}%");
+            ->where(function($query) use ($historyEvent) {
+                $query->where('history_logs.action', 'LIKE', "%{$historyEvent}%");
+                $query->orWhere('history_logs.message', 'LIKE', "%{$historyEvent}%");
+            });
 
         if($dateStart  && $dateEnd) {
             $searcher = $searcher->whereBetween('history_logs.created_at', [$dateStart, $dateEnd]);
@@ -57,7 +60,7 @@ class HistoryLogController extends Controller
                     'users.paternal',
                 ])
                 ->orderBy('created_at', 'Desc')
-                ->paginate(config('global.pagination'))
+                ->paginate(5)
         ]);
     }
 }

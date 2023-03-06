@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, reactive } from 'vue';
 import { router, Link} from '@inertiajs/vue3';
-import { SuscribeUserNotification, UnsuscribeUserAuth, UnsuscribeUserNotification } from '@/broadcasts.js';
+import { suscribeUserNotification, unsuscribeUserAuth, unsuscribeUserNotification } from '@/broadcasts.js';
 
 import Dropdown         from '@/Components/Dashboard/Dropdown.vue';
 import DropdownLink     from '@/Components/Dashboard/DropdownLink.vue';
@@ -37,15 +37,15 @@ const logout = () => {
   router.post(route('logout'), {}, {
     onBefore: () => {
       sessionFresh.stop();
-      UnsuscribeUserAuth();
-      UnsuscribeUserNotification(userId);
+      unsuscribeUserAuth();
+      unsuscribeUserNotification(userId);
     }
   });
 };
 
 onMounted(()=>{
   if (!sessionFresh.isHeaderInitialized()) {
-    SuscribeUserNotification(userId, notification);
+    suscribeUserNotification(userId, notification);
     sessionFresh.startHeader();
     sessionFresh.startUser(userId);
     sessionFresh.updateNotifications();

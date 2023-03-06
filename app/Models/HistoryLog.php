@@ -28,6 +28,13 @@ class HistoryLog extends Model
     ];
 
     /**
+     * Casteo de datos
+     */
+    protected $casts = [
+        'data' => 'json'
+    ];
+
+    /**
      * Un log pertenede a un usuario
      */
     public function user(){

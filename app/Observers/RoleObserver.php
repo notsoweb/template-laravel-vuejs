@@ -44,7 +44,7 @@ class RoleObserver
      */
     public function updated(Role $role)
     {
-        $this->reportUpdate($this->event, $role->getChanges(), __("{$this->event}.updated", [
+        $this->reportUpdate($this->event, $role->getContrastChanges(), __("{$this->event}.updated", [
             'role' => $role->name
         ]));
     }

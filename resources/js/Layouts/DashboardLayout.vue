@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { SuscribeUserAuth } from '@/broadcasts.js';
+import { suscribeUserAuth } from '@/broadcasts.js';
 import { Head, router } from '@inertiajs/vue3';
 
 import Header  from '@/Components/Dashboard/Skeleton/Header.vue';
@@ -37,7 +37,7 @@ if (router.page.props.jetstream.flash.length != 0) {
 
 onMounted(()=> {
     if (!sessionFresh.isLayoutInitialized()) {
-        SuscribeUserAuth();
+        suscribeUserAuth();
         sessionFresh.startLayout();
     }
 });

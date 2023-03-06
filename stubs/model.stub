@@ -3,6 +3,7 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
+use App\Http\Traits\ModelExtend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class {{ class }} extends Model
 {
-    use HasFactory;
+    use HasFactory,
+        ModelExtend;
 
     /**
      * Atributos llenables masivamente

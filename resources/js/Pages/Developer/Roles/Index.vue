@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from 'vue';
+import { reactive } from 'vue';
 import { Link } from '@inertiajs/vue3';
-import { hasRole, hasPermission } from '@/rolePermission.js';
+import { hasPermission } from '@/rolePermission.js';
+import ModalController from '@/Controllers/ModalController.js';
 
 import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
 import Table           from '@/Components/Dashboard/Table.vue';
@@ -14,22 +15,13 @@ const props = defineProps({
     roles: Object
 });
 
-let editModal = ref(false);
-let destroyModal = ref(false);
-let role = ref(null);
+// Controladores
+const Modal = new ModalController();
 
-const edit = (detail) => {
-    role.value = detail;
-    switchEditModal();
-}
-
-const destroy = (detail) => {
-    role.value = detail;
-    switchDestroyModal();
-}
-
-const switchEditModal = () => editModal.value = !editModal.value;
-const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
+// Variables de controladores
+const destroyModal = reactive(Modal.destroyModal);
+const editModal    = reactive(Modal.editModal);
+const modelModal   = reactive(Modal.modelModal);
 </script>
 
 <template>
@@ -94,18 +86,18 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                         <td class="table-item border">
                             <div class="flex justify-center space-x-2">
                                 <GoogleIcon
-                                    v-if="hasPermission('roles.create')"
+                                    v-if="hasPermission('roles.edit')"
                                     class="btn-icon-primary"
                                     name="edit"
                                     outline
-                                    @click="edit(role)"
+                                    @click="Modal.switchEditModal(role)"
                                 />
                                 <GoogleIcon
                                     v-if="hasPermission('roles.destroy')"
                                     class="btn-icon-primary"
                                     name="delete"
                                     outline
-                                    @click="destroy(role)"
+                                    @click="Modal.switchDestroyModal(role)"
                                 />
                             </div>
                         </td>
@@ -115,15 +107,15 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
         </div>
         <EditView
             v-if="hasPermission('roles.edit')"
-            :role="role"
+            :role="modelModal"
             :show="editModal"
-            @close="switchEditModal"
+            @close="Modal.switchEditModal"
         />
         <DestroyView
             v-if="hasPermission('roles.destroy')"
-            :role="role"
+            :role="modelModal"
             :show="destroyModal"
-            @close="switchDestroyModal"
+            @close="Modal.switchDestroyModal"
         />
     </DashboardLayout>
 </template>

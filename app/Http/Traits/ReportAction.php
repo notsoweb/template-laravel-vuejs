@@ -29,7 +29,7 @@ trait ReportAction
         Log::channel('report')->info($attribute ,[
             'qty' => $qty,
             'action'=> $action,
-            'data' => json_encode($json)
+            'data' => $json
         ]);
     }
 

@@ -1,9 +1,11 @@
-a<script setup>
-import { ref } from 'vue';
-import { Link, router } from '@inertiajs/vue3';
+<script setup>
+import { reactive } from 'vue';
+import { Link  } from '@inertiajs/vue3';
 import { hasPermission } from '@/rolePermission.js';
+import ModalController from '@/Controllers/ModalController.js';
+import SearcherController from '@/Controllers/SearcherController.js';
 
-import Searcher        from '@/Components/Dashboard/Searcher.vue';
+import SearcherHead    from '@/Components/Dashboard/Searcher.vue';
 import Table           from '@/Components/Dashboard/Table.vue';
 import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
@@ -12,54 +14,24 @@ import EditView        from './Edit.vue';
 import ShowView        from './Show.vue';
 
 const props = defineProps({
-    roles: Object,
     users: Object
 });
 
-let query = ref('');
-let showModal = ref(false);
-let editModal = ref(false);
-let destroyModal = ref(false);
-let user = ref({});
+// Controladores
+const Modal    = new ModalController();
+const Searcher = new SearcherController('admin.users.index');
 
-const search = (q = '') => {
-    query.value = q;
-    router.get(route('admin.users.index', {q}), {}, {preserveState: true});
-};
-
-const searchWithPagination = (page) =>  {
-    let q = query.value;
-    router.get(route('admin.users.index', {q, page}), {}, {preserveState: true});
-}
-
-const show = (detail) => {
-    user.value = detail;
-    switchShowModal();
-}
-
-const edit = (detail) => {
-    user.value = detail;
-    switchEditModal();
-}
-
-const destroy = (detail) => {
-    user.value = detail;
-    switchDestroyModal();
-}
-
-const switchModal = () => {
-    switchEditModal();
-    switchShowModal();
-}
-
-const switchShowModal = () => showModal.value = !showModal.value;
-const switchEditModal = () => editModal.value = !editModal.value;
-const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
+// Variables de controladores
+const destroyModal = reactive(Modal.destroyModal);
+const editModal    = reactive(Modal.editModal);
+const showModal    = reactive(Modal.showModal);
+const modelModal   = reactive(Modal.modelModal);
+const query        = reactive(Searcher.query);
 </script>  
 
 <template>
     <DashboardLayout :title="$t('users.system')">
-        <Searcher @search="search">
+        <SearcherHead @search="Searcher.search">
             <Link :href="route('dashboard.index')">
                 <GoogleIcon
                     class="btn-icon-primary"
@@ -77,9 +49,9 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                     outline
                 />
             </Link>
-        </Searcher>
+        </SearcherHead>
         <div class="pt-2 w-full">
-            <Table :links="users.links" @send-pagination="searchWithPagination">
+            <Table :links="users.links" @send-pagination="Searcher.searchWithPagination">
                 <template #head>
                     <tr class="table-head">
                         <th
@@ -138,21 +110,21 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                                     class="btn-icon-primary"
                                     name="visibility"
                                     outline
-                                    @click="show(user)"
+                                    @click="Modal.switchShowModal(user)"
                                 />
                                 <GoogleIcon
                                     v-if="hasPermission('users.edit')"
                                     class="btn-icon-primary"
                                     name="edit"
                                     outline
-                                    @click="edit(user)"
+                                    @click="Modal.switchEditModal(user)"
                                 />
                                 <GoogleIcon
                                     v-if="hasPermission('users.destroy')"
                                     class="btn-icon-primary"
                                     name="delete"
                                     outline
-                                    @click="destroy(user)"
+                                    @click="Modal.switchDestroyModal(user)"
                                 />
                                 <Link
                                     v-if="hasPermission('users.config')"
@@ -172,23 +144,23 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
         <ShowView 
             v-if="hasPermission('users.index')"
             :show="showModal" 
-            :user="user" 
-            @switchModal="switchModal"
-            @close="switchShowModal"
+            :user="modelModal" 
+            @switchModal="Modal.switchShowEditModal"
+            @close="Modal.switchShowModal"
         />
 
         <EditView
             v-if="hasPermission('users.edit')"
             :show="editModal"
-            :user="user"
-            @switchModal="switchModal"
-            @close="switchEditModal"
+            :user="modelModal"
+            @switchModal="Modal.switchShowEditModal"
+            @close="Modal.switchEditModal"
         />
         <DestroyView
             v-if="hasPermission('users.destroy')"
             :show="destroyModal"
-            :user="user"
-            @close="switchDestroyModal"
+            :user="modelModal"
+            @close="Modal.switchDestroyModal"
         />
     </DashboardLayout>
 </template>

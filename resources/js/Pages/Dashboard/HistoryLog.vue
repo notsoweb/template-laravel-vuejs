@@ -1,7 +1,10 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { Link, router} from '@inertiajs/vue3'
-import { hasRole }  from '@/rolePermission.js';
+import { hasRole, hasPermission }  from '@/rolePermission.js';
+import InboxController from '@/Controllers/InboxController.js';
+import ModalController from '@/Controllers/ModalController.js';
+
 
 import IconPrimary     from '@/Components/Dashboard/Button/Primary.vue';
 import Input           from '@/Components/Dashboard/Form/Input.vue';
@@ -10,11 +13,25 @@ import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
 import Table           from '@/Components/Dashboard/Table.vue';
 import Icon            from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
+import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
+import ShowView        from './HistoryLog/Show.vue';
+
+import InboxBody      from '@/Components/Dashboard/Inbox.vue';
+import InboxItem      from '@/Components/Dashboard/Inbox/Item.vue';
 
 defineProps({
   users: String,
   histories: Object
 });
+
+// Controladores
+const Inbox = new InboxController();
+const Modal = new ModalController();
+
+// Variables de controladores
+const modelModal = reactive(Modal.modelModal);
+const showModal  = reactive(Modal.showModal);
+const selectAll  = reactive(Inbox.selectAll);
 
 let dateStart = ref('');
 let dateEnd = ref('');
@@ -43,14 +60,13 @@ const search = () => {
 }
 
 const searchWithPagination = (page) =>  {
-  router.get(route('dashboard.histories.index', {
-    historyEvent:historyEvent.value,
-    dateStart:dateStart.value,
-    dateEnd:dateEnd.value,
-    page:page
-  }), {}, {
-    preserveState: true
-  });
+    router.get(page), {
+      historyEvent:historyEvent.value,
+      dateStart:dateStart.value,
+      dateEnd:dateEnd.value,
+    }, {
+        preserveState: true
+    };
 }
 </script>
 
@@ -108,60 +124,61 @@ const searchWithPagination = (page) =>  {
         </IconPrimary>
       </div>
     </div>
-    <div class="w-full">
-      <Table :links="histories.links"  @send-pagination="searchWithPagination">
-        <template #head>
-          <tr class="table-head">
-            <th
-              class="table-item"
-              v-text="$t('event')"
-            />
-            <th
-              class="table-item"
-              v-text="$t('description')"
-            />
-          </tr>
-        </template>
-        <template #body>
-          <template v-for="history in histories.data">
-            <Item :version="history.action">
-              <div class="flex flex-col space-y-2">
-                <div>
-                  <p class="font-semibold text-black">
-                    <b>{{$t('date')}}:</b> {{ formatDate(history.created_at) }}
-                  </p>
-                  <p class="font-semibold text-black">
-                    <b>{{$t('hour')}}:</b> {{ formatTime(history.created_at) }}
-                  </p>
-                  <p class="font-semibold text-black">
-                    <b>{{$t('user')}}:</b> {{ history.name }} {{ history.paternal }} {{ history.maternal }}
-                  </p>
-                </div>
-                <p class="font-semibold text-black">
-                  <p><b>{{$t('description')}}:</b></p>
-                  {{ history.message }}
-                </p>
-              </div>
-            </Item>
-          </template>
-          <tr v-if="histories.total < 1" class="text-gray-700">
-            <td class="table-item border">
-              <div class="flex items-center text-sm">
-                <div>
-                  -
-                </div>
-              </div>
-            </td>
-            <td class="table-item border">
-              <div class="flex items-center text-sm">
-                <div>
-                  {{$t('noRecords')}}
-                </div>
-              </div>
-            </td>
-          </tr>
-        </template>
-      </Table>
-    </div>
+    <div id="inbox" class="text-sm">
+          <InboxBody
+            :selectAll="selectAll"
+            :links="histories.links"
+            @send-pagination="searchWithPagination"
+            @selectAll="Inbox.onSelectAll(histories)"
+            withMultiSelection
+        >
+            <template #actions></template>
+            <template v-for="history in histories.data">
+                <InboxItem
+                    :item="history"
+                    :selectAll="selectAll"
+                    @selectOne="Inbox.onSelectOne"
+                    @unselectOne="Inbox.onUnselectOne"
+                >
+                    <template #item>
+                        <span class="w-32 pr-2 truncate">{{ history.action }}</span>
+                        <span class="truncate">{{ history.message }}</span>
+                    </template>
+                    <template #actions>
+                        <GoogleIcon
+                            title="Enviar a almacen"
+                            class="font-semibold"
+                            name="visibility"
+                            outline
+                            @click="Modal.switchShowModal(history)"
+                        />
+                    </template>
+                    <template #date>
+                      {{ formatDate(history.created_at) }} {{ formatTime(history.created_at) }} 
+                    </template>
+                </InboxItem> 
+            </template>
+
+            <template v-if="histories.total < 1">
+                <InboxItem>
+                    <template #item>
+                        <span class="w-24 pr-2 truncate">-</span>
+                        <span class="w-96 truncate">Sin resultados</span>
+                    </template>
+                    <template #date>
+                       -
+                    </template>
+                </InboxItem> 
+            </template>
+          </InboxBody>
+        </div>
   </DashboardLayout>
+
+  <ShowView 
+      v-if="hasPermission('users.index')"
+      :show="showModal" 
+      :history="modelModal" 
+      @switchModal="Modal.switchShowEditModal"
+      @close="Modal.switchShowModal"
+  />
 </template>

@@ -82,6 +82,7 @@ export default {
     },
     code:'Código',
     cancel:'Cancelar',
+    changes:'Cambios',
     changelogs: {
         title:'Historial de cambios',
         description: 'Lista de los cambios realizados al sistema.',

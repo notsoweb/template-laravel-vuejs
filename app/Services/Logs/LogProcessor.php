@@ -3,6 +3,8 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
+use Monolog\LogRecord;
+
  /**
  * Modifica o agrega datos
  * 
@@ -13,10 +15,8 @@
  */
 class LogProcessor
 {
-    public function __invoke($record)
+    public function __invoke(LogRecord $record)
     {
-        return array_merge($record, $record['context'], [
-            'user_id' => auth()?->user()?->id ?? 1
-        ]);
+        return $record;
     }
 }

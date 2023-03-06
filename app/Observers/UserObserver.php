@@ -28,14 +28,21 @@ class UserObserver
     /**
      * Handle the User "updated" event.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $user nnnnnnnn
      * @return void
      */
     public function updated(User $user)
     {
-        $this->reportUpdate($this->event, $user->getChanges(), __("{$this->event}.updated", [
+        $changes = $user->getChanges();
+
+        if(in_array('remember_token', array_keys($changes)) && count($changes) == 1) {
+            return false;
+        }
+
+        $this->reportUpdate($this->event, $user->getContrastChanges(), __("{$this->event}.updated", [
             'user' => $user->fullName
         ]));
+        
     }
 
     /**

@@ -17,12 +17,15 @@ use Spatie\Permission\Models\Role as ModelsRole;
  */
 class Role extends ModelsRole
 {
-    use HasFactory, ModelExtend;
+    use HasFactory,
+        ModelExtend;
 
     /**
      * Atributos llenables masivamente
      */
     protected $fillable = [
-        'name', 'guard_name', 'description'
+        'name',
+        'guard_name',
+        'description'
     ];
 }
