@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
  */
 class {{ class }} extends Controller
 {
-    use VueView;
+    use Vuew;
 
     /**
      * Ruta Vista Padre

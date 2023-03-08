@@ -4,7 +4,7 @@
  */
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\VueView;
+use Notsoweb\Core\Http\Traits\Vue\Vuew;
 use App\Models\HistoryLog;
 
 /**
@@ -17,7 +17,7 @@ use App\Models\HistoryLog;
  */
 class HistoryLogController extends Controller
 {
-    use VueView;
+    use Vuew;
 
     /**
      * Ruta Vista Padre

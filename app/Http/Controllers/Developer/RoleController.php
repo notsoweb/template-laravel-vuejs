@@ -5,7 +5,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Traits\Controller\WithPermission;
-use App\Http\Traits\VueView;
+use Notsoweb\Core\Http\Traits\Vue\Vuew;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -20,7 +20,7 @@ use Illuminate\Http\Request;
  */
 class RoleController extends Controller
 {
-    use VueView, WithPermission;
+    use Vuew, WithPermission;
 
     /**
      * Role base

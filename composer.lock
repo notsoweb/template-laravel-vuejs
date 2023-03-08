@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00b812ffd901d20299822b20b92cfbaf",
+    "content-hash": "756e0f46a94ffc7a802a8cf031cc2c4d",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1357,16 +1357,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.2.0",
+            "version": "v10.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3799f7f3118d57dc5d3dfaabde69a912fff65a7e"
+                "reference": "9e1f11aeae5a5dd7f4870b0c4cfdcc62c7ee811f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3799f7f3118d57dc5d3dfaabde69a912fff65a7e",
-                "reference": "3799f7f3118d57dc5d3dfaabde69a912fff65a7e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9e1f11aeae5a5dd7f4870b0c4cfdcc62c7ee811f",
+                "reference": "9e1f11aeae5a5dd7f4870b0c4cfdcc62c7ee811f",
                 "shasum": ""
             },
             "require": {
@@ -1553,7 +1553,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-03-02T14:55:50+00:00"
+            "time": "2023-03-08T15:48:36+00:00"
         },
         {
             "name": "laravel/jetstream",
@@ -2563,16 +2563,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.15.3",
+            "version": "v4.15.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "570e980a201d8ed0236b0a62ddf2c9cbb2034039"
+                "reference": "6bb5176bc4af8bcb7d926f88718db9b96a2d4290"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/570e980a201d8ed0236b0a62ddf2c9cbb2034039",
-                "reference": "570e980a201d8ed0236b0a62ddf2c9cbb2034039",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/6bb5176bc4af8bcb7d926f88718db9b96a2d4290",
+                "reference": "6bb5176bc4af8bcb7d926f88718db9b96a2d4290",
                 "shasum": ""
             },
             "require": {
@@ -2613,9 +2613,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.3"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.4"
             },
-            "time": "2023-01-16T22:05:37+00:00"
+            "time": "2023-03-05T19:49:14+00:00"
         },
         {
             "name": "notsoweb/author",
@@ -2623,19 +2623,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NotSoWeb/author.git",
-                "reference": "74a55ed02fd788cfd2ecf5f8f8f97dbaac73ae98"
+                "reference": "b3895fa933899aa151832da1df0332c92eb43fc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NotSoWeb/author/zipball/74a55ed02fd788cfd2ecf5f8f8f97dbaac73ae98",
-                "reference": "74a55ed02fd788cfd2ecf5f8f8f97dbaac73ae98",
+                "url": "https://api.github.com/repos/NotSoWeb/author/zipball/b3895fa933899aa151832da1df0332c92eb43fc0",
+                "reference": "b3895fa933899aa151832da1df0332c92eb43fc0",
                 "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
             },
             "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Notsoweb\\Author\\": "src/"
+                    "Notsoweb\\Author\\": "src/app"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2645,15 +2648,59 @@
             "authors": [
                 {
                     "name": "Moisés de Jesús Cortés Castellanos",
-                    "email": "ing.moisesdejesuscortesc@notsoweb.com"
+                    "email": "ing.moisesdejesuscortesc@notsoweb.com",
+                    "homepage": "https://notsoweb.com"
                 }
             ],
             "description": "Contiene una pagina para usarse en aquellos proyectos realizados por Notsoweb. Permite validar que dicho proyecto fue creado por Notsoweb.",
+            "homepage": "https://notsoweb.com",
             "support": {
                 "issues": "https://github.com/NotSoWeb/author/issues",
-                "source": "https://github.com/NotSoWeb/author/tree/main"
+                "source": "https://github.com/NotSoWeb/author/tree/v0.0.2"
             },
-            "time": "2023-01-16T19:51:00+00:00"
+            "time": "2023-03-08T16:43:37+00:00"
+        },
+        {
+            "name": "notsoweb/core",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NotSoWeb/core.git",
+                "reference": "388433043823eedd4fc7ba4269fc009c77be884a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NotSoWeb/core/zipball/388433043823eedd4fc7ba4269fc009c77be884a",
+                "reference": "388433043823eedd4fc7ba4269fc009c77be884a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Notsoweb\\Core\\": "src/app"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moisés de Jesús Cortés Castellanos",
+                    "email": "ing.moisesdejesuscortesc@notsoweb.com",
+                    "homepage": "https://notsoweb.com"
+                }
+            ],
+            "description": "Núcleo de funciones para VUEJS y LIVEWIRE diseñado como complemento para Laravel Jetstream.",
+            "homepage": "https://notsoweb.com",
+            "support": {
+                "issues": "https://github.com/NotSoWeb/core/issues",
+                "source": "https://github.com/NotSoWeb/core/tree/0.0.1"
+            },
+            "time": "2023-03-08T18:31:59+00:00"
         },
         {
             "name": "nunomaduro/termwind",
@@ -6482,16 +6529,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.15.0",
+            "version": "2.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "3e8aebbca9f0ae6f618962c4ad514077fd365ab3"
+                "reference": "e864ac957acd66e1565f25efda61e37791a5db0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/3e8aebbca9f0ae6f618962c4ad514077fd365ab3",
-                "reference": "3e8aebbca9f0ae6f618962c4ad514077fd365ab3",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/e864ac957acd66e1565f25efda61e37791a5db0b",
+                "reference": "e864ac957acd66e1565f25efda61e37791a5db0b",
                 "shasum": ""
             },
             "require": {
@@ -6541,7 +6588,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.15.0"
+                "source": "https://github.com/filp/whoops/tree/2.15.1"
             },
             "funding": [
                 {
@@ -6549,7 +6596,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-03T12:00:00+00:00"
+            "time": "2023-03-06T18:09:13+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -6670,16 +6717,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.21.1",
+            "version": "v1.21.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "fd8d04bc546457b504aa2b3c2d541840551f836f"
+                "reference": "19d6fe167e2389b41fe1b4ee52293d1eaf8a43fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/fd8d04bc546457b504aa2b3c2d541840551f836f",
-                "reference": "fd8d04bc546457b504aa2b3c2d541840551f836f",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/19d6fe167e2389b41fe1b4ee52293d1eaf8a43fc",
+                "reference": "19d6fe167e2389b41fe1b4ee52293d1eaf8a43fc",
                 "shasum": ""
             },
             "require": {
@@ -6731,7 +6778,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2023-03-01T23:07:57+00:00"
+            "time": "2023-03-06T14:23:15+00:00"
         },
         {
             "name": "laravel/telescope",
@@ -6876,16 +6923,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.11.0",
+            "version": "1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "14daed4296fae74d9e3201d2c4925d1acb7aa614"
+                "reference": "7284c22080590fb39f2ffa3e9057f10a4ddd0e0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/14daed4296fae74d9e3201d2c4925d1acb7aa614",
-                "reference": "14daed4296fae74d9e3201d2c4925d1acb7aa614",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/7284c22080590fb39f2ffa3e9057f10a4ddd0e0c",
+                "reference": "7284c22080590fb39f2ffa3e9057f10a4ddd0e0c",
                 "shasum": ""
             },
             "require": {
@@ -6923,7 +6970,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.11.0"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.11.1"
             },
             "funding": [
                 {
@@ -6931,7 +6978,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-03T13:19:32+00:00"
+            "time": "2023-03-08T13:26:56+00:00"
         },
         {
             "name": "nunomaduro/collision",
@@ -7139,16 +7186,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "10.0.1",
+            "version": "10.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "b9c21a93dd8c8eed79879374884ee733259475cc"
+                "reference": "20800e84296ea4732f9a125e08ce86b4004ae3e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/b9c21a93dd8c8eed79879374884ee733259475cc",
-                "reference": "b9c21a93dd8c8eed79879374884ee733259475cc",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/20800e84296ea4732f9a125e08ce86b4004ae3e4",
+                "reference": "20800e84296ea4732f9a125e08ce86b4004ae3e4",
                 "shasum": ""
             },
             "require": {
@@ -7170,8 +7217,8 @@
                 "phpunit/phpunit": "^10.0"
             },
             "suggest": {
-                "ext-pcov": "*",
-                "ext-xdebug": "*"
+                "ext-pcov": "PHP extension that provides line coverage",
+                "ext-xdebug": "PHP extension that provides line coverage as well as branch and path coverage"
             },
             "type": "library",
             "extra": {
@@ -7204,7 +7251,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.0.1"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.0.2"
             },
             "funding": [
                 {
@@ -7212,7 +7259,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-25T05:35:03+00:00"
+            "time": "2023-03-06T13:00:19+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",

@@ -13,7 +13,7 @@ use Inertia\Response;
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
  */
-trait VueView
+trait Vuew
 {
     /**
      * Datos que son agregados por otros operadores que seran enviados

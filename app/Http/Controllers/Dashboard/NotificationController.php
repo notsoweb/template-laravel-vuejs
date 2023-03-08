@@ -4,7 +4,7 @@
  */
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\VueView;
+use Notsoweb\Core\Http\Traits\Vue\Vuew;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\DatabaseNotification as Notification;
 
@@ -16,7 +16,7 @@ use Illuminate\Notifications\DatabaseNotification as Notification;
  */
 class NotificationController extends Controller
 {
-    use VueView;
+    use Vuew;
 
     /**
      * Ruta Vista Padre

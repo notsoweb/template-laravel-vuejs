@@ -4,7 +4,7 @@
  */
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\VueView;
+use Notsoweb\Core\Http\Traits\Vue\Vuew;
 
 /**
  * Controllador de la página de inicio del dashboard del usuario
@@ -14,7 +14,7 @@ use App\Http\Traits\VueView;
  */
 class IndexController extends Controller
 {
-    use VueView;
+    use Vuew;
 
     /**
      * Ruta Vista Padre

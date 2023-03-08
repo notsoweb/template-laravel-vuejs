@@ -8,7 +8,7 @@ use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
 use App\Http\Traits\Controller\WithPermission;
 use App\Http\Traits\UseFetch;
-use App\Http\Traits\VueView;
+use Notsoweb\Core\Http\Traits\Vue\Vuew;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -24,7 +24,7 @@ use Spatie\Permission\Models\Role;
  */
 class UserController extends Controller
 {
-    use UseFetch, VueView, WithPermission;
+    use UseFetch, Vuew, WithPermission, Vuew;
 
     /**
      * Role base
