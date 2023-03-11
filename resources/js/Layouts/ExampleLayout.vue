@@ -64,47 +64,7 @@ onMounted(()=> {
                     <Link 
                         icon="home"
                         name="home" 
-                        to="dashboard.index"
-                    />
-                    <Link
-                        icon="live_help"
-                        name="help.title"
-                        to="dashboard.help"
-                    />
-                </Section>
-                <Section name="Configuraciones">
-                    <Link 
-                        icon="manage_accounts"
-                        name="profile"
-                        to="profile.show"
-                    />
-                    <Link
-                        v-if="hasPermission('histories.index')"
-                        icon="history_toggle_off"
-                        name="history.title"
-                        to="dashboard.histories.index"
-                    />
-                </Section>
-                <Link 
-                    v-if="hasPermission('users.index')"
-                    icon="people"
-                    name="users.title"
-                    to="admin.users.index"
-                />
-                <Link
-                    icon="history"
-                    name="changelogs.title"
-                    to="dashboard.changelogs"
-                />
-                <Section
-                    v-if="hasPermission('roles.index')"
-                    name="Sistema"
-                >
-                    <Link
-                        v-if="hasPermission('roles.index')"
-                        icon="people"
-                        name="roles.title"
-                        to="developer.roles.index"
+                        to="examples.index"
                     />
                 </Section>
             </Sidebar>

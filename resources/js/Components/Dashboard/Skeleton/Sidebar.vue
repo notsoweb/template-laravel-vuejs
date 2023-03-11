@@ -1,9 +1,5 @@
 <script setup>
-import { hasRole, hasPermission } from "@/rolePermission.js"
-
 import Logo    from '@/Components/Dashboard/Logo.vue';
-import Link    from  './Sidebar/Link.vue';
-import Section from  './Sidebar/Section.vue';
 
 const emit = defineEmits(['open']);
 
@@ -28,53 +24,7 @@ const year = (new Date).getFullYear();
       </div>
       <div class="flex h-full flex-col w-64 justify-between flex-grow overflow-y-auto overflow-x-hidden bg-primary text-white">
         <ul class="flex h-full flex-col md:py-4 space-y-1">
-          <Section name="Principal">
-            <Link 
-              icon="home"
-              name="home" 
-              to="dashboard.index"
-            />
-            <Link
-              icon="live_help"
-              name="help.title"
-              to="dashboard.help"
-            />
-          </Section>
-          <Section name="Configuraciones">
-            <Link 
-              icon="manage_accounts"
-              name="profile"
-              to="profile.show"
-            />
-            <Link
-              v-if="hasPermission('histories.index')"
-              icon="history_toggle_off"
-              name="history.title"
-              to="dashboard.histories.index"
-            />
-          </Section>
-          <Link 
-            v-if="hasPermission('users.index')"
-            icon="people"
-            name="users.title"
-            to="admin.users.index"
-          />
-          <Link
-            icon="history"
-            name="changelogs.title"
-            to="dashboard.changelogs"
-          />
-          <Section
-            v-if="hasPermission('roles.index')"
-            name="Sistema"
-          >
-            <Link
-              v-if="hasPermission('roles.index')"
-              icon="people"
-              name="roles.title"
-              to="developer.roles.index"
-            />
-          </Section>
+          <slot />
         </ul>
         <div class="mb-4 px-5 space-y-1">
           <p class="block text-center text-xs">

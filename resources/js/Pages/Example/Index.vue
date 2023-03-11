@@ -1,6 +1,6 @@
 <script setup>
-import Welcome from '@/Components/Dashboard/Welcome.vue';
-import Layout  from '@/Layouts/DashboardLayout.vue';
+import Welcome         from '@/Components/Dashboard/Welcome.vue';
+import Layout from '@/Layouts/ExampleLayout.vue';
 </script>
 
 <template>
