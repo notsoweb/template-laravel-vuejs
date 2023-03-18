@@ -130,13 +130,6 @@ return [
             'level' => env('LOG_LEVEL', 'debug'),
         ],
 
-        // Logs de los servicios de notsoweb
-        'notsoweb' => [
-            'driver' => 'single',
-            'path' => storage_path('logs/notsoweb.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
-        ],
-
         // Logs de las acciones sobre los usuarios
         'users' => [
             'driver' => 'single',

@@ -12,7 +12,7 @@ return [
     | frontend to display the version of your application.
     |
     */
-    'version' => '0.2.4',
+    'version' => '0.2.5',
 
     /*
     |--------------------------------------------------------------------------
@@ -215,6 +215,7 @@ return [
          * Package Service Providers...
          */
         Notsoweb\Author\Providers\AuthorServiceProvider::class,
+        Notsoweb\Core\Providers\CoreServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -226,7 +227,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
-
     ],
 
     /*

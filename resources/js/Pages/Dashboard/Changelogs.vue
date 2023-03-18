@@ -45,10 +45,17 @@ defineProps({
           </tr>
         </template>
         <template #body>
+          <Item version="0.2.5">
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
+                <li>Example pages.</li>
+                <li>FIX: User Secure Logging.</li>
+              </ul>
+            </p>
+          </Item>
           <Item version="0.2.4">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">
-                <li>Search controllers and trays.</li>
                 <li>Search controllers and trays.</li>
                 <li>See what change in the history.</li>
                 <li>Minor corrections.</li>

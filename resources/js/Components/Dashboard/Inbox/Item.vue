@@ -52,7 +52,7 @@ onUpdated(() => {
                 <slot name="item" />
             </div>
             <div class="w-36 flex items-center justify-end">
-                <div class="text-xl md:text-lg text-gray-600 hover:text-yellow-500 flex items-center space-x-2" :class="{'hidden':!messageHover}">
+                <div class="text-xl md:text-lg  hover:text-yellow-500 flex items-center space-x-2" :class="{'hidden':!messageHover}">
                     <slot name="actions" />
                 </div>
                 <div :class="{'hidden':messageHover}" class="flex space-x-4 text-xs">
