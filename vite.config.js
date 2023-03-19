@@ -3,9 +3,6 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-    server: {
-        host: '192.168.3.15',
-    },
     define: {
         __VUE_I18N_FULL_INSTALL__: true,
         __VUE_I18N_LEGACY_API__: false,

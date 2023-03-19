@@ -11,7 +11,10 @@ const year = (new Date).getFullYear();
 </script>
 
 <template>
-  <nav class="flex w-screen md:w-64 bg-transparent h-full transition-all duration-300 border-none">
+  <nav
+    class="flex md:w-64  h-full transition-all duration-300 border-none"
+    :class="{'w-screen':!sidebar}"
+  >
     <div class="flex flex-col h-full md:w-64">
       <div class="flex w-64 mt-14 md:mt-0 justify-start items-center h-14 header-right bg-primary text-white">
           <ul class="flex justify-center ml-4 md:mt-0 space-x-4 items-center">

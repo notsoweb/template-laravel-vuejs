@@ -55,7 +55,7 @@ onMounted(()=>{
 
 <template>
     <header
-      class="fixed flex w-full px-5 items-center justify-between h-14 bg-primary text-white z-10 transition-all duration-300"
+      class="fixed flex w-full px-5 items-center justify-between h-14 bg-primary text-white z-20 transition-all duration-300"
       :class="{'md:w-[calc(100vw-16rem)]':sidebar, 'md:w-screen':!sidebar}"
     >
       <button type="button">

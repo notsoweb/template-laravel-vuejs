@@ -50,7 +50,7 @@ onMounted(()=> {
     <Head
         :title="title"
     />
-    <div class="flex w-full min-h-screen ">
+    <div class="flex w-full h-screen ">
         <div 
             id="sidebar"
             class="fixed w-fit h-screen transition-all duration-300 z-10"
@@ -119,8 +119,8 @@ onMounted(()=> {
                     @open="openSidebar"
                 />
             </div>
-            <main id="page" class="flex justify-center md:p-4 2xl:p-6">
-                <div  class="w-full px-4 md:px-8 pb-4 sm:px-6 lg:px-8 md:rounded-lg bg-white lg:p-8">
+            <main id="page" class="flex h-full justify-center md:p-4 2xl:p-6 overflow-y-auto">
+                <div  class="w-full h-fit px-4 md:px-8 pb-4 sm:px-6 lg:px-8 md:rounded-lg bg-white lg:p-8">
                     <div v-if="titlePage" class="flex w-full justify-center pt-6 lg:pt-0">
                         <h2
                             class="font-bold text-xl uppercase"
