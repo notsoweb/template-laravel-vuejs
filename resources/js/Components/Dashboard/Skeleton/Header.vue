@@ -69,14 +69,6 @@ onMounted(()=>{
       <div class="flex w-fit justify-end items-center h-14 header-right">
         <ul class="flex items-center space-x-4">
           <li>
-            <button type="button" class="flex items-center header-icon">
-              <GoogleIcon
-                class="text-xl"
-                name="group"
-              />
-            </button>
-          </li>
-          <li>
             <div class="relative">
               <Dropdown align="icon" width="72">
                 <template #trigger>
@@ -156,7 +148,7 @@ onMounted(()=>{
                          {{$t('profile')}}
                     </DropdownLink>
                     <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">
-                      API Tokens
+                        API Tokens
                     </DropdownLink>
                     <div class="border-t border-gray-100" />
                     <form @submit.prevent="logout">
