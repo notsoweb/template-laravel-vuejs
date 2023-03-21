@@ -3,9 +3,8 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Http\Controllers\Controller;
-use Notsoweb\Core\Http\Traits\Vue\Vuew;
 use App\Models\HistoryLog;
+use Notsoweb\Core\Http\Controllers\VueController;
 
 /**
  * Controla el historial de acciones de los usuarios
@@ -15,14 +14,15 @@ use App\Models\HistoryLog;
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
  */
-class HistoryLogController extends Controller
+class HistoryLogController extends VueController
 {
-    use Vuew;
-
     /**
-     * Ruta Vista Padre
+     * Constructor
      */
-    protected $vueView = 'dashboard';
+    public function __construct()
+    {
+        $this->vueRoot('dashboard');
+    }
 
     /**
      * Muestra el historial de acciones global

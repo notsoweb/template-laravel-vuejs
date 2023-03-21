@@ -3,41 +3,31 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Http\Controllers\Controller;
-use App\Http\Traits\Controller\WithPermission;
-use Notsoweb\Core\Http\Traits\Vue\Vuew;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Notsoweb\Core\Http\Controllers\VueController;
+use Notsoweb\Core\Http\Traits\Controllers\WithPermission;
 
 /**
  * Administra los roles del sistema
  * 
- * CRUD de los roles. Algunos roles estan implicitos en el código para dar permisos. Por lo que
+ * CRUD de los roles. Algunos roles están implícitos en el código para dar permisos. Por lo que
  * es un controlador sensible.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
  */
-class RoleController extends Controller
+class RoleController extends VueController
 {
-    use Vuew, WithPermission;
-
-    /**
-     * Role base
-     */
-    public $rolePermission = 'roles';
-
-    /**
-     * Ruta Vista Padre
-     */
-    protected $vueView = 'developer.roles';
+    use WithPermission;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->WithCRUDPermission();
+        $this->withDefaultPermissions('roles');
+        $this->vueRoot('developer.roles');
     }
 
     /**
@@ -87,7 +77,7 @@ class RoleController extends Controller
     }
 
     /**
-     * Actualiz un role
+     * Actualiza un role
      * 
      * @param  \Illuminate\Http\Request  $request
      * @param Role $role Modelo del Role
@@ -107,7 +97,7 @@ class RoleController extends Controller
      * Elimina un role
      * 
      * Se debe de tener mucho cuidado en la eliminación de los roles ya que algunos de ellos
-     * estan ligados a nivel codigo en el sistema, lo que podria limitar a los usuarios o
+     * están ligados a nivel código en el sistema, lo que podría limitar a los usuarios o
      * bloquear el sistema.
      *
      * @param Role $role Modelo del Role

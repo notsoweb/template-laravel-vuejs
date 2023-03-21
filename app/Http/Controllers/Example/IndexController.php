@@ -3,24 +3,22 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Http\Controllers\Controller;
-use Notsoweb\Core\Http\Traits\Vue\Vuew;
+use Notsoweb\Core\Http\Controllers\VueController;
 
 /**
- * Controllador de la página de inicio de los ejemplos
+ * Controlador de la página de inicio de los ejemplos
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
  * @version 1.0.0
  */
-class IndexController extends Controller
+class IndexController extends VueController
 {
-    use Vuew;
-
     /**
      * Constructor
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->vueRoot('example');
     }
 

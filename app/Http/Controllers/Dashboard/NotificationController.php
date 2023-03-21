@@ -3,10 +3,9 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Http\Controllers\Controller;
-use Notsoweb\Core\Http\Traits\Vue\Vuew;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\DatabaseNotification as Notification;
+use Notsoweb\Core\Http\Controllers\VueController;
 
 /**
  * Controlador muy simple de las notificaciones del usuario
@@ -14,14 +13,15 @@ use Illuminate\Notifications\DatabaseNotification as Notification;
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
  */
-class NotificationController extends Controller
+class NotificationController extends VueController
 {
-    use Vuew;
-
     /**
-     * Ruta Vista Padre
+     * Constructor
      */
-    protected $vueView = 'dashboard.notifications';
+    public function __construct()
+    {
+        $this->vueRoot('dashboard.notifications');
+    }
 
     /**
      * Lista las notificaciones del usuario

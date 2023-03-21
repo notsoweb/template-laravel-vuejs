@@ -3,17 +3,16 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUser;
 use App\Http\Requests\UpdateUser;
-use App\Http\Traits\Controller\WithPermission;
 use App\Http\Traits\UseFetch;
-use Notsoweb\Core\Http\Traits\Vue\Vuew;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+use Notsoweb\Core\Http\Controllers\VueController;
+use Notsoweb\Core\Http\Traits\Controllers\WithPermission;
 use Spatie\Permission\Models\Role;
 
 /**
@@ -22,27 +21,18 @@ use Spatie\Permission\Models\Role;
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
  */
-class UserController extends Controller
+class UserController extends VueController
 {
-    use UseFetch, Vuew, WithPermission, Vuew;
-
-    /**
-     * Role base
-     */
-    public $rolePermission = 'users';
+    use UseFetch,
+        WithPermission;
     
-
-    /**
-     * Ruta Vista Padre
-     */
-    protected $vueView = 'admin.user';
-
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->WithCRUDPermission();
+        $this->vueRoot('admin.user');
+        $this->withDefaultPermissions('users');
     }
 
     /**

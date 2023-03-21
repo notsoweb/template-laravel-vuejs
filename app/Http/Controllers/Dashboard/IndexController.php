@@ -3,23 +3,23 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Http\Controllers\Controller;
-use Notsoweb\Core\Http\Traits\Vue\Vuew;
+use Notsoweb\Core\Http\Controllers\VueController;
 
 /**
- * Controllador de la página de inicio del dashboard del usuario
+ * Controlador de la página de inicio del dashboard del usuario
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * @version 1.0.0
  */
-class IndexController extends Controller
+class IndexController extends VueController
 {
-    use Vuew;
-
     /**
-     * Ruta Vista Padre
+     * Constructor
      */
-    protected $vueView = 'dashboard';
+    public function __construct()
+    {
+        $this->vueRoot('dashboard');
+    }
 
     /**
      * Página de inicio
