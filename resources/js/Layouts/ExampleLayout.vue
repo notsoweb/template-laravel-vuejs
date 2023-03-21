@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { suscribeUserAuth } from '@/broadcasts.js';
 import { Head, router } from '@inertiajs/vue3';
 import { hasRole, hasPermission } from "@/rolePermission.js";
 
@@ -25,22 +24,8 @@ const openSidebar = () => {
     sidebar.value = !sidebar.value;
 }
 
-// Comprueba los mensajes flash
-if(router.page.props.flash) {
-    router.page.props.flash.forEach(element => {
-        Notify.flash(element.message, element.type);
-    });
-}
-
-if (router.page.props.jetstream.flash.length != 0) {
-    router.page.props.jetstream.flash.forEach(element => {
-        Notify.flash(element.message, element.type);
-    });
-}
-
 onMounted(()=> {
     if (!sessionFresh.isLayoutInitialized()) {
-        suscribeUserAuth();
         sessionFresh.startLayout();
     }
 });

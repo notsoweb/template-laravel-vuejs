@@ -1,55 +1,45 @@
 <script setup>
-import { onMounted, reactive } from 'vue';
+import { onMounted, ref } from 'vue';
 import { router, Link} from '@inertiajs/vue3';
-import { suscribeUserNotification, unsuscribeUserAuth, unsuscribeUserNotification } from '@/broadcasts.js';
+
+import NotificationController from '../../../Controllers/NotificationController';
 
 import Dropdown         from '@/Components/Dashboard/Dropdown.vue';
 import DropdownLink     from '@/Components/Dashboard/DropdownLink.vue';
 import NotificationLink from '@/Components/Dashboard/Skeleton/Header/NotificationLink.vue';
 import GoogleIcon       from '@/Components/Shared/GoogleIcon.vue';
 
+// Eventos
 const emit = defineEmits([
   'open'
 ]);
 
+// Propiedades
 const props = defineProps({
   sidebar: Boolean
 });
 
+// Controladores
+const notificationCtl = NotificationController;
+
+// Variables de controladores
+const notificationCounter = ref(notificationCtl.counter);
+const notifications = ref(notificationCtl.notifications);
+
+// Otras variables
 const userId = router.page.props.user.id;
-const notificationCounter = reactive(sessionFresh.getNotificationCounter());
-let notifications = reactive(sessionFresh.getNotifications());
 
-const getNotifications = () => {
-  sessionFresh.updateNotifications();
-}
-
-const notification = (notification) => {
-  getNotifications();
-  Notify.flash(notification.message, notification.icon);
-};
-
-const showNotification = (id) => {
-  sessionFresh.showNotification(id);
-};
-
+// Métodos
 const logout = () => {
   router.post(route('logout'), {}, {
     onBefore: () => {
-      sessionFresh.stop();
-      unsuscribeUserAuth();
-      unsuscribeUserNotification(userId);
+      notificationCtl.stop();
     }
   });
 };
 
 onMounted(()=>{
-  if (!sessionFresh.isHeaderInitialized()) {
-    suscribeUserNotification(userId, notification);
-    sessionFresh.startHeader();
-    sessionFresh.startUser(userId);
-    sessionFresh.updateNotifications();
-  }
+  notificationCtl.start(userId);
 });
 </script>
 
@@ -75,7 +65,6 @@ onMounted(()=>{
                   <button 
                     class="flex items-center header-icon"
                     type="button"
-                    @click="getNotifications"
                   >
                     <GoogleIcon
                       class="text-xl"
@@ -96,10 +85,20 @@ onMounted(()=>{
                           as="button"
                           :icon="notification.data.icon"
                           :readAt="notification.read_at"
-                          @click="showNotification(notification.id)"
+                          @click="notificationCtl.show(notification.id)"
                         >
                           <span class="truncate">
                             {{notification.data.message}}
+                          </span>
+                        </NotificationLink>
+                      </template>
+                      <template v-if="notifications.length < 1">
+                        <NotificationLink
+                          as="button"
+                          icon="notifications"
+                        >
+                          <span class="truncate">
+                            {{ $t('noRecords') }}
                           </span>
                         </NotificationLink>
                       </template>

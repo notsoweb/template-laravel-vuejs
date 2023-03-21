@@ -57,7 +57,6 @@ const edit = (detail) => {
     preserveScroll: true,
     onSuccess: () => {
       Notify.success(lang('readed'));
-      sessionFresh.updateNotifications();
     }
   });
 }

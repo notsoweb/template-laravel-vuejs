@@ -14,22 +14,44 @@ class SearcherController
     }
 
     /**
-     * Controla el cambio entre show y edit
+     * Búsqueda simple
      */
-    search = (q = '') => {
+    search = (q = '', params) => {
         this.query.value = q;
         router.get(this._getRoute(), {
-            q
+            q,
+            ...params
         }, {preserveState: true});
     };
 
     /**
-     * Controla el switch de eliminar
+     * Paginación simple
      */
-    searchWithPagination = (page) =>  {
+    withPagination = (page, params) =>  {
+        router.get(this._getRoute(), {
+            page,
+            ...params
+        }, {preserveState: true});
+    }
+
+    /**
+     * Búsqueda con páginación en tablas
+     */
+    searchWithPagination = (page, params) =>  {
         router.get(this._getRoute(), {
             q: this.query.value,
-            page
+            page,
+            ...params
+        }, {preserveState: true});
+    }
+
+    /**
+     * Búsqueda con páginación en bandejas
+     */
+    searchWithInboxPagination = (page, params) =>  {
+        router.get(page, {
+            q: this.query.value,
+            ...params
         }, {preserveState: true});
     }
 

@@ -5,11 +5,15 @@ import { ref } from 'vue';
  */
 class ModalController
 {
+    // Modals
+    confirmModal = ref(false);
+    destroyModal = ref(false);
+    editModal = ref(false);
     noteModal = ref(false);
     manyNotesModal = ref(false);
     showModal = ref(false);
-    editModal = ref(false);
-    destroyModal = ref(false);
+
+    // Models
     modelModal = ref({});
     
     constructor() {}
@@ -32,8 +36,9 @@ class ModalController
 
     /**
      * Controla el switch de eliminar
-     */
-    switchEditModal = (model) => {
+    */
+   switchEditModal = (model) => {
+        console.log('Editado');
         this._setModel(model);
         this.editModal.value = !this.editModal.value
     };
@@ -47,19 +52,25 @@ class ModalController
     };
 
     /**
-     * Controla el switch de eliminar
+     * Controla el switch de nota
      */
     switchNoteModal = () => {
         this.noteModal.value = !this.noteModal.value
     };
 
     /**
-     * Controla el switch de eliminar
+     * Controla el switch de notas aplicadas a muchos
      */
     switchManyNotesModal = () => {
         this.manyNotesModal.value = !this.manyNotesModal.value
     };
 
+    /**
+     * Controla el switch de nota
+     */
+    switchConfirmModal = () => {
+        this.confirmModal.value = !this.confirmModal.value
+    };
 
     /**
      * Guarda el modelo

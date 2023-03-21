@@ -58,6 +58,9 @@ const updateProfileInformation = () => {
                         :close-on-select="false"
                         :clear-on-select="false"
                         :preserve-search="true"
+                        selectedLabel="Seleccionado"
+                        selectLabel="Seleccionar"
+                        deselectLabel="Remover"
                         placeholder="Buscar ..."
                         label="name"
                         track-by="id"
@@ -69,6 +72,9 @@ const updateProfileInformation = () => {
                             >
                                 {{ values.length }} options selected
                             </span>
+                        </template>
+                        <template #noOptions>
+                            {{ $t('noRecords') }}
                         </template>
                     </VueMultiselect>
                 </div>

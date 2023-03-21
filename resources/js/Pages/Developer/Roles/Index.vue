@@ -48,7 +48,7 @@ const modelModal   = ref(Modal.modelModal);
         <div class="pt-2 w-full">
             <Table :links="roles.links">
                 <template #head>
-                    <tr class="table-head bg-[url(/storage/)]">
+                    <tr class="table-head">
                         <th
                             class="table-item"
                             v-text="$t('role')"

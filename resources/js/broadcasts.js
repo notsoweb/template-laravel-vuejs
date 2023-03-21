@@ -6,8 +6,11 @@
  */
 
 // Notifica los Inicios de session de los demás usuarios
-const suscribeUserAuth = () => Echo.private('notifications')
-    .listen('GlobalNotification', e => Notify.info(e.message));
+const suscribeUserAuth = () => {
+    console.log('Notificaciones globales');
+    Echo.private('notifications')
+        .listen('GlobalNotification', e => Notify.info(e.message));
+}
 
 // Detiene las notificaciones de inicio de session de los demás usuario
 const unsuscribeUserAuth = () => Echo.leave('notifications');

@@ -37,6 +37,14 @@ class InboxController
     }
 
     /**
+     * Permite que siempresea solo una opcion seleccionada
+     */
+    onlyOne = (invoice) => {
+        this.clear();
+        this.onSelectOne(invoice);
+    }
+
+    /**
      * Quita la seleccion
      */
     onUnselectOne = (invoice) => {
@@ -50,14 +58,44 @@ class InboxController
     }
 
     /**
-     * Retorna todos los elementos seleccionados
+     * Retorna todos los IDs de los elementos seleccionados
      */
     getIdSelections = () => {
         return this.inboxIdSelected.value;
     }
 
+    /**
+     * Trata al ID como si fueran muchos
+     * 
+     * Si no se pasa mimgun ID, se devolveran todos los elementos seleccionados almacenados
+     */
+    getAsMany = (id) => {
+        return (id) ? [ id ] : this.getIdSelections();
+    }
+
+    /**
+     * Retorna todos los numeros de las facturas/seleccionadas
+     */
     getNumberSelections = () => {
         return this.inboxNumberSelected.value;
+    }
+
+    /**
+     * Limpia los valores seleccionados
+     */
+    clear = () => {
+        this.inboxIdSelected.value = [];
+        this.inboxNumberSelected.value = [];
+        this.selectAll.value = false;
+    }
+
+    /**
+     * Limpia los valores seleccionados con una notificacion de exito
+     */
+    clearWithSuccess = (message) => {
+        this.clear();
+
+        Notify.success(message);
     }
 }
 

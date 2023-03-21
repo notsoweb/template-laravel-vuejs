@@ -20,4 +20,4 @@ const getTime = (value = null) => {
     return date.toLocaleTimeString(format)
 }
 
-export {  getDate, getTime };
+export { getDate, getTime };

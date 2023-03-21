@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from 'vue';
+import { ref } from 'vue';
 import VueMultiselect from 'vue-multiselect';
 
 const emit = defineEmits(['update:modelValue']);
@@ -14,6 +14,10 @@ const props = defineProps({
         type: String
     },
     modelValue: String | Number,
+    mode: {
+        default: 'single',
+        type: String
+    },
     title: String,
     options: Object,
     onError: String,
@@ -24,7 +28,7 @@ const props = defineProps({
     required: Boolean
 });
 
-const value = reactive(props.modelValue);
+const value = ref(props.modelValue);
 const multiselect = ref();
 
 defineExpose({
@@ -50,7 +54,7 @@ const onRemove = ()  => {
             v-model="value"
             ref="multiselect"
             :options="options"
-            mode="single"
+            :mode="mode"
             :close-on-select="true"
             :clear-on-select="false"
             :preserve-search="true"
@@ -65,7 +69,7 @@ const onRemove = ()  => {
             @remove="onRemove"
         >
             <template #noOptions>
-                Sin resultados
+                {{ $t('noRecords') }}
             </template>
         </VueMultiselect>
         <p v-show="onError" class="text-sm text-red-600">

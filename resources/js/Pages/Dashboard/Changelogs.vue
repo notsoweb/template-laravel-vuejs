@@ -48,8 +48,9 @@ defineProps({
           <Item version="0.2.5">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">
-                <li>Example pages.</li>
                 <li>FIX: User Secure Logging.</li>
+                <li>FIX: Notifications.</li>
+                <li>FIX: Selectable.</li>
               </ul>
             </p>
           </Item>
