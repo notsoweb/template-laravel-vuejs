@@ -45,10 +45,17 @@ defineProps({
           </tr>
         </template>
         <template #body>
+          <Item version="1.0.1">
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
+                <li>Refactor controllers.</li>
+              </ul>
+            </p>
+          </Item>
           <Item version="1.0.0">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">
-                <li>Stable version</li>
+                <li>Stable version.</li>
               </ul>
             </p>
           </Item>
