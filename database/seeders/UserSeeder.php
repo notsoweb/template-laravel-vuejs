@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Notsoweb\Core\Support\Seeder\UserSecure;
+use Notsoweb\Core\Support\Seeder\UserSecureSupport;
 
 /**
  * Siembra usuarios de forma segura
@@ -31,7 +32,7 @@ class UserSeeder extends Seeder
     {
         User::withoutEvents(function () {
             // Usuario desarrollador
-            [$developerEmail, $developerPass] =  UserSecure::new('developer@notsoweb.com');
+            [$developerEmail, $developerPass] =  UserSecureSupport::new('developer@notsoweb.com');
     
             User::create([
                 'name' => 'Developer',
@@ -42,7 +43,7 @@ class UserSeeder extends Seeder
             ])->assignRole(['developer']);
             
             // Usuario administrador
-            [$adminEmail, $adminPass] = UserSecure::new('admin@notsoweb.com');
+            [$adminEmail, $adminPass] = UserSecureSupport::new('admin@notsoweb.com');
     
             User::create([
                 'name' => 'Administrador',
