@@ -6,15 +6,15 @@ import { ref } from 'vue';
 class ModalController
 {
     // Modals
-    confirmModal = ref(false);
-    destroyModal = ref(false);
-    editModal = ref(false);
-    noteModal = ref(false);
+    confirmModal   = ref(false);
+    destroyModal   = ref(false);
+    editModal      = ref(false);
+    noteModal      = ref(false);
     manyNotesModal = ref(false);
-    showModal = ref(false);
+    showModal      = ref(false);
 
     // Models
-    modelModal = ref({});
+    modelModal     = ref({});
     
     constructor() {}
 
@@ -38,7 +38,6 @@ class ModalController
      * Controla el switch de eliminar
     */
    switchEditModal = (model) => {
-        console.log('Editado');
         this._setModel(model);
         this.editModal.value = !this.editModal.value
     };
@@ -77,7 +76,6 @@ class ModalController
      */
     _setModel = (model) => {
         if(model) {
-            console.log('Modelo guardado');
             this.modelModal.value = model;
         }
     }
