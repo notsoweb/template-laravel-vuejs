@@ -32,7 +32,10 @@ class UserSeeder extends Seeder
     {
         User::withoutEvents(function () {
             // Usuario desarrollador
-            [$developerEmail, $developerPass] =  UserSecureSupport::new('developer@notsoweb.com');
+            [
+                $developerEmail,
+                $developerPass
+            ] =  UserSecureSupport::new('developer@notsoweb.com');
     
             User::create([
                 'name' => 'Developer',
@@ -43,7 +46,10 @@ class UserSeeder extends Seeder
             ])->assignRole(['developer']);
             
             // Usuario administrador
-            [$adminEmail, $adminPass] = UserSecureSupport::new('admin@notsoweb.com');
+            [
+                $adminEmail,
+                $adminPass
+            ] = UserSecureSupport::new('admin@notsoweb.com');
     
             User::create([
                 'name' => 'Administrador',
