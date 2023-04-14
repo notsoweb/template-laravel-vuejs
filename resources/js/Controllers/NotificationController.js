@@ -1,6 +1,8 @@
 import { ref } from 'vue';
 import { router } from '@inertiajs/vue3';
 
+const hasNotifications = import.meta.env.VITE_PUSHER_NOTIFICATIONS;
+
 /**
  * Controlador simple de notificaciones en tiempo real
  */
@@ -24,7 +26,7 @@ class NotificationControllerx
      * Inicia el servicio
      */
     start = (userId) => {
-        if(!this.started.value) {
+        if(!this.started.value && hasNotifications == 'true') {
             this.userId.value = userId;
             
             this._suscribeGLobalNotification();
@@ -35,6 +37,8 @@ class NotificationControllerx
             
             this.getUpdates();
             this.started.value = true;
+
+            console.log('Notificaciones activas');
         }
     }
 
