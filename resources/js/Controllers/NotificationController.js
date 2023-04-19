@@ -31,7 +31,11 @@ class NotificationControllerx
             
             this._suscribeGLobalNotification();
             this._suscribeUserNotification((notification) => {
-                Notify.flash(notification.message, notification.icon);
+                Notify.flash({
+                    message: notification.message,
+                    type: notification.icon,
+                    timeout: notification.timeout
+                });
                 this.getUpdates();
             });
             
@@ -119,7 +123,7 @@ class NotificationControllerx
      */
     _suscribeGLobalNotification = () => {
         Echo.private('notifications')
-        .listen('GlobalNotification', e => Notify.info(e.message));
+        .listen('GlobalNotification', e => Notify.info(e.message, e.timeout));
     }
 
     /**

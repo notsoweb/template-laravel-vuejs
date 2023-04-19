@@ -45,6 +45,29 @@ defineProps({
           </tr>
         </template>
         <template #body>
+          <Item version="1.0.4">
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
+                <li>Install notifications service.</li>
+                <li>Autoconfigure notifications.</li>
+                <li>Create application installation instructions.</li>
+              </ul>
+            </p>
+          </Item>
+          <Item version="1.0.3">
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
+                <li>Activate and deactivate notifications.</li>
+              </ul>
+            </p>
+          </Item>
+          <Item version="1.0.2">
+            <p class="font-semibold text-black">
+              <ul class="list-disc list-inside">
+                <li>Update Core.</li>
+              </ul>
+            </p>
+          </Item>
           <Item version="1.0.1">
             <p class="font-semibold text-black">
               <ul class="list-disc list-inside">

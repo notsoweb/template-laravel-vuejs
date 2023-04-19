@@ -4,7 +4,8 @@ import { router } from '@inertiajs/vue3';
 class Notify {
   constructor() {}
 
-  flash(title = 'Successful registration', type = 'success') {
+  flash({message = 'Successful registration', type = 'success', timeout = 5}) {
+
     toastr.options = {
         "closeButton": true,
         "debug": false,
@@ -15,42 +16,64 @@ class Notify {
         "onclick": null,
         "showDuration": "300",
         "hideDuration": "1000",
-        "timeOut": "5000",
+        "timeOut": timeout * 1000,
         "extendedTimeOut": "1000",
         "showEasing": "swing",
         "hideEasing": "linear",
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    toastr[type](title);
+
+    toastr[type](message);
   }
 
-  success(title) {
-    this.flash(title);
+  success(message, timeout) {
+    this.flash({
+      message,
+      timeout
+    });
   }
 
-  error(title) {
-    this.flash(title, 'error');
+  error(message, timeout) {
+    this.flash({
+      message, 
+      type:'error',
+      timeout
+    });
   }
   
-  info(title) {
-    this.flash(title, 'info');
+  info(message, timeout) {
+    this.flash({
+      message, 
+      type:'info',
+      timeout
+    });
   }
 
-  warning(title) {
-    this.flash(title, 'warning');
+  warning(message, timeout) {
+    this.flash({
+      message, 
+      type:'warning',
+      timeout
+    });
   }
 
   verifyLaravelNotifyFlash() {
     if(router.page.props.flash) {
         router.page.props.flash.forEach(element => {
-            Notify.flash(element.message, element.type);
+            this.flash({
+              message: element.message,
+              icon: element.type
+            });
         });
     }
   
     if (router.page.props.jetstream.flash.length != 0) {
         router.page.props.jetstream.flash.forEach(element => {
-            Notify.flash(element.message, element.type);
+          this.flash({
+            message: element.message,
+            icon: element.type
+          });
         });
     }
   }

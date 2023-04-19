@@ -1,66 +1,74 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Acerca de Template Laravel Vue
+Template es una plantilla que contiene un administrador con elementos simples como formularios, botones, tablas entre otros para acelerar el desarrollo. Permite tener preparada la gestión de usuarios, perfiles, entre otras cosas.
 
-## About Laravel
+Este proyecto tiene como núcleo Laravel 10, Intertiajs y Vuejs 3.
+## Instalar proyecto
+#### Requerimientos
+Para instalar este proyecto se requiere tener instalado como mínimo las siguientes dependencias:
+- Composer 2.5.5
+- Nodejs 18.16.0
+- NPM 9.6.4
+- La base de datos es a discreción del usuario.w
+#### Instalación
+El proyecto es capas de configurarse a si mismo si todas las dependencias están satisfechas. Para instalar el proyecto corra:
+``
+composer env:prod
+``
+o si lo prefiere:
+``
+composer env:dev
+``
+Se instalara el ambiente de producción o desarrollo respectivamente.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Una vez configurado el archivo .env con la base de datos, puede sembrar la base de datos:
+``
+composer db:prod
+``
+o si desea instalarla con el modo desarrollo:
+``
+composer db:dev
+``
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+#### Notificaciones en tiempo real
+Si se desea aprovechar el servicio de notificaciones en tiempo real integrado, se requiere instalar SOKETI y PM2.
+``
+npm install -g @soketi/soketi
+``
+``
+npm install -g pm2
+``
+También puede ejecutar el instalador integrado:
+``
+php artisan composer notification:install
+``
+En caso de error, procure usar privilegios de super usuario.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Para iniciar el servicio debe iniciarlo con el comando:
+``
+php artisan notification:start
+``
+O si desea detenerlo:
+``
+php artisan notification:stop
+``
+En caso de una desactivación permanente, puede eliminar la instancia:
+``
+php artisan notification:destroy
+``
 
-## Learning Laravel
+Puede configurar libremente el servidor de notificaciones como usted desee con el archivo ``soketi.json``. Entre los parámetros editables están:
+- Puerto
+- ID de la instancia
+- KEY de la instancia
+- SECRETE de la instancia
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+El archivo de configuración se crea automáticamente al instalar el proyecto. Recuerde colocar los datos que edite de ``soketi.json`` en la configuración de PUSHER en el ``.env``.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+El nombre de la instancia del servicio de notificaciones dentro de PM2 sera el mismo que se establezca en PUSHER_APP_KEY dentro del ``.env``. Es posible que sea conveniente modificar este dato si desea correr dos o más instancias de la aplicación dentro del mismo servidor para evitar que las notificaciones se compartan entre instancias. En caso contrario no es necesario modificar nada.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+La aplicación puede funcionar bien con el establecimiento de un proxy inverso mediante NGINX si se requiere establecer un subdominio o dominio como puerta de enlace al servidor de notificaciones.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Por default las notificaciones están desactivadas. Se activan cambiando la variable de entorno ``PUSHER_NOTIFICATIONS`` de ``false`` a ``true``.
+## Autor
+Este proyecto fue desarrollado por Moisés de Jesús Cortés Castellanos. Si tiene alguna duda o recomendación, enviar a [ing.moisesdejesuscortesc@notsoweb.com](mailto:ing.moisesdejesuscortesc@notsoweb.com).

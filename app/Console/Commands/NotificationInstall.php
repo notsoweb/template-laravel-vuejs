@@ -15,21 +15,21 @@ use Illuminate\Console\Command;
  * 
  * @version 1.0.0
  */
-class Notification extends Command
+class NotificationInstall extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'notification:global {message}';
+    protected $signature = 'notification:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Enviar notificación a todos los usuarios';
+    protected $description = 'Instalar SOKETI y PM2. Usar super usuario en caso de error';
 
     /**
      * Execute the console command.
@@ -38,13 +38,8 @@ class Notification extends Command
      */
     public function handle()
     {
-        $message = $this->argument('message');
-
-        broadcast(new GlobalNotification(
-            $message,
-            "info",
-            15
-        ));
+        echo shell_exec('npm install -g @soketi/soketi');
+        echo shell_exec('npm install -g pm2');
         
         return Command::SUCCESS;
     }

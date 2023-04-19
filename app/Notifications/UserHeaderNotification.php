@@ -8,11 +8,12 @@ use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Notification;
 
 /**
- * Dispara una notificación a un usuario especifico
+ * Notificación para usuario especifico
  * 
- * Estas notificaciones son las que se encuentrar en el menu superior, en el header.
+ * Notificación persistente para usuario especifico
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class UserHeaderNotification extends Notification
@@ -20,7 +21,7 @@ class UserHeaderNotification extends Notification
     use Queueable;
 
     /**
-     * Parametros para detonar la notificación
+     * Parámetros para detonar la notificación
      *
      * @return void
      */
@@ -28,23 +29,28 @@ class UserHeaderNotification extends Notification
         public $message,
         public $icon = 'notifications_active',
         public $type = 'info',
+        public $timeout = 15
     ) {}
 
     /**
-     * Canales de envio de la notificación
+     * Canales de envió de la notificación
      *
      * @param  mixed  $notifiable
      * @return array
      */
     public function via($notifiable)
     {
-        return ['broadcast', 'database'];
+        return [
+            'broadcast',
+            'database'
+        ];
     }
 
     /**
      * Obtiene la representación del array de la notificación.
      *
      * @param  mixed  $notifiable
+     * 
      * @return array
      */
     public function toArray($notifiable)
@@ -64,6 +70,7 @@ class UserHeaderNotification extends Notification
         return new BroadcastMessage([
             'message' => $this->message,
             'icon' => $this->type,
+            'timeout' => $this->timeout
         ]);
     }
 }

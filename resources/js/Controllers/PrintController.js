@@ -17,11 +17,11 @@ class PrintController
     }
 
     /**
-     * Manda la orden de impresion y descarga
+     * Manda la orden de impresión y descarga
      */
 
     download = (data = {}) => {
-        Notify.flash('Generando archivo, espere ...', 'info');
+        Notify.info('Generando archivo, espere ...');
 
         axios({
             url: route(this.route, this.params),
@@ -42,9 +42,9 @@ class PrintController
 
             document.body.removeChild(link);
             URL.revokeObjectURL(href);
-            Notify.flash('Archivo generado');
+            Notify.info('Archivo generado');
         }).catch(err => {
-            Notify.flash('Error al generar', 'error');
+            Notify.error('Error al generar');
         });
     }
 }

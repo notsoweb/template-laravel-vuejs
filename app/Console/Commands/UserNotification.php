@@ -6,13 +6,15 @@
 use App\Models\User;
 use App\Notifications\UserHeaderNotification;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 /**
- * Lanza una notificación a un usuario especifico
+ * Lanza notificaciones a usuario especifico
  * 
  * La notificación queda guardada en las notificaciones del usuario.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class UserNotification extends Command
@@ -23,9 +25,10 @@ class UserNotification extends Command
      * @var string
      */
     protected $signature = 'notification:user
-                    {--email= : Correo del usuario}
-                    {--message=Hola mundo : Mensaje a enviar}
-                    {--icon=info : Icono de la notificación}';
+        {--email=developer@notsoweb.com : Correo del usuario}
+        {--message=Prueba : Mensaje a enviar}
+        {--type=info : Tipo de notificación}
+        {--timeout=15 : Tiempo de notificación en segundos}';
 
     /**
      * The console command description.
@@ -43,17 +46,27 @@ class UserNotification extends Command
     {
         $email = $this->option('email');
         $message = $this->option('message');
-        $icon = $this->option('icon');
+        $type = $this->option('type');
+        $timeout = $this->option('timeout');
 
         if($email) {
             $user = User::where('email', $email)->first();
+
             if ($user) {
-                $user->notify(new UserHeaderNotification($message, $icon));
-                echo "Mensaje enviado. \n";
+                $user->notify(new UserHeaderNotification(
+                    message: $message,
+                    icon: $type,
+                    timeout: $timeout
+                ));
+
+                Log::channel('notify')->info("Mensaje privado enviado por consola a {$user->email}");
 
                 return Command::SUCCESS;
             } else {
-                echo "El usuario no existe";
+                $log = "El usuario {$user->email} no existe, mensaje por consola no enviado.";
+
+                echo $log;
+                Log::channel('notify')->error($log);
             }
 
         } else {

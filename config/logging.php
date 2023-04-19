@@ -136,6 +136,13 @@ return [
             'path' => storage_path('logs/users.log'),
             'level' => env('LOG_LEVEL', 'debug'),
         ],
+
+        // Logs para reportar notificaciones
+        'notify' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/notify.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
     ],
 
 ];

@@ -1,3 +1,6 @@
+/.fleet
+/.idea
+/.vscode
 /node_modules
 /public/build
 /public/build.zip
@@ -10,12 +13,10 @@
 .env.backup
 .env.production
 .phpunit.result.cache
+auth.json
 build.zip
 Homestead.json
 Homestead.yaml
-auth.json
 npm-debug.log
+soketi.json
 yarn-error.log
-/.fleet
-/.idea
-/.vscode

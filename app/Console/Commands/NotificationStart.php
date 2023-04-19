@@ -15,21 +15,21 @@ use Illuminate\Console\Command;
  * 
  * @version 1.0.0
  */
-class Notification extends Command
+class NotificationStart extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'notification:global {message}';
+    protected $signature = 'notification:start';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Enviar notificación a todos los usuarios';
+    protected $description = 'Iniciar servicio de notificaciones en tiempo real (requiere SOKETI y PM2)';
 
     /**
      * Execute the console command.
@@ -38,13 +38,7 @@ class Notification extends Command
      */
     public function handle()
     {
-        $message = $this->argument('message');
-
-        broadcast(new GlobalNotification(
-            $message,
-            "info",
-            15
-        ));
+        echo shell_exec('pm2 start soketi --name ' . config('broadcasting.connections.pusher.key') . ' -- start --config=soketi.json');
         
         return Command::SUCCESS;
     }
