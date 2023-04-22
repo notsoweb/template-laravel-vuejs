@@ -4,7 +4,7 @@ const emit = defineEmits([
 ]);
 
 const props = defineProps({
-    'links': Array
+    items: Object,
 });
 </script>
 
@@ -14,20 +14,32 @@ const props = defineProps({
             <div class="w-full overflow-x-auto">
                 <table class="w-full">
                     <thead>
-                        <slot name="head" />
+                        <tr class="table-head">
+                            <slot name="head" />
+                        </tr>
                     </thead>
                     <tbody class="bg-white">
-                        <slot name="body" />
+                        <template v-if="items.total > 0">
+                            <slot
+                                name="body"
+                                :items="items.data"
+                            />
+                        </template>
+                        <template v-else>
+                            <tr>
+                                <slot name="empty" />
+                            </tr>
+                        </template>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <template v-if="links">
-        <div v-if="links.length > 3" class="flex w-full justify-end">
+    <template v-if="items.links">
+        <div v-if="items.links.length > 3" class="flex w-full justify-end">
             <div class="flex w-full flex-wrap -mb-1">
-              <template v-for="(link, k) in links" :key="k">
+              <template v-for="(link, k) in items.links" :key="k">
                 <div v-if="link.url === null"
                     class="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-400 border rounded"
                     v-html="link.label"

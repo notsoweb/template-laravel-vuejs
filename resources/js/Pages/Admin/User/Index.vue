@@ -51,25 +51,23 @@ const query        = ref(Searcher.query);
             </Link>
         </SearcherHead>
         <div class="pt-2 w-full">
-            <Table :links="users.links" @send-pagination="Searcher.searchWithPagination">
+            <Table :items="users" @send-pagination="Searcher.searchWithPagination">
                 <template #head>
-                    <tr class="table-head">
-                        <th
-                            class="table-item"
-                            v-text="$t('user')"
-                        />
-                        <th
-                            class="table-item"
-                            v-text="$t('contact')"
-                        />
-                        <th
-                            class="table-item"
-                            v-text="$t('actions')"
-                        />
-                    </tr>
+                    <th
+                        class="table-item"
+                        v-text="$t('user')"
+                    />
+                    <th
+                        class="table-item"
+                        v-text="$t('contact')"
+                    />
+                    <th
+                        class="table-item"
+                        v-text="$t('actions')"
+                    />
                 </template>
-                <template #body>
-                    <tr v-for="user in users.data" class="text-gray-700">
+                <template #body="{items}">
+                    <tr v-for="user in items" class="text-gray-700">
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>

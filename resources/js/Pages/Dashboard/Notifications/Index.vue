@@ -114,9 +114,8 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
       </div>
     </div>
     <div class="w-full">
-      <Table :links="notifications.links"  @send-pagination="searchWithPagination">
+      <Table :items="notifications"  @send-pagination="searchWithPagination">
         <template #head>
-          <tr class="table-head">
             <th
               class="table-item"
               v-text="$t('description')" 
@@ -133,10 +132,9 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
               class="table-item"
               v-text="$t('actions')" 
             />
-          </tr>
         </template>
-        <template #body>
-          <template v-for="notification in notifications.data">
+        <template #body="{items}">
+          <template v-for="notification in items">
             <tr>
               <td class="table-item border">
                 <div class="flex items-center text-sm">
@@ -192,37 +190,18 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                 </td>
             </tr>
           </template>
-          <tr v-if="notifications.total < 1" class="text-gray-700">
-            <td class="table-item border">
-              <div class="flex items-center text-sm">
-                <div>
-                  -
-                </div>
-              </div>
-            </td>
-            <td class="table-item border">
-              <div class="flex items-center text-sm">
-                <div>
-                  {{ $t('noRecords') }}
-                </div>
-              </div>
-            </td>
-            <td class="table-item border">
-              <div class="flex items-center text-sm">
-                <div>
-                  -
-                </div>
-              </div>
-            </td>
-            <td class="table-item border">
-              <div class="flex items-center text-sm">
-                <div>
-                  -
-                </div>
-              </div>
-            </td>
-          </tr>
         </template>
+        <template #empty>
+                    <td class="table-item border">
+                        -
+                    </td>
+                    <td class="table-item border">
+                        -
+                    </td>
+                    <td class="table-item border">
+                        -
+                    </td>
+                </template>
       </Table>
     </div>
     <Destroy

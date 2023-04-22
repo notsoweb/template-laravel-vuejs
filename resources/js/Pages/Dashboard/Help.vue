@@ -23,15 +23,14 @@ defineProps({
         />
       </Link>
     </PageHeader>
-    <div class="w-full px-6 bg-white border-gray-200">
+    <div class="w-full bg-white border-gray-200">
       <div class="mt-8">
         <p v-text="$t('help.description')"></p>
       </div>
     </div>
     <div class="w-full">
-      <Table>
+      <Table :items="{total:1}">
         <template #head>
-          <tr class="table-head">
             <th
               class="table-item"
               v-text="$t('icon')"
@@ -40,7 +39,6 @@ defineProps({
               class="table-item"
               v-text="$t('description')"
             />
-          </tr>
         </template>
         <template #body>
           <Item icon="home">

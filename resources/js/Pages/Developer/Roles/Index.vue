@@ -46,25 +46,23 @@ const modelModal   = ref(Modal.modelModal);
             </Link>
         </PageHeader>
         <div class="pt-2 w-full">
-            <Table :links="roles.links">
+            <Table :items="roles">
                 <template #head>
-                    <tr class="table-head">
-                        <th
-                            class="table-item"
-                            v-text="$t('role')"
-                        />
-                        <th
-                            class="table-item"
-                            v-text="$t('description')"
-                        />
-                        <th
-                            class="table-item"
-                            v-text="$t('actions')"
-                        />
-                    </tr>
+                    <th
+                        class="table-item"
+                        v-text="$t('role')"
+                    />
+                    <th
+                        class="table-item"
+                        v-text="$t('description')"
+                    />
+                    <th
+                        class="table-item"
+                        v-text="$t('actions')"
+                    />
                 </template>
-                <template #body>
-                    <tr v-for="role in roles.data" class="text-gray-700">
+                <template #body="{items}">
+                    <tr v-for="role in items" class="text-gray-700">
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>
