@@ -1,7 +1,9 @@
 <script setup>
+import { goTo } from './Component';
 import { useForm } from '@inertiajs/vue3';
 
 import DestroyModal from '@/Components/Dashboard/Modal/Destroy.vue';
+import Header       from '@/Components/Dashboard/Modal/Elements/Header.vue';
 
 const emit = defineEmits([
     'close', 
@@ -9,17 +11,17 @@ const emit = defineEmits([
 ]);
 
 const props = defineProps({
-    role: Object,
+    model: Object,
     show: Boolean
 });
 
-const form = useForm({});
+const form = useForm(props.model);
 
 const destroy = (id) => {
-    form.delete(route('developer.roles.destroy', {id}),{
+    form.delete(route(goTo('destroy'), {id}),{
         preserveScroll: true,
         onSuccess: () => {
-            props.role.pop;
+            props.model.pop;
             emit('close');
             Notify.success(lang('roles.deleted'));
         },
@@ -32,15 +34,13 @@ const destroy = (id) => {
 </script>
 
 <template>
-    <DestroyModal :show="show" @destroy="destroy(role.id)" @close="$emit('close')">
-        <div class="w-full right-0 mt-2">
-            <div class="bg-white rounded overflow-hidden shadow-lg">
-                <div class="text-center p-6 bg-gray-800 border-b">
-                    <p class="pt-2 text-lg font-bold text-gray-50">
-                        {{role.name}}
-                    </p>
-                </div>
-            </div>
-        </div>
+    <DestroyModal
+        :show="show"
+        @destroy="destroy(model.id)"
+        @close="$emit('close')"
+    >
+        <Header
+            :title="model.name"
+        />
     </DestroyModal>
 </template>

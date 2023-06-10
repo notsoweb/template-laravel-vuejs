@@ -3,12 +3,12 @@ import DangerButton    from '@/Components/Dashboard/Button/Danger.vue';
 import SecondaryButton from '@/Components/Dashboard/Button/Secondary.vue';
 import DialogModal     from '@/Components/Dashboard/DialogModal.vue';
     
-const emit = defineEmits([
+defineEmits([
     'close',
     'destroy',
 ]);
 
-const props = defineProps({
+defineProps({
     show: Boolean,
     title: {
         default: lang('delete.title'),
@@ -26,7 +26,11 @@ const props = defineProps({
             />
         </template>
         <template #content>
-            <slot />
+            <div class="w-full right-0 mt-2">
+                <div class="bg-white rounded overflow-hidden shadow-lg">
+                    <slot />
+                </div>
+            </div>
             <p 
                 class="mt-4 text-justify text-danger"
                 v-text="$t('delete.confirm')"

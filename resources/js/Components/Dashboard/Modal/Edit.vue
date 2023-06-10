@@ -25,7 +25,11 @@ const props = defineProps({
             />
         </template>
         <template #content>
-            <slot />
+            <div class="w-full right-0 mt-2">
+                <div class="rounded overflow-hidden">
+                    <slot />
+                </div>
+            </div>
         </template>
         <template #footer>
             <div class="space-x-2">

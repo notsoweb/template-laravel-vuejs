@@ -64,6 +64,7 @@ class User extends Authenticatable
      */
     protected $appends = [
         'full_name',
+        'full_last_name',
         'profile_photo_url',
     ];
 
@@ -81,6 +82,14 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return "{$this->name} {$this->paternal} {$this->maternal}";
+    }
+
+     /**
+     * Retorna el apellido completo del usuario
+     */
+    public function getFullLastNameAttribute()
+    {
+        return "{$this->paternal} {$this->maternal}";
     }
 
     /**

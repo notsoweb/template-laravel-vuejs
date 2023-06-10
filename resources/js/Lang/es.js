@@ -141,11 +141,12 @@ export default {
     profile:'Perfil',
     readed:'Leído',
     register: {
-        agree:'Estoy deacuerdo con los',
+        agree:'Estoy de acuerdo con los',
         privacy:'Política de Privacidad',
         signUp:'Registrarme',
         terms:'Términos de Servicio',
     },
+    remove: 'Remover',
     role:'Rol',
     roles:{
         create: {
@@ -160,6 +161,8 @@ export default {
     save:'Guardar',
     saved:'¡Guardado!',
     search:'Buscar',
+    selected: 'Seleccionado',
+    select: 'Seleccionar',
     show: {
         all:'Mostrar todo',
         title:'Mostrar',
@@ -167,9 +170,9 @@ export default {
     startDate:'Fecha de inicio',
     status:'Estado',
     terms: {
-        agree:'Estoy deacuerdo con los',
+        agree:'Estoy de acuerdo con los',
         privacy:'Política de privacidad',
-        service:'Terminos de servicio',
+        service:'Términos de servicio',
     },
     unknown:'Desconocido',
     update:'Actualizar',
@@ -193,9 +196,9 @@ export default {
         roles: {
             description:'Actualiza los roles de los usuarios, permitiendo o denegando los accesos a determinadas áreas.',
             error:{
-                min:'Seleccionar minumo un role'
+                min:'Seleccionar mínimo un role'
             },
-            title:'Roles',
+            title:'Roles de usuario',
         },
         select:'Seleccionar un usuario',
         settings:'Ajustes del usuario',

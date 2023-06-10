@@ -1,7 +1,7 @@
 <script setup>
+import { can, goTo, transl } from './Component';
 import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
-import { hasPermission } from '@/rolePermission.js';
 import ModalController from '@/Controllers/ModalController.js';
 
 import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
@@ -11,7 +11,7 @@ import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import DestroyView     from './Destroy.vue';
 import EditView        from './Edit.vue';
 
-const props = defineProps({
+defineProps({
     roles: Object
 });
 
@@ -25,7 +25,7 @@ const modelModal   = ref(Modal.modelModal);
 </script>
 
 <template>
-    <DashboardLayout :title="$t('roles.title')">
+    <DashboardLayout :title="transl('title')">
         <PageHeader>
             <Link :href="route('dashboard.index')">
                 <GoogleIcon
@@ -35,8 +35,8 @@ const modelModal   = ref(Modal.modelModal);
                 />
             </Link>
             <Link
-                v-if="hasPermission('roles.create')"
-                :href="route('developer.roles.create')"
+                v-if="can('create')"
+                :href="route(goTo('create'))"
             >
                 <GoogleIcon
                     class="btn-icon-primary"
@@ -62,12 +62,12 @@ const modelModal   = ref(Modal.modelModal);
                     />
                 </template>
                 <template #body="{items}">
-                    <tr v-for="role in items" class="text-gray-700">
+                    <tr v-for="model in items" class="text-gray-700">
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>
                                 <p class="font-semibold text-black">
-                                    {{role.name}}
+                                    {{ model.name }}
                                 </p>
                             </div>
                           </div>
@@ -76,7 +76,7 @@ const modelModal   = ref(Modal.modelModal);
                           <div class="flex items-center text-sm">
                             <div>
                                 <p class="font-semibold text-black">
-                                    {{role.description}}
+                                    {{ model.description }}
                                 </p>
                             </div>
                           </div>
@@ -84,18 +84,18 @@ const modelModal   = ref(Modal.modelModal);
                         <td class="table-item border">
                             <div class="flex justify-center space-x-2">
                                 <GoogleIcon
-                                    v-if="hasPermission('roles.edit')"
+                                    v-if="can('edit')"
                                     class="btn-icon-primary"
                                     name="edit"
                                     outline
-                                    @click="Modal.switchEditModal(role)"
+                                    @click="Modal.switchEditModal(model)"
                                 />
                                 <GoogleIcon
-                                    v-if="hasPermission('roles.destroy')"
+                                    v-if="can('destroy')"
                                     class="btn-icon-primary"
                                     name="delete"
                                     outline
-                                    @click="Modal.switchDestroyModal(role)"
+                                    @click="Modal.switchDestroyModal(model)"
                                 />
                             </div>
                         </td>
@@ -104,14 +104,14 @@ const modelModal   = ref(Modal.modelModal);
             </Table>
         </div>
         <EditView
-            v-if="hasPermission('roles.edit')"
-            :role="modelModal"
+            v-if="can('edit')"
+            :model="modelModal"
             :show="editModal"
             @close="Modal.switchEditModal"
         />
         <DestroyView
-            v-if="hasPermission('roles.destroy')"
-            :role="modelModal"
+            v-if="can('destroy')"
+            :model="modelModal"
             :show="destroyModal"
             @close="Modal.switchDestroyModal"
         />

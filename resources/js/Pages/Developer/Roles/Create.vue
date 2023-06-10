@@ -1,4 +1,5 @@
 <script setup>
+import { goTo, transl } from './Component';
 import { Link, useForm } from '@inertiajs/vue3';
 
 import PrimaryButton   from '@/Components/Dashboard/Button/Primary.vue';
@@ -8,22 +9,18 @@ import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 
 const form = useForm({
-    name: '',
-    description: ''
+  name: '',
+  description: ''
 });
 
-const submit = () => {
-    form.post(route('developer.roles.store'), {
-        onSuccess: (res) => {
-            Notify.success(lang('roles.create.onSuccess'));
-        },
-        onError: () => Notify.success(lang('roles.create.onError'))
-    });
-};
+const submit = () => form.post(route('developer.roles.store'), {
+    onSuccess: () => Notify.success(transl('create.onSuccess')),
+    onError:   () => Notify.success(transl('create.onError'))
+});
 </script>
 
 <template>
-  <DashboardLayout :title="$t('roles.create.title')">
+  <DashboardLayout :title="transl('create.title')">
     <PageHeader>
       <Link :href="route('dashboard.index')">
         <GoogleIcon
@@ -32,7 +29,7 @@ const submit = () => {
           outline
         />
       </Link>
-      <Link :href="route('developer.roles.index')">
+      <Link :href="route(goTo('index'))">
         <GoogleIcon
           class="btn-icon-primary"
           name="arrow_back"
@@ -42,7 +39,7 @@ const submit = () => {
     </PageHeader>
     <div class="w-full pb-8">
       <div class="mt-8">
-        <p v-text="$t('roles.create.description')" />
+        <p v-text="transl('create.description')" />
       </div>
     </div>
     <div class="w-full">
@@ -67,7 +64,7 @@ const submit = () => {
                 <PrimaryButton
                     :class="{ 'opacity-25': form.processing }" 
                     :disabled="form.processing"
-                    v-text="$t('roles.create.title')"
+                    v-text="transl('create.title')"
                 />
             </div>
         </form>
