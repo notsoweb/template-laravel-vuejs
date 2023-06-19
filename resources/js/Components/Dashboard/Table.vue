@@ -9,8 +9,8 @@ const props = defineProps({
 </script>
 
 <template>
-    <section class="py-6">
-        <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+    <section class="py-4">
+        <div class="w-full mb-4 overflow-hidden rounded-md shadow-lg">
             <div class="w-full overflow-x-auto">
                 <table class="w-full">
                     <thead>

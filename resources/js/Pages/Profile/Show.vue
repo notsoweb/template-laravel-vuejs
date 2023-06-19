@@ -1,9 +1,6 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
-
 import PageHeader                     from '@/Components/Dashboard/PageHeader.vue';
 import SectionBorder                  from '@/Components/Dashboard/SectionBorder.vue';
-import GoogleIcon                     from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout                from '@/Layouts/DashboardLayout.vue';
 import DeleteUserForm                 from './Partials/DeleteUserForm.vue';
 import LogoutOtherBrowserSessionsForm from './Partials/LogoutOtherBrowserSessionsForm.vue';
@@ -19,17 +16,9 @@ defineProps({
 
 <template>
     <DashboardLayout :title="$t('profile')">
-        <PageHeader>
-          <Link :href="route('dashboard.index')">
-            <GoogleIcon
-              class="btn-icon-primary"
-              name="home"
-              outline
-            />
-          </Link>
-        </PageHeader>
+        <PageHeader />
 
-        <div class="w-full mt-8">
+        <div class="w-full mt-4">
             <div v-if="$page.props.jetstream.canUpdateProfileInformation">
                 <UpdateProfileInformationForm
                     :user="$page.props.user"

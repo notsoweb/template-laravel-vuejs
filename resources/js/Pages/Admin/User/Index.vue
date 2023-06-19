@@ -33,13 +33,6 @@ const query        = ref(Searcher.query);
 <template>
     <DashboardLayout :title="transl('system')">
         <SearcherHead @search="Searcher.search">
-            <Link :href="route('dashboard.index')">
-                <GoogleIcon
-                    class="btn-icon-primary"
-                    name="home"
-                    outline
-                />
-            </Link>
             <Link
             v-if="can('create')"
                 :href="route(goTo('create'))"

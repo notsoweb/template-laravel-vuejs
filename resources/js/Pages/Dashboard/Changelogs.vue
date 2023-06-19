@@ -1,10 +1,7 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
-
 import Item            from '@/Components/Dashboard/Help/Item.vue';
 import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
 import Table           from '@/Components/Dashboard/Table.vue';
-import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 
 defineProps({
@@ -14,17 +11,9 @@ defineProps({
 
 <template>
   <DashboardLayout :title="$t('changelogs.title')">
-    <PageHeader>
-      <Link :href="route('dashboard.index')">
-        <GoogleIcon
-          class="btn-icon-primary"
-          name="home"
-          outline
-        />
-      </Link>
-    </PageHeader>
-    <div class="w-full px-6">
-      <div class="mt-8">
+    <PageHeader />
+    <div class="w-full">
+      <div class="mt-4">
         <p
           v-text="$t('changelogs.description')"
         />

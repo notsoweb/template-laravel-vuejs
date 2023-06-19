@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { Link } from '@inertiajs/vue3';
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 
 const emit = defineEmits([
@@ -43,6 +44,13 @@ const search = () => {
         </div>
         <div class="flex items-center space-x-2 text-sm" id="buttons">
             <slot />
+            <Link :href="route('dashboard.index')">
+                <GoogleIcon
+                    class="btn-icon-primary"
+                    name="home"
+                    outline
+                />
+            </Link>
         </div>
 	</div>
 </template>

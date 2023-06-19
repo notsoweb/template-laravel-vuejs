@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { Link, router} from '@inertiajs/vue3'
+import { router } from '@inertiajs/vue3'
 import { hasRole, hasPermission }  from '@/rolePermission.js';
 import InboxController from '@/Controllers/InboxController.js';
 import ModalController from '@/Controllers/ModalController.js';
@@ -8,10 +8,7 @@ import ModalController from '@/Controllers/ModalController.js';
 
 import IconPrimary     from '@/Components/Dashboard/Button/Primary.vue';
 import Input           from '@/Components/Dashboard/Form/Input.vue';
-import Item            from '@/Components/Dashboard/Help/Item.vue';
 import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
-import Table           from '@/Components/Dashboard/Table.vue';
-import Icon            from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import ShowView        from './HistoryLog/Show.vue';
@@ -72,17 +69,9 @@ const searchWithPagination = (page) =>  {
 
 <template>
   <DashboardLayout :title="$t('history.title')">
-    <PageHeader>
-      <Link :href="route('dashboard.index')">
-        <Icon
-          class="btn-icon-primary"
-          name="home"
-          outline
-        />
-      </Link>
-    </PageHeader>
+    <PageHeader />
     <div class="w-full  bg-white border-gray-200">
-      <div class="mt-8">
+      <div class="mt-4">
         <p v-text="$t('history.description')" />
       </div>
     </div>
@@ -163,7 +152,7 @@ const searchWithPagination = (page) =>  {
                 <InboxItem>
                     <template #item>
                         <span class="w-24 pr-2 truncate">-</span>
-                        <span class="w-96 truncate">Sin resultados</span>
+                        <span class="w-full truncate">Sin resultados</span>
                     </template>
                     <template #date>
                        -

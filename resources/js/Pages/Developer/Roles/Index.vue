@@ -27,13 +27,6 @@ const modelModal   = ref(Modal.modelModal);
 <template>
     <DashboardLayout :title="transl('title')">
         <PageHeader>
-            <Link :href="route('dashboard.index')">
-                <GoogleIcon
-                    class="btn-icon-primary"
-                    name="home"
-                    outline
-                />
-            </Link>
             <Link
                 v-if="can('create')"
                 :href="route(goTo('create'))"
