@@ -53,11 +53,11 @@ background: #d4d4d4;
 @tailwind utilities;
 
 .btn-icon-primary {
-  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-primary hover:text-primary hover:bg-gray-300 hover:border-gray-800 transition cursor-pointer;
+  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-primary hover:text-white hover:bg-secondary hover:border-primary transition cursor-pointer;
 }
 
 .btn-icon-secondary {
-  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-secondary hover:text-secondary hover:bg-gray-300 hover:border-secondary transition cursor-pointer;
+  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-secondary hover:text-secondary hover:bg-primary hover:border-secondary transition cursor-pointer;
 }
 
 .header-icon {

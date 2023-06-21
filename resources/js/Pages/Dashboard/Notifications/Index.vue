@@ -71,15 +71,7 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
 
 <template>
   <DashboardLayout :title="$t('notifications.title')">
-    <PageHeader>
-      <Link :href="route('dashboard.index')">
-          <Icon
-            class="btn-icon-primary"
-            name="home"
-            outline
-          />
-      </Link>
-    </PageHeader>
+    <PageHeader />
     <div class="w-full  bg-white border-gray-200">
       <div class="mt-8">
         <p v-text="$t('notifications.description')" />

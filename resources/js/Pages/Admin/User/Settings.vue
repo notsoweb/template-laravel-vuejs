@@ -30,7 +30,7 @@ defineProps({
           </Link>
         </PageHeader>
         <div class="flex w-full pt-2">
-            <div class="w-full text-center p-2 bg-gray-800 border-b rounded-lg">
+            <div class="w-full text-center p-2 bg-primary border-b rounded-lg">
                 <p class="pt-2 text-lg font-bold text-gray-50">
                     {{ user.name }}
                 </p>
