@@ -35,13 +35,13 @@ onUpdated(() => {
 
 <template>
     <li
-        class="flex items-center rounded-lg border-y px-2 min-h-[40px] md:min-h-[35px] transition"
-        :class="{'bg-secondary text-white':checked, 'hover:bg-gray-300 md:hover:bg-gray-200':!checked}"
+        class="flex items-center border-y px-2 min-h-[40px] md:min-h-[35px] transition duration-300"
+        :class="{'bg-primary text-primary-on dark:bg-primary-dark dark:text-primary-dark-on':checked, 'text-primary dark:text-primary-dark hover:bg-primary/30 dark:hover:bg-primary-dark/30 hover:text-primary-on dark:hover:text-primary-dark-on':!checked}"
     >
         <div class="pr-2">
             <input
                 type="checkbox"
-                class="focus:ring-0 border-2 border-gray-400"
+                class="mt-1 focus:ring-0 border-2 border-primary"
                 ref="check"
                 :checked="selectAll"
                 @click="selectOne"

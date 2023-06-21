@@ -35,12 +35,11 @@ class SearcherController
     }
 
     /**
-     * Búsqueda con páginación en tablas
+     * Búsqueda con paginación en tablas
      */
     searchWithPagination = (page, params) =>  {
-        router.get(this._getRoute(), {
+        router.get(page, {
             q: this.query.value,
-            page,
             ...params
         }, {preserveState: true});
     }

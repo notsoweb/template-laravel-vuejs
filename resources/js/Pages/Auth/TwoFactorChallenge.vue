@@ -50,7 +50,7 @@ onMounted(()=>{
             />
         </template>
 
-        <div class="mb-4 text-sm text-gray-600">
+        <div class="mb-4 text-sm">
             <template v-if="! recovery">
                 {{$t('account.twoFactor.login.onAuth')}}
             </template>
@@ -82,7 +82,7 @@ onMounted(()=>{
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <button type="button" class="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer" @click.prevent="toggleRecovery">
+                <button type="button" class="text-sm underline cursor-pointer" @click.prevent="toggleRecovery">
                     <template v-if="! recovery">
                         {{$t('account.twoFactor.recovery.useCode')}}
                     </template>

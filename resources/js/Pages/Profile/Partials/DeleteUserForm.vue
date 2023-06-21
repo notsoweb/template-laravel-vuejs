@@ -48,7 +48,7 @@ const closeModal = () => {
         </template>
 
         <template #content>
-            <div class="max-w-xl text-sm text-gray-600">
+            <div class="max-w-xl text-sm">
                 {{$t('account.delete.onDelete')}}
             </div>
 

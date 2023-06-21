@@ -21,7 +21,7 @@ const search = () => {
 }
 </script>
 <template>
-   <div class="flex w-full justify-between items-center border-y-2 border-gray-800">
+   <div class="flex w-full justify-between items-center border-y-2 border-primary dark:border-primary-on">
         <div>
             <div class="relative py-1 z-0">
                 <div  @click="search" class="absolute inset-y-0 right-2 flex items-center pl-3 cursor-pointer text-gray-700 hover:scale-110 hover:text-danger">
@@ -33,7 +33,7 @@ const search = () => {
                 </div>
                 <input
                     id="search"
-                    class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg outline-0 focus:ring-primary focus:border-primary block sm:w-56 md:w-72 lg:w-80 pr-10 px-2.5 py-1"
+                    class="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg outline-0 focus:ring-primary focus:border-primary block sm:w-56 md:w-72 lg:w-80 pr-10 px-2.5 py-1"
                     autocomplete="off"
                     :placeholder="placeholder"
                     required

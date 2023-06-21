@@ -2,19 +2,17 @@
 import { ref } from 'vue';
 import { router } from '@inertiajs/vue3'
 import { hasRole, hasPermission }  from '@/rolePermission.js';
+
 import InboxController from '@/Controllers/InboxController.js';
 import ModalController from '@/Controllers/ModalController.js';
-
 
 import IconPrimary     from '@/Components/Dashboard/Button/Primary.vue';
 import Input           from '@/Components/Dashboard/Form/Input.vue';
 import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
-import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
+import InboxBody       from '@/Components/Dashboard/Inbox.vue';
+import InboxItem       from '@/Components/Dashboard/Inbox/Item.vue';
 import ShowView        from './HistoryLog/Show.vue';
-
-import InboxBody      from '@/Components/Dashboard/Inbox.vue';
-import InboxItem      from '@/Components/Dashboard/Inbox/Item.vue';
 
 defineProps({
   users: String,
@@ -70,7 +68,7 @@ const searchWithPagination = (page) =>  {
 <template>
   <DashboardLayout :title="$t('history.title')">
     <PageHeader />
-    <div class="w-full  bg-white border-gray-200">
+    <div class="w-full">
       <div class="mt-4">
         <p v-text="$t('history.description')" />
       </div>

@@ -39,7 +39,7 @@ const destroy = (id) => {
     >
         <div class="w-full right-0 mt-2">
             <div class="bg-white rounded overflow-hidden shadow-lg">
-                <div class="text-center p-6 bg-primary border-b">
+                <div class="text-center p-6 bg-primary dark:bg-primary-dark border-b">
                     <p class="pt-2 text-lg font-bold text-gray-50">
                         {{notification.data.message}}
                     </p>

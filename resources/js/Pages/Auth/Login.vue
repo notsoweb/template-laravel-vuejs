@@ -40,7 +40,7 @@ const submit = () => {
         </template>
 
         <div v-if="status"
-            class="mb-4 font-medium text-sm text-green-600"
+            class="mb-4 font-medium text-sm text-success"
         >
             {{status}}
         </div>
@@ -68,7 +68,7 @@ const submit = () => {
                         v-model:checked="form.remember"
                     />
                     <span
-                        class="ml-2 text-sm text-gray-600"
+                        class="ml-2 text-sm"
                         v-text="$t('auth.remember')"
                     />
                 </label>
@@ -92,7 +92,7 @@ const submit = () => {
                     />
                 </Link>
                 <Link v-if="canResetPassword"
-                    class="underline text-sm text-gray-600 hover:text-gray-900" 
+                    class="underline text-sm" 
                     :href="route('password.request')" 
                 >
                     {{ $t('auth.forgotPassword.ask') }}

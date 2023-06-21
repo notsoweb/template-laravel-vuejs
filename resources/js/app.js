@@ -11,6 +11,7 @@ import Swal from 'sweetalert2'
 import { SessionFresh } from './sessionFresh';
 import { TailwindScreen } from './tailwindScreen';
 import { i18n, t } from '@/Lang/i18n';
+import { bootTheme, darkMode, verifyDarkMode } from './darkMode';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
@@ -20,6 +21,9 @@ window.Notify = new Notify();
 window.sessionFresh = new SessionFresh();
 window.Swal = Swal;
 window.TwScreen = new TailwindScreen();
+window.darkMode = darkMode;
+
+bootTheme();
 
 createInertiaApp({
     progress: {

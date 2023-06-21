@@ -33,7 +33,7 @@ defineProps({
         </template>
         <template #body>
           <Item version="0.1.0">
-            <p class="font-semibold text-black">
+            <p class="font-semibold">
               <ul class="list-disc list-inside">
                 <li>Inicio del proyecto.</li>
               </ul>

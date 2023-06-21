@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import GoogleIcon from '../Shared/GoogleIcon.vue';
 
 const emit = defineEmits([
@@ -79,7 +79,7 @@ const checked = () => {
                                 />
                             </div>
                             <button v-else-if="k === 0" class="px-2 py-1 text-sm leading-4 border rounded" 
-                                :class="{ 'bg-primary text-white': link.active }"
+                                :class="{ 'bg-primary dark:bg-primary-dark text-white': link.active }"
                                 @click="$emit('send-pagination', link.url)"
                             >
                                 <GoogleIcon
@@ -94,7 +94,7 @@ const checked = () => {
                                 />
                             </div>
                             <button v-else-if="k === (links.length - 1)" class="px-2 py-1 text-sm leading-4 border rounded" 
-                                :class="{ 'bg-primary text-white': link.active }"
+                                :class="{ 'bg-primary dark:bg-primary-dark text-white': link.active }"
                                 @click="$emit('send-pagination', link.url)"
                             >
                                 <GoogleIcon
@@ -102,7 +102,7 @@ const checked = () => {
                                 />
                             </button>
                             <button v-else class="px-2 py-1 text-sm leading-4 border rounded" 
-                                :class="{ 'bg-primary text-white': link.active }"
+                                :class="{ 'bg-primary dark:bg-primary-dark text-primary-on dark:text-primary-dark-on': link.active }"
                                 v-html="link.label"
                                 @click="$emit('send-pagination', link.url)"
                             ></button>

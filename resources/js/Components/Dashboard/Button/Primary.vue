@@ -11,7 +11,7 @@ defineProps({
 
 <template>
     <Base
-        class="bg-primary"
+        class="bg-primary dark:bg-primary-dark dark:border-primary-dark-on"
         :type="type"
     >
         <slot />

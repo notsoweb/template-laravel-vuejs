@@ -37,8 +37,11 @@ class RoleController extends VueController
      */
     public function index()
     {
+        $q = request()->get('q');
+
         return $this->vuew('index', [
             'roles' => Role::orderBy('name', 'ASC')
+                ->where('name', 'LIKE', "%{$q}%")
                 ->select([
                     'id', 
                     'name',

@@ -27,7 +27,7 @@ const formatTime = (date) => {
   <DashboardLayout :title="$t('notifications.title')">
     <PageHeader />
     <div class="w-full grid sm:grid-cols-2 lg:grid-cols-4 mt-8">
-      <div class="bg-primary text-white text-center">
+      <div class="bg-primary dark:bg-primary-dark text-white text-center">
           <p class="p-2">
             {{$t('date')}}
           </p>
@@ -37,7 +37,7 @@ const formatTime = (date) => {
             {{ formatDate(notification.created_at) }}
           </p>
       </div>
-      <div class="bg-primary text-white text-center">
+      <div class="bg-primary dark:bg-primary-dark text-white text-center">
           <p class="p-2">
             {{$t('hour')}}
           </p>
@@ -61,7 +61,7 @@ const formatTime = (date) => {
       </div>
     </div>
     <div class="flex justify-center mt-8">
-        <Link :href="route('dashboard.notifications.index')" class="inline-flex w-fit py-1 px-4 justify-center bg-primary hover:bg-secondary text-white rounded-lg transition">
+        <Link :href="route('dashboard.notifications.index')" class="inline-flex w-fit py-1 px-4 justify-center bg-primary dark:bg-primary-dark hover:bg-secondary dark:bg-secondary-dark text-white rounded-lg transition">
           {{$t('show.all')}}
         </Link>
     </div>

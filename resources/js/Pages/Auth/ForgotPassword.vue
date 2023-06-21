@@ -30,11 +30,11 @@ const submit = () => {
             />
         </template>
 
-        <div class="mb-4 text-sm text-gray-600">
+        <div class="mb-4 text-sm">
             {{$t('auth.forgotPassword.description')}}
         </div>
         
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+        <div v-if="status" class="mb-4 font-medium text-sm text-success">
             {{ status }}
         </div>
 

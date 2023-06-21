@@ -29,22 +29,22 @@ defineProps({
         >
         </Header>
         <div class="py-2 border-b">
-            <div class="px-4 py-2 hover:bg-gray-100 flex">
+            <div class="px-4 py-2 flex">
                 <GoogleIcon 
-                    class="text-xl text-green-600"
+                    class="text-xl text-success"
                     name="contact_mail"
                 />
                 <div class="pl-3">
-                    <p class="font-bold  text-lg text-gray-900 leading-none pb-2">
+                    <p class="font-bold text-lg leading-none pb-2">
                         {{ $t('contact') }}
                     </p>
-                    <p class="text-gray-800">
+                    <p>
                         <b>{{ $t('phone') }}: </b>
                         <a :href="`tel:${model.phone}`" target="_blank" class="hover:text-danger">
                             {{ model.phone }}
                         </a>
                     </p>
-                    <p class="text-gray-800">
+                    <p>
                         <b>{{ $t('email') }}: </b>
                         <a :href="`mailto:${model.email}`" target="_blank" class="hover:text-danger">
                             {{ model.email }}

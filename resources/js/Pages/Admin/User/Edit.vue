@@ -37,7 +37,7 @@ const update = (id) => {
     <EditModal
         :show="show"
         @close="$emit('close')"
-        @update="update(user.id)" 
+        @update="update(model.id)" 
     >
         <Header
             :title="model.name"
@@ -50,7 +50,7 @@ const update = (id) => {
                         <Input
                             id="name"
                             placeholder="Nombre"
-                            v-model="props.name"
+                            v-model="model.name"
                             :onError="form.errors.name"
                             required
                         />

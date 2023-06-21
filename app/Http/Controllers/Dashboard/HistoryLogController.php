@@ -60,7 +60,7 @@ class HistoryLogController extends VueController
                     'users.paternal',
                 ])
                 ->orderBy('created_at', 'Desc')
-                ->paginate(5)
+                ->paginate(config('app.pagination'))
         ]);
     }
 }

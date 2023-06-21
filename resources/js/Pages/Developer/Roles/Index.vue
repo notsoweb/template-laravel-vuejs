@@ -2,9 +2,11 @@
 import { can, goTo, transl } from './Component';
 import { ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
-import ModalController from '@/Controllers/ModalController.js';
 
-import PageHeader      from '@/Components/Dashboard/PageHeader.vue';
+import ModalController from '@/Controllers/ModalController.js';
+import SearcherController from '@/Controllers/SearcherController.js';
+
+import SearcherHead    from '@/Components/Dashboard/Searcher.vue';
 import Table           from '@/Components/Dashboard/Table.vue';
 import GoogleIcon      from '@/Components/Shared/GoogleIcon.vue';
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
@@ -17,16 +19,18 @@ defineProps({
 
 // Controladores
 const Modal = new ModalController();
+const Searcher = new SearcherController(goTo('index'));
 
 // Variables de controladores
 const destroyModal = ref(Modal.destroyModal);
 const editModal    = ref(Modal.editModal);
 const modelModal   = ref(Modal.modelModal);
+const query        = ref(Searcher.query);
 </script>
 
 <template>
     <DashboardLayout :title="transl('title')">
-        <PageHeader>
+        <SearcherHead @search="Searcher.search">
             <Link
                 v-if="can('create')"
                 :href="route(goTo('create'))"
@@ -38,9 +42,9 @@ const modelModal   = ref(Modal.modelModal);
                     outline
                 />
             </Link>
-        </PageHeader>
+        </SearcherHead>
         <div class="pt-2 w-full">
-            <Table :items="roles">
+            <Table :items="roles" @send-pagination="Searcher.searchWithPagination">
                 <template #head>
                     <th
                         class="table-item"
@@ -56,11 +60,11 @@ const modelModal   = ref(Modal.modelModal);
                     />
                 </template>
                 <template #body="{items}">
-                    <tr v-for="model in items" class="text-gray-700">
+                    <tr v-for="model in items">
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>
-                                <p class="font-semibold text-black">
+                                <p class="font-semibold">
                                     {{ model.name }}
                                 </p>
                             </div>
@@ -69,13 +73,13 @@ const modelModal   = ref(Modal.modelModal);
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>
-                                <p class="font-semibold text-black">
+                                <p class="font-semibold">
                                     {{ model.description }}
                                 </p>
                             </div>
                           </div>
                         </td>
-                        <td class="table-item border">
+                        <td class="table-item border w-40">
                             <div class="flex justify-center space-x-2">
                                 <GoogleIcon
                                     v-if="can('edit')"

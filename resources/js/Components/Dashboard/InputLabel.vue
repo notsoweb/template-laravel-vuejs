@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <label class="block font-medium text-sm text-gray-700">
+    <label class="block font-medium text-sm">
         <span v-if="value">
             {{ value }}
         </span>

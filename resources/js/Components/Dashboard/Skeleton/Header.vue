@@ -1,6 +1,7 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import { router, Link} from '@inertiajs/vue3';
+import { darkMode, theme, verifyDarkMode } from '@/darkMode';
 
 import NotificationController from '@/Controllers/NotificationController';
 
@@ -29,6 +30,9 @@ const notifications = ref(notificationCtl.notifications);
 // Otras variables
 const userId = router.page.props.user.id;
 
+// 
+const darkModeStatus = ref(theme);
+
 // Métodos
 const logout = () => {
   router.post(route('logout'), {}, {
@@ -45,10 +49,10 @@ onMounted(()=>{
 
 <template>
     <header
-      class="fixed px-2 w-[calc(100vw)] bg-white md:bg-transparent transition-all duration-300 z-50"
+      class="fixed px-2 w-[calc(100vw)] bg-page dark:bg-page-dark md:bg-transparent transition-all duration-300 z-50"
       :class="{'md:w-[calc(100vw-16rem)]':sidebar,'md:w-[calc(100vw)]':!sidebar}"
     >
-      <div class="my-2 flex px-6 items-center justify-between h-[2.75rem] rounded-lg bg-primary text-white z-20 ">
+      <div class="my-2 flex px-6 items-center justify-between h-[2.75rem] rounded-lg bg-primary dark:bg-primary-dark text-white z-20 ">
           <GoogleIcon
             :title="$t('menu')"
             class="text-2xl mt-1 z-50"
@@ -57,8 +61,24 @@ onMounted(()=>{
             outline
           />
         <div class="flex w-fit justify-end items-center h-14 header-right">
-          <ul class="flex items-center space-x-4">
-            <li>
+          <ul class="flex items-center space-x-2">
+            <li v-if="darkModeStatus == 'light'">
+              <GoogleIcon
+                :title="$t('notifications.title')"
+                class="text-xl mt-1"
+                name="light_mode"
+                @click="darkMode(true)"
+              />
+            </li>
+            <li v-else>
+              <GoogleIcon
+                :title="$t('notifications.title')"
+                class="text-xl mt-1"
+                name="dark_mode"
+                @click="darkMode(false)"
+              />
+            </li>
+            <li class="pr-2">
               <div class="relative">
                 <Dropdown align="right" width="72">
                   <template #trigger>
@@ -100,7 +120,7 @@ onMounted(()=>{
                         </template>
                       </div>
                       <div class="border-t border-gray-100" />
-                      <Link :href="route('dashboard.notifications.index')" class="inline-flex w-full py-1 justify-center bg-primary hover:bg-secondary text-white transition">
+                      <Link :href="route('dashboard.notifications.index')" class="inline-flex w-full py-1 justify-center bg-primary dark:bg-primary-dark hover:bg-secondary dark:bg-secondary-dark text-white transition">
                           {{$t('show.all')}}
                       </Link>
                   </template>

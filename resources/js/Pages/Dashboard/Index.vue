@@ -5,7 +5,7 @@ import Layout  from '@/Layouts/DashboardLayout.vue';
 
 <template>
     <Layout title="Dashboard">
-        <div class="py-12">
+        <div class="py-4">
             <Welcome />
         </div>
     </Layout>

@@ -98,7 +98,7 @@ const submit = () => {
                             <a 
                                 target="_blank"
                                 :href="route('terms.show')"
-                                class="underline text-sm text-gray-600 hover:text-gray-900"
+                                class="underline text-sm"
                             >
                                     {{$t('register.terms')}}
                             </a>
@@ -106,7 +106,7 @@ const submit = () => {
                             <a
                                 target="_blank"
                                 :href="route('policy.show')"
-                                class="underline text-sm text-gray-600 hover:text-gray-900"
+                                class="underline text-sm"
                             >
                                 {{$t('register.privacy')}}
                             </a>
@@ -127,7 +127,7 @@ const submit = () => {
                     {{$t('register.signUp')}}
                 </PrimaryButton>
 
-                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                <Link :href="route('login')" class="underline text-sm">
                     {{$t('auth.register.already')}}
                 </Link>
             </div>

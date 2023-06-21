@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { Head, router } from '@inertiajs/vue3';
-import { hasRole, hasPermission } from "@/rolePermission.js";
+import { Head } from '@inertiajs/vue3';
+import { hasPermission } from "@/rolePermission.js";
 
 import Header  from '@/Components/Dashboard/Skeleton/Header.vue';
 import Sidebar from '@/Components/Dashboard/Skeleton/Sidebar.vue';
@@ -38,8 +38,8 @@ onMounted(()=> {
     <div class="flex w-full h-screen">
         <div 
             id="sidebar"
-            class="fixed w-fit p-2 rounded-full h-screen transition-all duration-300 z-10"
-            :class="{'-translate-x-64 md:-translate-x-0':sidebar, '-translate-x-0 md:-translate-x-64':!sidebar}"
+            class="fixed w-fit h-screen transition-all duration-300 z-10"
+            :class="{'-translate-x-[16.5rem] md:-translate-x-0':sidebar, '-translate-x-0 md:-translate-x-64':!sidebar}"
         >
             <Sidebar
                 :sidebar="sidebar"
@@ -105,7 +105,7 @@ onMounted(()=> {
                 />
             </div>
             <main id="page" class="flex h-full justify-center md:p-2">
-                <div  class="mt-12 md:mt-0 w-full shadow-lg h-full md:h-[calc(100vh-4.5rem)] px-2 md:px-8 pb-4 sm:px-6 lg:px-8 md:rounded-lg bg-white lg:py-4 md:overflow-y-auto md:overflow-x-auto">
+                <div  class="mt-14 md:mt-0 w-full shadow-lg h-fit md:h-[calc(100vh-4.5rem)] px-2 md:px-8 pb-4 sm:px-6 lg:px-8 md:rounded-lg bg-main text-main-on dark:bg-main-dark dark:text-main-dark-on lg:py-4 md:overflow-y-auto md:overflow-x-auto">
                     <div v-if="titlePage" class="flex w-full justify-center pt-4 lg:pt-0">
                         <h2
                             class="font-bold text-xl uppercase"

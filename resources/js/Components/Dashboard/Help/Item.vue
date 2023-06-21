@@ -8,11 +8,11 @@ defineProps({
 </script>
 
 <template>
-  <tr class="text-gray-700">
+  <tr>
     <td class="table-item border">
       <div class="flex items-center text-sm">
         <div class="flex justify-center text-center">
-          <p v-if="icon" class="text-center text-black">
+          <p v-if="icon" class="text-center">
             <GoogleIcon
               class="text-2xl"
               :name="icon"
@@ -21,7 +21,7 @@ defineProps({
           </p>
           <p 
             v-if="version"
-            class="text-center text-black"
+            class="text-center"
             v-text="version"
           />
         </div>

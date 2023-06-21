@@ -62,11 +62,11 @@ const query        = ref(Searcher.query);
                     />
                 </template>
                 <template #body="{items}">
-                    <tr v-for="model in items" class="text-gray-700">
+                    <tr v-for="model in items">
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
                             <div>
-                              <p class="font-semibold text-black">
+                              <p class="font-semibold">
                                 {{ model.full_name }}
                               </p>
                             </div>
@@ -74,21 +74,21 @@ const query        = ref(Searcher.query);
                         </td>
                         <td class="table-item border">
                           <div class="flex items-center text-sm">
-                            <div>
-                              <p class="font-semibold text-black">
+                            <div class="text-left">
+                              <p class="font-semibold">
                                 <a 
                                     :href="`mailto:${model.email}`"
-                                    class="hover:text-primary"
+                                    class="hover:underline"
                                     target="_blank"
                                 >
                                     {{ model.email }}
                                 </a>
                               </p>
-                              <p v-if="model.phone" class="font-semibold text-xs text-gray-600">
+                              <p v-if="model.phone" class="font-semibold text-xs">
                                 <b>Teléfono: </b>
                                 <a 
                                     :href="`tel:${model.phone}`"
-                                    class="hover:text-primary"
+                                    class="hover:underline"
                                     target="_blank"
                                 >
                                     {{ model.phone }}
@@ -97,7 +97,7 @@ const query        = ref(Searcher.query);
                             </div>
                           </div>
                         </td>
-                        <td class="table-item border">
+                        <td class="table-item border w-40">
                             <div class="flex justify-center space-x-2">
                                 <GoogleIcon
                                     :title="$t('crud.show')"

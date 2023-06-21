@@ -11,7 +11,7 @@ defineProps({
 
 <template>
     <Base
-        class="bg-secondary"
+        class="bg-secondary dark:bg-secondary-dark"
         :type="type"
     >
         <slot />

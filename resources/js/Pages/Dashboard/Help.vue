@@ -12,7 +12,7 @@ defineProps({
 <template>
   <DashboardLayout :title="$t('help.title')">
     <PageHeader />
-    <div class="w-full bg-white border-gray-200">
+    <div class="w-full">
       <div class="mt-4">
         <p v-text="$t('help.description')"></p>
       </div>
@@ -31,7 +31,7 @@ defineProps({
         </template>
         <template #body>
           <Item icon="home">
-            <p class="font-semibold text-black" v-text="$t('help.home')"/>
+            <p class="font-semibold" v-text="$t('help.home')"/>
           </Item>
         </template>
       </Table>

@@ -53,11 +53,11 @@ background: #d4d4d4;
 @tailwind utilities;
 
 .btn-icon-primary {
-  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-primary hover:text-white hover:bg-secondary hover:border-primary transition cursor-pointer;
+  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-primary dark:bg-primary-dark hover:text-white hover:bg-secondary dark:hover:bg-secondary-dark hover:border-primary transition cursor-pointer;
 }
 
 .btn-icon-secondary {
-  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-secondary hover:text-secondary hover:bg-primary hover:border-secondary transition cursor-pointer;
+  @apply flex w-fit px-1.5 py-0.5 rounded-md font-medium text-white bg-secondary dark:bg-secondary-dark hover:text-secondary hover:bg-primary dark:hover:bg-primary-dark hover:border-secondary transition cursor-pointer;
 }
 
 .header-icon {
@@ -73,7 +73,7 @@ background: #d4d4d4;
 }
 
 .table-head {
-  @apply text-base font-semibold tracking-wide text-left text-white bg-primary uppercase border-b border-gray-600 divide-indigo-50 divide-x;
+  @apply text-base font-semibold tracking-wide text-left text-white bg-primary dark:bg-primary-dark uppercase border-b border-primary dark:border-primary-dark divide-indigo-50 divide-x;
 }
 
 .table-item {
