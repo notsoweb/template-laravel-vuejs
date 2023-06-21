@@ -29,7 +29,7 @@ const submit = () => {
 
 <template>
     <Head
-        title="Register"
+        :title="$t('Register')"
     />
     <AuthenticationCard>
         <template #logo>
@@ -64,7 +64,7 @@ const submit = () => {
                 :onError="form.errors.phone"
             />
             <Input
-                id="email"
+                id="email.title"
                 type="email"
                 v-model="form.email"
                 :onError="form.errors.email"

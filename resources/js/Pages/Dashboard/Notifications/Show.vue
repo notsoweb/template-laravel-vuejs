@@ -25,15 +25,7 @@ const formatTime = (date) => {
 
 <template>
   <DashboardLayout :title="$t('notifications.title')">
-    <PageHeader>
-      <Link :href="route('dashboard.index')">
-          <GoogleIcon
-            class="btn-icon-primary"
-            name="home"
-            outline
-          />
-      </Link>
-    </PageHeader>
+    <PageHeader />
     <div class="w-full grid sm:grid-cols-2 lg:grid-cols-4 mt-8">
       <div class="bg-primary text-white text-center">
           <p class="p-2">

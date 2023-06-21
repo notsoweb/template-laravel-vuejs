@@ -27,7 +27,7 @@ const submit = () => {
 
 <template>
     <Head
-        title="Reset Password"
+        :title="$t('passwordReset')"
     />
     <AuthenticationCard>
         <template #logo>
@@ -37,7 +37,7 @@ const submit = () => {
         </template>
         <form @submit.prevent="submit" class="space-y-4">
             <Input
-                id="email"
+                id="email.title"
                 type="email"
                 class="mt-1 block w-full"
                 v-model="form.email"

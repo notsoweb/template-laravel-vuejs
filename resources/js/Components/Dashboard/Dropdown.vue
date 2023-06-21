@@ -19,7 +19,7 @@ const props = defineProps({
     }
 });
 
-let open = ref(false);
+const open = ref(false);
 
 const closeOnEscape = (e) => {
     if (open.value && e.key === 'Escape') {
@@ -37,7 +37,7 @@ const widthClass = computed(() => {
         '56': 'w-56',
         '60': 'w-60',
         '64': 'w-64',
-        '72': 'w-72',
+        '72': 'w-52 md:w-72',
     }[props.width.toString()];
 });
 
@@ -51,7 +51,7 @@ const alignmentClasses = computed(() => {
     }
 
     if (props.align === 'icon') {
-        let size = {
+        const size = {
             '48': '-right-20',
             '52': '-right-22',
             '56': '-right-24',

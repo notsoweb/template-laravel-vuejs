@@ -21,7 +21,7 @@ const props = defineProps({
     title: String
 });
 
-let input = ref('');
+const input = ref('');
 
 const classes = computed(() => {
     return `w-full ${props.class}`
@@ -51,6 +51,7 @@ onMounted(() => {
                 @click="$emit('search', input)"
             >
                 <GoogleIcon
+                    :title="$t('search')"
                     class="text-xl"
                     name="search"
                 />

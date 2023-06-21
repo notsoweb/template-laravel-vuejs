@@ -3,7 +3,8 @@ import { computed } from 'vue';
 
 const props = defineProps({
     name:  String,
-    outline: Boolean
+    outline: Boolean,
+    title: String
 })
 
 const classes = computed(() => {
@@ -13,9 +14,11 @@ const classes = computed(() => {
 });
 </script>
 <template>
-    <span
-        :class="classes"
-        translate="no"
-        v-text="name"
-    />
+    <button :title="title" type="button">
+        <span
+            :class="classes"
+            translate="no"
+            v-text="name"
+        />
+    </button>
 </template>

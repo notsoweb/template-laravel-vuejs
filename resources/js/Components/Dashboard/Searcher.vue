@@ -7,7 +7,7 @@ const emit = defineEmits([
     'search'
 ]);
 
-let query = ref('');
+const query = ref('');
 
 const props = defineProps({
     placeholder: {
@@ -26,6 +26,7 @@ const search = () => {
             <div class="relative py-1 z-0">
                 <div  @click="search" class="absolute inset-y-0 right-2 flex items-center pl-3 cursor-pointer text-gray-700 hover:scale-110 hover:text-danger">
                     <GoogleIcon
+                        :title="$t('search')"
                         class="text-xl"
                         name="search"
                     />
@@ -46,6 +47,7 @@ const search = () => {
             <slot />
             <Link :href="route('dashboard.index')">
                 <GoogleIcon
+                    :title="$t('home')"
                     class="btn-icon-primary"
                     name="home"
                     outline

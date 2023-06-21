@@ -10,6 +10,7 @@ import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
             <slot />
             <Link :href="route('dashboard.index')">
                 <GoogleIcon
+                    :title="$t('home')"
                     class="btn-icon-primary"
                     name="home"
                     outline

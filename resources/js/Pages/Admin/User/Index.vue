@@ -38,6 +38,7 @@ const query        = ref(Searcher.query);
                 :href="route(goTo('create'))"
             >
                 <GoogleIcon
+                    :title="$t('crud.create')"
                     class="btn-icon-primary"
                     name="add"
                     outline
@@ -99,6 +100,7 @@ const query        = ref(Searcher.query);
                         <td class="table-item border">
                             <div class="flex justify-center space-x-2">
                                 <GoogleIcon
+                                    :title="$t('crud.show')"
                                     class="btn-icon-primary"
                                     name="visibility"
                                     outline
@@ -106,6 +108,7 @@ const query        = ref(Searcher.query);
                                 />
                                 <GoogleIcon
                                     v-if="can('edit')"
+                                    :title="$t('crud.edit')"
                                     class="btn-icon-primary"
                                     name="edit"
                                     outline
@@ -113,6 +116,7 @@ const query        = ref(Searcher.query);
                                 />
                                 <GoogleIcon
                                     v-if="can('destroy')"
+                                    :title="$t('crud.destroy')"
                                     class="btn-icon-primary"
                                     name="delete"
                                     outline
@@ -123,6 +127,7 @@ const query        = ref(Searcher.query);
                                     :href="route(goTo('settings'), model.id)"
                                 >
                                     <GoogleIcon
+                                        :title="$t('setting')"
                                         class="btn-icon-primary"
                                         name="settings"
                                     />

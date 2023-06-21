@@ -170,7 +170,7 @@ const clearPhotoFileInput = () => {
             />
 
             <Input
-                id="email"
+                id="email.title"
                 class="col-span-6"
                 type="email"
                 v-model="form.email"

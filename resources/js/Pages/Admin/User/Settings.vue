@@ -22,6 +22,7 @@ defineProps({
         <PageHeader>
           <Link :href="route(goTo('index'))">
               <GoogleIcon
+                :title="$t('return')"
                 class="btn-icon-primary"
                 name="arrow_back"
                 outline

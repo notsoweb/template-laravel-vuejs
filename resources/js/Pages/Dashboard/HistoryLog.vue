@@ -30,9 +30,9 @@ const modelModal = ref(Modal.modelModal);
 const showModal  = ref(Modal.showModal);
 const selectAll  = ref(Inbox.selectAll);
 
-let dateStart = ref('');
-let dateEnd = ref('');
-let historyEvent = ref('');
+const dateStart = ref('');
+const dateEnd = ref('');
+const historyEvent = ref('');
 
 const formatDate = (date) => {
   let x = new Date(date);
@@ -79,7 +79,7 @@ const searchWithPagination = (page) =>  {
       <div v-if="hasRole('admin|developer')">
         <Input
           id="search"
-          title="event"
+          :title="event"
           v-model="historyEvent"
           @keyup.enter="search"
           required
@@ -134,13 +134,7 @@ const searchWithPagination = (page) =>  {
                         <span class="truncate">{{ history.message }}</span>
                     </template>
                     <template #actions>
-                        <GoogleIcon
-                            title="Enviar a almacen"
-                            class="font-semibold"
-                            name="visibility"
-                            outline
-                            @click="Modal.switchShowModal(history)"
-                        />
+                        
                     </template>
                     <template #date>
                       {{ formatDate(history.created_at) }} {{ formatTime(history.created_at) }} 

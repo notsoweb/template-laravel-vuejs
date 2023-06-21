@@ -10,7 +10,7 @@ defineProps({
 
 <template>
     <Head
-        title="Privacy Policy"
+        :title="$t('terms.privacy')"
     />
 
     <div class="font-sans text-gray-900 antialiased">

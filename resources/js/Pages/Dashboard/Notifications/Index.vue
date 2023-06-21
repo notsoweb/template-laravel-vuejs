@@ -15,10 +15,10 @@ defineProps({
   notifications: Object
 });
 
-let dateStart = ref('');
-let dateEnd = ref('');
-let destroyModal = ref(false);
-let notification = ref(null);
+const dateStart = ref('');
+const dateEnd = ref('');
+const destroyModal = ref(false);
+const notification = ref(null);
 
 const formatDate = (date) => {
   let x = new Date(date);
@@ -173,6 +173,7 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                   <div class="flex justify-center space-x-2">
                     <GoogleIcon
                         v-if="!notification.read_at"
+                        :title="$t('readed')"
                         class="btn-icon-primary"
                         name="mark_email_read"
                         outline
@@ -180,6 +181,7 @@ const switchDestroyModal = () => destroyModal.value = !destroyModal.value;
                     />
                     <template v-if="hasRole('developer')">
                       <GoogleIcon
+                        :title="$t('crud.destroy')"
                         class="btn-icon-primary"
                         name="delete"
                         outline

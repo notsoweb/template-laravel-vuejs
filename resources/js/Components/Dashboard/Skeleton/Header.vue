@@ -4,7 +4,7 @@ import { router, Link} from '@inertiajs/vue3';
 
 import NotificationController from '@/Controllers/NotificationController';
 
-import Dropdown         from '@/Components/Dashboard/Dropdown.vue';
+import Dropdown         from '../../../Components/Dashboard/Dropdown.vue';
 import DropdownLink     from '@/Components/Dashboard/DropdownLink.vue';
 import NotificationLink from '@/Components/Dashboard/Skeleton/Header/NotificationLink.vue';
 import GoogleIcon       from '@/Components/Shared/GoogleIcon.vue';
@@ -48,31 +48,26 @@ onMounted(()=>{
       class="fixed px-2 w-[calc(100vw)] bg-white md:bg-transparent transition-all duration-300 z-50"
       :class="{'md:w-[calc(100vw-16rem)]':sidebar,'md:w-[calc(100vw)]':!sidebar}"
     >
-      <div class="my-2 flex  px-6 items-center justify-between h-[2.75rem] rounded-lg bg-primary text-white z-20 ">
-        <button type="button">
+      <div class="my-2 flex px-6 items-center justify-between h-[2.75rem] rounded-lg bg-primary text-white z-20 ">
           <GoogleIcon
-              class="text-xl z-50"
-              name="menu"
-              @click="emit('open')"
-              outline
-            />
-        </button>
+            :title="$t('menu')"
+            class="text-2xl mt-1 z-50"
+            name="list"
+            @click="emit('open')"
+            outline
+          />
         <div class="flex w-fit justify-end items-center h-14 header-right">
           <ul class="flex items-center space-x-4">
             <li>
               <div class="relative">
-                <Dropdown align="icon" width="72">
+                <Dropdown align="right" width="72">
                   <template #trigger>
-                    <button 
-                      class="flex items-center header-icon"
-                      type="button"
-                    >
                       <GoogleIcon
-                        class="text-xl"
+                        :title="$t('notifications.title')"
+                        class="text-xl mt-1"
                         name="notifications"
                       />
-                    </button>
-                    <span class="absolute top-0 -right-2 text-xs">
+                    <span class="absolute top-1 -right-2 text-xs">
                       {{notificationCounter}}
                     </span>
                   </template>
@@ -112,37 +107,27 @@ onMounted(()=>{
                 </Dropdown>
               </div>
             </li>
-            <li class="">
+            <li>
               <div class="relative">
                 <Dropdown align="right" width="48">
                   <template #trigger>
                     <div class="flex space-x-4">
-                      <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex items-center space-x-4 text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                      <button
+                        v-if="$page.props.jetstream.managesProfilePhotos"
+                        :title="$t('users.menu')"
+                        class="flex items-center space-x-4 text-sm border-2 border-transparent rounded-full focus:outline-none transition"
+                      >
                           <img 
                             class="h-8 w-8 rounded-full object-cover"
                             :alt="$page.props.user.name"
                             :src="$page.props.user.profile_photo_url"
                           >
-                          <span class="flex">{{ $page.props.user.name }}
-                            <svg
-                              class="ml-2 -mr-0.5 h-4 w-4"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                            >
-                              <path 
-                                fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-                          </span>
                       </button>
                     </div>
                   </template>
                   <template #content>
-                      <div class="block px-4 py-2 text-xs text-gray-400">
-                           {{$t('account.manage')}}
+                      <div class="text-center block px-4 py-2 text-sm text-gray-800 border-b truncate">
+                        {{ $page.props.user.name }}
                       </div>
                       <DropdownLink :href="route('profile.show')">
                            {{$t('profile')}}

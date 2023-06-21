@@ -8,6 +8,7 @@ const appName = window.appName;
 <template>
     <Link :href="'/'" class="flex space-x-2">
         <GoogleIcon
+            :title="appName"
             name="dashboard"
         />
         <span class="uppercase block">

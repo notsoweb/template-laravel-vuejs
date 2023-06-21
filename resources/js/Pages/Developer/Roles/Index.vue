@@ -32,6 +32,7 @@ const modelModal   = ref(Modal.modelModal);
                 :href="route(goTo('create'))"
             >
                 <GoogleIcon
+                    :title="$t('crud.create')"
                     class="btn-icon-primary"
                     name="add"
                     outline
@@ -78,6 +79,7 @@ const modelModal   = ref(Modal.modelModal);
                             <div class="flex justify-center space-x-2">
                                 <GoogleIcon
                                     v-if="can('edit')"
+                                    :title="$t('crud.edit')"
                                     class="btn-icon-primary"
                                     name="edit"
                                     outline
@@ -85,6 +87,7 @@ const modelModal   = ref(Modal.modelModal);
                                 />
                                 <GoogleIcon
                                     v-if="can('destroy')"
+                                    :title="$t('crud.destroy')"
                                     class="btn-icon-primary"
                                     name="delete"
                                     outline

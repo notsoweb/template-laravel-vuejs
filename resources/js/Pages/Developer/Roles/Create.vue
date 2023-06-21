@@ -22,15 +22,9 @@ const submit = () => form.post(route('developer.roles.store'), {
 <template>
   <DashboardLayout :title="transl('create.title')">
     <PageHeader>
-      <Link :href="route('dashboard.index')">
-        <GoogleIcon
-          class="btn-icon-primary"
-          name="home"
-          outline
-        />
-      </Link>
       <Link :href="route(goTo('index'))">
         <GoogleIcon
+          :title="$t('return')"
           class="btn-icon-primary"
           name="arrow_back"
           outline

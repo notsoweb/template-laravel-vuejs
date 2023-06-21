@@ -67,7 +67,7 @@ const update = (id) => {
                             required
                         />
                         <Input
-                            id="email"
+                            id="email.title"
                             type="email"
                             v-model="model.email"
                             :onError="form.errors.email"

@@ -47,7 +47,7 @@ const submit = () => {
 
         <form @submit.prevent="submit" class="space-y-4">
             <Input
-                id="email"
+                id="email.title"
                 type="email"
                 v-model="form.email"
                 :onError="form.errors.email"

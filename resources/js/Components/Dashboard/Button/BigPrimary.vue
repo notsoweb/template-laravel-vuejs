@@ -2,6 +2,7 @@
 import GoogleIcon from '@/Components/Shared/GoogleIcon.vue';
 
 defineProps({
+    title: String,
     href: String,
     icon: {
         default: 'people',
@@ -20,6 +21,7 @@ defineProps({
         :type="type" 
     >
         <GoogleIcon
+            :title="title"
             class="text-7xl"
             :name="icon"
         />

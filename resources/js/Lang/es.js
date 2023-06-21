@@ -91,6 +91,12 @@ export default {
     confirm:'Confirmar',
     copyright:'Todos los derechos reservados.',
     contact:'Contacto',
+    crud: {
+        create: 'Nuevo registro',
+        edit: 'Editar registro',
+        destroy: 'Eliminar registro',
+        show: 'Más detalles',
+    },
     date: 'Fecha',
     delete:{
         confirm: 'Al presionar ELIMINAR el registro se eliminará permanentemente y no podrá recuperarse.',
@@ -103,7 +109,10 @@ export default {
     disabled:'Deshabilitado',
     done:'Hecho.',
     edit:'Editar',
-    email:'Correo',
+    email:{
+        title:'Correo',
+        verification:'Verificar correo'
+    },
     enable:'Habilitar',
     endDate:'Fecha Fin',
     event:'Evento',
@@ -120,9 +129,11 @@ export default {
     hour:'Hora',
     icon:'Icono',
     maternal:'Apellido materno',
+    menu:'Menú',
     name:'Nombre',
     noRecords:'Sin registros',
     notifications: {
+        readed:'Marcar como leído',
         deleted:'Notificación eliminada',
         description:'Notificaciones del usuario',
         notFound:'Notificación no encontrada',
@@ -131,6 +142,7 @@ export default {
     password:'Contraseña',
     passwordConfirmation:'Confirmar contraseña',
     passwordCurrent:'Contraseña actual',
+    passwordReset:'Restaurar contraseña',
     paternal:'Apellido paterno',
     phone:'Teléfono',
     photo: {
@@ -147,6 +159,7 @@ export default {
         terms:'Términos de Servicio',
     },
     remove: 'Remover',
+    return: 'Regresar',
     role:'Rol',
     roles:{
         create: {
@@ -163,6 +176,7 @@ export default {
     search:'Buscar',
     selected: 'Seleccionado',
     select: 'Seleccionar',
+    setting: 'Configuración',
     show: {
         all:'Mostrar todo',
         title:'Mostrar',
@@ -200,6 +214,7 @@ export default {
             },
             title:'Roles de usuario',
         },
+        menu:'Menú de usuario',
         select:'Seleccionar un usuario',
         settings:'Ajustes del usuario',
         system:'Usuarios del sistema',

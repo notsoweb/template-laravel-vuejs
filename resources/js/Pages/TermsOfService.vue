@@ -10,7 +10,7 @@ defineProps({
 
 <template>
     <Head
-        title="Terms of Service"
+        :title="$t('terms.service')"
     />
 
     <div class="font-sans text-gray-900 antialiased">

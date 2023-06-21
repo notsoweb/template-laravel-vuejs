@@ -32,15 +32,9 @@ const submit = () => form.post(route(goTo('store')), {
 <template>
   <DashboardLayout :title="transl('create.title')">
     <PageHeader>
-        <Link :href="route('dashboard.index')">
-            <GoogleIcon
-                class="btn-icon-primary"
-                name="home"
-                outline
-          />
-        </Link>
         <Link :href="route(goTo('index'))">
             <GoogleIcon
+                :title="$t('return')"
                 class="btn-icon-primary"
                 name="arrow_back"
                 outline
@@ -89,7 +83,7 @@ const submit = () => form.post(route(goTo('store')), {
                 required
             />
             <Input
-                id="email"
+                id="email.title"
                 type="email"
                 class="col-span-2"
                 v-model="form.email"

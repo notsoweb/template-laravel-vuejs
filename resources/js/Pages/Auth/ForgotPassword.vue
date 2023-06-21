@@ -41,7 +41,7 @@ const submit = () => {
         <form @submit.prevent="submit" class="flex flex-col space-y-4">
             <div>
                 <Input
-                    id="email"
+                    id="email.title"
                     type="email"
                     v-model="form.email"
                     :onError="form.errors.email"
