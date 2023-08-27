@@ -25,8 +25,9 @@ class UpdateAppHook extends Controller
 
         if($data['ref'] == 'refs/heads/main') {
             if($data['before'] != $data['after']) {
-                shell_exec('git pull origin main');
+                $return = shell_exec('cd ..; git pull origin main');
 
+                Log::channel('app:update')->info($return);
                 Log::channel('app:update')->info('Updated');
 
                 foreach ($data['commits'] as $commit) {
