@@ -17,5 +17,24 @@ class UpdateAppHook extends Controller
     {
         $data = $request->all();
         Log::channel('hook:update-app')->info('update:', $data);
+
+        Log::channel('app:update')->info('Init updating ...');
+        if($data['ref'] == 'refs/heads/main') {
+            if($data['before'] != $data['after']) {
+                shell_exec('git pull origin main');
+
+                Log::channel('app:update')->info('Updated');
+
+                foreach ($data['commits'] as $commit) {
+                    Log::channel('app:update')->info($commit['message']);
+                }
+            } else {
+                Log::channel('app:update')->info('No was updated');
+            }
+        } else {
+            Log::channel('app:update')->info('Not is updatable');
+        }
+
+        Log::channel('app:update')->info('Exit updating');
     }
 }
