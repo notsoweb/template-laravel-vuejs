@@ -1,4 +1,7 @@
 <?php namespace App\Http\Webhooks;
+/**
+ * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
+ */
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,9 +19,10 @@ class UpdateAppHook extends Controller
     public function __invoke(Request $request)
     {
         $data = $request->all();
-        Log::channel('hook:update-app')->info('update:', $data);
 
+        Log::channel('hook:update-app')->info('update:', $data);
         Log::channel('app:update')->info('Init updating ...');
+
         if($data['ref'] == 'refs/heads/main') {
             if($data['before'] != $data['after']) {
                 shell_exec('git pull origin main');
