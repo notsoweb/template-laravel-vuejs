@@ -6,4 +6,4 @@ use Illuminate\Support\Facades\Route;
 /**
  * Lista de webhooks
  */
-Route::get('/update-app', UpdateAppHook::class);
+Route::post('/update-app', UpdateAppHook::class);
