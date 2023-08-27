@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 /**
  * Recibe los eventos de actualización de la aplicación
  * 
- * PRUEBA 2
+ * PRUEBA 3
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 

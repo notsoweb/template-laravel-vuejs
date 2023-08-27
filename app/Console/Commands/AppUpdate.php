@@ -4,6 +4,7 @@
  */
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Lanza notificaciones a usuarios en linea
@@ -38,8 +39,9 @@ class AppUpdate extends Command
     public function handle()
     {
         $branch = config('app-repository.branch');
-        
-        echo shell_exec($branch);
+        $response = shell_exec("git pull origin {$branch}");
+
+        Log::channel('app:update')->info($response);
         
         return Command::SUCCESS;
     }
