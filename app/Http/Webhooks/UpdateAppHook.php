@@ -18,16 +18,17 @@ class UpdateAppHook extends Controller
 {
     public function __invoke(Request $request)
     {
+        $branch = config('app.repository.branch');
         $data = $request->all();
 
         Log::channel('hook:update-app')->info('update:', $data);
         Log::channel('app:update')->info('Init updating ...');
 
-        if($data['ref'] == 'refs/heads/main') {
+        if($data['ref'] == "refs/heads/{$branch}") {
             if($data['before'] != $data['after']) {
-                $return = shell_exec('cd ..; git pull origin main');
+                $response = shell_exec("cd ..; git pull origin {$branch}");
 
-                Log::channel('app:update')->info($return);
+                Log::channel('app:update')->info($response);
                 Log::channel('app:update')->info('Updated');
 
                 foreach ($data['commits'] as $commit) {
