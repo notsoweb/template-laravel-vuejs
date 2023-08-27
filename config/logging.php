@@ -143,6 +143,13 @@ return [
             'path' => storage_path('logs/notify.log'),
             'level' => env('LOG_LEVEL', 'debug'),
         ],
+
+        // Webhooks
+        'hook:update-app' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/webhooks/update-app.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
     ],
 
 ];
