@@ -5,6 +5,7 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -22,18 +23,16 @@ class UpdateAppHook extends Controller
         $data = $request->all();
 
         Log::channel('hook:update-app')->info('update:', $data);
-        Log::channel('app:update')->info('Init updating ...');
+        Log::channel('app:update')->info("Init updating {$branch} ...");
 
         if($data['ref'] == "refs/heads/{$branch}") {
             if($data['before'] != $data['after']) {
-                $response = shell_exec("cd ..; git pull origin {$branch}");
-
-                Log::channel('app:update')->info($response);
-                Log::channel('app:update')->info('Updated');
+                Artisan::call('app:update');
 
                 foreach ($data['commits'] as $commit) {
                     Log::channel('app:update')->info($commit['message']);
                 }
+                Log::channel('app:update')->info('¡Updated!');
             } else {
                 Log::channel('app:update')->info('No was updated');
             }
