@@ -39,7 +39,8 @@ class AppUpdate extends Command
     public function handle()
     {
         $branch = config('app-repository.branch');
-        $response = shell_exec("git pull origin {$branch}");
+        // $response = shell_exec("git pull origin {$branch}");
+        $response = shell_exec("cd ..; ls -lah");
 
         Log::channel('app:update')->info($response);
         
