@@ -29,7 +29,7 @@ class AppUpdate extends Command
      *
      * @var string
      */
-    protected $description = 'Actualizar la aplicación desde el repositorio principal.';
+    protected $description = 'Actualiza la aplicación desde el repositorio por default';
 
     /**
      * Execute the console command.
