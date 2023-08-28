@@ -40,7 +40,7 @@ class AppUpdate extends Command
     {
         $branch = config('app-repository.branch');
         // $response = shell_exec("git pull origin {$branch}");
-        $response = shell_exec("cd ..; git log");
+        $response = shell_exec("cd ..; git --help");
 
         Log::channel('app:update')->info($response);
         
