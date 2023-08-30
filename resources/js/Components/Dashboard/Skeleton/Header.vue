@@ -49,7 +49,7 @@ onMounted(()=>{
 
 <template>
     <header
-      class="fixed px-2 w-[calc(100vw)] bg-page dark:bg-page-dark md:bg-transparent transition-all duration-300 z-50"
+      class="fixed px-2 w-[calc(100vw)] bg-page  md:bg-transparent transition-all duration-300 z-50"
       :class="{'md:w-[calc(100vw-16rem)]':sidebar,'md:w-[calc(100vw)]':!sidebar}"
     >
       <div class="my-2 flex px-6 items-center justify-between h-[2.75rem] rounded-lg bg-primary dark:bg-primary-dark text-white z-20 ">

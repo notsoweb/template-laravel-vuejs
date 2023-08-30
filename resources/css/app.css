@@ -61,7 +61,7 @@ background: #d4d4d4;
 }
 
 .header-icon {
-  @apply hover:text-yellow-500 focus:text-yellow-600 hover:scale-105 hover:transition hover:duration-100;
+  @apply hover:text-yellow-500 focus:text-yellow-600 hover:scale-105 hover:transition hover:duration-300;
 }
 
 .input-primary {
