@@ -26,7 +26,7 @@ class UpdaterStop extends Command
      *
      * @var string
      */
-    protected $description = 'Detener servicio de actualización automática.';
+    protected $description = 'Detener servicio de actualización automática';
 
     /**
      * Execute the console command.

@@ -26,7 +26,7 @@ class UpdaterStart extends Command
      *
      * @var string
      */
-    protected $description = 'Iniciar servicio de actualización automática.';
+    protected $description = 'Iniciar servicio de actualización automática';
 
     /**
      * Execute the console command.
