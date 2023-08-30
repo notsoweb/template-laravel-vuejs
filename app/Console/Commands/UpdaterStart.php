@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 /**
  * Iniciar servicio de actualización automática
  * 
- * Test 1
+ * Test 2
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
