@@ -29,7 +29,7 @@ class NotificationInstall extends Command
      *
      * @var string
      */
-    protected $description = 'Instala las dependencias globales para las funciones adicionales';
+    protected $description = 'Instala los servicios necesarios para las notificaciones y actualizaciones en tiempo real.';
 
     /**
      * Execute the console command.

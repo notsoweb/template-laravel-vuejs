@@ -55,13 +55,21 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
+        "services:start" : [
+            "@php artisan notification:start",
+            "@php artisan updater:start"
+        ],
+        "services:stop" : [
+            "@php artisan notification:stop",
+            "@php artisan updater:stop"
+        ],
         "env:dev": [
             "composer install",
             "composer run post-root-package-install",
             "composer run post-create-project-cmd",
             "npm install",
             "npm run build",
-            "php artisan storage:link"
+            "@php artisan storage:link"
         ],
         "env:prod": [
             "composer install --no-dev",
@@ -69,7 +77,8 @@
             "composer run post-create-project-cmd",
             "npm install",
             "npm run build",
-            "php artisan storage:link"
+            "@php artisan storage:link",
+            "composer run services:start"
         ],
         "env:prod-lite": [
             "composer install --no-dev",
@@ -77,10 +86,10 @@
             "composer run post-create-project-cmd"
         ],
         "db:dev": [
-            "php artisan migrate:fresh --seeder=DevSeeder"
+            "@php artisan migrate:fresh --seeder=DevSeeder"
         ],
         "db:prod": [
-            "php artisan migrate:fresh --seed"
+            "@php artisan migrate:fresh --seed"
         ]
     },
     "extra": {

@@ -29,7 +29,7 @@ class NotificationStart extends Command
      *
      * @var string
      */
-    protected $description = 'Iniciar servicio de notificaciones en tiempo real (requiere SOKETI y PM2)';
+    protected $description = 'Iniciar servicio de notificaciones en tiempo real';
 
     /**
      * Execute the console command.
@@ -38,7 +38,7 @@ class NotificationStart extends Command
      */
     public function handle()
     {
-        echo shell_exec('pm2 start soketi --name ' . config('broadcasting.connections.pusher.key') . ' -- start --config=soketi.json');
+        echo shell_exec('pm2 start soketi --name notification-server -- start --config=soketi.json');
         
         return Command::SUCCESS;
     }
