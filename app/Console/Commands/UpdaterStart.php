@@ -6,7 +6,7 @@
 use Illuminate\Console\Command;
 
 /**
- * Inicia un demonio que esta a la escucha del evento de actualización enviado por el repositorio
+ * Iniciar servicio de actualización automática
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
@@ -26,7 +26,7 @@ class UpdaterStart extends Command
      *
      * @var string
      */
-    protected $description = 'Permite iniciar el demonio del actualizador.';
+    protected $description = 'Iniciar servicio de actualización automática.';
 
     /**
      * Execute the console command.

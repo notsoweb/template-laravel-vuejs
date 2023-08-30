@@ -6,7 +6,7 @@
 use Illuminate\Console\Command;
 
 /**
- * Detiene el demonio que esta a la escucha de las actualizaciones
+ * Detener servicio de actualización automática
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
@@ -26,7 +26,7 @@ class UpdaterStop extends Command
      *
      * @var string
      */
-    protected $description = 'Permite detener el demonio del actualizador.';
+    protected $description = 'Detener servicio de actualización automática.';
 
     /**
      * Execute the console command.
