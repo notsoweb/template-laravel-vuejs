@@ -47,35 +47,44 @@ app.get('/', async(req, res) => {
 })
 
 app.post('/update', async(req, res) => {
-    let branch = process.env?.REPOSITORY_BRANCH ?? 'main'
+  let body = req.body;
+  let branch = process.env?.REPOSITORY_BRANCH ?? 'main'
+  const ref = `refs/heads/${branch}` 
 
+  if(body.ref == ref) {
     notify({message: 'Iniciando actualización.'})
     notify({message: 'Descargando cambios...'})
     
     exec(`git pull origin ${branch}`, async(error, stdout, stderr) => {
       if (error) {
-        console.log('queso1')
         console.error(`error: ${error.message}`);
         return;
       }
     
       if (stderr) {
         console.error(`stderr: ${stderr}`);
-
+  
         notify({message: 'Copilando aplicación...'})
-
+  
         await shell(`npm run build`)
-
+  
         notify({message: 'Actualización terminada, recargue la página.'})
-
+  
         return;
       }
     });
-
+  
     res.send({
         'status':200,
         'message':'Init process'
     });
+  } else {
+    res.send({
+      'status':200,
+      'message':'No ref match'
+  });
+  }
+
 });
 
 app.listen(process.env?.REPOSITORY_WATCHER_PORT ?? 3001, '127.0.0.1', () => {
