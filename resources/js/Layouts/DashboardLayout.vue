@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { Head } from '@inertiajs/vue3';
 import { hasPermission } from "@/rolePermission.js";
+import { sidebarSwitch, sidebar } from '@/sidebar'
 
 import Header  from '@/Components/Dashboard/Skeleton/Header.vue';
 import Sidebar from '@/Components/Dashboard/Skeleton/Sidebar.vue';
@@ -16,17 +17,15 @@ defineProps({
     }
 });
 
-const sidebar = (TwScreen.isDevice('phone')) 
-    ? ref(true)
-    : sessionFresh.getSidebar();
-
-const openSidebar = () => {
-    sidebar.value = !sidebar.value;
-}
+const sidebarStatus = ref(sidebar);
 
 onMounted(()=> {
     if (!sessionFresh.isLayoutInitialized()) {
         sessionFresh.startLayout();
+    }
+
+    if(TwScreen.isDevice('phone')) {
+        sidebarSwitch(true);
     }
 });
 </script>
@@ -39,11 +38,11 @@ onMounted(()=> {
         <div 
             id="sidebar"
             class="fixed w-fit h-screen transition-all duration-300 z-10"
-            :class="{'-translate-x-[16.5rem] md:-translate-x-0':sidebar, '-translate-x-0 md:-translate-x-64':!sidebar}"
+            :class="{'-translate-x-[16.5rem] md:-translate-x-0':sidebarStatus, '-translate-x-0 md:-translate-x-64':!sidebarStatus}"
         >
             <Sidebar
-                :sidebar="sidebar"
-                @open="openSidebar"
+                :sidebar="sidebarStatus"
+                @open="sidebarSwitch()"
             >
                 <Section name="Principal">
                     <Link 
@@ -96,12 +95,12 @@ onMounted(()=> {
         </div>
         <div 
             class="flex flex-col w-full transition-all duration-300"
-            :class="{'md:w-[calc(100vw-rem)] md:ml-64':sidebar, 'md:w-screen md:ml-0':!sidebar}"
+            :class="{'md:w-[calc(100vw-rem)] md:ml-64':sidebarStatus, 'md:w-screen md:ml-0':!sidebarStatus}"
         >
             <div class="h-2 md:h-14">
                 <Header
-                    :sidebar="sidebar"
-                    @open="openSidebar"
+                    :sidebar="sidebarStatus"
+                    @open="sidebarSwitch()"
                 />
             </div>
             <main id="page" class="flex h-full justify-center md:p-2">
