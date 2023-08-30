@@ -4,32 +4,29 @@
  */
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
 
 /**
- * Lanza notificaciones a usuarios en linea
- * 
- * La notificación es única y no persistente.
+ * Inicia un demonio que esta a la escucha del evento de actualización enviado por el repositorio
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
  * @version 1.0.0
  */
-class AppUpdate extends Command
+class UpdaterStart extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:update';
+    protected $signature = 'updater:start';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Actualiza la aplicación desde el repositorio por default';
+    protected $description = 'Permite iniciar el demonio del actualizador.';
 
     /**
      * Execute the console command.
@@ -38,11 +35,7 @@ class AppUpdate extends Command
      */
     public function handle()
     {
-        $branch = config('app-repository.branch');
-        // $response = shell_exec("git pull origin {$branch}");
-        $response = shell_exec("cd ..; git --help");
-
-        Log::channel('app:update')->info($response);
+        shell_exec("pm2 start --name updater \"node updater.js\"");
         
         return Command::SUCCESS;
     }

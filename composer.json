@@ -69,7 +69,8 @@
             "composer run post-create-project-cmd",
             "npm install",
             "npm run build",
-            "php artisan storage:link"
+            "php artisan storage:link",
+            "php artisan storage:link",
         ],
         "env:prod-lite": [
             "composer install --no-dev",
