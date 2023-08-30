@@ -38,7 +38,7 @@ class NotificationStop extends Command
      */
     public function handle()
     {
-        echo shell_exec('pm2 delete' . config('broadcasting.connections.pusher.key'));
+        echo shell_exec('pm2 delete ' . config('broadcasting.connections.pusher.key'));
         
         return Command::SUCCESS;
     }
