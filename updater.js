@@ -31,15 +31,25 @@ app.get('/', async(req, res) => {
 app.post('/update', async(req, res) => {
     let branch = process.env?.REPOSITORY_BRANCH ?? 'main'
 
-    await shell(`git pull origin ${branch}`)
-    // console.log(gitStatus)
+    exec(`git pull origin ${branch}`, async(error, stdout, stderr) => {
+      if (error) {
+        console.log('queso1')
+        console.error(`error: ${error.message}`);
+        return;
+      }
+    
+      if (stderr) {
+        console.error(`stderr: ${stderr}`);
 
-    await shell(`npm run build`)
-    // console.log(build)
-  
+        await shell(`npm run build`)
+
+        return;
+      }
+    });
+
     res.send({
         'status':200,
-        'message':'OK'
+        'message':'Init process'
     });
 });
 
