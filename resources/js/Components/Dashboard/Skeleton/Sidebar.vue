@@ -15,7 +15,7 @@ const year = (new Date).getFullYear();
     class="flex md:w-64 h-full transition-all duration-300 border-none"
     :class="{'w-screen':!sidebar}"
   >
-    <div class="flex flex-col h-full p-2 md:w-64 dark:bg-page-dark">
+    <div class="flex flex-col h-full p-2 md:w-64">
       <div class="flex w-[15.5rem] mt-[3.25rem] md:mt-0 justify-start items-center h-12 header-right rounded-lg bg-primary dark:bg-primary-dark text-white">
           <ul class="flex justify-center ml-4 md:mt-0 space-x-4 items-center">
             <li>
