@@ -27,9 +27,9 @@ const notifySettings = {
 /**
  * Iniciar objetos
  */
-const app = express()
-const shell = util.promisify(exec)
-let client = new Pusher(notifySettings);
+const app    = express()
+const shell  = util.promisify(exec)
+const client = new Pusher(notifySettings);
 
 /**
  * Configuraciones
@@ -47,9 +47,9 @@ app.get('/', async(req, res) => {
 })
 
 app.post('/update', async(req, res) => {
-  let body = req.body;
-  let branch = process.env?.REPOSITORY_BRANCH ?? 'main'
-  const ref = `refs/heads/${branch}` 
+  const body   = req.body;
+  const branch = process.env?.REPOSITORY_BRANCH ?? 'main'
+  const ref    = `refs/heads/${branch}`
 
   if(body.ref == ref) {
     notify({message: 'Iniciando actualización.'})
