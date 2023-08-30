@@ -22,14 +22,14 @@ class NotificationInstall extends Command
      *
      * @var string
      */
-    protected $signature = 'notification:install';
+    protected $signature = 'notsoweb:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Instalar SOKETI y PM2. Usar super usuario en caso de error';
+    protected $description = 'Instala los servicios necesarios para las notificaciones y actualizaciones en tiempo real.';
 
     /**
      * Execute the console command.

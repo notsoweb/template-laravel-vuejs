@@ -12,19 +12,7 @@ return [
     | frontend to display the version of your application.
     |
     */
-    'version' => '1.1.0',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Source branch
-    |--------------------------------------------------------------------------
-    |
-    | This value is the branch of your application.
-    |
-    */
-    'repository' => [
-        'branch' => env('REPOSITORY_BRANCH', 'main'),
-    ],
+    'version' => '1.2.0',
 
     /*
     |--------------------------------------------------------------------------

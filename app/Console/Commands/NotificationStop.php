@@ -29,7 +29,7 @@ class NotificationStop extends Command
      *
      * @var string
      */
-    protected $description = 'Detener servicio';
+    protected $description = 'Detener servicio de notificaciones en tiempo real.';
 
     /**
      * Execute the console command.
@@ -38,7 +38,7 @@ class NotificationStop extends Command
      */
     public function handle()
     {
-        echo shell_exec('pm2 stop ' . config('broadcasting.connections.pusher.key'));
+        echo shell_exec('pm2 delete notification-server');
         
         return Command::SUCCESS;
     }

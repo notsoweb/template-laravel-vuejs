@@ -20,7 +20,10 @@
     },
     "dependencies": {
         "@inertiajs/vue3": "^1.0.0-beta.2",
+        "@soketi/soketi": "^1.6.0",
         "@vueuse/core": "^9.6.0",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
         "laravel-echo": "^1.14.2",
         "pusher-js": "^7.5.0",
         "sweetalert2": "^11.4.8",

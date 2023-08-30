@@ -3,33 +3,30 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Events\GlobalNotification;
 use Illuminate\Console\Command;
 
 /**
- * Lanza notificaciones a usuarios en linea
- * 
- * La notificación es única y no persistente.
+ * Detener servicio de actualización automática
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
  * @version 1.0.0
  */
-class NotificationStart extends Command
+class UpdaterStop extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'notification:start';
+    protected $signature = 'updater:stop';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Iniciar servicio de notificaciones en tiempo real';
+    protected $description = 'Detener servicio de actualización automática';
 
     /**
      * Execute the console command.
@@ -38,7 +35,7 @@ class NotificationStart extends Command
      */
     public function handle()
     {
-        echo shell_exec('pm2 start soketi --name notification-server -- start --config=soketi.json');
+        shell_exec("pm2 delete updater");
         
         return Command::SUCCESS;
     }
