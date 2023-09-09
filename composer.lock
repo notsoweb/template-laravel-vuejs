@@ -2764,16 +2764,16 @@
         },
         {
             "name": "notsoweb/core",
-            "version": "0.1.7",
+            "version": "0.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NotSoWeb/core.git",
-                "reference": "c3c392bf20290528ac3c93c7b6ebd3a3e5284c85"
+                "reference": "1454d2f04186289f0655f38c1cc7e4032e2c8ca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NotSoWeb/core/zipball/c3c392bf20290528ac3c93c7b6ebd3a3e5284c85",
-                "reference": "c3c392bf20290528ac3c93c7b6ebd3a3e5284c85",
+                "url": "https://api.github.com/repos/NotSoWeb/core/zipball/1454d2f04186289f0655f38c1cc7e4032e2c8ca8",
+                "reference": "1454d2f04186289f0655f38c1cc7e4032e2c8ca8",
                 "shasum": ""
             },
             "require": {
@@ -2803,9 +2803,9 @@
             "homepage": "https://notsoweb.com",
             "support": {
                 "issues": "https://github.com/NotSoWeb/core/issues",
-                "source": "https://github.com/NotSoWeb/core/tree/0.1.7"
+                "source": "https://github.com/NotSoWeb/core/tree/0.1.8"
             },
-            "time": "2023-09-08T17:43:17+00:00"
+            "time": "2023-09-09T23:50:59+00:00"
         },
         {
             "name": "nunomaduro/termwind",
