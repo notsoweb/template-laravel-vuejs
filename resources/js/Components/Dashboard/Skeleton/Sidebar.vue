@@ -25,10 +25,12 @@ const year = (new Date).getFullYear();
             </li>
           </ul>
       </div>
-      <div class="flex h-full mt-2 flex-col w-[15.5rem] justify-between rounded-lg flex-grow overflow-y-auto overflow-x-hidden bg-primary dark:bg-primary-dark text-white">
-        <ul class="flex h-full flex-col md:py-4 space-y-1">
-          <slot />
-        </ul>
+      <div class="flex h-full mt-2 flex-col w-[15.5rem] justify-between rounded-lg  overflow-y-auto overflow-x-hidden bg-primary dark:bg-primary-dark text-white">
+        <div>
+          <ul class="flex h-full flex-col md:py-4 space-y-1">
+            <slot />
+          </ul>
+        </div>
         <div class="mb-4 px-5 space-y-1">
           <p class="block text-center text-xs">
             &copy {{year}} {{$page.props.copyright}}

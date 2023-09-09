@@ -6,10 +6,10 @@ Este proyecto tiene como núcleo Laravel 10, Intertiajs y Vuejs 3.
 ## Instalar proyecto
 #### Requerimientos
 Para instalar este proyecto se requiere tener instalado como mínimo las siguientes dependencias:
-- Composer 2.5.5
-- Nodejs 18.16.0
-- NPM 9.6.4
-- La base de datos es a discreción del usuario.w
+- Composer 2.5.7
+- Nodejs 18.17.0
+- NPM 9.6.7
+- La base de datos es a discreción del usuario.
 #### Instalación
 El proyecto es capas de configurarse a si mismo si todas las dependencias están satisfechas. Para instalar el proyecto corra:
 ``
