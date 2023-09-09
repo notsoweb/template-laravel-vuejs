@@ -1,4 +1,5 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme')
+const colorsConfig = require('./colors.json')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,6 +10,7 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
+        './colors.json',
     ],
 
     theme: {
@@ -18,32 +20,7 @@ module.exports = {
                 'google-icon':['Material Icons'],
                 'google-icon-outlined':['Material Symbols Outlined']
             },
-            colors: {
-                'page':'#E5E7EB',
-                'page-on':'#4B5563',
-                'page-dark':'#000',
-                'page-dark-on':'#fff',
-                'main':'#fff',
-                'main-on':'#000',
-                'main-dark':'#1E1F1C',
-                'main-dark-on':'#fff',
-                'primary':'#111827',
-                'primary-on':'#fff',
-                'primary-dark':'#000',
-                'primary-dark-on':'#fff',
-                'secondary':'#374151',
-                'secondary-dark':'#989A9C',
-                'white':'#FFFFFF',
-                'white-dark':'#FFFFFF',
-                'success':'#22C55E',
-                'success-dark':'#22C55E',
-                'warning':'#EAB308',
-                'warning-dark':'#EAB308',
-                'danger':'#EF4444',
-                'danger-dark':'#EF4444',
-                'info':'#3B82F6',
-                'info-dark':'#3B82F6',
-            },
+            colors: colorsConfig,
             spacing: {
                 '18': '4.5rem',
                 '22': '5.5rem',

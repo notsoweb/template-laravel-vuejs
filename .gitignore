@@ -16,6 +16,7 @@
 .phpunit.result.cache
 auth.json
 build.zip
+colors.json
 Homestead.json
 Homestead.yaml
 npm-debug.log
