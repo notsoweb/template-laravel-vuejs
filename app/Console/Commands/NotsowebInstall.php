@@ -3,19 +3,19 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Events\GlobalNotification;
 use Illuminate\Console\Command;
 
 /**
- * Lanza notificaciones a usuarios en linea
+ * Instala dependencias especiales
  * 
- * La notificación es única y no persistente.
+ * Instala los componentes necesarios para que funcionen las notificaciones en tiempo real y la
+ * actualización en tiempo real.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
  * @version 1.0.0
  */
-class NotificationInstall extends Command
+class NotsowebInstall extends Command
 {
     /**
      * The name and signature of the console command.
@@ -29,7 +29,7 @@ class NotificationInstall extends Command
      *
      * @var string
      */
-    protected $description = 'Instala los servicios necesarios para las notificaciones y actualizaciones en tiempo real.';
+    protected $description = 'Instala los servicios necesarios para las notificaciones y actualizaciones en tiempo real';
 
     /**
      * Execute the console command.

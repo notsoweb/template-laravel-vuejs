@@ -1,9 +1,10 @@
-<?php
-
-namespace App\Models;
+<?php namespace App\Models;
+/**
+ * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
+ */
 
 use App\Http\Traits\ModelExtend;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,6 +13,13 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * Usuarios del sistema
+ * 
+ * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
+ * @version 1.0.0
+ */
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -23,7 +31,7 @@ class User extends Authenticatable
     use ModelExtend;
 
     /**
-     * The attributes that are mass assignable.
+     * Atributos llenables masivamente
      *
      * @var string[]
      */
@@ -37,7 +45,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Los atributos que deben ocultarse para la serialización.
      *
      * @var array
      */
@@ -49,7 +57,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * Los atributos que deben transformarse.
      *
      * @var array
      */
@@ -58,7 +66,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The accessors to append to the model's array form.
+     * Los atributos calculados que se añadirán a la matriz del modelo.
      *
      * @var array
      */
@@ -77,7 +85,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Retorna el nombre completo del usuario
+     * Retorna nombre completo
      */
     public function getFullNameAttribute()
     {
@@ -85,7 +93,7 @@ class User extends Authenticatable
     }
 
      /**
-     * Retorna el apellido completo del usuario
+     * Retornar apellido completo
      */
     public function getFullLastNameAttribute()
     {
@@ -93,7 +101,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Retorna el nombre completo del usuario
+     * Retornar nombre con primer apellido
      */
     public function getShortNameAttribute()
     {

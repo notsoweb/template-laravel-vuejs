@@ -10,12 +10,13 @@ use Illuminate\Validation\Rule;
  * Valida la actualización de los usuarios
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class UpdateUser extends FormRequest
 {
     /**
-     * Determina si un usuario esta autorizado para realizar esta acción.
+     * Determinar si el usuario esta autorizado
      *
      * @return bool
      */

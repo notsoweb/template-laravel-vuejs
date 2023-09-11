@@ -15,7 +15,7 @@ use Illuminate\Console\Command;
  * 
  * @version 1.0.0
  */
-class Notification extends Command
+class NotificationGlobal extends Command
 {
     /**
      * The name and signature of the console command.

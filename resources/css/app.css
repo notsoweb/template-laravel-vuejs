@@ -1,8 +1,8 @@
-/* Importación desde librerias */
+/* Importación desde librerías */
 @import "toastr";
 @import "vue-multiselect/dist/vue-multiselect.css";
 
-/* Importacion de recursos externos */
+/* Importación de recursos externos */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
 
 @font-face {
@@ -18,7 +18,7 @@
     src: url(./google-icons/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
 }
 
-/* Scrolbar */  
+/* Scrollbar */  
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;

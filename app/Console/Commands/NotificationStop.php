@@ -3,13 +3,10 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use App\Events\GlobalNotification;
 use Illuminate\Console\Command;
 
 /**
- * Lanza notificaciones a usuarios en linea
- * 
- * La notificación es única y no persistente.
+ * Detener servicio de notificaciones
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
@@ -29,7 +26,7 @@ class NotificationStop extends Command
      *
      * @var string
      */
-    protected $description = 'Detener servicio de notificaciones en tiempo real.';
+    protected $description = 'Detener servicio de notificaciones en tiempo real';
 
     /**
      * Execute the console command.

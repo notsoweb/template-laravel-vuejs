@@ -19,6 +19,7 @@ use Spatie\Permission\Models\Role;
  * Controla los usuarios del sistema
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class UserController extends VueController
@@ -36,7 +37,7 @@ class UserController extends VueController
     }
 
     /**
-     * Muestra los usuarios del sistema
+     * Listar usuarios
      *
      * @return \Illuminate\Http\Response
      */
@@ -60,7 +61,7 @@ class UserController extends VueController
     }
 
     /**
-     * Formulario para crear un usuario
+     * Mostrar formulario crear usuario
      */
     public function create()
     {
@@ -68,21 +69,21 @@ class UserController extends VueController
     }
 
     /**
-     * Almacena un nuevo usuario
+     * Almacenar usuario
      */
     public function store(StoreUser $request)
     {
         $data = $request->all();
         // Cifro la contraseña recibida
-        $data['password'] = Hash::make($data['password']);
+        $data['password'] = bcrypt($data['password']);
 
-        $user = User::create($data);
+        User::create($data);
 
         return $this->index();
     }
 
     /**
-     * Configuraciones del usuario
+     * Vista configurar usuario
      * 
      * @param User $user Modelo del usuario
      */
@@ -97,7 +98,7 @@ class UserController extends VueController
     }
 
     /**
-     * Actualiza la información de un usuario
+     * Actualizar usuario
      * 
      * @param  \Illuminate\Http\Request  $request
      * @param User $user Modelo del usuario
@@ -111,10 +112,9 @@ class UserController extends VueController
     }
 
     /**
-     * Actualiza la contraseña de un usuario
+     * Actualizar contraseña usuario
      * 
      * @param Request $request
-     * @return void
      */
     public function updatePassword(Request $request) : void
     {
@@ -130,10 +130,9 @@ class UserController extends VueController
     }
 
     /**
-     * Sincroniza los roles de los usuarios para otorgar permisos
+     * Sincronizar roles usuario
      * 
      * @param Request $request
-     * @return void
      */
     public function syncRoles(Request $request) : void
     {
@@ -153,7 +152,9 @@ class UserController extends VueController
     }
 
     /**
-     * Retorna las ultimas notificaciones del usuario
+     * Obtener notificaciones
+     * 
+     * Trae las ultimas 7 notificaciones.
      * 
      * @return JsonResponse
      */
@@ -177,7 +178,7 @@ class UserController extends VueController
     }
 
     /**
-     * Elimina un usuario del sistema con todos sus registros vinculados
+     * Eliminar usuario
      * 
      * @param integer $user ID del usuario
      */
@@ -195,11 +196,10 @@ class UserController extends VueController
     }
 
     /**
-     * Crea log de los errores ocurridos en este controlador
+     * Log de errores
      * 
      * @param object $th Contiene todos los detalles del error
-     * @param string $method Función del controlador sobre la que ocurrio el error
-     * @return void
+     * @param string $method Función del controlador sobre la que ocurrió el error
      */
     private function reportError($th, $method) : void
     {

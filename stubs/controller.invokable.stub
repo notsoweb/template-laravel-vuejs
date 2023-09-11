@@ -3,8 +3,8 @@
  * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
-use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Notsoweb\Core\Http\Controllers\VueController;
 
 /**
  * Descripción
@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
  * 
  * @version 1.0.0
  */
-class {{ class }} extends Controller
+class {{ class }} extends VueController
 {
     use Vuew;
 

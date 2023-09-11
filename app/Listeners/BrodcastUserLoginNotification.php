@@ -7,9 +7,10 @@ use App\Events\GlobalNotification;
 use Illuminate\Auth\Events\Login;
 
 /**
- * Escucha el inicio de sessión de los usuarios
+ * Escucha el inicio de sesión de los usuarios
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class BrodcastUserLoginNotification
@@ -27,18 +28,19 @@ class BrodcastUserLoginNotification
     /**
      * Disparador
      * 
-     * Transmite mediante el evento cambio de sesión un menensaje de inicio de sesión
+     * Transmite mediante el evento cambio de sesión un mensaje de inicio de sesión
      *
      * @param  object  $event
-     * @return void
      */
-    public function handle(Login $event)
+    public function handle(Login $event) : void
     {
-        broadcast(new GlobalNotification(
-            $event->user,
-            __('notifications.user.login', [
-                'user' => $event->user->name
-            ])
-        ));
+        if(config('app.notifications')) {
+            broadcast(new GlobalNotification(
+                __('notifications.user.login', [
+                    'user' => $event->user->name
+                ]),
+                'info'
+            ));
+        }
     }
 }

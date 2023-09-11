@@ -10,7 +10,6 @@ use App\Models\Role;
  * Observador del modelo Role
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Role>
  * 
  * @version 1.0.0
  */
@@ -27,9 +26,8 @@ class RoleObserver
      * Handle the Role "created" event.
      *
      * @param  \App\Models\Role  $role
-     * @return void
      */
-    public function created(Role $role)
+    public function created(Role $role) : void
     {
         $this->reportCreate($this->event, $role->fillableToArray(), __("{$this->event}.created", [
             'role' => $role->name
@@ -40,9 +38,8 @@ class RoleObserver
      * Handle the Role "updated" event.
      *
      * @param  \App\Models\Role  $role
-     * @return void
      */
-    public function updated(Role $role)
+    public function updated(Role $role) : void
     {
         $this->reportUpdate($this->event, $role->getContrastChanges(), __("{$this->event}.updated", [
             'role' => $role->name
@@ -53,9 +50,8 @@ class RoleObserver
      * Handle the Role "deleted" event.
      *
      * @param  \App\Models\Role  $role
-     * @return void
      */
-    public function deleted(Role $role)
+    public function deleted(Role $role) : void
     {
         $this->reportDestroy($this->event, $role->fillableToArray(), __("{$this->event}.deleted", [
             'role' => $role->name
@@ -66,9 +62,8 @@ class RoleObserver
      * Handle the Role "restored" event.
      *
      * @param  \App\Models\Role  $role
-     * @return void
      */
-    public function restored(Role $role)
+    public function restored(Role $role) : void
     {
         $this->reportUpdate($this->event, $role->fillableToArray(), __("{$this->event}.restored", [
             'role' => $role->name
@@ -79,9 +74,8 @@ class RoleObserver
      * Handle the Role "force deleted" event.
      *
      * @param  \App\Models\Role  $role
-     * @return void
-     */
-    public function forceDeleted(Role $role)
+     */ 
+    public function forceDeleted(Role $role) : void
     {
         $this->reportDestroy($this->event, $role->fillableToArray(), __("{$this->event}.forceDeleted", [
             'role' => $role->name

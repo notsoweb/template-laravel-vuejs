@@ -35,7 +35,7 @@ class UserNotification extends Command
      *
      * @var string
      */
-    protected $description = 'Notificar algo al cliente mediante consola.';
+    protected $description = 'Notificar algo a un usuario especifico mediante consola';
 
     /**
      * Execute the console command.
@@ -44,9 +44,9 @@ class UserNotification extends Command
      */
     public function handle()
     {
-        $email = $this->option('email');
+        $email   = $this->option('email');
         $message = $this->option('message');
-        $type = $this->option('type');
+        $type    = $this->option('type');
         $timeout = $this->option('timeout');
 
         if($email) {

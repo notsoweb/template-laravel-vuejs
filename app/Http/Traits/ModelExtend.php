@@ -1,6 +1,6 @@
 <?php namespace App\Http\Traits;
 /**
- * @copyright Copyright (c) 2022 Notsoweb (https://notsoweb.com) - All rights reserved.
+ * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
  /**

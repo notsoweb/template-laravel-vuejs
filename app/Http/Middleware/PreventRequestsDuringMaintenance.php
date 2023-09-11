@@ -17,7 +17,7 @@ class PreventRequestsDuringMaintenance extends Middleware
     ];
 
     /**
-     * Configura el secreto de forma personalizada con una duracion de tiempo
+     * Configura el secreto de forma personalizada con una duración de tiempo
      * personalizada en las variables de entorno.
      */
     protected function bypassResponse(string $secret)

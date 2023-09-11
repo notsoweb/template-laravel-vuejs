@@ -8,9 +8,10 @@ use Monolog\LogRecord;
  /**
  * Modifica o agrega datos
  * 
- * Agrega o modifica los datos del context del log
+ * Agrega o modifica los datos del context del log.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class LogProcessor

@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 /**
  * Notificación global
  * 
- * Lanza notificaciones a todos los usuarios con sesión iniciada
+ * Lanza notificaciones a todos los usuarios con sesión iniciada.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
@@ -20,7 +20,9 @@ use Illuminate\Queue\SerializesModels;
  */
 class GlobalNotification implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable,
+        InteractsWithSockets,
+        SerializesModels;
 
     /**
      * Crear nueva instancia del evento
@@ -28,8 +30,6 @@ class GlobalNotification implements ShouldBroadcast
      * @param string $message El mensaje a transmitir
      * @param string $type El tipo de mensaje
      * @param string $timeout Tiempo en segundos
-     * 
-     * @return void
      */
     public function __construct(
         public $message,

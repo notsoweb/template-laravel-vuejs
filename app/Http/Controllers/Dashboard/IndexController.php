@@ -9,6 +9,7 @@ use Notsoweb\Core\Http\Controllers\VueController;
  * Controlador de la página de inicio del dashboard del usuario
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class IndexController extends VueController

@@ -4,14 +4,15 @@
  */
 
 use Illuminate\Console\Command;
-use Ramsey\Uuid\Uuid as UuidUuid;
+use Ramsey\Uuid\Uuid as RamseyUuid;
 
 /**
  * Genera un UUID en consola
  * 
- * Diseñado para generar un ID unico que necesitan ser generados en caliente
+ * Diseñado para generar un ID único que necesitan ser generados en caliente.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class Uuid extends Command
@@ -21,14 +22,14 @@ class Uuid extends Command
      *
      * @var string
      */
-    protected $signature = 'make:uuid {type=uuid1}';
+    protected $signature = 'make:uuid {type=uuid4}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Genera un uuid en consola';
 
     /**
      * Tipos permitidos
@@ -55,7 +56,7 @@ class Uuid extends Command
 
         if(in_array($type, $this->types)) {
             echo "Type: $type \n";
-            echo UuidUuid::$type();
+            echo RamseyUuid::$type();
             return Command::SUCCESS;
         }
         

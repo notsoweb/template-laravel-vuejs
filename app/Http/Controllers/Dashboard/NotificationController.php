@@ -11,6 +11,7 @@ use Notsoweb\Core\Http\Controllers\VueController;
  * Controlador muy simple de las notificaciones del usuario
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class NotificationController extends VueController
@@ -24,7 +25,7 @@ class NotificationController extends VueController
     }
 
     /**
-     * Lista las notificaciones del usuario
+     * Listar notificaciones usuario
      *
      * @return \Illuminate\Http\Response
      */
@@ -56,13 +57,12 @@ class NotificationController extends VueController
     }
 
     /**
-     * Permite el ver una notificación especifica
+     * Marcar notificación como leída
      * 
-     * Al entrar a ver los detalles de la notificación esta s emarca como leida automaticamente.
-     * Aprovechando el metodo post para no mostrar el ID.
+     * Al entrar a ver los detalles de la notificación esta se marca como leída automáticamente.
+     * Aprovechando el método post para no mostrar el ID.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -77,11 +77,12 @@ class NotificationController extends VueController
     }
 
     /**
-     * Marca una actualización como leida
+     * Marcar notificación como leída
+     * 
+     * Marca directamente una notificación como leída sin siquiera entrar a detalles.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param Notification $notification Modelo de la notificación
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Notification $notification)
     {
@@ -89,7 +90,7 @@ class NotificationController extends VueController
     }
 
     /**
-     * Elimina una notificación
+     * Eliminar notificación
      *
      * @param Notification $notification Modelo de la notificación
      * @return \Illuminate\Http\Response

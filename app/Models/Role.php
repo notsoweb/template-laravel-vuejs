@@ -5,11 +5,14 @@
 
 use App\Http\Traits\ModelExtend;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Models\Role as ModelsRole;
 
 /**
- * Descripción
+ * Roles del sistema
+ * 
+ * Los roles y permisos son controlados por Spatie\Permission. Este modelo solo es una
+ * interfaz para poder visualizar los roles del sistema, o crear nuevos para el desarrollo
+ * de vistas.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 

@@ -9,12 +9,13 @@ use Illuminate\Foundation\Http\FormRequest;
  * Valida el almacenamiento de un usuario
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class StoreUser extends FormRequest
 {
     /**
-     * Determina si un usuario esta autorizado para realizar esta acción.
+     * Determinar si el usuario esta autorizado
      *
      * @return bool
      */

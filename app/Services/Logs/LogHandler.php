@@ -14,6 +14,7 @@ use Monolog\Level;
  * Almacena las acciones de los usuarios en la base de datos
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class LogHandler extends AbstractProcessingHandler
@@ -29,7 +30,7 @@ class LogHandler extends AbstractProcessingHandler
     /**
      * Escribe el log recibido
      * 
-     * @param array $record Array con la infomación a registrar
+     * @param array $record Array con la información a registrar
      */
     protected function write(LogRecord $record) :void
     {

@@ -8,9 +8,10 @@ use Monolog\Logger;
 /**
  * Dispara el LOG
  * 
- * Contrala el flujo del registro del LOG.
+ * Controla el flujo del registro del LOG.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class LogMonolog

@@ -15,6 +15,7 @@ use Notsoweb\Core\Http\Traits\Controllers\WithPermission;
  * es un controlador sensible.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class RoleController extends VueController
@@ -31,7 +32,7 @@ class RoleController extends VueController
     }
 
     /**
-     * Lista los roles del sistema
+     * Listar roles
      *
      * @return \Illuminate\Http\Response
      */
@@ -52,7 +53,7 @@ class RoleController extends VueController
     }
 
     /**
-     * Permite crear un nuevo role
+     * Vista nuevo rol
      *
      * @return \Illuminate\Http\Response
      */
@@ -62,10 +63,9 @@ class RoleController extends VueController
     }
 
     /**
-     * Almacena un nuevo role
+     * Almacenar role
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -74,13 +74,13 @@ class RoleController extends VueController
             'description' => ['required', 'string']
         ]);
 
-        $role = Role::create($data);
+        Role::create($data);
 
         return $this->index();
     }
 
     /**
-     * Actualiza un role
+     * Actualizar role
      * 
      * @param  \Illuminate\Http\Request  $request
      * @param Role $role Modelo del Role
@@ -97,7 +97,7 @@ class RoleController extends VueController
     }
 
     /**
-     * Elimina un role
+     * Eliminar rol
      * 
      * Se debe de tener mucho cuidado en la eliminación de los roles ya que algunos de ellos
      * están ligados a nivel código en el sistema, lo que podría limitar a los usuarios o

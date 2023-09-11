@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * Permite guardar el log de acciones de los usuarios
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class HistoryLog extends Model
@@ -28,16 +29,17 @@ class HistoryLog extends Model
     ];
 
     /**
-     * Casteo de datos
+     * Los atributos que deben transformarse.
      */
     protected $casts = [
         'data' => 'json'
     ];
 
     /**
-     * Un log pertenede a un usuario
+     * Un log pertenece a un usuario
      */
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }

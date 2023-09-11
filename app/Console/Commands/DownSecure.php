@@ -1,6 +1,6 @@
 <?php namespace App\Console\Commands;
 /**
- * @copyright Copyright (c) 2001-2022 Golsystems (https://www.golsystems.mx) - All rights reserved.
+ * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
 use Illuminate\Console\Command;
@@ -11,10 +11,11 @@ use Ramsey\Uuid\Uuid;
 /**
  * Inicia el modo mantenimiento con una clave secreta
  * 
- * De forma automaticá pondrá al sistema en modo mantenimiento con una URL secreta para
+ * De forma automática pondrá al sistema en modo mantenimiento con una URL secreta para
  * poder acceder al sitio. El tiempo se puede configurar desde las variables de entorno.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class DownSecure extends Command
@@ -49,7 +50,7 @@ class DownSecure extends Command
         echo url($secret);
         echo "\n";
 
-        Log::channel('notsoweb')->info("Maintenace Mode Secure. Key: {$secret}");
+        Log::channel('notsoweb')->info("Maintenance Mode Secure. Key: {$secret}");
 
         return Command::SUCCESS;
     }

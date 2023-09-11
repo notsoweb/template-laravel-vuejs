@@ -17,7 +17,7 @@ class TailwindScreen {
     is2Xl = () => (screen.width >= 1536) ? true : false;
 
     /**
-     * Obtiene el tamaño de pantalla que usa taidlwind
+     * Obtiene el tamaño de pantalla que usa tailwind
      */
     getScreen = () => {
         if(this.isXs()) {

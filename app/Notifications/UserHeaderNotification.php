@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notification;
 /**
  * Notificación para usuario especifico
  * 
- * Notificación persistente para usuario especifico
+ * Notificación persistente para usuario especifico.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
  * 
@@ -26,19 +26,18 @@ class UserHeaderNotification extends Notification
      * @return void
      */
     public function __construct(
-        public $message,
-        public $icon = 'notifications_active',
-        public $type = 'info',
-        public $timeout = 15
+        public string $message,
+        public string $icon = 'notifications_active',
+        public string $type = 'info',
+        public int $timeout = 15
     ) {}
 
     /**
      * Canales de envió de la notificación
      *
      * @param  mixed  $notifiable
-     * @return array
      */
-    public function via($notifiable)
+    public function via($notifiable) : array
     {
         return [
             'broadcast',
@@ -53,7 +52,7 @@ class UserHeaderNotification extends Notification
      * 
      * @return array
      */
-    public function toArray($notifiable)
+    public function toArray($notifiable) : array
     {
         return [
             'message' => $this->message,

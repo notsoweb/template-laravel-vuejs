@@ -12,6 +12,7 @@ use Notsoweb\Core\Http\Controllers\VueController;
  * Permite ver los registros de las acciones de los usuarios.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class HistoryLogController extends VueController
@@ -25,7 +26,7 @@ class HistoryLogController extends VueController
     }
 
     /**
-     * Muestra el historial de acciones global
+     * Listar historial de acciones
      *
      * @return \Illuminate\Http\Response
      */

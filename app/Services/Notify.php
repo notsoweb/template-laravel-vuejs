@@ -1,6 +1,6 @@
 <?php namespace App\Services;
 /**
- * @copyright Copyright (c) 2022 Notsoweb (https://notsoweb.com) - All rights reserved.
+ * @copyright Copyright (c) 2023 Notsoweb (https://notsoweb.com) - All rights reserved.
  */
 
 use Inertia\Inertia;
@@ -9,6 +9,7 @@ use Inertia\Inertia;
  * Permite enviar notificaciones mediante inertia
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class Notify
@@ -41,11 +42,11 @@ class Notify
     *
     * @version 1.0.0
     *
-    * @param  null|string  $component
-    * @param  array|\Illuminate\Contracts\Support\Arrayable  $props
-    * @return \Inertia\ResponseFactory|\Inertia\Response
+    * @param  string  $message Mensaje
+    * @param  string  $type Tipo
+    * @param  string  $key Llave de guardado
     */
-    public static function send($message, $type = 'success', $key = 'flash')
+    public static function send($message, $type = 'success', $key = 'flash') : void
     {
         $old = Inertia::getShared($key, null);
         
@@ -65,9 +66,8 @@ class Notify
      * Notifica algo exitoso
      * 
      * @param string $message Mensaje
-     * @return void
      */
-    public static function success($message)
+    public static function success($message) : void
     {
         self::send(
             message: $message,
@@ -81,7 +81,7 @@ class Notify
      * @param string $message Mensaje
      * @return void
      */
-    public static function error($message)
+    public static function error($message) : void
     {
         self::send(
             message: $message,
@@ -93,9 +93,8 @@ class Notify
      * Notifica algo informativo
      * 
      * @param string $message Mensaje
-     * @return void
      */
-    public static function info($message)
+    public static function info($message) : void
     {
         self::send(
             message: $message,
@@ -107,9 +106,8 @@ class Notify
      * Notifica una advertencia
      * 
      * @param string $message Mensaje
-     * @return void
      */
-    public static function warning($message)
+    public static function warning($message) : void
     {
         self::send(
             message: $message,
