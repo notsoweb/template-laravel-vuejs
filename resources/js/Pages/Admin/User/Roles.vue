@@ -17,7 +17,6 @@ const value =  ref(props.userRoles);
 
 const form = useForm({
     _method: 'POST',
-    roles: value,
     user_id: props.user.id
 });
 
@@ -26,7 +25,10 @@ const updateProfileInformation = () => {
         return Notify.error(transl('roles.error.min'));
     }
 
-    form.post(route(goTo('syncRoles')), {
+    form.transform(data => ({
+        ...data,
+        roles: value.value
+    })).post(route(goTo('syncRoles')), {
         preserveScroll: true,
         onSuccess: () =>  Notify.success(lang('updated')),
         onError: () => Notify.error(lang('updatedFail'))
