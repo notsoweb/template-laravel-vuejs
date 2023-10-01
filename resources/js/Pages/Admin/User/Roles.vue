@@ -21,10 +21,6 @@ const form = useForm({
 });
 
 const updateProfileInformation = () => {
-    if (value.value.length < 1) {
-        return Notify.error(transl('roles.error.min'));
-    }
-
     form.transform(data => ({
         ...data,
         roles: value.value
@@ -59,7 +55,7 @@ const updateProfileInformation = () => {
                         :selectLabel="$t('select')"
                         :deselectLabel="$t('remove')"
                         :placeholder="$t('search') + '...'"
-                        label="name"
+                        label="description"
                         track-by="id"
                     >
                         <template slot="selection" v-slot="{ values, search, isOpen }">

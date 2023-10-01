@@ -46,7 +46,10 @@ const query        = ref(Searcher.query);
             </Link>
         </SearcherHead>
         <div class="pt-2 w-full">
-            <Table :items="users" @send-pagination="Searcher.searchWithPagination">
+            <Table 
+                :items="users"
+                @send-pagination="Searcher.searchWithPagination"
+            >
                 <template #head>
                     <th
                         class="table-item"
@@ -57,7 +60,7 @@ const query        = ref(Searcher.query);
                         v-text="$t('contact')"
                     />
                     <th
-                        class="table-item"
+                        class="table-item w-44"
                         v-text="$t('actions')"
                     />
                 </template>
@@ -97,7 +100,7 @@ const query        = ref(Searcher.query);
                             </div>
                           </div>
                         </td>
-                        <td class="table-item border w-40">
+                        <td class="table-item border">
                             <div class="flex justify-center space-x-2">
                                 <GoogleIcon
                                     :title="$t('crud.show')"
@@ -135,6 +138,19 @@ const query        = ref(Searcher.query);
                             </div>
                         </td>
                     </tr>
+                </template>
+                <template #empty>
+                    <td class="table-item border">
+                        <div class="flex items-center text-sm">
+                          <div>
+                            <p class="font-semibold">
+                                {{ $t('registers.empty') }}
+                            </p>
+                          </div>
+                        </div>
+                    </td>
+                    <td class="table-item border">-</td>
+                    <td class="table-item border">-</td>
                 </template>
             </Table>
         </div>

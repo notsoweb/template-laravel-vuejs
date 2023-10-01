@@ -12,6 +12,7 @@ use Notsoweb\Core\Http\Traits\Seeders\RolePermission;
  * Roles y permisos iniciales
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class RoleSeeder extends Seeder
@@ -35,7 +36,7 @@ class RoleSeeder extends Seeder
             ] = $this->onCRUD('roles', 'Roles');
 
             // Permisos para acceder al historial del sistema
-            $historiesIndex = $this->onIndex('histories', 'Historal global');
+            $historiesIndex = $this->onIndex('histories', 'Historial global');
 
             // Permisos para usuarios
             [
@@ -54,13 +55,13 @@ class RoleSeeder extends Seeder
             // Desarrollador
             Role::create([
                 'name' => 'developer',
-                'description' => 'Desarrollador del sistema, desbloquea opciones ocultas.'
+                'description' => 'Desarrollador'
             ])->givePermissionTo(Permission::all());
 
             // Role de administrador
             Role::create([
                 'name' => 'admin',
-                'description' => 'Administrador del sistema'
+                'description' => 'Administrador'
             ])->givePermissionTo(
                 $historiesIndex,
                 $usersIndex,

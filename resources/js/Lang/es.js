@@ -158,6 +158,10 @@ export default {
         signUp:'Registrarme',
         terms:'Términos de Servicio',
     },
+    registers:{
+        title:'Registros',
+        empty:'Sin registros',
+    },
     remove: 'Remover',
     return: 'Regresar',
     role:'Rol',

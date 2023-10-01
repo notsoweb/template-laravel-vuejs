@@ -6,19 +6,19 @@
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Notsoweb\Core\Support\Seeder\UserSecure;
 use Notsoweb\Core\Support\Seeder\UserSecureSupport;
 
 /**
  * Siembra usuarios de forma segura
  * 
- * Siembra usuarios sin la necesidad de escribir una contraseña que quede registrada en el codigo.
+ * Siembra usuarios sin la necesidad de escribir una contraseña que quede registrada en el código.
  * El usuario será generado con una contraseña que puede ser consultado en el log. Esto permite
- * evitar el escribir las contraseñas en codigo. Esto permite que los usuarios de prueba sean seguros
- * y de proyecto en proyecto no sea una brecha de seguridad tener contraseñas dentro del codigo en caso
+ * evitar el escribir las contraseñas en código. Esto permite que los usuarios de prueba sean seguros
+ * y de proyecto en proyecto no sea una brecha de seguridad tener contraseñas dentro del código en caso
  * de que este pueda llegar a ser vulnerado.
  * 
  * @author Moisés de Jesús Cortés Castellanos <ing.moisesdejesuscortesc@notsoweb.com>
+ * 
  * @version 1.0.0
  */
 class UserSeeder extends Seeder
@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
                 'email' => $developerEmail,
                 'phone' => '5631809090',
                 'password' => $developerPass,
-            ])->assignRole(['developer']);
+            ])->assignRole('developer');
             
             // Usuario administrador
             [

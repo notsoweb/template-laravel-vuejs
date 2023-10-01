@@ -47,7 +47,9 @@ class UserController extends VueController
 
         return $this->vuew('index', [
             'users' => User::whereNotIn('id', [1,2])
-                ->where('name', 'LIKE', "%{$q}%")
+                ->where(fn($query) => $query
+                    ->where('name', 'LIKE', "%{$q}%")
+                    ->orWhere('email', 'LIKE', "%{$q}%"))
                 ->select([
                     'id',
                     'name',
@@ -137,8 +139,8 @@ class UserController extends VueController
     public function syncRoles(Request $request) : void
     {
         $data = $this->validate($request, [
-            'roles' => ['required'],
-            'user_id' => ['required'],
+            'roles' => ['nullable'],
+            'user_id' => ['required']
         ]);
 
         $roles = [];
