@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import VueMultiselect from 'vue-multiselect';
 
 const emit = defineEmits(['update:modelValue']);
@@ -14,10 +14,6 @@ const props = defineProps({
         type: String
     },
     modelValue: String | Number,
-    mode: {
-        default: 'single',
-        type: String
-    },
     title: String,
     options: Object,
     onError: String,
@@ -28,33 +24,31 @@ const props = defineProps({
     required: Boolean
 });
 
-const value = ref(props.modelValue);
 const multiselect = ref();
+
+const value = computed({
+  get() {
+    return props.modelValue
+  },
+  set(value) {
+    emit('update:modelValue', value)
+  }
+})
 
 defineExpose({
     clean: () =>  multiselect.value.removeLastElement()
 });
-
-
-const onChange = (value)  => {
-    emit('update:modelValue', value);
-}
-
-const onRemove = ()  => {
-    emit('update:modelValue', null);
-}
 </script>
 
 <template>
     <div class="flex flex-col">
-        <label v-if="title" class="block mb-2 text-sm font-medium text-gray-900">
+        <label v-if="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             {{title}} <span class="text-red-500" v-if="required">*</span> <slot name="label-icon" />
         </label>
         <VueMultiselect 
             v-model="value"
             ref="multiselect"
             :options="options"
-            :mode="mode"
             :close-on-select="true"
             :clear-on-select="false"
             :preserve-search="true"
@@ -65,8 +59,6 @@ const onRemove = ()  => {
             :label="label"
             :track-by="trackBy"
             :required="required"
-            @select="onChange"
-            @remove="onRemove"
         >
             <template #noOptions>
                 {{ $t('noRecords') }}
