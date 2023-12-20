@@ -33,7 +33,7 @@ defineProps({
           />
         </template>
         <template #body>
-          <!-- <Item version="1.y,z">
+          <!-- <Item version="1.y.z">
             <div class="flex flex-col w-full justify-start items-start">
               <p class="font-bold">2023-01-01</p>
               <ul class="list-disc list-inside text-left">
@@ -41,6 +41,15 @@ defineProps({
               </ul>
             </div>
           </Item> -->
+          <Item version="1.2.5">
+            <div class="flex flex-col w-full justify-start items-start">
+              <p class="font-bold">2023-12-20</p>
+              <ul class="list-disc list-inside text-left">
+                <Log type="UPDATE" text="Reestructurar componente selectable."/>
+                <Log type="FIX" text="Falta de referencia a computed en componente Textarea."/>
+              </ul>
+            </div>
+          </Item>
           <Item version="1.2.4">
             <div class="flex flex-col w-full justify-start items-start">
               <p class="font-bold">2023-11-26</p>
